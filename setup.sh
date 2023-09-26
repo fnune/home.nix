@@ -5,13 +5,6 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/release-
 nix-channel --update
 nix-shell '<home-manager>' -A install
 
-touch "$HOME/.profile"
-source_session_vars='. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"'
-
-if ! grep -q "$source_session_vars" "$HOME/.profile"; then
-  echo -e "\n$source_session_vars" >> "$HOME/.profile"
-fi
-
 # Link up home.nix
 mkdir -p "$HOME/.config/home-manager/"
 cp $(readlink -f "$HOME/.config/home-manager/home.nix") "$HOME/.config/home-manager/home-$(date --iso).nix.bak"
