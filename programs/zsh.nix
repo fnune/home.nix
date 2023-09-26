@@ -36,12 +36,6 @@
       export SHELL=$(which zsh)
       export KEYTIMEOUT=1
 
-      if [ -n "$TMUX" ]; then
-        export TERM=tmux-256color
-      else
-        export TERM=xterm-256color
-      fi
-
       # See https://unix.stackexchange.com/a/392710
       # This is usually ~/.local/bin
       USER_BINARIES_DIR=$(systemd-path user-binaries)
