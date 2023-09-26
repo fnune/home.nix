@@ -9,8 +9,7 @@
     pkgs.neovim
   ];
 
-  home.file = {
-  };
+  home.file = { };
 
   home.sessionVariables = {
     EDITOR = "nvim";

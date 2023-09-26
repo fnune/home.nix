@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-repo=$(dirname $(readlink -f "$0"))
+repo=$(dirname "$(readlink -f "$0")")
 
 # Link up home.nix
 mkdir -p "$HOME/.config/home-manager/"
