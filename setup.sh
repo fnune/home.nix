@@ -11,3 +11,9 @@ ln -s "$repo/home.nix" "$HOME/.config/home-manager/home.nix"
 mkdir -p "$HOME/.config/nix/"
 rm -f "$HOME/.config/nix/nix.conf"
 ln -s "$repo/nix.conf" "$HOME/.config/nix/nix.conf"
+
+# Build the flake and switch
+nix run . -- build --flake .
+nix run . -- switch --flake .
+
+echo "Reload the shell and run 'home-manager switch --flake .'."
