@@ -10,8 +10,8 @@
   imports = [
     ./programs/editorconfig.nix
     ./programs/git.nix
-    ./programs/neovim.nix
-    ./programs/tmux.nix
+    ./programs/neovim/neovim.nix
+    ./programs/tmux/tmux.nix
     ./programs/zsh.nix
   ];
 }
