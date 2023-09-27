@@ -5,21 +5,12 @@
   home.homeDirectory = "/home/fausto";
   home.stateVersion = "23.05";
 
-  home.packages = [
-    pkgs.neovim
-  ];
-
-  home.file = { };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   programs.home-manager.enable = true;
 
   imports = [
     ./programs/zsh.nix
     ./programs/tmux.nix
     ./programs/git.nix
+    ./programs/neovim.nix
   ];
 }
