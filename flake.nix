@@ -9,13 +9,21 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, self, ... }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
       "fausto" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          {
+            home.activation.setupConfig = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
+              ln -sf ${self}/home.nix $HOME/.config/home-manager/home.nix
+              ln -sf ${self}/nix.conf $HOME/.config/nix/nix.conf
+            '';
+          }
+        ];
       };
     };
   };
