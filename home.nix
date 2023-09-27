@@ -8,9 +8,10 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./programs/zsh.nix
-    ./programs/tmux.nix
+    ./programs/editorconfig.nix
     ./programs/git.nix
     ./programs/neovim.nix
+    ./programs/tmux.nix
+    ./programs/zsh.nix
   ];
 }
