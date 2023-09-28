@@ -16,6 +16,8 @@
     ./programs/git.nix
     ./programs/kitty.nix
     ./programs/neovim/neovim.nix
+    ./programs/psql/psql.nix
+    ./programs/python.nix
     ./programs/rbenv.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
@@ -23,6 +25,5 @@
     ./programs/zsh.nix
     ./themes/vscode.nix
     ./work/work.nix
-    ./programs/python.nix
   ];
 }
