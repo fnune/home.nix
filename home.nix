@@ -6,17 +6,19 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./themes/vscode.nix
+    ./desktop/gnome.nix
     ./hardware/c920.nix
     ./programs/editorconfig.nix
-    ./programs/git.nix
-    ./programs/neovim/neovim.nix
-    ./programs/tmux/tmux.nix
-    ./programs/zsh.nix
-    ./programs/utils.nix
-    ./programs/kitty/kitty.nix
-    ./programs/ripgrep.nix
+    ./programs/flameshot.nix
     ./programs/fzf.nix
+    ./programs/git.nix
+    ./programs/kitty.nix
+    ./programs/neovim/neovim.nix
+    ./programs/ripgrep.nix
+    ./programs/tmux/tmux.nix
+    ./programs/utils.nix
+    ./programs/zsh.nix
+    ./themes/vscode.nix
     ./work/work.nix
   ];
 }

@@ -12,4 +12,12 @@
     hide_window_decorations yes
     include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
   '';
+
+  dconf.settings = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {
+      "binding" = "<Super>Return";
+      "command" = "kitty";
+      "name" = "kitty";
+    };
+  };
 }
