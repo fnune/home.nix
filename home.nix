@@ -17,5 +17,6 @@
     ./programs/kitty/kitty.nix
     ./programs/ripgrep.nix
     ./programs/fzf.nix
+    ./work/work.nix
   ];
 }
