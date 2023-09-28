@@ -16,6 +16,7 @@
     ./programs/git.nix
     ./programs/kitty.nix
     ./programs/neovim/neovim.nix
+    ./programs/rbenv.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
     ./programs/tmux/tmux.nix
