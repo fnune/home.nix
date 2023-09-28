@@ -5,6 +5,7 @@ return {
   "b0o/SchemaStore.nvim",
   "christoomey/vim-tmux-navigator",
   "folke/trouble.nvim",
+  "brenoprata10/nvim-highlight-colors",
   "hrsh7th/vim-vsnip",
   "jxnblk/vim-mdx-js",
   "kristijanhusak/vim-create-pr",
