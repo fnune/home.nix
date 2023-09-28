@@ -33,9 +33,10 @@ in {
 
   # They don't get picked up in non-NixOS systems. Help out my Debian by symlinking.
   home.activation.symlinkGnomeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    set -euo pipefail
     src="${config.home.profileDirectory}/share/gnome-shell/extensions"
     dest="${config.home.homeDirectory}/.local/share/gnome-shell/extensions"
-    [ ! -L "$dest" ] && ln -s "$src" "$dest"
+    rm -rf "$dest"; ln -sf "$src" "$dest"
   '';
 
   dconf.settings = {
