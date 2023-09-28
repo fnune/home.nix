@@ -60,9 +60,6 @@
         }
       '';
     };
-
-    direnv.enableZshIntegration = true;
-    fzf.enableZshIntegration = true;
   };
 
   home.file.".config/kitty/kitty.conf".text = ''
