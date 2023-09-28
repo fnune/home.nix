@@ -3,7 +3,19 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [neovim alejandra statix];
+  home.packages = with pkgs; [
+    neovim
+    # Linters
+    alejandra
+    statix
+    # Make :checkhealth happy
+    jdk17
+    julia
+    luajitPackages.luarocks
+    php82
+    php82Packages.composer
+    tree-sitter
+  ];
   home.file = {
     ".config/nvim/" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.home.nix/programs/neovim/config";

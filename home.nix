@@ -23,5 +23,6 @@
     ./programs/zsh.nix
     ./themes/vscode.nix
     ./work/work.nix
+    ./programs/python.nix
   ];
 }
