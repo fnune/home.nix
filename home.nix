@@ -7,6 +7,7 @@
 
   imports = [
     ./themes/vscode.nix
+    ./hardware/c920.nix
     ./programs/editorconfig.nix
     ./programs/git.nix
     ./programs/neovim/neovim.nix
