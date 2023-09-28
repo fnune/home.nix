@@ -14,6 +14,7 @@ return {
       sql = { "sqlfluff" },
       css = { "stylelint" },
       scss = { "stylelint" },
+      nix = { "statix" },
     }
   end,
 

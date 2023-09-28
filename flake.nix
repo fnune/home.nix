@@ -9,12 +9,17 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, self, ... }: {
+  outputs = {
+    nixpkgs,
+    home-manager,
+    self,
+    ...
+  }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
       "fausto" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs {system = "x86_64-linux";};
         modules = [
           ./home.nix
           {

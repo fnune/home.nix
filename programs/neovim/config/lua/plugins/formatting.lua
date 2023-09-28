@@ -7,6 +7,7 @@ return {
       lua = { "stylua" },
       python = { "ruff_fix", { "black" } },
       rust = { "rustfmt" },
+      nix = { "alejandra" },
     }
 
     local prettier_supported = {

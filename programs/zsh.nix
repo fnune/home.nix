@@ -1,8 +1,11 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.zsh = {
     enable = true;
-    oh-my-zsh = { enable = true; };
+    oh-my-zsh = {enable = true;};
     plugins = [
       {
         name = "zsh-vi-mode";
@@ -57,7 +60,7 @@
     '';
   };
 
-  home.packages = [ pkgs.bfs ];
+  home.packages = [pkgs.bfs];
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;

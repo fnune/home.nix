@@ -1,6 +1,9 @@
-{ pkgs, config, ... }:
 {
-  home.packages = [ pkgs.neovim ];
+  pkgs,
+  config,
+  ...
+}: {
+  home.packages = with pkgs; [neovim alejandra statix];
   home.file = {
     ".config/nvim/" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.home.nix/programs/neovim/config";
