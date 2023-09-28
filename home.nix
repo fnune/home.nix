@@ -6,10 +6,15 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./themes/vscode.nix
     ./programs/editorconfig.nix
     ./programs/git.nix
     ./programs/neovim/neovim.nix
     ./programs/tmux/tmux.nix
     ./programs/zsh.nix
+    ./programs/utils.nix
+    ./programs/kitty/kitty.nix
+    ./programs/ripgrep.nix
+    ./programs/fzf.nix
   ];
 }
