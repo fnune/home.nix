@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  font = "Inter";
-  fontSize = 11;
   extensions = with pkgs.gnomeExtensions; [
     appindicator
     caffeine
@@ -15,7 +13,7 @@
     workspaces-bar
   ];
 in {
-  home.packages = [pkgs.inter] ++ extensions;
+  home.packages = extensions;
 
   # Using dconf settings to set these does not work. Since dconf from within
   # the Nix store does not share the user's D-Bus session, I need to resort to
@@ -55,8 +53,6 @@ in {
     };
 
     "org/gnome/desktop/interface" = {
-      "font-name" = "${font} ${builtins.toString fontSize}";
-      "document-font-name" = "${font} ${builtins.toString fontSize}";
       "enable-hot-corners" = false;
     };
 
@@ -74,7 +70,6 @@ in {
     "org/gnome/desktop/wm/preferences" = {
       "focus-mode" = "click";
       "num-workspaces" = 10;
-      "titlebar-font" = "${font} Bold ${builtins.toString fontSize}";
     };
 
     "org/gnome/shell/keybindings" = {

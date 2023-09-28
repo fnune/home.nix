@@ -7,6 +7,8 @@
 
   imports = [
     ./desktop/gnome.nix
+    ./desktop/mono.nix
+    ./desktop/sans.nix
     ./hardware/c920.nix
     ./programs/bat.nix
     ./programs/direnv.nix
