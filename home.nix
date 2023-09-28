@@ -8,6 +8,8 @@
   imports = [
     ./desktop/gnome.nix
     ./hardware/c920.nix
+    ./programs/bat.nix
+    ./programs/direnv.nix
     ./programs/editorconfig.nix
     ./programs/flameshot.nix
     ./programs/fzf.nix
@@ -17,7 +19,6 @@
     ./programs/ripgrep.nix
     ./programs/rust.nix
     ./programs/tmux/tmux.nix
-    ./programs/utils.nix
     ./programs/zsh.nix
     ./themes/vscode.nix
     ./work/work.nix
