@@ -10,6 +10,7 @@
     no-overview
     pano
     tiling-assistant
+    draw-on-you-screen-2
     workspaces-bar
   ];
 in {

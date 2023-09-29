@@ -13,7 +13,6 @@
     ./programs/bat.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
-    ./programs/flameshot.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty.nix
