@@ -7,6 +7,7 @@
   targets.genericLinux.enable = true;
 
   imports = [
+    ./desktop/applications.nix
     ./desktop/gnome.nix
     ./desktop/mono.nix
     ./desktop/sans.nix
