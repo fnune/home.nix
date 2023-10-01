@@ -29,6 +29,7 @@ in {
     set -euo pipefail
     src="${config.home.profileDirectory}/share/gnome-shell/extensions"
     dest="${config.home.homeDirectory}/.local/share/gnome-shell/extensions"
+    mkdir -p ${config.home.homeDirectory}/.local/share/gnome-shell
     rm -rf "$dest"; ln -sf "$src" "$dest"
   '';
 

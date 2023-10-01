@@ -24,6 +24,7 @@
           ./home.nix
           {
             home.activation.setupConfig = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
+              mkdir -p $HOME/.config/{home-manager,nix}
               ln -sf ${self}/home.nix $HOME/.config/home-manager/home.nix
               ln -sf ${self}/nix.conf $HOME/.config/nix/nix.conf
             '';
