@@ -26,7 +26,7 @@
         path = "${config.home.homeDirectory}/.zsh_history";
       };
       initExtra = ''
-        for file in ~/.zsh/includes/*; do
+        for file in ~/.zsh/includes/*(N); do
           source "$file"
         done
       '';
