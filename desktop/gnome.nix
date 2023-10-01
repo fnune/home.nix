@@ -7,11 +7,11 @@
   extensions = with pkgs.gnomeExtensions; [
     appindicator
     caffeine
-    no-overview
-    pano
-    tiling-assistant
+    clipman
     draw-on-you-screen-2
-    workspaces-bar
+    no-overview
+    space-bar
+    tiling-assistant
   ];
 in {
   home.packages = extensions;
@@ -139,6 +139,15 @@ in {
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-full/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-area/"
       ];
+    };
+
+    "org/gnome/shell/extensions/space-bar/shortcuts" = {
+      "enable-activate-workspace-shortcuts" = false;
+      "enable-move-to-workspace-shortcuts" = false;
+    };
+
+    "org/gnome/shell/extensions/space-bar/appearance" = {
+      "workspaces-bar-padding" = 0;
     };
   };
 }
