@@ -1,13 +1,6 @@
 return {
   { "theHamsta/nvim-dap-virtual-text", config = true, lazy = true, dependencies = { "mfussenegger/nvim-dap" } },
   {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = { "williamboman/mason.nvim" },
-    opts = {
-      ensure_installed = { "python", "node2", "chrome", "firefox", "js" },
-    },
-  },
-  {
     "mfussenegger/nvim-dap",
     lazy = true,
     init = function()

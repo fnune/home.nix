@@ -8,14 +8,34 @@
       # https://github.com/NixOS/nixpkgs/pull/155688
       NIX_LDFLAGS = ["-lstdc++"];
     }))
+    # LSPs
+    clang-tools
+    lua-language-server
+    nil
+    nodePackages.pyright
+    nodePackages.typescript-language-server
+    nodePackages.yaml-language-server
+    python311Packages.ruff-lsp
+    rustup
+    taplo
     # Linters
     alejandra
+    nodePackages.eslint
+    nodePackages.eslint_d
+    nodePackages.stylelint
+    ruff
+    shellcheck
+    sqlfluff
     statix
-    # Make :checkhealth happy
-    jdk17
-    julia
-    luajitPackages.luarocks
+    # Formatters
+    nodePackages.prettier
+    nodePackages.prettier_d_slim
+    python311Packages.black
+    stylua
+    # Debuggers
+    python310Packages.debugpy
   ];
+
   home.file = {
     ".config/nvim/" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.home.nix/programs/neovim/config";
