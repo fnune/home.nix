@@ -14,6 +14,7 @@
     ./programs/bat.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
+    ./programs/fd.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty.nix
