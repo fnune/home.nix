@@ -149,5 +149,9 @@ in {
     "org/gnome/shell/extensions/space-bar/appearance" = {
       "workspaces-bar-padding" = 0;
     };
+
+    "org/gnome/desktop/notifications/application/org-gnome-extensions-desktop" = {
+      "enable" = false;
+    };
   };
 }
