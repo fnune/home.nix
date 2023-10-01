@@ -4,10 +4,10 @@
   home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
+  targets.genericLinux.enable = true;
 
   imports = [
     ./desktop/gnome.nix
-    ./desktop/integration.nix
     ./desktop/mono.nix
     ./desktop/sans.nix
     ./hardware/c920.nix
