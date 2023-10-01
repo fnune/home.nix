@@ -7,6 +7,7 @@
 
   imports = [
     ./desktop/gnome.nix
+    ./desktop/integration.nix
     ./desktop/mono.nix
     ./desktop/sans.nix
     ./hardware/c920.nix

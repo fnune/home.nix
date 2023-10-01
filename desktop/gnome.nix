@@ -24,12 +24,6 @@ in {
     /usr/bin/gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
   '';
 
-  # Share home-manager-installed packages with the host system.
-  systemd.user.sessionVariables = {
-    PATH = "${config.home.profileDirectory}/bin:$PATH";
-    XDG_DATA_DIRS = "${config.home.profileDirectory}/share:$XDG_DATA_DIRS";
-  };
-
   # They don't get picked up in non-NixOS systems. Help out my Debian by symlinking.
   home.activation.symlinkGnomeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
     set -euo pipefail
