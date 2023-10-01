@@ -4,7 +4,10 @@
   ...
 }: {
   home.packages = with pkgs; [
-    neovim
+    (neovim.overrideAttrs (oldAttrs: {
+      # https://github.com/NixOS/nixpkgs/pull/155688
+      NIX_LDFLAGS = ["-lstdc++"];
+    }))
     # Linters
     alejandra
     statix
@@ -12,9 +15,6 @@
     jdk17
     julia
     luajitPackages.luarocks
-    php82
-    php82Packages.composer
-    tree-sitter
   ];
   home.file = {
     ".config/nvim/" = {
