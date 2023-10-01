@@ -153,5 +153,11 @@ in {
     "org/gnome/desktop/notifications/application/org-gnome-extensions-desktop" = {
       "enable" = false;
     };
+
+    "org/gnome/settings-daemon/plugins/color" = {
+      "night-light-enabled" = true;
+      "night-light-schedule-automatic" = true;
+      "night-color-light-temperature" = 3600;
+    };
   };
 }
