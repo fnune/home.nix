@@ -1,10 +1,13 @@
 # `home.nix`
 
 ```
+sudo apt install build-essential curl wget git kitty
+
 git clone git@github.com:fnune/home.nix.git ~/.home.nix
 
-nix --extra-experimental-features nix-command --extra-experimental-features flakes run . -- build --flake .
-nix --extra-experimental-features nix-command --extra-experimental-features flakes run . -- switch --flake .
+mkdir -p ~/.config/nix/
+echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
-echo "Reload the shell and run 'home-manager switch --flake .'."
+nix run . -- build --flake .
+nix run . -- switch --flake .
 ```
