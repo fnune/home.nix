@@ -69,6 +69,7 @@ in {
     };
 
     "org/gnome/shell/keybindings" = {
+      "switch-to-application-1" = [];
       "switch-to-application-2" = [];
       "switch-to-application-3" = [];
       "switch-to-application-4" = [];
