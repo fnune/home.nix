@@ -159,5 +159,9 @@ in {
       "night-light-schedule-automatic" = true;
       "night-color-light-temperature" = 3600;
     };
+
+    "org/gnome/desktop/peripherals/touchpad" = {
+      "tap-to-click" = true;
+    };
   };
 }
