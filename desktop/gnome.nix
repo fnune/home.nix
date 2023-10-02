@@ -85,7 +85,7 @@ in {
 
     "org/gnome/desktop/wm/keybindings" = {
       "maximize" = [];
-      "unmaximize" = [];
+      "minimize" = [];
 
       "move-to-workspace-down" = [];
       "move-to-workspace-last" = [];
@@ -139,6 +139,10 @@ in {
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-full/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-area/"
       ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      "screensaver" = [];
     };
 
     "org/gnome/shell/extensions/space-bar/shortcuts" = {
