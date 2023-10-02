@@ -7,7 +7,7 @@
   launcher = pkgs.writeShellScriptBin "t" (builtins.readFile ./launch.sh);
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
-  home.packages = [launcher];
+  home.packages = [launcher pkgs.overmind];
 
   home.file."${monorepo}/.nvim.lua".source = ./nvim.lua;
   home.activation.writeEnvrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
