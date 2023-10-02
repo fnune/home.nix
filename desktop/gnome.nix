@@ -167,5 +167,17 @@ in {
     "org/gnome/desktop/peripherals/touchpad" = {
       "tap-to-click" = true;
     };
+
+    "org/gnome/shell/extensions/tiling-assistant" = {
+      "active-window-hint" = 0;
+      "dynamic-keybinding-behavior" = 1;
+      "restore-window" = ["<Super>e"];
+      "single-screen-gap" = 12;
+      "tile-bottom-half" = ["<Super>j"];
+      "tile-left-half" = ["<Super>h"];
+      "tile-right-half" = ["<Super>l"];
+      "tile-top-half" = ["<Super>k"];
+      "window-gap" = 12;
+    };
   };
 }
