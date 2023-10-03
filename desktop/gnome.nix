@@ -8,7 +8,6 @@
     appindicator
     caffeine
     clipman
-    draw-on-you-screen-2
     no-overview
     space-bar
     tiling-assistant
