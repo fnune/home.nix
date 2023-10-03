@@ -19,19 +19,19 @@ in {
     "fontconfig/conf.d/99-sans.conf".text = ''
       <?xml version="1.0" encoding="UTF-8"?>
       <fontconfig>
-        <alias>
+        <alias binding="strong">
           <family>sans-serif</family>
           <prefer>
             <family>${font}</family>
           </prefer>
         </alias>
-        <alias>
+        <alias binding="strong">
           <family>Helvetica</family>
           <prefer>
             <family>${font}</family>
           </prefer>
         </alias>
-        <alias>
+        <alias binding="strong">
           <family>-apple-system</family>
           <prefer>
             <family>${font}</family>

@@ -31,7 +31,7 @@ in {
     "fontconfig/conf.d/99-mono.conf".text = ''
       <?xml version="1.0" encoding="UTF-8"?>
       <fontconfig>
-        <alias>
+        <alias binding="strong">
           <family>monospace</family>
           <prefer>
             <family>SF Mono Nerd Font</family>
