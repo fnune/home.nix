@@ -14,6 +14,7 @@
     nil
     nodePackages.pyright
     nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     python311Packages.ruff-lsp
     rustup
@@ -22,6 +23,7 @@
     alejandra
     nodePackages.eslint
     nodePackages.eslint_d
+    nodePackages.jsonlint
     nodePackages.stylelint
     ruff
     shellcheck
