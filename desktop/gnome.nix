@@ -18,10 +18,11 @@ in {
 
   # Using dconf settings to set these does not work. Since dconf from within
   # the Nix store does not share the user's D-Bus session, I need to resort to
-  # assuming that the host system provides /usr/bin/gsettings.
+  # assuming that the host system provides gsettings.
   home.activation.configureKeyboardRepeat = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    /usr/bin/gsettings set org.gnome.desktop.peripherals.keyboard delay 200
-    /usr/bin/gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+    gsettings=$(command -v /usr/bin/gsettings || command -v /run/current-system/sw/bin/gsettings)
+    "$gsettings" set org.gnome.desktop.peripherals.keyboard delay 200
+    "$gsettings" set org.gnome.desktop.peripherals.keyboard repeat-interval 30
   '';
 
   # They don't get picked up in non-NixOS systems. Help out my Debian by symlinking.
