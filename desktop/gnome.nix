@@ -164,6 +164,10 @@ in {
       "night-color-light-temperature" = 3600;
     };
 
+    "org/gnome/system/location" = {
+      "enabled" = true;
+    };
+
     "org/gnome/desktop/peripherals/touchpad" = {
       "tap-to-click" = true;
     };
