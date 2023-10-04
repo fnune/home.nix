@@ -10,6 +10,7 @@ in {
   home.packages = [launcher pkgs.overmind];
 
   home.file."${monorepo}/.nvim.lua".source = ./nvim.lua;
+
   home.activation.writeEnvrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
     echo '${builtins.readFile ./envrc.sh}' > ${monorepo}/.envrc
   '';

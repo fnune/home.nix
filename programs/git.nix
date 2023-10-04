@@ -11,6 +11,7 @@
     ];
     ignores = [
       ".ccls-cache"
+      ".direnv"
       ".envrc"
       ".idea"
       ".mypy_cache"
