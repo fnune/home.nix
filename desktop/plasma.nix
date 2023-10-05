@@ -129,6 +129,10 @@ in {
         "TabBox" = {
           "LayoutName" = "thumbnail_grid";
         };
+
+        "TabBoxAlternative" = {
+          "LayoutName" = "thumbnail_grid";
+        };
       };
 
       "kxkbrc" = {
