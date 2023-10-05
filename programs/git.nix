@@ -1,4 +1,5 @@
 {config, ...}: {
+  programs.gpg.enable = true;
   programs.git = {
     enable = true;
     userName = "Fausto Núñez Alberro";
