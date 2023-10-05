@@ -8,6 +8,7 @@
     slack
     spotify
     ungoogled-chromium
+    vlc
   ];
 
   programs = {
