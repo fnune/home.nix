@@ -8,7 +8,7 @@
 
   imports = [
     ./desktop/applications.nix
-    ./desktop/gnome.nix
+    ./desktop/plasma.nix
     ./desktop/mono.nix
     ./desktop/sans.nix
     ./hardware/c920.nix
