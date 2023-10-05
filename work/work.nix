@@ -7,7 +7,7 @@
   launcher = pkgs.writeShellScriptBin "t" (builtins.readFile ./launch.sh);
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
-  home.packages = [launcher pkgs.overmind];
+  home.packages = [launcher pkgs.overmind pkgs.cypress];
 
   home.file."${monorepo}/.nvim.lua".source = ./nvim.lua;
 
