@@ -99,9 +99,6 @@ in {
           "menuFont" = "Inter,10,-1,5,50,0,0,0,0,0";
           "smallestReadableFont" = "Inter,8,-1,5,57,0,0,0,0,0,Medium";
           "toolBarFont" = "Inter,10,-1,5,50,0,0,0,0,0";
-
-          "AccentColor" = "0,136,255";
-          "LastUsedCustomAccentColor" = "0,136,255";
         };
         "WM" = {
           "activeFont" = "Inter,10,-1,5,63,0,0,0,0,0,Semi Bold";
