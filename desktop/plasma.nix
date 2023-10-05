@@ -95,10 +95,13 @@ in {
         "KScreen"."ScaleFactor" = 2; # FIXME: Hardware-dependent
         "General" = {
           "fixed" = "Monospace,10,-1,5,50,0,0,0,0,0";
-          "font" = "Inter,10,-1,5,50,0,0,0,0,0";
+          "font" = "Inter,10,-1,5,57,0,0,0,0,0,Medium";
           "menuFont" = "Inter,10,-1,5,50,0,0,0,0,0";
-          "smallestReadableFont" = "Inter,8,-1,5,50,0,0,0,0,0";
+          "smallestReadableFont" = "Inter,8,-1,5,57,0,0,0,0,0,Medium";
           "toolBarFont" = "Inter,10,-1,5,50,0,0,0,0,0";
+        };
+        "WM" = {
+          "activeFont" = "Inter,10,-1,5,63,0,0,0,0,0,Semi Bold";
         };
         "KDE" = {
           "AnimationDurationFactor" = 0.18;
