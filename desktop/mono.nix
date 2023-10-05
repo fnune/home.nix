@@ -5,7 +5,6 @@
     rev = "refs/tags/2022";
     sha256 = "sha256-Qn4v3Snci+gPMbz1n0s+l5YvRCNW3rFV8ajCWsz+4Ig";
   };
-  sfMonoNerdfontName = "SF Mono Nerd Font";
   sfMonoNerdfont = pkgs.stdenv.mkDerivation {
     name = "sf-mono-nerdfont";
     src = sfMono;
@@ -35,7 +34,7 @@ in {
         <alias binding="strong">
           <family>monospace</family>
           <prefer>
-            <family>${sfMonoNerdfontName}</family>
+            <family>SF Mono Nerd Font</family>
             <family>Noto Color Emoji</family>
           </prefer>
         </alias>
