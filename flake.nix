@@ -21,21 +21,26 @@
   }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
-    homeConfigurations = {
-      "fausto" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {system = "x86_64-linux";};
-        modules = [
-          ./home.nix
-          plasma-manager.homeManagerModules.plasma-manager
-          {
-            home.activation.setupConfig = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
-              mkdir -p $HOME/.config/{home-manager,nix}
-              ln -sf ${self}/home.nix $HOME/.config/home-manager/home.nix
-              ln -sf ${self}/nix.conf $HOME/.config/nix/nix.conf
-            '';
-          }
-        ];
+    homeConfigurations = let
+      activationScript = {
+        home.activation.setupConfig = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
+          ln -sf ${self}/home.nix $HOME/.config/home-manager/home.nix
+        '';
       };
+      plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
+      makeHomeConfiguration = machineModule:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {system = "x86_64-linux";};
+          modules = [
+            ./home.nix
+            plasmaManager
+            machineModule
+            activationScript
+          ];
+        };
+    in {
+      "feanor" = makeHomeConfiguration ./home.feanor.nix;
+      "melian" = makeHomeConfiguration ./home.melian.nix;
     };
   };
 }

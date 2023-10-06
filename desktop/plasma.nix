@@ -1,7 +1,11 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   cursor = {
     name = "Simp1e-Adw-Dark";
-    size = 48; # FIXME: Hardware-dependent
+    size = builtins.ceil config.machine.scale * 24;
     package = pkgs.simp1e-cursors;
   };
 in {
@@ -95,7 +99,7 @@ in {
       };
 
       "kdeglobals" = {
-        "KScreen"."ScaleFactor" = 2; # FIXME: Hardware-dependent
+        "KScreen"."ScaleFactor" = config.machine.scale;
         "General" = {
           "fixed" = "Monospace,10,-1,5,50,0,0,0,0,0";
           "font" = "Inter,10,-1,5,57,0,0,0,0,0,Medium";
@@ -119,7 +123,7 @@ in {
       };
 
       "kwinrc" = {
-        "Xwayland"."Scale" = 2; # FIXME: Hardware-dependent
+        "Xwayland"."Scale" = config.machine.scale;
         "Desktops"."Number" = 9;
         "Desktops"."Rows" = 1;
 
