@@ -5,7 +5,7 @@
     package = pkgs.simp1e-cursors;
   };
 in {
-  home.packages = [pkgs.dconf];
+  home.packages = [pkgs.dconf pkgs.pantheon.elementary-wallpapers];
 
   gtk.cursorTheme = cursor;
   home.pointerCursor = cursor;
