@@ -10,6 +10,9 @@ in {
   gtk.cursorTheme = cursor;
   home.pointerCursor = cursor;
 
+  # Let Firefox use the KDE file picker via portal
+  systemd.user.sessionVariables.GTK_USE_PORTAL = 1;
+
   programs.plasma = {
     enable = true;
     workspace.clickItemTo = "select";
