@@ -1,5 +1,5 @@
 if [ -z "$IN_NIX_SHELL" ]; then
-  use flake ~/.home.nix/work/nix/miniforge
+  use flake ~/.home.nix/user/work/nix/miniforge
 fi
 
 export PYTEST_REUSE_CONTAINERS=1

@@ -40,7 +40,7 @@
 
   home.file = {
     ".config/nvim/" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.home.nix/programs/neovim/config";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.home.nix/user/programs/neovim/config";
     };
   };
 

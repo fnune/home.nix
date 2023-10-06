@@ -1,5 +1,5 @@
 {
-  description = "Fausto's Home Manager Flake";
+  description = "fnune's NixOS configuration files";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
@@ -16,7 +16,6 @@
     nixpkgs,
     home-manager,
     plasma-manager,
-    self,
     ...
   }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
@@ -33,11 +32,6 @@
     };
 
     homeConfigurations = let
-      activationScript = {
-        home.activation.setupConfig = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
-          ln -sf ${self}/home.nix $HOME/.config/home-manager/home.nix
-        '';
-      };
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
       makeHomeConfiguration = machineModule:
         home-manager.lib.homeManagerConfiguration {
@@ -46,7 +40,6 @@
             ./user/home.nix
             plasmaManager
             machineModule
-            activationScript
           ];
         };
     in {
