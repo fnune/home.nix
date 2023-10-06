@@ -21,6 +21,17 @@
   }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
+    nixosConfigurations = let
+      makeNixosConfiguration = machineModule:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [./system/configuration.nix machineModule];
+        };
+    in {
+      "feanor" = makeNixosConfiguration ./system/configuration.feanor.nix;
+      "melian" = makeNixosConfiguration ./system/configuration.melian.nix;
+    };
+
     homeConfigurations = let
       activationScript = {
         home.activation.setupConfig = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -32,15 +43,15 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {system = "x86_64-linux";};
           modules = [
-            ./home.nix
+            ./user/home.nix
             plasmaManager
             machineModule
             activationScript
           ];
         };
     in {
-      "feanor" = makeHomeConfiguration ./home.feanor.nix;
-      "melian" = makeHomeConfiguration ./home.melian.nix;
+      "feanor" = makeHomeConfiguration ./user/home.feanor.nix;
+      "melian" = makeHomeConfiguration ./user/home.melian.nix;
     };
   };
 }

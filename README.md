@@ -1,15 +1,14 @@
 # `home.nix`
 
+Available machines: `feanor`, `melian`.
+
 ```bash
 nix-shell -p git curl
 
 git clone git@github.com:fnune/home.nix.git ~/.home.nix
 
-./bootstrap.sh feanor # or
-./bootstrap.sh melian
+sudo nixos-rebuild switch --flake .#feanor
 
-sudo nixos-rebuild switch
-
-nix run . -- build --flake ".#$HOSTNAME"
-nix run . -- switch --flake ".#$HOSTNAME"
+nix run . -- build --flake .#feanor
+nix run . -- switch --flake .#feanor
 ```
