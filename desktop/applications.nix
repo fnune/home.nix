@@ -3,6 +3,7 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.packages = with pkgs; [
+    obs-studio
     onlyoffice-bin
     signal-desktop
     slack
