@@ -7,7 +7,7 @@ return {
     disable_builtin_notifications = true,
     kind = "vsplit",
     integrations = {
-      telescope = false, -- https://github.com/NeogitOrg/neogit/issues/727
+      telescope = true,
       diffview = true,
     },
     ignored_settings = {
