@@ -122,6 +122,7 @@
 
     # Desktop-related
     inter
+    noto-fonts-cjk-sans
     pkgs.libsForQt5.sddm-kcm
 
     # Applications
