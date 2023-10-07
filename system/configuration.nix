@@ -106,6 +106,7 @@
 
   # Configure the Nix package manager
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = _: true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Consider installing in home.nix instead
@@ -130,4 +131,10 @@
   # Internet!
   programs.firefox.enable = true;
   networking.networkmanager.enable = true;
+
+  # Agent for work, remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
+  systemd.services.vanta = {
+    enable = true;
+    inherit (import ../user/work/nix/vanta {inherit pkgs;}) wantedBy description serviceConfig;
+  };
 }
