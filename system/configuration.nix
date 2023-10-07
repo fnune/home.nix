@@ -11,16 +11,6 @@
     };
     kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
 
-    # Potential dual boot
-    loader.grub = {
-      enable = true;
-      device = "nodev";
-      efiInstallAsRemovable = true;
-      efiSupport = true;
-      gfxmodeEfi = "auto";
-      useOSProber = true;
-    };
-
     # I've got some modern hardware
     kernelPackages = pkgs.linuxPackages_latest;
 
@@ -96,7 +86,6 @@
     git
     gnumake
     neovim
-    os-prober
     tree
     wget
     xclip
