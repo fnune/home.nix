@@ -191,6 +191,25 @@ in {
           "BusyCursor" = false;
         };
       };
+
+      "krunnerrc" = {
+        "General" = {
+          "FreeFloating" = true;
+        };
+        "Plugins" = {
+          "appstreamEnabled" = false;
+          "bookmarksEnabled" = false;
+          "browserhistoryEnabled" = false;
+          "browsertabsEnabled" = false;
+          "desktopsessionsEnabled" = true;
+          "helprunnerEnabled" = false;
+          "katesessionsEnabled" = false;
+          "konsoleprofilesEnabled" = false;
+          "org.kde.activities2Enabled" = false;
+          "org.kde.windowedwidgetsEnabled" = false;
+          "webshortcutsEnabled" = false;
+        };
+      };
     };
   };
 }
