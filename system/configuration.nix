@@ -113,6 +113,7 @@
     Preferences = {
       "browser.aboutConfig.showWarning" = false;
       "browser.search.suggest.enabled" = false;
+      "browser.sessionstore.max_resumed_crashes" = -1;
       "browser.translations.automaticallyPopup" = false;
       "browser.urlbar.resultMenu.keyboardAccessible" = false;
       "services.sync.username" = "fausto.nunez@mailbox.org";
