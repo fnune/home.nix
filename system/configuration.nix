@@ -114,6 +114,7 @@
     gcc
     git
     gnumake
+    neovim
     os-prober
     tree
     wget
@@ -124,11 +125,6 @@
     inter
     noto-fonts-cjk-sans
     pkgs.libsForQt5.sddm-kcm
-
-    # Applications
-    kitty
-    neovim
-    zoom-us
   ];
 
   # Internet!

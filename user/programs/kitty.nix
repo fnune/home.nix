@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [pkgs.kitty];
+
   home.file.".config/kitty/kitty.conf".text = ''
     map ctrl+PLUS change_font_size all +1
     map ctrl+MINUS change_font_size all -1
