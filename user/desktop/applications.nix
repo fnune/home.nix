@@ -8,7 +8,6 @@
     signal-desktop
     slack
     spotify
-    ungoogled-chromium
     vlc
   ];
 

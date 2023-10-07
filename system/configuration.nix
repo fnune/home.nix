@@ -126,10 +126,31 @@
     inter
     noto-fonts-cjk-sans
     pkgs.libsForQt5.sddm-kcm
+
+    # Browsers
+    firefox-devedition-bin
+    ungoogled-chromium
   ];
 
-  # Internet!
+  # Browser configuration
   programs.firefox.enable = true;
+  programs.firefox.policies = {
+    DisableAppUpdate = true;
+    DisablePocket = true;
+    DisplayBookmarksToolbar = "never";
+    Homepage.StartPage = "none";
+    PasswordManagerEnabled = false;
+    SearchEngines.Default = "DuckDuckGo";
+    Preferences = {
+      "browser.aboutConfig.showWarning" = false;
+      "browser.search.suggest.enabled" = false;
+      "browser.translations.automaticallyPopup" = false;
+      "browser.urlbar.resultMenu.keyboardAccessible" = false;
+      "services.sync.username" = "fausto.nunez@mailbox.org";
+    };
+  };
+
+  # Internet!
   networking.networkmanager.enable = true;
 
   # Agent for work, remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
