@@ -124,6 +124,9 @@
   # Internet!
   networking.networkmanager.enable = true;
 
+  # Get rid of Liberation Mono and company
+  fonts.enableDefaultFonts = false;
+
   # Agent for work, remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
   systemd.services.vanta = {
     enable = true;
