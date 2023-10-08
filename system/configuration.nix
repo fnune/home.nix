@@ -13,12 +13,6 @@
 
     # I've got some modern hardware
     kernelPackages = pkgs.linuxPackages_latest;
-
-    # Enable greedy file watchers
-    kernel.sysctl = {
-      "fs.inotify.max_user_instances" = "1048576";
-      "fs.inotify.max_user_watches" = "1048576";
-    };
   };
 
   # Region and language
@@ -65,7 +59,6 @@
   };
 
   # Docker setup
-  networking.hosts."127.0.0.1" = ["minio" "rabbitmq"];
   virtualisation.docker.enable = true;
 
   # Define a user account
@@ -126,10 +119,4 @@
 
   # Get rid of Liberation Mono and company
   fonts.enableDefaultFonts = false;
-
-  # Agent for work, remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
-  systemd.services.vanta = {
-    enable = true;
-    inherit (import ../user/work/nix/vanta {inherit pkgs;}) wantedBy description serviceConfig;
-  };
 }
