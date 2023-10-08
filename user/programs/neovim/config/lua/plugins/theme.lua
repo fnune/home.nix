@@ -21,7 +21,7 @@ function LinkNvimDapHighlights()
 end
 
 function HideEndOfBufferCharacters()
-  vim.cmd([[hi! link EndOfBuffer BufferOffset]])
+  vim.cmd([[hi EndOfBuffer guifg=bg guibg=bg]])
 end
 
 function HighlightItalics()
