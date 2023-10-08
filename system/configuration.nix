@@ -22,7 +22,6 @@
   };
 
   # Region and language
-  time.timeZone = "Europe/Berlin";
   services.xserver = {
     layout = "es";
     xkbVariant = "";
@@ -32,6 +31,7 @@
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = import ../user/locales.nix;
   };
+  services.automatic-timezoned.enable = true;
 
   # Plasma
   services.xserver.enable = true;
