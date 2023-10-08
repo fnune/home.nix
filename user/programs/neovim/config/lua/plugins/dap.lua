@@ -66,26 +66,6 @@ return {
 
       local m = require("mapx")
       m.nmap("<leader>dd", function() dapui.toggle({ reset = true }) end, "Toggle debugging view")
-
-      vim.cmd([[
-        hi! link DapUIPlayPauseNC DapUIPlayPause
-        hi! link DapUIRestartNC DapUIRestart
-        hi! link DapUIStepBackNC DapUIStepBack
-        hi! link DapUIStepIntoNC DapUIStepInto
-        hi! link DapUIStepOutNC DapUIStepOut
-        hi! link DapUIStepOverNC DapUIStepOver
-        hi! link DapUIStopNC DapUIStop
-
-        hi! link DapUIPlayPause DiagnosticOk
-        hi! link DapUIRestart DiagnosticOk
-        hi! link DapUIStepBack Macro
-        hi! link DapUIStepInto Macro
-        hi! link DapUIStepOut Macro
-        hi! link DapUIStepOver Macro
-        hi! link DapUIStop DiagnosticError
-        hi! link DapUIType Macro
-        hi! link DapUIWinSelect DiagnosticHint
-      ]])
     end
   },
   {

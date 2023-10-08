@@ -7,7 +7,7 @@ return {
         component_separators = { "│", "│" },
         globalstatus = true,
         section_separators = { "", "" },
-        theme = "vscode",
+        theme = vim.g.colorscheme,
       },
       -- See defaults: https://github.com/nvim-lualine/lualine.nvim#default-configuration
       sections = {
@@ -16,7 +16,7 @@ return {
         lualine_c = { "filename" },
         lualine_x = { "filetype" },
         lualine_y = { "progress" },
-        lualine_z = { "location" }
+        lualine_z = { "location" },
       },
     })
   end,

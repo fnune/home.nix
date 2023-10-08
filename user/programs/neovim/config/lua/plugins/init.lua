@@ -7,6 +7,7 @@ return {
   "folke/trouble.nvim",
   "brenoprata10/nvim-highlight-colors",
   "hrsh7th/vim-vsnip",
+  { "petertriho/nvim-scrollbar", opts = {} },
   "jxnblk/vim-mdx-js",
   "kristijanhusak/vim-create-pr",
   "machakann/vim-swap",
