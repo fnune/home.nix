@@ -38,6 +38,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   services.unclutter.enable = true;
+  services.geoclue2.enable = true;
 
   # Pinentry and Kwallet integration
   services.pcscd.enable = true;

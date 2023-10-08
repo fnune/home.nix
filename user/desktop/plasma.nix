@@ -17,6 +17,9 @@ in {
   # Let Firefox use the KDE file picker via portal
   systemd.user.sessionVariables.GTK_USE_PORTAL = 1;
 
+  # Automatic dark/light mode switching based on geoclue
+  imports = [./darkman.nix];
+
   programs.plasma = {
     enable = true;
     workspace.clickItemTo = "select";
