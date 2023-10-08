@@ -1,9 +1,6 @@
 {pkgs, ...}: let
   patcher = "${pkgs.nerd-font-patcher}/bin/nerd-font-patcher";
-  fontPrefer = ''
-    <family>SF Mono Nerd Font</family>
-    <family>Noto Color Emoji</family>
-  '';
+  sfMonoName = "SF Mono Nerd Font";
   sfMono = pkgs.fetchgit {
     url = "https://github.com/bahmanworld/San-Francisco-Mono.git";
     rev = "refs/tags/2022";
@@ -38,25 +35,33 @@ in {
         <alias binding="strong">
           <family>monospace</family>
           <prefer>
-            ${fontPrefer}
+            <family>
+              ${sfMonoName}
+            </family>
           </prefer>
         </alias>
         <alias binding="strong">
           <family>Liberation Mono</family>
           <prefer>
-            ${fontPrefer}
+            <family>
+              ${sfMonoName}
+            </family>
           </prefer>
         </alias>
         <alias binding="strong">
           <family>SFMono-Regular</family>
           <prefer>
-            ${fontPrefer}
+            <family>
+              ${sfMonoName}
+            </family>
           </prefer>
         </alias>
         <alias binding="strong">
           <family>SF Mono</family>
           <prefer>
-            ${fontPrefer}
+            <family>
+              ${sfMonoName}
+            </family>
           </prefer>
         </alias>
       </fontconfig>
