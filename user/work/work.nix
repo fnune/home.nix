@@ -10,6 +10,8 @@ in {
   home.packages = [launcher pkgs.overmind pkgs.cypress pkgs.zoom-us];
 
   home.file."${monorepo}/.nvim.lua".source = ./nvim.lua;
+  home.file."${monorepo}/.memfault_cfg.yml".source = ./memfault_cfg.yml;
+  programs.git.ignores = [".memfault_cfg.yml"];
 
   home.activation.writeEnvrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
     echo '${builtins.readFile ./envrc.sh}' > ${monorepo}/.envrc

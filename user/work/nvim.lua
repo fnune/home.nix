@@ -21,7 +21,10 @@ vim.g.dbs = {
 }
 
 local lint = require("lint")
+local parser = require("lint.parser")
 
+local pattern = "([^:]+):(%d+): (.*): (.*) %[(.*)%]"
+local groups = { "file", "lnum", "severity", "message", "code" }
 local severities = {
   error = vim.diagnostic.severity.ERROR,
   warning = vim.diagnostic.severity.WARN,
@@ -30,33 +33,14 @@ local severities = {
 
 lint.linters_by_ft.python = { "mypy_memfault" }
 lint.linters.mypy_memfault = {
-  cmd = home("/Development/memfault/.lint/mypy.sh"),
+  cmd = home("/.home.nix/user/work/mypy.sh"),
   stdin = false,
   append_fname = true,
   args = {},
   stream = "stdout",
   ignore_exitcode = true,
   env = nil,
-  parser = function(output, bufnr)
-    local pattern = "([^:]+):(%d+): (.+) %[(.-)/(.-)%]"
-    local diagnostics = {}
-
-    for line in output:gmatch("[^\r\n]+") do
-      for _, lnum, message, severity, code in string.gmatch(line, pattern) do
-        table.insert(diagnostics, {
-          bufnr = bufnr,
-          lnum = tonumber(lnum) - 1,
-          col = 0,
-          end_lnum = tonumber(lnum) - 1,
-          end_col = 0,
-          message = message,
-          severity = severities[severity],
-          source = "mypy",
-          code = code,
-        })
-      end
-    end
-
-    return diagnostics
-  end,
+  parser = parser.from_pattern(pattern, groups, severities, {
+    ["source"] = "mypy",
+  }),
 }
