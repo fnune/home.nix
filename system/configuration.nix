@@ -116,7 +116,4 @@
 
   # Internet!
   networking.networkmanager.enable = true;
-
-  # Get rid of Liberation Mono and company
-  fonts.enableDefaultFonts = false;
 }
