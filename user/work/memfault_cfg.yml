@@ -1,3 +1,2 @@
 memfault:
-  procfile_runner: "overmind"
   dmypy: run

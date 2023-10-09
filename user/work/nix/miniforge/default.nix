@@ -46,7 +46,7 @@
 in
   buildFHSEnv {
     name = "mambaforge-shell";
-    targetPkgs = pkgs: [mambaforge];
+    targetPkgs = pkgs: [mambaforge pkgs.pokemonsay];
     profile = ''
       export PATH="$PATH:${outdir}/bin:${outdir}/condabin"
 
@@ -64,7 +64,7 @@ in
       conda activate memfault
     '';
 
-    runScript = "$SHELL";
+    runScript = "$SHELL -c \"$MEMFAULT_LAUNCH_COMMAND\"";
 
     meta = {
       description = "Mambaforge is a package manager for Python";

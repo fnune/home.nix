@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
 
-paths=("$@")
+paths_txt=$(mktemp)
+for path in "$@"; do
+  echo "$path" >> "$paths_txt"
+done
 
-dmypy run -- "${paths[@]}"
+inv test.mypy --daemon=check --paths-txt "${paths_txt}"

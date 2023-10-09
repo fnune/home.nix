@@ -1,50 +1,37 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+function t() {
+  export MEMFAULT_LAUNCH_COMMAND="source $HOME/.zsh/includes/t; tl"
+  cd "$HOME/Development/memfault" || exit
+  export MEMFAULT_LAUNCH_COMMAND=""
+}
 
-# Memfault
-memfault_path="$HOME/Development/memfault"
-tmux new-session -c "$memfault_path" -d -s memfault -n auxiliary
+# Use a special instance so that I can launch tmux in other windows without
+# that environment becoming isolated by the FHS env of Memfault.
+alias tm="tmux -Lmemfault"
+alias tk="tm kill-server"
 
-tmux split-window -c "$memfault_path" -h
-tmux send-keys "invoke dc.svc --log-sql" C-m
-tmux split-window -c "$memfault_path" -v
-tmux send-keys "rm .overmind.sock; INVOKE_MEMFAULT_PROCFILE_RUNNER=overmind invoke -e dev" C-m
-tmux split-window -c "$memfault_path" -v
-tmux send-keys "invoke dc.test-svc --log-sql" C-m
-tmux select-pane -t 0
-tmux select-layout main-vertical
+function tl() {
+  memfault_path="$HOME/Development/memfault"
 
-tmux new-window -c "$memfault_path" -n editor
-tmux send-keys -t memfault:editor "$EDITOR" C-m
+  if ! tm list-sessions | grep -q "memfault"; then
+    tm new-session -c "$memfault_path" -d -s memfault -n auxiliary
 
-# Memfault docs
-memfault_docs_path="$HOME/Development/memfault-docs"
-tmux new-session -c "$memfault_docs_path" -d -s memfault-docs -n auxiliary
+    tm split-window -c "$memfault_path" -h
+    tm send-keys "invoke dc.svc --log-sql" C-m
+    tm split-window -c "$memfault_path" -v
+    tm send-keys "rm -f .overmind.sock && invoke dev" C-m
+    tm split-window -c "$memfault_path" -v
+    tm send-keys "invoke dc.test-svc --log-sql" C-m
+    tm split-window -c "$memfault_path" -v
+    tm send-keys "invoke mypy.daemon & (sleep 1 && dmypy check www/main.py; pokemonsay 'Mypy daemon warmed up!')" C-m
 
-tmux split-window -c "$memfault_docs_path" -h
-tmux send-keys "yarn start --no-open"
-tmux select-pane -t 0
-tmux select-layout main-vertical
+    tm select-pane -t 0
+    tm select-layout main-vertical
 
-tmux new-window -c "$memfault_docs_path" -n editor
-tmux send-keys -t memfault-docs:editor "$EDITOR" C-m
+    tm new-window -c "$memfault_path" -n editor
+    tm send-keys -t memfault:editor "$EDITOR" C-m
 
-# Memfault Linux SDK (memfaultd)
-memfault_linux_sdk_path="$HOME/Development/memfault-linux-sdk-internal"
-memfaultd_path="$memfault_linux_sdk_path/meta-memfault/recipes-memfault/memfaultd/files/memfaultd"
-tmux new-session -c "$memfaultd_path" -d -s memfaultd -n editor
-tmux send-keys -t memfaultd:editor "$EDITOR" C-m
-
-# Journal
-journal_path="$HOME/.journal"
-tmux new-session -c "$journal_path" -d -s journal -n editor
-tmux send-keys -t journal:editor add-inbox C-m
-
-# Dotfiles
-dotfiles_path="$HOME/.home.nix"
-tmux new-session -c "$dotfiles_path" -d -s dotfiles -n editor
-tmux send-keys -t dotfiles:editor "$EDITOR" C-m
-
-# Take-off
-tmux attach-session -t memfault
+    tm attach-session -t memfault
+  fi
+}
