@@ -61,6 +61,7 @@ in {
         "Switch to Desktop 7" = "Meta+7";
         "Switch to Desktop 8" = "Meta+8";
         "Switch to Desktop 9" = "Meta+9";
+        "Switch to Desktop 10" = "Meta+0";
 
         "Window to Desktop 1" = "Meta+!";
         "Window to Desktop 2" = "Meta+\"";
@@ -71,6 +72,7 @@ in {
         "Window to Desktop 7" = "Meta+/";
         "Window to Desktop 8" = "Meta+(";
         "Window to Desktop 9" = "Meta+)";
+        "Window to Desktop 10" = "Meta+=";
 
         "Walk Through Windows" = "Alt+Tab";
         "Walk Through Windows (Reverse)" = "Alt+Shift+Backtab";
@@ -129,7 +131,7 @@ in {
 
       "kwinrc" = {
         "Xwayland"."Scale" = config.machine.scale;
-        "Desktops"."Number" = 9;
+        "Desktops"."Number" = 10;
         "Desktops"."Rows" = 1;
 
         "Effect-slide"."HorizontalGap" = 0;
