@@ -6,6 +6,18 @@
 }: let
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
+  nixpkgs.overlays = [
+    (final: prev: {
+      cypress = prev.cypress.overrideAttrs (_: rec {
+        version = "13.3.0";
+        src = pkgs.fetchzip {
+          url = "https://cdn.cypress.io/desktop/${version}/linux-x64/cypress.zip";
+          sha256 = "sha256-12HQAQVyNcR7Ye3+eoYqwS0gUtOHuKTnsmEDUlXwWks";
+        };
+      });
+    })
+  ];
+
   home.packages = [pkgs.overmind pkgs.cypress pkgs.zoom-us];
 
   home.file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
