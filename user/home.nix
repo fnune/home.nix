@@ -17,6 +17,7 @@
     ./programs/direnv.nix
     ./programs/editorconfig.nix
     ./programs/fd.nix
+    ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty.nix
