@@ -79,6 +79,8 @@
     gcc
     git
     gnumake
+    man-pages
+    man-pages-posix
     neovim
     tree
     wget
@@ -116,4 +118,7 @@
 
   # Internet!
   networking.networkmanager.enable = true;
+
+  # Enable additional man pages (see also pkgs.man-pages-posix)
+  documentation.dev.enable = true;
 }
