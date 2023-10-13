@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = [pkgs.v4l_utils];
+  home.packages = [pkgs.v4l-utils];
   systemd.user.services = {
     "c920-camera-setup" = {
       Unit = {

@@ -16,7 +16,7 @@
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
-    python311Packages.ruff-lsp
+    ruff-lsp
     rustup
     taplo
     # Linters

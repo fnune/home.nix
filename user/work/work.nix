@@ -18,7 +18,7 @@ in {
     })
   ];
 
-  home.packages = [pkgs.overmind pkgs.cypress pkgs.zoom-us];
+  home.packages = with pkgs; [overmind cypress zoom-us graphite-cli];
 
   home.file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
   home.file."${monorepo}/.memfault_cfg.yml".source = ./memfault_cfg.yml;
