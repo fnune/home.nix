@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = [pkgs.v4l-utils];
   systemd.user.services = {
     "c920-camera-setup" = {
@@ -10,6 +14,7 @@
         WantedBy = ["default.target"];
       };
       Service = {
+        Environment = "PATH=${config.home.homeDirectory}/.nix-profile/bin:/run/current-system/sw/bin";
         ExecStart = let
           script = pkgs.writeShellScript "inline" ''
             #!/bin/sh
