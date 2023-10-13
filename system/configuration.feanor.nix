@@ -14,10 +14,8 @@
     device = "nodev";
     efiInstallAsRemovable = true;
     efiSupport = true;
-    gfxmodeEfi = "auto";
     useOSProber = true;
-    gfxpayloadEfi = "3840x2160x32";
+    gfxmodeEfi = "1920x1080";
+    gfxpayloadEfi = "1920x1080x32";
   };
-
-  boot.plymouth.extraConfig = "DeviceScale=2";
 }
