@@ -79,6 +79,7 @@
     gcc
     git
     gnumake
+    lazydocker
     man-pages
     man-pages-posix
     neovim
