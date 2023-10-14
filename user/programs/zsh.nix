@@ -50,6 +50,8 @@
         function untilfail() {
           while "$@"; do :; done
         }
+
+        bindkey '^ ' autosuggest-accept
       '';
     };
   };
