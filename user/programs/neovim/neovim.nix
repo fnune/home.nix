@@ -32,10 +32,10 @@
     # Formatters
     nodePackages.prettier
     nodePackages.prettier_d_slim
-    python311Packages.black
+    python3Packages.black
     stylua
     # Debuggers
-    python310Packages.debugpy
+    python3Packages.debugpy
   ];
 
   home.file = {

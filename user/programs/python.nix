@@ -1,6 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    python311
-    python311Packages.pip
+    (python3.withPackages (ps:
+      with ps; [
+        pip
+        # Kdenlive
+        setuptools
+        srt
+      ]))
   ];
 }

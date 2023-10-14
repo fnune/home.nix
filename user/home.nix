@@ -20,6 +20,7 @@
     ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix
+    ./programs/kdenlive.nix
     ./programs/kitty.nix
     ./programs/neovim/neovim.nix
     ./programs/psql/psql.nix
