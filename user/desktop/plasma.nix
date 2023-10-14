@@ -9,7 +9,7 @@
     package = pkgs.simp1e-cursors;
   };
 in {
-  home.packages = [pkgs.dconf pkgs.pantheon.elementary-wallpapers];
+  home.packages = [pkgs.dconf pkgs.pantheon.elementary-wallpapers pkgs.libsForQt5.kclock];
 
   gtk.cursorTheme = cursor;
   home.pointerCursor = cursor;
