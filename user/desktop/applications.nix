@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     obs-studio
     onlyoffice-bin
+    screenkey
     signal-desktop
     slack
     spotify
