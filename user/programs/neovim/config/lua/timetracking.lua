@@ -30,14 +30,14 @@ local function update_watson_status()
 end
 
 local function start_project()
-  vim.ui.input({ prompt = "Start working on: " }, function(project)
-    if project then
-      local output = vim.fn.system(string.format('watson start "%s"', project))
-      local output_first_line = string.match(output, "^[^\n]*")
-      vim.cmd(string.format('echo "%s"', output_first_line))
-      update_watson_status()
-    end
-  end)
+  local project = vim.fn.input({ prompt = "Start working on: " })
+  vim.cmd("redraw")
+  if project ~= "" then
+    local output = vim.fn.system(string.format('watson start "%s"', project))
+    local output_first_line = string.match(output, "^[^\n]*")
+    vim.cmd(string.format('echo "%s"', output_first_line))
+    update_watson_status()
+  end
 end
 
 local function stop_project()
@@ -46,8 +46,8 @@ local function stop_project()
 end
 
 local m = require("mapx")
-m.nmap("<C-w>i", start_project, { silent = true })
-m.nmap("<C-w>o", stop_project, { silent = true })
+m.nmap("<leader>wi", start_project, { silent = true })
+m.nmap("<leader>wo", stop_project, { silent = true })
 
 update_watson_status()
 
