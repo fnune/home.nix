@@ -36,6 +36,8 @@
     stylua
     # Debuggers
     python3Packages.debugpy
+    # Time tracking
+    watson
   ];
 
   home.file = {

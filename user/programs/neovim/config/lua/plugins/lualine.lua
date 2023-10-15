@@ -2,6 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   config = function()
     local lualine = require("lualine")
+    local timetracking = require("timetracking")
     lualine.setup({
       options = {
         component_separators = { "│", "│" },
@@ -14,7 +15,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
-        lualine_x = { "filetype" },
+        lualine_x = { timetracking.WatsonStatus, "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
