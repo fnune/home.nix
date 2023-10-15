@@ -3,6 +3,7 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.packages = with pkgs; [
+    kdenlive
     obs-studio
     onlyoffice-bin
     screenkey
