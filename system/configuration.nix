@@ -117,8 +117,9 @@
     };
   };
 
-  # Internet!
+  # Connectivity
   networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Enable additional man pages (see also pkgs.man-pages-posix)
   documentation.dev.enable = true;
