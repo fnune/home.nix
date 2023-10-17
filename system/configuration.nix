@@ -95,7 +95,7 @@
 
     # Browsers
     firefox-devedition-bin
-    ungoogled-chromium
+    google-chrome
   ];
 
   # Browser configuration
