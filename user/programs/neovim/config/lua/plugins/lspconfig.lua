@@ -50,8 +50,9 @@ return {
         capabilities = lsp_capabilities,
       }
 
-      lspconfig.gdscript.setup(common)
       lspconfig.clangd.setup(common)
+      lspconfig.eslint.setup(common)
+      lspconfig.gdscript.setup(common)
       lspconfig.jsonls.setup(common)
       lspconfig.lua_ls.setup(common)
       lspconfig.nil_ls.setup(common)

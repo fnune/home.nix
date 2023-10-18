@@ -4,10 +4,10 @@ return {
     local lint = require("lint")
 
     lint.linters_by_ft = {
-      javascript = { "eslint_d" },
-      javascriptreact = { "eslint_d", "stylelint" },
-      typescript = { "eslint_d" },
-      typescriptreact = { "eslint_d", "stylelint" },
+      javascript = {},
+      javascriptreact = { "stylelint" },
+      typescript = {},
+      typescriptreact = { "stylelint" },
       json = { "jsonlint" },
       python = { "mypy" },
       sh = { "shellcheck" },
