@@ -116,6 +116,7 @@
       "services.sync.username" = "fausto.nunez@mailbox.org";
     };
   };
+  environment.sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
 
   # Connectivity
   networking.networkmanager.enable = true;
