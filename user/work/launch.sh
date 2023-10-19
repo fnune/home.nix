@@ -24,7 +24,7 @@ function tl() {
     tm split-window -c "$memfault_path" -v
     tm send-keys "invoke dc.test-svc --log-sql" C-m
     tm split-window -c "$memfault_path" -v
-    tm send-keys "invoke mypy.daemon & sleep 1 && dmypy check www/main.py; fortune ~/.nix-profile/share/games/fortunes/meditations | fmt -w \$(tput cols) | less" C-m
+    tm send-keys "invoke mypy.daemon & sleep 1 && dmypy check www/main.py; fortune ~/.nix-profile/share/games/fortunes/meditations | fmt -w 67 | less" C-m
 
     tm select-pane -t 0
     tm select-layout main-vertical
