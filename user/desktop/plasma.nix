@@ -144,6 +144,12 @@ in {
         "TabBoxAlternative" = {
           "LayoutName" = "thumbnail_grid";
         };
+
+        "Wayland" = {
+          # I don't like this but it fixes a Firefox address bar clipboard bug:
+          # https://bugzilla.mozilla.org/show_bug.cgi?id=1791417
+          "EnablePrimarySelection" = true;
+        };
       };
 
       "kxkbrc" = {
