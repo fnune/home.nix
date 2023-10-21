@@ -115,7 +115,7 @@ in {
           "activeFont" = "Inter,10,-1,5,63,0,0,0,0,0,Semi Bold";
         };
         "KDE" = {
-          "AnimationDurationFactor" = 0.18;
+          "AnimationDurationFactor" = 0.27;
           "ShowIconsInMenuItems" = false;
         };
       };
