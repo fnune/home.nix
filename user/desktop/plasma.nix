@@ -5,7 +5,7 @@
 }: let
   cursor = {
     name = "Simp1e-Adw-Dark";
-    size = builtins.ceil config.machine.scale * 24;
+    size = builtins.ceil config.machine.scale * 12;
     package = pkgs.simp1e-cursors;
   };
 in {

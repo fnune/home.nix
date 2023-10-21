@@ -85,7 +85,7 @@
     neovim
     tree
     wget
-    xclip
+    wl-clipboard
     zsh
 
     # Desktop-related
