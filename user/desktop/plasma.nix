@@ -150,6 +150,11 @@ in {
           # https://bugzilla.mozilla.org/show_bug.cgi?id=1791417
           "EnablePrimarySelection" = true;
         };
+
+        "Xwayland" = {
+          # Let Xwayland apps access some global shortcut combinations:
+          "XwaylandEavesdrops" = "Combinations";
+        };
       };
 
       "kxkbrc" = {

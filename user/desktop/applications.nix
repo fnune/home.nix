@@ -4,7 +4,6 @@
 
   home.packages = with pkgs; [
     kdenlive
-    obs-studio
     onlyoffice-bin
     screenkey
     signal-desktop

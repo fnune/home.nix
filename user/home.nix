@@ -22,6 +22,7 @@
     ./programs/git.nix
     ./programs/kitty.nix
     ./programs/neovim/neovim.nix
+    ./programs/obs-studio.nix
     ./programs/psql/psql.nix
     ./programs/python.nix
     ./programs/rbenv.nix
