@@ -5,7 +5,7 @@ return {
 
     local formatters_by_ft = {
       lua = { "stylua" },
-      python = { "ruff_fix", { "black" } },
+      python = { "ruff_fix", { "ruff_format", "black" } },
       rust = { "rustfmt" },
       nix = { "alejandra" },
     }
