@@ -20,6 +20,7 @@
     ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix
+    ./programs/javascript.nix
     ./programs/kitty.nix
     ./programs/neovim/neovim.nix
     ./programs/obs-studio.nix
