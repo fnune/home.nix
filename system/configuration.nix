@@ -83,6 +83,7 @@
     man-pages
     man-pages-posix
     neovim
+    nmap
     tree
     wget
     wl-clipboard
