@@ -61,7 +61,7 @@ in
       source ${outdir}/etc/profile.d/mamba.sh
 
       eval "$(conda shell.zsh hook)"
-      conda activate memfault
+      conda activate memfault || mamba env create --file environment.yml -n memfault
     '';
 
     runScript = "$SHELL -c \"$MEMFAULT_LAUNCH_COMMAND\"";
