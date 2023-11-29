@@ -9,10 +9,10 @@ in {
   nixpkgs.overlays = [
     (final: prev: {
       cypress = prev.cypress.overrideAttrs (_: rec {
-        version = "13.3.3";
+        version = "13.6.0";
         src = pkgs.fetchzip {
           url = "https://cdn.cypress.io/desktop/${version}/linux-x64/cypress.zip";
-          sha256 = "sha256-CZPjnZ0MjyI6ppobJR2dOM8YPWe1LrxYmXaL5vk2kvg";
+          sha256 = "sha256-bujZE86RRK3PJ5fbIkLJ2hccDJwZTlC+NlnBfF4iqxA=";
         };
       });
     })
