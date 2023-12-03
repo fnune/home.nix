@@ -26,4 +26,10 @@
       "name" = "kitty";
     };
   };
+
+  # https://github.com/espanso/espanso/issues/281
+  services.espanso.configs.kitty = {
+    filter_class = "kitty";
+    disable_x11_fast_inject = true;
+  };
 }

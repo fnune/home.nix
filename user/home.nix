@@ -16,6 +16,7 @@
     ./programs/bat.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
+    ./programs/espanso.nix
     ./programs/fd.nix
     ./programs/fortune.nix
     ./programs/fzf.nix
