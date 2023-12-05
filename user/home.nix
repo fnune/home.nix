@@ -8,8 +8,8 @@
 
   imports = [
     ./desktop/applications.nix
+    ./desktop/gnome.nix
     ./desktop/mono.nix
-    ./desktop/plasma.nix
     ./desktop/sans.nix
     ./hardware/c920.nix
     ./options.nix
@@ -18,6 +18,7 @@
     ./programs/editorconfig.nix
     ./programs/espanso.nix
     ./programs/fd.nix
+    ./programs/flameshot.nix
     ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix

@@ -7,13 +7,20 @@
   extensions = with pkgs.gnomeExtensions; [
     appindicator
     caffeine
-    clipman
     no-overview
-    space-bar
+    pano
     tiling-assistant
   ];
+  cursor = {
+    name = "Simp1e-Adw-Dark";
+    size = builtins.ceil config.machine.scale * 24;
+    package = pkgs.simp1e-cursors;
+  };
 in {
   home.packages = extensions;
+
+  gtk.cursorTheme = cursor;
+  home.pointerCursor = cursor;
 
   # Using dconf settings to set these does not work. Since dconf from within
   # the Nix store does not share the user's D-Bus session, I need to resort to
@@ -50,9 +57,13 @@ in {
 
     "org/gnome/desktop/interface" = {
       "enable-hot-corners" = false;
+      "icon-theme" = "Adwaita";
+      "clock-show-date" = true;
+      "clock-show-weekday" = true;
+      "cursor-size" = 32;
     };
 
-    "org/gnome/desktop/interface/calendar" = {
+    "org/gnome/desktop/calendar" = {
       "show-weekdate" = true;
     };
 
@@ -161,7 +172,7 @@ in {
     "org/gnome/settings-daemon/plugins/color" = {
       "night-light-enabled" = true;
       "night-light-schedule-automatic" = true;
-      "night-color-light-temperature" = 3600;
+      "night-color-light-temperature" = 3500;
     };
 
     "org/gnome/system/location" = {
@@ -170,6 +181,10 @@ in {
 
     "org/gnome/desktop/peripherals/touchpad" = {
       "tap-to-click" = true;
+    };
+
+    "org/gnome/desktop/peripherals/mouse" = {
+      "natural-scroll" = false;
     };
 
     "org/gnome/shell/extensions/tiling-assistant" = {
@@ -182,6 +197,12 @@ in {
       "tile-right-half" = ["<Super>l"];
       "tile-top-half" = ["<Super>k"];
       "window-gap" = 12;
+    };
+
+    "org/gnome/shell/extensions/pano" = {
+      "history-length" = 500;
+      "play-audio-on-copy" = false;
+      "send-notification-on-copy" = false;
     };
   };
 }

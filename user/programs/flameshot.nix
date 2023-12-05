@@ -4,7 +4,17 @@
   ...
 }: let
   screenshots = "${config.home.homeDirectory}/Pictures/Screenshots";
+  screenshot = {
+    full = pkgs.writeShellScriptBin "screenshot-full" ''
+      ${pkgs.flameshot}/bin/flameshot full -c -p ${screenshots}
+    '';
+    area = pkgs.writeShellScriptBin "screenshot-area" ''
+      ${pkgs.flameshot}/bin/flameshot gui
+    '';
+  };
 in {
+  home.packages = [screenshot.full screenshot.area];
+
   services.flameshot.enable = true;
   services.flameshot.settings = {
     General = {
@@ -37,13 +47,13 @@ in {
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-full" = {
       "binding" = "Print";
-      "command" = "${pkgs.flameshot}/bin/flameshot full -c -p ${screenshots}";
+      "command" = "${screenshot.full}/bin/screenshot-full";
       "name" = "flameshot full";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-area" = {
       "binding" = "<Shift>Print";
-      "command" = "${pkgs.flameshot}/bin/flameshot gui";
+      "command" = "${screenshot.area}/bin/screenshot-area";
       "name" = "flameshot gui";
     };
   };

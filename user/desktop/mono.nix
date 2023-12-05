@@ -28,6 +28,12 @@
 in {
   home.packages = [sfMonoNerdfont pkgs.noto-fonts-emoji];
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      "monospace-font-name" = "${sfMonoName} 10";
+    };
+  };
+
   xdg.configFile = {
     "fontconfig/conf.d/99-mono.conf".text = ''
       <?xml version="1.0" encoding="UTF-8"?>
