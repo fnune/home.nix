@@ -22,7 +22,7 @@ function tl() {
     tm split-window -c "$memfault_path" -v
     tm send-keys "rm -f .overmind.sock && invoke dev" C-m
     tm split-window -c "$memfault_path" -v
-    tm send-keys "invoke dc.test-svc --log-sql" C-m
+    tm send-keys "sleep 5 && invoke dc.test-svc --log-sql" C-m
     tm split-window -c "$memfault_path" -v
     tm send-keys "invoke mypy.daemon & sleep 1 && dmypy check www/main.py; fortune ~/.nix-profile/share/games/fortunes/meditations | fmt -w 67 | less" C-m
 
