@@ -10,5 +10,6 @@
     slack
     spotify
     vlc
+    yubioath-flutter
   ];
 }
