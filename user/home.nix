@@ -32,6 +32,7 @@
     ./programs/rbenv.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
+    ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
     ./programs/zsh.nix
     ./themes/vscode.nix
