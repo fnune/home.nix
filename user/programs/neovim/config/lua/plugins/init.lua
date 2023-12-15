@@ -46,5 +46,4 @@ return {
   },
   { "kristijanhusak/vim-dadbod-ui", lazy = true, cmd = "DBUI" },
   { "nvim-lua/plenary.nvim", priority = 51 },
-  { "tversteeg/registers.nvim", lazy = true },
 }
