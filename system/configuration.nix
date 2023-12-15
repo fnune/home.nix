@@ -79,6 +79,7 @@
     gcc
     git
     gnumake
+    killall
     lazydocker
     man-pages
     man-pages-posix
