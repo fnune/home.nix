@@ -85,6 +85,7 @@
     man-pages-posix
     neovim
     nmap
+    nvd
     tree
     wget
     wl-clipboard
