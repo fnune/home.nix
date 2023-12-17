@@ -124,6 +124,9 @@
   };
   environment.sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
 
+  # Steam, plus fixes for 32-bit apps
+  programs.steam.enable = true;
+
   # Connectivity
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
