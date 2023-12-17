@@ -19,7 +19,6 @@
     ./programs/editorconfig.nix
     ./programs/espanso.nix
     ./programs/fd.nix
-    ./programs/flameshot.nix
     ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix

@@ -20,8 +20,12 @@
     size = builtins.ceil config.machine.scale * 24;
     package = pkgs.simp1e-cursors;
   };
+  editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
+    LATEST_SCREENSHOT=$(ls -1v "${config.home.homeDirectory}/Pictures/Screenshots/"*.png | tail -n 1)
+    ${pkgs.pinta}/bin/pinta "$LATEST_SCREENSHOT"
+  '';
 in {
-  home.packages = extensions;
+  home.packages = extensions ++ [pkgs.pinta];
 
   gtk.cursorTheme = cursor;
   home.pointerCursor = cursor;
@@ -96,6 +100,9 @@ in {
       "switch-to-application-10" = [];
 
       "toggle-overview" = ["<Super>d"];
+
+      "screenshot" = ["Print"];
+      "show-screenshot-ui" = ["<Shift>Print"];
     };
 
     "org/gnome/desktop/wm/keybindings" = {
@@ -147,13 +154,18 @@ in {
       "switch-windows-backward" = ["<Shift><Alt>Tab"];
     };
 
-    # Declare the available custom keybindings and let applications (kitty, flameshot) define them.
+    # Declare the available custom keybindings and let applications (kitty) define them.
     "org/gnome/settings-daemon/plugins/media-keys" = {
       "custom-keybindings" = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-full/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-area/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/edit-latest-screenshot/"
       ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/edit-latest-screenshot" = {
+      "binding" = "<Ctrl>Print";
+      "command" = "${editLatestScreenshot}/bin/edit-latest-screenshot";
+      "name" = "Edit the latest screenshot";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
