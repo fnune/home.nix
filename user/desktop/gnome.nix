@@ -11,6 +11,10 @@
     pano
     tiling-assistant
   ];
+  extensionsBuiltIn = [
+    "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+    "drive-menu@gnome-shell-extensions.gcampax.github.com"
+  ];
   cursor = {
     name = "Simp1e-Adw-Dark";
     size = builtins.ceil config.machine.scale * 24;
@@ -42,7 +46,7 @@ in {
 
   dconf.settings = {
     "org/gnome/shell" = {
-      "enabled-extensions" = map (extension: extension.extensionUuid) extensions;
+      "enabled-extensions" = (map (extension: extension.extensionUuid) extensions) ++ extensionsBuiltIn;
       "disabled-extensions" = [];
       "disable-user-extensions" = false;
     };
@@ -203,6 +207,23 @@ in {
       "history-length" = 500;
       "play-audio-on-copy" = false;
       "send-notification-on-copy" = false;
+    };
+
+    "org/gnome/shell/extensions/caffeine" = {
+      "show-notifications" = false;
+    };
+
+    "org/gnome/shell/extensions/auto-move-windows" = {
+      "application-list" = [
+        "firefox-developer-edition.desktop:1"
+        "firefox.desktop:4"
+        "signal-desktop.desktop:6"
+        "thunderbird.desktop:6"
+        "slack.desktop:7"
+        "Zoom.desktop:8"
+        "spotify.desktop:9"
+        "com.obsproject.Studio.desktop:10"
+      ];
     };
   };
 }
