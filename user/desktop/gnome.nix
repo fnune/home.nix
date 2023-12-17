@@ -64,11 +64,12 @@ in {
     };
 
     "org/gnome/desktop/interface" = {
-      "enable-hot-corners" = false;
-      "icon-theme" = "Adwaita";
       "clock-show-date" = true;
       "clock-show-weekday" = true;
       "cursor-size" = 32;
+      "enable-hot-corners" = false;
+      "icon-theme" = "Adwaita";
+      "show-battery-percentage" = true;
     };
 
     "org/gnome/desktop/calendar" = {
