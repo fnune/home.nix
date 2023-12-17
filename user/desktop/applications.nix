@@ -7,7 +7,6 @@
     lutris
     onlyoffice-bin
     quickemu
-    quickgui
     screenkey
     signal-desktop
     slack
