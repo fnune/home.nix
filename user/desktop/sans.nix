@@ -1,9 +1,7 @@
-{pkgs, ...}: let
+{...}: let
   font = "Inter";
   fontSize = 11;
 in {
-  home.packages = [pkgs.inter];
-
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       "font-name" = "${font} ${builtins.toString fontSize}";
