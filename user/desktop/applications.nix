@@ -11,7 +11,6 @@
     signal-desktop
     slack
     spotify
-    vlc
     yubioath-flutter
   ];
 }
