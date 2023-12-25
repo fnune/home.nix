@@ -131,6 +131,7 @@
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   services.tailscale.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # Enable additional man pages (see also pkgs.man-pages-posix)
   documentation.dev.enable = true;
