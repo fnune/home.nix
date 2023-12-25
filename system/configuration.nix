@@ -76,6 +76,7 @@
   # Consider installing in home.nix instead
   environment.systemPackages = with pkgs; [
     # System and CLI
+    file
     gcc
     git
     gnumake
