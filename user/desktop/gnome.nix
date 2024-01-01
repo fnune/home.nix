@@ -202,6 +202,7 @@ in {
 
     "org/gnome/desktop/peripherals/mouse" = {
       "natural-scroll" = false;
+      "accel-profile" = "flat";
     };
 
     "org/gnome/shell/extensions/tiling-assistant" = {
