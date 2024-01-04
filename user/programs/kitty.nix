@@ -25,6 +25,9 @@
       "command" = "kitty";
       "name" = "kitty";
     };
+    "org/gnome/desktop/notifications/application/kitty" = {
+      "enable" = false;
+    };
   };
 
   # https://github.com/espanso/espanso/issues/281
