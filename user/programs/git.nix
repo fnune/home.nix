@@ -15,7 +15,6 @@
       ".direnv"
       ".envrc"
       ".idea"
-      ".mypy_cache"
       ".nvim.lua"
       ".venv"
       ".vim"

@@ -9,7 +9,6 @@ return {
       typescript = {},
       typescriptreact = { "stylelint" },
       json = { "jsonlint" },
-      python = { "mypy" },
       sh = { "shellcheck" },
       sql = { "sqlfluff" },
       css = { "stylelint" },

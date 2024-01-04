@@ -90,19 +90,6 @@ return {
         root_dir = function()
           return vim.fn.getcwd()
         end,
-        handlers = {
-          ["textDocument/publishDiagnostics"] = function()
-            -- noop: I get enough diagnostics from Ruff and mypy.
-          end,
-        },
-        settings = {
-          python = {
-            analysis = {
-              diagnosticMode = "off",
-              typeCheckingMode = "off",
-            },
-          },
-        },
       }))
 
       local constants = require("constants")
