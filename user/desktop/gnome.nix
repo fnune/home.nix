@@ -25,28 +25,30 @@
     ${pkgs.pinta}/bin/pinta "$LATEST_SCREENSHOT"
   '';
 in {
-  home.packages = extensions ++ [pkgs.pinta];
+  home = {
+    packages = extensions ++ [pkgs.pinta];
+    pointerCursor = cursor;
+
+    # Using dconf settings to set these does not work. Since dconf from within
+    # the Nix store does not share the user's D-Bus session, I need to resort to
+    # assuming that the host system provides gsettings.
+    activation.configureKeyboardRepeat = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      gsettings=$(command -v /usr/bin/gsettings || command -v /run/current-system/sw/bin/gsettings)
+      "$gsettings" set org.gnome.desktop.peripherals.keyboard delay 200
+      "$gsettings" set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+    '';
+
+    # They don't get picked up in non-NixOS systems. Help out my Debian by symlinking.
+    activation.symlinkGnomeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      set -euo pipefail
+      src="${config.home.profileDirectory}/share/gnome-shell/extensions"
+      dest="${config.home.homeDirectory}/.local/share/gnome-shell/extensions"
+      mkdir -p ${config.home.homeDirectory}/.local/share/gnome-shell
+      rm -rf "$dest"; ln -sf "$src" "$dest"
+    '';
+  };
 
   gtk.cursorTheme = cursor;
-  home.pointerCursor = cursor;
-
-  # Using dconf settings to set these does not work. Since dconf from within
-  # the Nix store does not share the user's D-Bus session, I need to resort to
-  # assuming that the host system provides gsettings.
-  home.activation.configureKeyboardRepeat = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    gsettings=$(command -v /usr/bin/gsettings || command -v /run/current-system/sw/bin/gsettings)
-    "$gsettings" set org.gnome.desktop.peripherals.keyboard delay 200
-    "$gsettings" set org.gnome.desktop.peripherals.keyboard repeat-interval 30
-  '';
-
-  # They don't get picked up in non-NixOS systems. Help out my Debian by symlinking.
-  home.activation.symlinkGnomeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    set -euo pipefail
-    src="${config.home.profileDirectory}/share/gnome-shell/extensions"
-    dest="${config.home.homeDirectory}/.local/share/gnome-shell/extensions"
-    mkdir -p ${config.home.homeDirectory}/.local/share/gnome-shell
-    rm -rf "$dest"; ln -sf "$src" "$dest"
-  '';
 
   dconf.settings = {
     "org/gnome/shell" = {

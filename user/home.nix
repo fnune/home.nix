@@ -1,7 +1,9 @@
 {...}: {
-  home.username = "fausto";
-  home.homeDirectory = "/home/fausto";
-  home.stateVersion = "23.05";
+  home = {
+    username = "fausto";
+    homeDirectory = "/home/fausto";
+    stateVersion = "23.05";
+  };
 
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;

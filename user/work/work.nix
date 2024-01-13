@@ -17,13 +17,14 @@ in {
       });
     })
   ];
+  home = {
+    packages = with pkgs; [overmind cypress zoom-us graphite-cli heroku];
 
-  home.packages = with pkgs; [overmind cypress zoom-us graphite-cli heroku];
+    file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
+    file."${monorepo}/.nvim.lua".source = ./nvim.lua;
 
-  home.file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
-  home.file."${monorepo}/.nvim.lua".source = ./nvim.lua;
-
-  home.activation.writeEnvrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    echo '${builtins.readFile ./envrc.sh}' > ${monorepo}/.envrc
-  '';
+    activation.writeEnvrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      echo '${builtins.readFile ./envrc.sh}' > ${monorepo}/.envrc
+    '';
+  };
 }
