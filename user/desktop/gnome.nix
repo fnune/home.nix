@@ -17,7 +17,7 @@
   ];
   cursor = {
     name = "Simp1e-Adw-Dark";
-    size = builtins.ceil config.machine.scale * 24;
+    size = 24;
     package = pkgs.simp1e-cursors;
   };
   editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
@@ -68,7 +68,7 @@ in {
     "org/gnome/desktop/interface" = {
       "clock-show-date" = true;
       "clock-show-weekday" = true;
-      "cursor-size" = 32;
+      "cursor-size" = cursor.size;
       "enable-hot-corners" = false;
       "icon-theme" = "Adwaita";
       "show-battery-percentage" = true;
