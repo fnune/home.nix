@@ -1,7 +1,6 @@
 local constants = require("constants")
 return {
   "ray-x/lsp_signature.nvim",
-  -- enabled = false,
   config = function()
     local toggle_key = "<C-s>"
 
@@ -15,6 +14,8 @@ return {
     })
 
     local m = require("mapx")
-    m.imap(toggle_key, function() vim.lsp.buf.signature_help() end, "Toggle LSP function signature help")
+    m.imap(toggle_key, function()
+      vim.lsp.buf.signature_help()
+    end, "Toggle LSP function signature help")
   end,
 }
