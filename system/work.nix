@@ -12,4 +12,18 @@
     "fs.inotify.max_user_instances" = 1048576;
     "fs.inotify.max_user_watches" = 1048576;
   };
+
+  environment.systemPackages = [pkgs.cloudflare-warp];
+  systemd.services.warp-svc = {
+    enable = true;
+    description = "Cloudflare Warp Service";
+    partOf = ["graphical-session.target"];
+    wantedBy = ["default.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.cloudflare-warp}/bin/warp-svc";
+      Restart = "always";
+      StandardOutput = "journal";
+      StandardError = "journal";
+    };
+  };
 }
