@@ -59,6 +59,7 @@ return {
       lspconfig.pyright.setup(common)
       lspconfig.ruff_lsp.setup(common)
       lspconfig.rust_analyzer.setup(common)
+      lspconfig.tailwindcss.setup(common)
       lspconfig.taplo.setup(common)
       lspconfig.yamlls.setup(common)
 

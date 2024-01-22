@@ -19,6 +19,7 @@
       nodePackages.yaml-language-server
       ruff-lsp
       rustup
+      tailwindcss-language-server
       taplo
       # Linters
       alejandra
