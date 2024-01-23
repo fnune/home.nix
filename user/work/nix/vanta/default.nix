@@ -28,12 +28,18 @@
       dpkg-deb -x $src .
     '';
 
-    # To complete the installation:
-    #   export VANTA_KEY [...]' # from https://app.vanta.com/employee/onboarding
-    #   VANTA_CONF_PATH="/etc/vanta.conf"
-    #   echo "$CONFIG" | sudo -E tee "$VANTA_CONF_PATH" > /dev/null
-    #   sudo chmod 400 "$VANTA_CONF_PATH"
-    #   sudo chown root:wheel "$VANTA_CONF_PATH"
+    # To complete the installation, ropy VANTA_{KEY,OWNER_EMAIL} from https://app.vanta.com/employee/onboarding
+    #
+    # export VANTA_KEY="..."
+    # export VANTA_OWNER_EMAIL="..."
+    # export VANTA_REGION="..."
+    # export VANTA_CONF_PATH="/etc/vanta.conf"
+    # export CONFIG="{\"AGENT_KEY\":\"$VANTA_KEY\",\"OWNER_EMAIL\":\"$VANTA_OWNER_EMAIL\",\"NEEDS_OWNER\":true}"
+    #
+    # echo "$CONFIG" | sudo -E tee "$VANTA_CONF_PATH" > /dev/null
+    #
+    # sudo chmod 400 "$VANTA_CONF_PATH"
+    # sudo chown root:root "$VANTA_CONF_PATH"
     installPhase = ''
       mkdir -p $out
       cp -r ./* $out
