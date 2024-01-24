@@ -1,3 +1,3 @@
 {...}: {
-  machine.scale = 1.0;
+  machine.scale = 1.2;
 }
