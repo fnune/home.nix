@@ -185,6 +185,10 @@ in {
       "workspaces-bar-padding" = 0;
     };
 
+    "org/gnome/shell/extensions/appindicator" = {
+      "icon-size" = builtins.ceil (18 * config.machine.scale);
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-extensions-desktop" = {
       "enable" = false;
     };
