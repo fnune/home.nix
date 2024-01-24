@@ -15,7 +15,7 @@
     efiInstallAsRemovable = true;
     efiSupport = true;
     useOSProber = true;
-    gfxmodeEfi = "1920x1080";
-    gfxpayloadEfi = "1920x1080x32";
+    gfxmodeEfi = "2560x1440";
+    gfxpayloadEfi = "2560x1440x32";
   };
 }
