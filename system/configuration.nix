@@ -10,9 +10,7 @@
       font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
     };
     kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
-
-    # I've got some modern hardware
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_7;
   };
 
   # Region and language
@@ -102,25 +100,27 @@
     firefox-devedition-bin
     google-chrome
   ];
-
-  # Browser configuration
-  programs.firefox.enable = true;
-  programs.firefox.policies = {
-    DisableAppUpdate = true;
-    DisablePocket = true;
-    DisplayBookmarksToolbar = "never";
-    Homepage.StartPage = "none";
-    PasswordManagerEnabled = false;
-    SearchEngines.Default = "DuckDuckGo";
-    Preferences = {
-      "browser.aboutConfig.showWarning" = false;
-      "browser.search.suggest.enabled" = false;
-      "browser.sessionstore.max_resumed_crashes" = -1;
-      "browser.translations.automaticallyPopup" = false;
-      "browser.urlbar.resultMenu.keyboardAccessible" = false;
-      "services.sync.username" = "fausto.nunez@mailbox.org";
-      "widget.use-xdg-desktop-portal" = true;
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
+  programs.firefox = {
+    # Browser configuration
+    enable = true;
+    package = pkgs.firefox-bin;
+    policies = {
+      DisableAppUpdate = true;
+      DisablePocket = true;
+      DisplayBookmarksToolbar = "never";
+      Homepage.StartPage = "none";
+      PasswordManagerEnabled = false;
+      SearchEngines.Default = "DuckDuckGo";
+      Preferences = {
+        "browser.aboutConfig.showWarning" = false;
+        "browser.search.suggest.enabled" = false;
+        "browser.sessionstore.max_resumed_crashes" = -1;
+        "browser.translations.automaticallyPopup" = false;
+        "browser.urlbar.resultMenu.keyboardAccessible" = false;
+        "services.sync.username" = "fausto.nunez@mailbox.org";
+        "widget.use-xdg-desktop-portal" = true;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
     };
   };
   environment.sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
