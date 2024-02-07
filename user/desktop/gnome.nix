@@ -83,7 +83,6 @@ in {
       "edge-tiling" = true;
       "dynamic-workspaces" = false;
       "overlay-key" = "";
-      "center-new-windows" = true;
     };
 
     "org/gnome/desktop/wm/preferences" = {
