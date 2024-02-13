@@ -6,19 +6,8 @@
 }: let
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
-  nixpkgs.overlays = [
-    (final: prev: {
-      cypress = prev.cypress.overrideAttrs (_: rec {
-        version = "13.6.0";
-        src = pkgs.fetchzip {
-          url = "https://cdn.cypress.io/desktop/${version}/linux-x64/cypress.zip";
-          sha256 = "sha256-bujZE86RRK3PJ5fbIkLJ2hccDJwZTlC+NlnBfF4iqxA=";
-        };
-      });
-    })
-  ];
   home = {
-    packages = with pkgs; [overmind cypress zoom-us graphite-cli heroku];
+    packages = with pkgs; [overmind zoom-us graphite-cli heroku];
 
     file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
     file."${monorepo}/.nvim.lua".source = ./nvim.lua;
