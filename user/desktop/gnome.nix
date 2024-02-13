@@ -186,6 +186,7 @@ in {
 
     "org/gnome/shell/extensions/appindicator" = {
       "icon-size" = builtins.ceil (18 * config.machine.scale);
+      "icon-saturation" = 1.0; # This is actually desaturation 100%
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-extensions-desktop" = {
