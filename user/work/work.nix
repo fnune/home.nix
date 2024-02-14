@@ -7,7 +7,7 @@
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
   home = {
-    packages = with pkgs; [overmind zoom-us graphite-cli heroku];
+    packages = (with pkgs.unstable; [overmind graphite-cli heroku]) ++ (with pkgs; [zoom-us]);
 
     file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
     file."${monorepo}/.nvim.lua".source = ./nvim.lua;

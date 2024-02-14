@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  home.packages = [pkgs.kitty];
+  home.packages = [pkgs.unstable.kitty];
 
   home.file.".config/kitty/kitty.conf".text = ''
     map ctrl+PLUS change_font_size all +1
