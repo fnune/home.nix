@@ -20,6 +20,27 @@ function LinkNvimDapHighlights()
   ]])
 end
 
+function LinkNeotestHighlights()
+  vim.cmd([[
+    hi! link NeotestAdapterName Macro
+    hi! link NeotestDir Normal
+    hi! link NeotestExpandMarker StatusLine
+    hi! link NeotestFailed DiagnosticError
+    hi! link NeotestFile Normal
+    hi! link NeotestFocused Underlined
+    hi! link NeotestIndent StatusLine
+    hi! link NeotestMarked DiagnosticHint
+    hi! link NeotestNamespace Macro
+    hi! link NeotestPassed DiagnosticOk
+    hi! link NeotestRunning DiagnosticWarn
+    hi! link NeotestSkipped StatusLine
+    hi! link NeotestTarget Macro
+    hi! link NeotestTest Boolean
+    hi! link NeotestWinSelect Macro
+    hi! link NeotestUnknown StatusLine
+  ]])
+end
+
 function HideEndOfBufferCharacters()
   vim.cmd([[hi EndOfBuffer guifg=bg guibg=bg]])
 end
@@ -62,6 +83,7 @@ end
 function ApplyCommonHighlights()
   vim.opt.termguicolors = true
   LinkNvimDapHighlights()
+  LinkNeotestHighlights()
   HighlightItalics()
   HideEndOfBufferCharacters()
 end

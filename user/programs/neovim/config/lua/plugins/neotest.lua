@@ -72,23 +72,6 @@ return {
       m.nmap("<leader>to", function()
         neotest.output_panel.toggle()
       end, { silent = true }, "Toggle the test output panel")
-
-      vim.cmd("hi! link NeotestAdapterName Macro")
-      vim.cmd("hi! link NeotestDir Normal")
-      vim.cmd("hi! link NeotestExpandMarker StatusLine")
-      vim.cmd("hi! link NeotestFailed DiagnosticError")
-      vim.cmd("hi! link NeotestFile Normal")
-      vim.cmd("hi! link NeotestFocused Underlined")
-      vim.cmd("hi! link NeotestIndent StatusLine")
-      vim.cmd("hi! link NeotestMarked DiagnosticHint")
-      vim.cmd("hi! link NeotestNamespace Macro")
-      vim.cmd("hi! link NeotestPassed DiagnosticOk")
-      vim.cmd("hi! link NeotestRunning DiagnosticWarn")
-      vim.cmd("hi! link NeotestSkipped StatusLine")
-      vim.cmd("hi! link NeotestTarget Macro")
-      vim.cmd("hi! link NeotestTest Boolean")
-      vim.cmd("hi! link NeotestWinSelect Macro")
-      vim.cmd("hi! link NeotestUnknown StatusLine")
     end,
   },
 }
