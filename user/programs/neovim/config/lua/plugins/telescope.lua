@@ -4,7 +4,7 @@ return {
     branch = "0.1.x",
     opts = {
       defaults = {
-        file_ignore_patterns = { "%.git/*", "%.cache/*", "%.yarn/*" },
+        file_ignore_patterns = { "%.git/.*", "%.cache/.*", "%.yarn/.*" },
       },
       pickers = {
         find_files = { hidden = true },
