@@ -1,4 +1,9 @@
-{...}: {
+{
+  pkgs,
+  pkgsUnstable,
+  lib,
+  ...
+}: {
   home = {
     username = "fausto";
     homeDirectory = "/home/fausto";
@@ -8,6 +13,11 @@
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
   news.display = "silent";
+
+  home.sessionVariables = {
+    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [pkgs.stdenv.cc.cc pkgs.openssl];
+    NIX_LD = lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
+  };
 
   imports = [
     ./desktop/applications.nix

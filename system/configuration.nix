@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  stdenv,
+  lib,
+  ...
+}: {
   system.stateVersion = "23.05";
 
   boot = {
@@ -84,7 +89,6 @@
     man-pages-posix
     neovim
     nmap
-    nvd
     tree
     wget
     wl-clipboard
@@ -144,4 +148,7 @@
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
   };
+
+  # Help unpatched binaries find the libraries they need
+  programs.nix-ld.enable = true;
 }
