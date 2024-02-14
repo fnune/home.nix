@@ -2,6 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    tag = "v0.9.1", -- https://github.com/nvim-neotest/neotest/issues/348
     config = function()
       local treesitter_configs = require("nvim-treesitter.configs")
 
