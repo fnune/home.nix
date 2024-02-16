@@ -79,6 +79,7 @@
   # Consider installing in home.nix instead
   environment.systemPackages = with pkgs; [
     # System and CLI
+    dig
     file
     gcc
     git
