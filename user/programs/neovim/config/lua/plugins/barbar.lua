@@ -1,8 +1,8 @@
 return {
   "romgrk/barbar.nvim",
   dependencies = {
-    'lewis6991/gitsigns.nvim',
-    'nvim-tree/nvim-web-devicons',
+    "lewis6991/gitsigns.nvim",
+    "nvim-tree/nvim-web-devicons",
   },
   opts = {
     animation = false,
@@ -19,7 +19,7 @@ return {
 
     local m = require("mapx")
 
-    vim.api.nvim_create_autocmd('ExitPre', {
+    vim.api.nvim_create_autocmd("ExitPre", {
       command = "lua require('dapui').close()",
       nested = true,
     })
@@ -48,7 +48,11 @@ return {
     m.nname("<leader>b", "Buffers")
     m.nmap("<leader>bq", ":BufferClose<cr>", { silent = true }, "Close buffer")
     m.nmap("<leader>bQ", ":BufferCloseAllButCurrent<cr> :BufferClose<cr>", { silent = true }, "Close all buffers")
-    m.nmap("<leader>be", ":BufferCloseAllButCurrentOrPinned<cr>", { silent = true },
-      "Close all buffers but pinned or current")
-  end
+    m.nmap(
+      "<leader>be",
+      ":BufferCloseAllButCurrentOrPinned<cr>",
+      { silent = true },
+      "Close all buffers but pinned or current"
+    )
+  end,
 }
