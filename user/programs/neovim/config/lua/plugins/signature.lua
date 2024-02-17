@@ -7,15 +7,20 @@ return {
     local signature = require("lsp_signature")
     signature.setup({
       bind = true,
-      floating_window = false,
+      floating_window = true,
       handler_opts = { border = constants.floating_border },
       hint_enable = false,
       toggle_key = toggle_key,
     })
 
     local m = require("mapx")
-    m.imap(toggle_key, function()
+
+    m.inoremap(toggle_key, function()
       vim.lsp.buf.signature_help()
-    end, "Toggle LSP function signature help")
+    end, "Toggle LSP function signature help in insert mode")
+
+    m.nnoremap(toggle_key, function()
+      vim.lsp.buf.signature_help()
+    end, "Toggle LSP function signature help in normal mode")
   end,
 }
