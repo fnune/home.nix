@@ -4,10 +4,23 @@ return {
     dependencies = { "b0o/SchemaStore.nvim", "hrsh7th/cmp-nvim-lsp" },
     config = function()
       local m = require("mapx")
+      local constants = require("constants")
       local lspconfig = require("lspconfig")
 
-      local cmp_lsp = require("cmp_nvim_lsp")
+      vim.diagnostic.config({
+        virtual_text = { severity = vim.diagnostic.severity.ERROR, source = "if_many", spacing = 1 },
+        underline = true,
+        severity_sort = true,
+        signs = { severity = vim.diagnostic.severity.ERROR },
+        float = { border = constants.floating_border },
+      })
 
+      local lsp_handlers = vim.lsp.handlers
+      lsp_handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = constants.floating_border })
+      lsp_handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = constants.floating_border })
+
+      local cmp_lsp = require("cmp_nvim_lsp")
       local lsp_capabilities = cmp_lsp.default_capabilities()
       local lsp_attach = function(_, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -48,6 +61,7 @@ return {
       local common = {
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
+        handlers = lsp_handlers,
       }
 
       lspconfig.clangd.setup(common)
@@ -92,13 +106,6 @@ return {
           return vim.fn.getcwd()
         end,
       }))
-
-      local constants = require("constants")
-      local handlers = vim.lsp.handlers
-      handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = constants.floating_border })
-      handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = constants.floating_border })
-      vim.diagnostic.config({ float = { border = constants.floating_border } })
 
       local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = "󰋼 " }
       for type, icon in pairs(signs) do
