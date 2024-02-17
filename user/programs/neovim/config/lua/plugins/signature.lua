@@ -16,11 +16,11 @@ return {
     local m = require("mapx")
 
     m.inoremap(toggle_key, function()
-      vim.lsp.buf.signature_help()
+      signature.toggle_float_win()
     end, "Toggle LSP function signature help in insert mode")
 
     m.nnoremap(toggle_key, function()
-      vim.lsp.buf.signature_help()
+      signature.toggle_float_win()
     end, "Toggle LSP function signature help in normal mode")
   end,
 }
