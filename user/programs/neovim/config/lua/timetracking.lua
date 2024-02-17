@@ -46,8 +46,9 @@ local function stop_project()
 end
 
 local m = require("mapx")
-m.nmap("<leader>wi", start_project, { silent = true })
-m.nmap("<leader>wo", stop_project, { silent = true })
+m.nname("<leader>w", "Time tracking")
+m.nmap("<leader>wi", start_project, { silent = true }, "Start a timer")
+m.nmap("<leader>wo", stop_project, { silent = true }, "Stop the current timer")
 
 update_watson_status()
 

@@ -49,7 +49,7 @@ return {
           vim.lsp.buf.references()
         end, bufopts, "Show references")
 
-        m.nname("a", "Code actions")
+        m.nname("<leader>a", "Code actions")
         m.nmap("<leader>ac", function()
           vim.lsp.buf.code_action()
         end, "Apply code action (normal)")

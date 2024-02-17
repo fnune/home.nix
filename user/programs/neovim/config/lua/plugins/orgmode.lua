@@ -56,7 +56,7 @@ return {
 
     local m = require("mapx")
 
-    m.nmap("<leader>oe", ":e " .. refile .. "<CR>G", "Open the default notes file in a new tab",
-      { silent = true })
-  end
+    m.nname("<leader>o", "Org mode")
+    m.nmap("<leader>oe", ":e " .. refile .. "<CR>G", "Open the default notes file in a new tab", { silent = true })
+  end,
 }

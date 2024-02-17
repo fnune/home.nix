@@ -2,11 +2,11 @@ return {
   "stevearc/aerial.nvim",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "nvim-tree/nvim-web-devicons"
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     local m = require("mapx")
-    m.nmap('<leader>T', '<cmd>AerialToggle!<cr>')
+    m.nmap("<leader>T", "<cmd>AerialToggle!<cr>", "Code outline window")
 
     local constants = require("constants")
     local aerial = require("aerial")
