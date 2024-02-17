@@ -15,8 +15,8 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", {})
 -- Select last pasted text
 vim.api.nvim_set_keymap("n", "gp", "`[v`]", {})
 
--- Clear hlsearch highlights
-vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>nohlsearch<cr>", {})
+-- Clear hlsearch highlights and message
+vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>nohlsearch<cr> <cmd>echo ''<cr>", {})
 
 -- Exit insert mode in the terminal
 vim.api.nvim_set_keymap("t", "<C-t><esc>", "<C-\\><C-n>", {})
