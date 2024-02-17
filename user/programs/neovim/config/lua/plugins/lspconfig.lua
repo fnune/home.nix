@@ -1,10 +1,10 @@
+local constants = require("constants")
 return {
   {
     "neovim/nvim-lspconfig",
     dependencies = { "b0o/SchemaStore.nvim", "hrsh7th/cmp-nvim-lsp" },
     config = function()
       local m = require("mapx")
-      local constants = require("constants")
       local lspconfig = require("lspconfig")
 
       vim.diagnostic.config({
@@ -22,6 +22,7 @@ return {
 
       local cmp_lsp = require("cmp_nvim_lsp")
       local lsp_capabilities = cmp_lsp.default_capabilities()
+      local goto_preview = require("goto-preview")
       local lsp_attach = function(_, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -39,15 +40,46 @@ return {
         end, bufopts, "Rename symbol")
 
         m.nname("g", "Go to")
-        m.nmap("gD", function()
-          vim.lsp.buf.declaration()
-        end, bufopts, "Go to declaration")
+        m.nname("gp", "Go to preview")
+        -- Go to definition
         m.nmap("gd", function()
           vim.lsp.buf.definition()
         end, bufopts, "Go to definition")
+        m.nmap("gpd", function()
+          goto_preview.goto_preview_definition()
+        end, "Go to definition preview")
+        -- Go to declaration
+        m.nmap("gD", function()
+          vim.lsp.buf.declaration()
+        end, bufopts, "Go to declaration")
+        m.nmap("gpD", function()
+          goto_preview.goto_preview_declaration()
+        end, "Go to declaration preview")
+        -- Go to implementation
+        m.nmap("gi", function()
+          vim.lsp.buf.implementation()
+        end, bufopts, "Go to implementation")
+        m.nmap("gpi", function()
+          goto_preview.goto_preview_implementation()
+        end, "Go to implementation preview")
+        -- Go to type definition
+        m.nmap("gT", function()
+          vim.lsp.buf.type_definition()
+        end, bufopts, "Go to type definition")
+        m.nmap("gpt", function()
+          goto_preview.goto_preview_type_definition()
+        end, "Go to type definition preview")
+        -- Go to references
         m.nmap("gr", function()
           vim.lsp.buf.references()
         end, bufopts, "Show references")
+        m.nmap("gpr", function()
+          goto_preview.goto_preview_references()
+        end, "Go to references preview")
+        -- Close all preview windows
+        m.nmap("gP", function()
+          goto_preview.close_all_win()
+        end, "Close all preview windows")
 
         m.nname("<leader>a", "Code actions")
         m.nmap("<leader>ac", function()
@@ -114,4 +146,5 @@ return {
       end
     end,
   },
+  { "rmagatti/goto-preview", opts = { border = constants.floating_border } },
 }
