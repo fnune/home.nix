@@ -17,6 +17,7 @@ return {
   "nvim-tree/nvim-web-devicons",
   "tpope/vim-abolish",
   "tpope/vim-dadbod",
+  { "backdround/improved-ft.nvim", opts = { use_default_mappings = true } },
   "tpope/vim-eunuch",
   "tpope/vim-repeat",
   { "folke/todo-comments.nvim", opts = {} },

@@ -42,4 +42,8 @@ return {
       telescope.load_extension("fzf")
     end,
   },
+  {
+    "FabianWirth/search.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
 }
