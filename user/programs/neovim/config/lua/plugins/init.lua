@@ -9,7 +9,6 @@ return {
   "hrsh7th/vim-vsnip",
   { "petertriho/nvim-scrollbar", opts = {} },
   "jxnblk/vim-mdx-js",
-  "kristijanhusak/vim-create-pr",
   "machakann/vim-swap",
   "matze/vim-move",
   "felipec/vim-sanegx",
