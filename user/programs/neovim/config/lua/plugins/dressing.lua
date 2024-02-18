@@ -4,13 +4,13 @@ return {
   opts = {
     select = {
       get_config = function(opts)
-        if opts.kind == 'codeaction' then
+        if opts.kind == "codeaction" then
           return {
-            backend = 'telescope',
+            backend = "telescope",
             telescope = require("telescope.themes").get_cursor(),
           }
         end
-      end
+      end,
     },
     input = { insert_only = false },
   },

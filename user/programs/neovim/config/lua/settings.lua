@@ -1,13 +1,13 @@
-vim.cmd('syntax enable')
-vim.cmd('syntax sync minlines=10000')
+vim.cmd("syntax enable")
+vim.cmd("syntax sync minlines=10000")
 
-vim.cmd('filetype plugin indent on')
-vim.cmd('set ignorecase smartcase')
+vim.cmd("filetype plugin indent on")
+vim.cmd("set ignorecase smartcase")
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.cmdheight = 2
 vim.opt.cursorline = true
-vim.opt.encoding = 'utf-8'
+vim.opt.encoding = "utf-8"
 vim.opt.expandtab = true
 vim.opt.exrc = true
 vim.opt.hidden = true
@@ -24,11 +24,11 @@ vim.opt.relativenumber = false
 vim.opt.scrolloff = 6
 vim.opt.secure = true
 vim.opt.shiftwidth = 2
-vim.opt.shortmess = vim.opt.shortmess + 'Ic'
+vim.opt.shortmess = vim.opt.shortmess + "Ic"
 vim.opt.showcmd = true
 vim.opt.showmatch = true
 vim.opt.showmode = false
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.opt.softtabstop = 2
@@ -41,7 +41,7 @@ vim.opt.ttimeoutlen = 100
 vim.opt.timeoutlen = 500
 vim.opt.wildmenu = true
 vim.opt.wrap = true
-vim.opt.fillchars = vim.opt.fillchars + 'diff:╱,foldopen:,foldclose:'
+vim.opt.fillchars = vim.opt.fillchars + "diff:╱,foldopen:,foldclose:"
 
 -- This is OK if swapfile is false because we won't be writing
 -- to the swap file the whole time, ruining the SSD.
