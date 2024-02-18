@@ -5,14 +5,11 @@ local current = "Loading..."
 local watson_working_fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticOk"), "fg#")
 vim.cmd(string.format("highlight WatsonWorking guibg=#262626 guifg=%s gui=italic", watson_working_fg))
 
-local watson_no_project_fg = vim.fn.synIDattr(vim.fn.hlID("Comment"), "fg#")
-vim.cmd(string.format("highlight WatsonNoProject guibg=#262626 guifg=%s gui=italic", watson_no_project_fg))
-
 local function set_current_status(output)
   if output:find("^Project") then
     current = "%#WatsonWorking#" .. output:gsub("Project", "Clock"):gsub("%(%d%d%d%d%..-%+.-%)", "")
   elseif output:find("^No project") then
-    current = "%#WatsonNoProject#No clock started"
+    current = ""
   else
     current = output
   end
