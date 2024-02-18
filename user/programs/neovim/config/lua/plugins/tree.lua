@@ -8,6 +8,7 @@ return {
       view = { width = constants.file_explorer_width_chars },
       diagnostics = { enable = false },
       renderer = { group_empty = true },
+      disable_netrw = true,
     },
     init = function()
       local m = require("mapx")
