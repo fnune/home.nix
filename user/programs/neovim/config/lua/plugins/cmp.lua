@@ -1,6 +1,12 @@
 return {
   "hrsh7th/nvim-cmp",
-  dependencies = { "onsails/lspkind.nvim", "hrsh7th/vim-vsnip" },
+  dependencies = {
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
+    "onsails/lspkind.nvim",
+  },
   config = function()
     local constants = require("constants")
     local lspkind = require("lspkind")
@@ -12,11 +18,17 @@ return {
           vim.fn["vsnip#anonymous"](args.body)
         end,
       },
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "vsnip" },
-        { name = "buffer" },
-      }),
+      sources = cmp.config.sources(
+        -- Group 1: preferable
+        {
+          { name = "nvim_lsp" },
+          { name = "vsnip" },
+        },
+        -- Group 2: only if group 1 is not available
+        {
+          { name = "buffer" },
+        }
+      ),
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
