@@ -1,13 +1,27 @@
 return {
   "nvim-pack/nvim-spectre",
   dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    highlight = {
-      ui = "Comment",
-      search = "NeogitDiffDelete",
-      replace = "NeogitDiffAdd",
-    },
-  },
+  config = function()
+    local spectre = require("spectre")
+
+    spectre.setup({
+      highlight = {
+        ui = "Comment",
+        search = "NeogitDiffDelete",
+        replace = "NeogitDiffAdd",
+      },
+      mapping = {
+        ["send_to_qf"] = {
+          map = "<M-q>", -- Change the keybinding only
+          cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
+          desc = "send all items to quickfix",
+        },
+      },
+      default = {
+        find = { options = {} }, -- Disable ignore-case default
+      },
+    })
+  end,
   init = function()
     local m = require("mapx")
 
