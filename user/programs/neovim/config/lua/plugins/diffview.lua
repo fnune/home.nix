@@ -15,19 +15,20 @@ return {
   init = function()
     local m = require("mapx")
 
-    m.nname("<leader>D", "Diff and blame")
-    m.nmap("<leader>Dq", ":DiffviewClose<cr>", { silent = true }, "Close diff view")
+    m.nname("<leader>h", "Repository history")
+    m.nmap("<leader>hq", ":DiffviewClose<cr>", { silent = true }, "Close diff view")
+    m.nmap("<leader>hh", ":DiffviewFileHistory<cr>", { silent = true }, "File history")
     m.nmap(
-      "<leader>Do",
+      "<leader>hO",
       ":call DiffviewOpenCommitUnderCursor()<cr>",
       { silent = true },
-      "Open a diff for the commit under the cursor"
+      "Diff for the commit under the cursor"
     )
     m.nmap(
-      "<leader>Dh",
+      "<leader>hH",
       ":call DiffviewFileHistoryFromCommitUnderCursor()<cr>",
       { silent = true },
-      "Open a file history starting from the commit under the cursor"
+      "File history starting from the commit under the cursor"
     )
 
     -- See https://github.com/sindrets/diffview.nvim/issues/196#issuecomment-1244133866
