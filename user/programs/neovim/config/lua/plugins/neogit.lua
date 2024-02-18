@@ -3,9 +3,12 @@ return {
   lazy = true,
   cmd = "Neogit",
   opts = {
+    auto_show_console = false,
     disable_commit_confirmation = true,
-    disable_builtin_notifications = true,
+    disable_hint = true,
     kind = "vsplit",
+    sections = { recent = { folded = false } },
+    status = { recent_commit_count = 99 },
     integrations = {
       telescope = true,
       diffview = true,
