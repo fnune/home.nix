@@ -13,7 +13,6 @@ return {
   },
   { "tpope/vim-eunuch" },
   { "tpope/vim-repeat" },
-  { "tpope/vim-rhubarb" },
   { "tpope/vim-surround" },
   { "windwp/nvim-ts-autotag" },
 }

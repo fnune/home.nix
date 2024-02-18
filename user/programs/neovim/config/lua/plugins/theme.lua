@@ -91,23 +91,9 @@ end
 return {
   { "nvim-treesitter/playground" },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = false,
-    priority = 1000,
-    opts = { disable_italics = true, disable_float_background = true },
-    enabled = false,
-    init = function()
-      vim.cmd.colorscheme("rose-pine-moon")
-
-      ApplyCommonHighlights()
-    end,
-  },
-  {
     "Mofiqul/vscode.nvim",
     priority = 1000,
     lazy = false,
-    enabled = true,
     config = function()
       local colors = require("vscode.colors").get_colors()
       local vscode = require("vscode")

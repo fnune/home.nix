@@ -20,10 +20,7 @@ return {
         },
         sync_install = false,
         auto_install = true,
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = { 'org' },
-        },
+        highlight = { enable = true },
         indent = { enable = true },
         autotag = { enable = true },                                       -- See windwp/nvim-ts-autotag
       }
