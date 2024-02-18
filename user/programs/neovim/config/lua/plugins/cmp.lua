@@ -12,7 +12,6 @@ return {
         { name = "nvim_lsp" },
         { name = "vsnip" },
         { name = "buffer" },
-        { name = "orgmode" },
       }),
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
