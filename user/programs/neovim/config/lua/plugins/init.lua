@@ -11,5 +11,4 @@ return {
   { "folke/trouble.nvim" },
   { "mbbill/undotree" },
   { "nvim-tree/nvim-web-devicons" },
-  { "petertriho/nvim-scrollbar", opts = {} },
 }
