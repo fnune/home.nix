@@ -22,13 +22,13 @@ return {
 
       m.nname("<leader>s", "Search")
       m.nmap(
-        "<leader>ss",
+        "<leader>sS",
         ":Telescope lsp_document_symbols theme=ivy<CR>",
         { silent = true },
         "Find symbols in the document"
       )
       m.nmap(
-        "<leader>sw",
+        "<leader>sW",
         ":Telescope lsp_dynamic_workspace_symbols theme=ivy<CR>",
         { silent = true },
         "Find symbols across the workspace"
