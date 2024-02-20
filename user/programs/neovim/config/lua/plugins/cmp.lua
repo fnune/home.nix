@@ -48,5 +48,11 @@ return {
       },
       experimental = { ghost_text = true },
     })
+
+    for _, filetype in ipairs({ "gitcommit", "NeogitCommitMessage" }) do
+      cmp.setup.filetype(filetype, {
+        sources = cmp.config.sources({ { name = "buffer" } }), -- Disable most sources
+      })
+    end
   end,
 }
