@@ -1,4 +1,6 @@
 return {
+  { "nvim-treesitter/completion-treesitter", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+  { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -6,6 +8,36 @@ return {
       local treesitter_configs = require("nvim-treesitter.configs")
 
       treesitter_configs.setup({
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["am"] = { query = "@function.outer", desc = "a function or method" },
+              ["im"] = { query = "@function.inner", desc = "inner function or method" },
+              ["af"] = { query = "@call.outer", desc = "a function or method call" },
+              ["if"] = { query = "@call.inner", desc = "inner function or method call" },
+              ["ac"] = { query = "@class.outer", desc = "a class" },
+              ["ic"] = { query = "@class.inner", desc = "inner class" },
+              ["ai"] = { query = "@conditional.outer", desc = "a conditional" },
+              ["ii"] = { query = "@conditional.inner", desc = "inner conditional" },
+              ["al"] = { query = "@loop.outer", desc = "a loop" },
+              ["il"] = { query = "@loop.inner", desc = "inner loop" },
+              ["ar"] = { query = "@return.outer", desc = "a return statement" },
+              ["ir"] = { query = "@return.inner", desc = "inner return statement" },
+              ["a="] = { query = "@assignment.outer", desc = "an assignment" },
+              ["i="] = { query = "@assignment.inner", desc = "inner assignment" },
+              ["l="] = { query = "@assignment.lhs", desc = "an assignment's left-hand side" },
+              ["r="] = { query = "@assignment.rhs", desc = "an assignment's right-hand side" },
+            },
+            selection_modes = {
+              ["@class.outer"] = "V",
+              ["@conditional.outer"] = "V",
+              ["@function.outer"] = "V",
+              ["@loop.outer"] = "V",
+            },
+          },
+        },
         ensure_installed = {
           "arduino",
           "awk",
@@ -121,5 +153,4 @@ return {
       })
     end,
   },
-  { "nvim-treesitter/completion-treesitter", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 }
