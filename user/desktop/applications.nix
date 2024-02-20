@@ -9,7 +9,6 @@
     quickemu
     screenkey
     signal-desktop
-    slack
     spotify
     yubioath-flutter
   ];

@@ -44,6 +44,7 @@
     ./programs/rbenv.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
+    ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
     ./programs/zsh.nix
