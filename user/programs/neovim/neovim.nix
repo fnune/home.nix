@@ -35,6 +35,7 @@
       nodePackages.prettier
       nodePackages.prettier_d_slim
       python3Packages.black
+      shfmt
       stylua
       # Debuggers
       python3Packages.debugpy

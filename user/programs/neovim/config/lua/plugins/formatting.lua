@@ -5,9 +5,10 @@ return {
 
     local formatters_by_ft = {
       lua = { "stylua" },
+      nix = { "alejandra" },
       python = { "ruff_fix", { "ruff_format", "black" } },
       rust = { "rustfmt" },
-      nix = { "alejandra" },
+      sh = { "shfmt" },
     }
 
     local prettier_supported = {
