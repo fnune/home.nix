@@ -30,6 +30,11 @@ return {
           -- noop: let prettier do this
         end,
       },
+      on_attach = function(client, _)
+        if require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
+          client.stop()
+        end
+      end,
     }))
 
     lspconfig.jsonls.setup(vim.tbl_deep_extend("force", common, {
@@ -47,6 +52,16 @@ return {
     lspconfig.pyright.setup(vim.tbl_deep_extend("force", common, {
       root_dir = function()
         return vim.fn.getcwd()
+      end,
+    }))
+
+    lspconfig.denols.setup(vim.tbl_deep_extend("force", common, {
+      on_attach = function(_, _)
+        for _, client in ipairs(vim.lsp.get_active_clients()) do
+          if client.name == "tsserver" then
+            client.stop()
+          end
+        end
       end,
     }))
   end,
