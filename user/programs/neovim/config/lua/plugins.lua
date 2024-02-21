@@ -21,4 +21,5 @@ lazy.setup({
   change_detection = { enabled = true, notify = false },
   ui = { border = constants.floating_border },
   install = { missing = true, colorscheme = { "vscode" } },
+  dev = { path = "~/Development" },
 })

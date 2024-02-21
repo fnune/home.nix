@@ -10,6 +10,7 @@
   "cmp-vsnip": { "branch": "main", "commit": "989a8a73c44e926199bfd05fa7a516d51f2d2752" },
   "completion-treesitter": { "branch": "master", "commit": "45c9b2faff4785539a0d0c655440c2465fed985a" },
   "conform.nvim": { "branch": "master", "commit": "b8624e46d83c8b59e5d4a773bdcae6ffc3b9639a" },
+  "denops.vim": { "branch": "main", "commit": "ebda886f724fa2eb8aaa51d569903d5c359f0887" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
   "dressing.nvim": { "branch": "master", "commit": "6f212262061a2120e42da0d1e87326e8a41c0478" },
   "friendly-snippets": { "branch": "main", "commit": "dbd45e9ba76d535e4cba88afa1b7aa43bb765336" },
