@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
     "onsails/lspkind.nvim",
+    "roobert/tailwindcss-colorizer-cmp.nvim",
   },
   config = function()
     local constants = require("constants")
@@ -31,7 +32,15 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<TAB>"] = cmp.mapping.confirm({ select = true }),
       }),
-      formatting = { format = lspkind.cmp_format({}) },
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          before = function(entry, vim_item)
+            vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+            return vim_item
+          end,
+        }),
+      },
       window = {
         completion = {
           border = constants.floating_border,

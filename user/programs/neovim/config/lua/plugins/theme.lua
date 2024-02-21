@@ -105,6 +105,7 @@ return {
           ["Comment"] = { fg = colors.vscGray },
           ["SpecialComment"] = { fg = colors.vscGray },
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
+          ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
         },
       })
 
