@@ -51,7 +51,8 @@ return {
 
     for _, filetype in ipairs({ "gitcommit", "NeogitCommitMessage" }) do
       cmp.setup.filetype(filetype, {
-        sources = cmp.config.sources({ { name = "buffer" } }), -- Disable most sources
+        completion = { autocomplete = false },
+        sources = cmp.config.sources({ { name = "buffer" } }),
       })
     end
   end,
