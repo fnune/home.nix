@@ -18,17 +18,11 @@ return {
           vim.fn["vsnip#anonymous"](args.body)
         end,
       },
-      sources = cmp.config.sources(
-        -- Group 1: preferable
-        {
-          { name = "nvim_lsp" },
-          { name = "vsnip" },
-        },
-        -- Group 2: only if group 1 is not available
-        {
-          { name = "buffer" },
-        }
-      ),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp", group_index = 1 },
+        { name = "vsnip", group_index = 1 },
+        { name = "buffer", group_index = 2 },
+      }),
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
