@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
+    "lukas-reineke/cmp-under-comparator",
     "onsails/lspkind.nvim",
     "roobert/tailwindcss-colorizer-cmp.nvim",
   },
@@ -12,6 +13,7 @@ return {
     local constants = require("constants")
     local lspkind = require("lspkind")
     local cmp = require("cmp")
+    local cmp_compare_underscore = require("cmp-under-comparator")
 
     cmp.setup({
       snippet = {
@@ -24,6 +26,17 @@ return {
         { name = "vsnip", group_index = 1 },
         { name = "buffer", group_index = 2 },
       }),
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp_compare_underscore.under,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+        },
+      },
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
