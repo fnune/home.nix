@@ -100,6 +100,7 @@ return {
 
       vscode.setup({
         disable_nvimtree_bg = true,
+        underline_links = true,
         group_overrides = {
           ["@comment"] = { fg = colors.vscGray },
           ["Comment"] = { fg = colors.vscGray },
