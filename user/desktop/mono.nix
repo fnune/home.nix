@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  patcher = "${pkgs.nerd-font-patcher}/bin/nerd-font-patcher";
+  patcher = "${pkgs.unstable.nerd-font-patcher}/bin/nerd-font-patcher";
   sfMonoName = "SFMono Nerd Font";
   sfMono = pkgs.fetchgit {
     url = "https://github.com/bahmanworld/San-Francisco-Mono.git";
