@@ -25,10 +25,8 @@ return {
               ["il"] = { query = "@loop.inner", desc = "inner loop" },
               ["ar"] = { query = "@return.outer", desc = "a return statement" },
               ["ir"] = { query = "@return.inner", desc = "inner return statement" },
-              ["a="] = { query = "@assignment.outer", desc = "an assignment" },
-              ["i="] = { query = "@assignment.inner", desc = "inner assignment" },
-              ["l="] = { query = "@assignment.lhs", desc = "an assignment's left-hand side" },
-              ["r="] = { query = "@assignment.rhs", desc = "an assignment's right-hand side" },
+              ["a="] = { query = "@assignment.lhs", desc = "an assignment's left-hand side" },
+              ["i="] = { query = "@assignment.rhs", desc = "an assignment's right-hand side" },
             },
             selection_modes = {
               ["@class.outer"] = "V",
