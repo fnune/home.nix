@@ -22,7 +22,7 @@ function tl() {
     tm split-window -c "$memfault_path" -v
     tm send-keys "rm -f .overmind.sock && invoke dev" C-m
     tm split-window -c "$memfault_path" -v
-    tm send-keys ".lint/pyright.sh && invoke dc.test-svc --log-sql" C-m
+    tm send-keys ".lint/pyright.sh; invoke dc.test-svc --log-sql" C-m
 
     tm select-pane -t 0
     tm select-layout main-vertical
