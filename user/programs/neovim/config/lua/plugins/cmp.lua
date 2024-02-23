@@ -21,11 +21,11 @@ return {
           vim.fn["vsnip#anonymous"](args.body)
         end,
       },
-      sources = cmp.config.sources({
+      sources = {
         { name = "nvim_lsp", group_index = 1 },
         { name = "vsnip", group_index = 1 },
         { name = "buffer", group_index = 2 },
-      }),
+      },
       sorting = {
         comparators = {
           cmp.config.compare.offset,
