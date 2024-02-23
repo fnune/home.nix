@@ -103,10 +103,11 @@ return {
         underline_links = true,
         group_overrides = {
           ["@comment"] = { fg = colors.vscGray },
+          ["BufferTabpageFill"] = { bg = colors.vscTabOther },
           ["Comment"] = { fg = colors.vscGray },
-          ["SpecialComment"] = { fg = colors.vscGray },
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
           ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
+          ["SpecialComment"] = { fg = colors.vscGray },
         },
       })
 
