@@ -105,6 +105,16 @@ return {
           ["@comment"] = { fg = colors.vscGray },
           ["BufferTabpageFill"] = { bg = colors.vscTabOther },
           ["Comment"] = { fg = colors.vscGray },
+          ["NeogitDiffAdd"] = { fg = colors.vscGitAdded, bg = colors.vscDiffGreenDark },
+          ["NeogitDiffAddHighlight"] = { fg = colors.vscGitAdded, bg = colors.vscDiffGreenLight },
+          ["NeogitDiffContext"] = { fg = colors.vscPopupFront, bg = colors.vscLeftDark },
+          ["NeogitDiffContextHighlight"] = { fg = colors.vscPopupFront, bg = colors.vscLeftMid },
+          ["NeogitDiffDelete"] = { fg = colors.vscGitDeleted, bg = colors.vscDiffRedDark },
+          ["NeogitDiffDeleteHighlight"] = { fg = colors.vscGitDeleted, bg = colors.vscDiffRedLight },
+          ["NeogitDiffHeader"] = { fg = colors.vscSplitLight, bg = colors.vscBack },
+          ["NeogitDiffHeaderHighlight"] = { fg = colors.vscSplitLight, bg = colors.vscBack },
+          ["NeogitHunkHeader"] = { fg = colors.vscSplitLight, bg = colors.vscDiffGreenDark },
+          ["NeogitHunkHeaderHighlight"] = { fg = colors.vscSplitLight, bg = colors.vscDiffGreenDark },
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
           ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
           ["SpecialComment"] = { fg = colors.vscGray },
@@ -112,23 +122,6 @@ return {
       })
 
       vscode.load()
-
-      local neogit_bg_fg = {
-        { "NeogitDiffHeader", colors.vscBack, colors.vscSplitLight },
-        { "NeogitHunkHeader", colors.vscDiffGreenDark, colors.vscSplitLight },
-        { "NeogitDiffContext", colors.vscLeftDark, colors.vscPopupFront },
-        { "NeogitDiffAdd", colors.vscDiffGreenDark, colors.vscGitAdded },
-        { "NeogitDiffDelete", colors.vscDiffRedDark, colors.vscGitDeleted },
-        { "NeogitDiffHeaderHighlight", colors.vscBack, colors.vscSplitLight },
-        { "NeogitHunkHeaderHighlight", colors.vscDiffGreenDark, colors.vscSplitLight },
-        { "NeogitDiffContextHighlight", colors.vscLeftMid, colors.vscPopupFront },
-        { "NeogitDiffAddHighlight", colors.vscDiffGreenLight, colors.vscGitAdded },
-        { "NeogitDiffDeleteHighlight", colors.vscDiffRedLight, colors.vscGitDeleted },
-      }
-
-      for _, def in ipairs(neogit_bg_fg) do
-        vim.cmd(string.format("hi def %s guibg=%s guifg=%s", def[1], def[2], def[3]))
-      end
 
       ApplyCommonHighlights()
     end,
