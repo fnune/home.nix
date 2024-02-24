@@ -3,6 +3,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     lazy = true,
+    version = "0.7.0",
     init = function()
       local m = require("mapx")
       local dap = require("dap")
@@ -108,6 +109,51 @@ return {
     "mfussenegger/nvim-dap-python",
     config = function()
       require("dap-python").setup("python")
+    end,
+  },
+  {
+    "microsoft/vscode-js-debug",
+    version = "v1.87.0",
+    build = "npm install --legacy-peer-deps --ignore-scripts && npx gulp vsDebugServerBundle && mv dist out",
+  },
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    version = "1.1.0",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
+      local dap = require("dap")
+      local dap_vscode_js = require("dap-vscode-js")
+
+      dap_vscode_js.setup({
+        debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+        adapters = { "pwa-node", "pwa-chrome" },
+      })
+
+      for _, language in ipairs({ "typescript", "typescriptreact", "javascript", "javascriptreact" }) do
+        dap.configurations[language] = {
+          {
+            type = "pwa-node",
+            request = "launch",
+            name = "󰎙 Launch file",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+          },
+          {
+            type = "pwa-chrome",
+            request = "launch",
+            name = "󰊯 Launch Chrome & debug",
+            url = "http://localhost:8000",
+            webRoot = "${workspaceFolder}",
+          },
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = " Attach to a running process",
+            processId = require("dap.utils").pick_process,
+            cwd = "${workspaceFolder}",
+          },
+        }
+      end
     end,
   },
 }
