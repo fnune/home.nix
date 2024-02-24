@@ -5,7 +5,6 @@
   makeWrapper,
   buildFHSEnv,
   runCommand,
-  playwright-driver,
 }: let
   version = "23.3.1-1";
 
@@ -50,8 +49,6 @@ in
     targetPkgs = pkgs: [mambaforge pkgs.pokemonsay];
     profile = ''
       export PATH="$PATH:${outdir}/bin:${outdir}/condabin"
-      export PLAYWRIGHT_BROWSERS_PATH="${playwright-driver.browsers}"
-      export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
 
       if [ -f "${outdir}/etc/profile.d/mamba.sh" ]; then
         source ${outdir}/etc/profile.d/mamba.sh
