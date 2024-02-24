@@ -247,5 +247,11 @@ in {
         "com.obsproject.Studio.desktop:10"
       ];
     };
+
+    "org/gnome/shell/extensions/system-monitor" = {
+      "background" = "#00000000";
+      "icon-display" = false;
+      "show-tooltip" = false;
+    };
   };
 }
