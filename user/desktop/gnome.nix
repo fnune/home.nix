@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  extensions = with pkgs.unstable.gnomeExtensions; [
+  extensions = with pkgs.gnomeExtensions; [
     appindicator
     caffeine
     no-overview
