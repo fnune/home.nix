@@ -84,6 +84,7 @@
     gcc
     git
     gnumake
+    jq
     killall
     lazydocker
     lsof
