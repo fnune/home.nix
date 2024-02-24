@@ -18,4 +18,11 @@
     gfxmodeEfi = "2560x1440";
     gfxpayloadEfi = "2560x1440x32";
   };
+
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8192;
+    }
+  ];
 }
