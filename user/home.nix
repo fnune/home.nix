@@ -36,6 +36,7 @@
     ./programs/git.nix
     ./programs/javascript.nix
     ./programs/kitty.nix
+    ./programs/ksnip.nix
     ./programs/neovim/neovim.nix
     ./programs/nvd/nvd.nix
     ./programs/obs-studio.nix

@@ -23,11 +23,11 @@
   };
   editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
     LATEST_SCREENSHOT=$(ls -1v "${config.home.homeDirectory}/Pictures/Screenshots/"*.png | tail -n 1)
-    ${pkgs.pinta}/bin/pinta "$LATEST_SCREENSHOT"
+    ${pkgs.unstable.ksnip}/bin/ksnip "$LATEST_SCREENSHOT"
   '';
 in {
   home = {
-    packages = extensions ++ [pkgs.pinta];
+    packages = extensions;
     pointerCursor = cursor;
 
     # Using dconf settings to set these does not work. Since dconf from within
