@@ -50,7 +50,6 @@
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
     ./programs/zsh.nix
-    ./themes/vscode.nix
     ./work/work.nix
   ];
 }

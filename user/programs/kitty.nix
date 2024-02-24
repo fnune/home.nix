@@ -16,6 +16,7 @@
     mouse_hide_wait 1
     placement_strategy top-left
     hide_window_decorations yes
+    include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode.nvim/extra/kitty/vscode-dark.conf
     include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
   '';
 
