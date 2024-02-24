@@ -4,11 +4,12 @@
   pkgs,
   ...
 }: let
-  extensions = with pkgs.gnomeExtensions; [
+  extensions = with pkgs.unstable.gnomeExtensions; [
     appindicator
     caffeine
     no-overview
     pano
+    system-monitor-next
     tiling-assistant
   ];
   extensionsBuiltIn = [
