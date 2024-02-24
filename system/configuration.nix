@@ -86,6 +86,7 @@
     gnumake
     killall
     lazydocker
+    lsof
     man-pages
     man-pages-posix
     neovim
