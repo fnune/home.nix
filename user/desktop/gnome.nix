@@ -4,34 +4,17 @@
   pkgs,
   ...
 }: let
-  hide-cursor = pkgs.stdenv.mkDerivation rec {
-    pname = "gnome-shell-extension-hide-cursor";
-    version = "v1.1.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "elcste";
-      repo = "hide-cursor";
-      rev = "v1.1.0";
-      sha256 = "sha256-caQOM6lKZ6AIP5ggimRs0zToUmDayLVu1gpwwa+tpD0";
-    };
-    installPhase = ''
-      mkdir -p $out/share/gnome-shell/extensions/${passthru.extensionUuid}
-      cp -r ./* "$out/share/gnome-shell/extensions/${passthru.extensionUuid}"
-    '';
-    passthru = {
-      extensionUuid = "hide-cursor@elcste.com";
-      extensionPortalSlug = "hide-cursor";
-    };
-  };
-  extensions = with pkgs.gnomeExtensions;
-    [
-      appindicator
-      caffeine
-      no-overview
-      pano
-      system-monitor-next
-      tiling-assistant
-    ]
-    ++ [hide-cursor];
+  extensions = with pkgs.gnomeExtensions; [
+    appindicator
+    caffeine
+    no-overview
+    pano
+    system-monitor-next
+    tiling-assistant
+  ];
+  extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
+    hide-cursor
+  ];
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
     "drive-menu@gnome-shell-extensions.gcampax.github.com"
@@ -47,7 +30,7 @@
   '';
 in {
   home = {
-    packages = extensions;
+    packages = extensions ++ extensionsUnstable;
     pointerCursor = cursor;
 
     # Using dconf settings to set these does not work. Since dconf from within
