@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [ -z "$IN_NIX_SHELL" ]; then
   use flake ~/.home.nix/user/work/nix/miniforge
 fi
