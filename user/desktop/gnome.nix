@@ -58,22 +58,13 @@ in {
       "$gsettings" set org.gnome.desktop.peripherals.keyboard delay 200
       "$gsettings" set org.gnome.desktop.peripherals.keyboard repeat-interval 30
     '';
-
-    # They don't get picked up in non-NixOS systems. Help out my Debian by symlinking.
-    activation.symlinkGnomeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      set -euo pipefail
-      src="${config.home.profileDirectory}/share/gnome-shell/extensions"
-      dest="${config.home.homeDirectory}/.local/share/gnome-shell/extensions"
-      mkdir -p ${config.home.homeDirectory}/.local/share/gnome-shell
-      rm -rf "$dest"; ln -sf "$src" "$dest"
-    '';
   };
 
   gtk.cursorTheme = cursor;
 
   dconf.settings = {
     "org/gnome/shell" = {
-      "enabled-extensions" = (map (extension: extension.extensionUuid) extensions) ++ extensionsBuiltIn;
+      "enabled-extensions" = (map (ext: ext.extensionUuid) (extensions ++ extensionsUnstable)) ++ extensionsBuiltIn;
       "disabled-extensions" = [];
       "disable-user-extensions" = false;
     };
