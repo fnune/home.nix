@@ -36,6 +36,7 @@ return {
       end
 
       m.nname("<leader>t", "Tests")
+      m.nname("<leader>tu", "Run with --snapshot-update")
 
       m.nmap("<leader>ts", function()
         neotest.run.run()
