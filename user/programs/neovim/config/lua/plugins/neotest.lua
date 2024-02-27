@@ -22,6 +22,13 @@ return {
         quickfix = { open = false },
         output = { open_on_run = false },
       })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "neotest-summary",
+        callback = function()
+          vim.wo.wrap = false
+        end,
+      })
     end,
     init = function()
       local neotest = require("neotest")
