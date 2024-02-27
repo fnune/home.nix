@@ -19,6 +19,7 @@ return {
       local m = require("mapx")
       m.nmap("<leader>f", ":Telescope find_files theme=ivy<CR>", { silent = true }, "Find files")
       m.nmap("<leader>F", ":Telescope live_grep theme=ivy<CR>", { silent = true }, "Find text in files")
+      m.nmap("<leader>b", ":Telescope buffers theme=ivy<CR>", { silent = true }, "Find buffers")
 
       m.nname("<leader>s", "Search")
       m.nmap(

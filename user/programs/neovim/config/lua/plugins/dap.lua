@@ -103,6 +103,13 @@ return {
       m.nmap("<leader>dd", function()
         dapui.toggle({ reset = true })
       end, "Toggle debugging view")
+
+      vim.api.nvim_create_autocmd("ExitPre", {
+        nested = true,
+        callback = function()
+          dapui.close()
+        end,
+      })
     end,
   },
   {
