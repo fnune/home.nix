@@ -18,6 +18,7 @@
       ".nvim.lua"
       ".venv"
       ".vim"
+      ".vim-bookmarks"
       ".vscode"
     ];
     extraConfig = {
