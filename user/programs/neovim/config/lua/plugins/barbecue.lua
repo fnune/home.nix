@@ -10,7 +10,7 @@ return {
     config = function()
       local barbecue = require("barbecue")
       barbecue.setup({
-        exclude_filetypes = { "NeogitStatus", "NeogitCommitMessage" },
+        exclude_filetypes = { "gitcommit", "NeogitStatus", "NeogitCommitMessage" },
         show_modified = true,
       })
 
