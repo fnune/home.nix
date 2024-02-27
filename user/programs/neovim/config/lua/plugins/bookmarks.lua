@@ -1,26 +1,34 @@
 return {
-  "MattesGroeger/vim-bookmarks",
+  "chentoast/marks.nvim",
   config = function()
-    vim.g.bookmark_location_list = 1
-    vim.g.bookmark_save_per_working_dir = 1
-    vim.g.bookmark_sign = ""
-    vim.g.bookmark_no_default_key_mappings = 1
+    vim.cmd([[hi! link MarkSignHL @type]])
 
-    vim.cmd([[hi! link BookmarkSign @type]])
+    local group = 0
+    local marks = require("marks")
+    marks.setup({
+      default_mappings = false,
+      ["bookmark_" .. group] = { sign = "" },
+    })
 
     local m = require("mapx")
-
     m.nname("m", "Bookmarks")
+    m.nmap("ma", ":BookmarksList " .. group .. "<cr>", { silent = true }, "Show all bookmarks")
 
-    m.nmap("ma", ":BookmarkShowAll<cr>", { silent = true }, "Show all bookmarks")
-    m.nmap("mm", ":BookmarkToggle<cr>", { silent = true }, "Toggle bookmark")
-    m.nmap("mi", ":BookmarkAnnotate<cr>", { silent = true }, "Annotate bookmark")
-    m.nmap("mn", ":BookmarkNext<cr>", { silent = true }, "Next bookmark")
-    m.nmap("mp", ":BookmarkPrev<cr>", { silent = true }, "Previous bookmark")
-    m.nmap("mc", ":BookmarkClear<cr>", { silent = true }, "Clear bookmark")
-    m.nmap("mx", ":BookmarkClearAll<cr>", { silent = true }, "Clear all bookmarks")
-    m.nmap("mkk", ":BookmarkMoveUp<cr>", { silent = true }, "Move bookmark up")
-    m.nmap("mjj", ":BookmarkMoveDown<cr>", { silent = true }, "Move bookmark down")
-    m.nmap("mg", ":BookmarkMoveToLine<cr>", { silent = true }, "Move bookmark to line")
+    m.nmap("mm", function()
+      marks.bookmark_state:toggle_mark(group)
+    end, "Toggle bookmark")
+
+    m.nmap("mn", function()
+      marks.bookmark_state:next(group)
+    end, "Next bookmark")
+    m.nmap("mp", function()
+      marks.bookmark_state:prev(group)
+    end, "Previous bookmark")
+
+    m.nmap("mx", function()
+      if vim.fn.confirm("Clear all bookmarks?", "&Yes\n&No", 2) == 1 then
+        marks.bookmark_state:delete_all(group)
+      end
+    end, "Clear all bookmarks")
   end,
 }
