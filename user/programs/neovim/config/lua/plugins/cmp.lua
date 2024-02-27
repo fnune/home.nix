@@ -16,6 +16,12 @@ return {
     local cmp_compare_underscore = require("cmp-under-comparator")
 
     cmp.setup({
+      enabled = function()
+        local context = require("cmp.config.context")
+        local is_prompt = vim.api.nvim_buf_get_option(0, "buftype") == "prompt"
+        local is_comment = context.in_treesitter_capture("comment") or context.in_syntax_group("Comment")
+        return not (is_prompt or is_comment)
+      end,
       snippet = {
         expand = function(args)
           vim.fn["vsnip#anonymous"](args.body)
