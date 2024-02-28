@@ -34,7 +34,7 @@
       statix
       # Formatters
       nodePackages.prettier
-      nodePackages.prettier_d_slim
+      prettierd
       python3Packages.black
       shfmt
       stylua
