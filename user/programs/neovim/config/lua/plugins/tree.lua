@@ -23,13 +23,10 @@ return {
   },
   {
     "antosha417/nvim-lsp-file-operations",
+    config = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-tree.lua",
     },
-    enable = false,
-    config = function()
-      require("lsp-file-operations").setup()
-    end,
   },
 }
