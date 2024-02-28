@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # Suggested packages:
   # espanso install actually-all-emojis
   # espanso install lorem
@@ -6,6 +6,7 @@
   # espanso install typofixer-en
   services.espanso = {
     enable = true;
+    package = pkgs.espanso-wayland;
     configs = {
       default = {
         show_notifications = false;
