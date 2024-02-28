@@ -25,7 +25,7 @@ return {
     vim.o.showtabline = 2
 
     local theme = {
-      logo = "FoldColumn",
+      logo = "TabLineFill",
       current_tab = "TabLineSel",
       fill = "TabLineFill",
       head = "TabLine",
