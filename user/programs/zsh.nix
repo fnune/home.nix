@@ -5,7 +5,7 @@
 }: {
   programs = {
     zsh = {
-      enable = true;
+      enable = config.shell.name == "zsh";
       enableAutosuggestions = true;
       oh-my-zsh = {enable = true;};
       plugins = [
@@ -55,8 +55,4 @@
       '';
     };
   };
-
-  home.file.".config/kitty/kitty.conf".text = ''
-    shell ${pkgs.zsh}/bin/zsh --login
-  '';
 }

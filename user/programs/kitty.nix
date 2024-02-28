@@ -6,6 +6,8 @@
   home.packages = [pkgs.unstable.kitty];
 
   home.file.".config/kitty/kitty.conf".text = ''
+    shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
+
     map ctrl+PLUS change_font_size all +1
     map ctrl+MINUS change_font_size all -1
     map ctrl+0 change_font_size all 0
@@ -19,21 +21,4 @@
     include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode.nvim/extra/kitty/vscode-dark.conf
     include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
   '';
-
-  dconf.settings = {
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {
-      "binding" = "<Super>Return";
-      "command" = "kitty";
-      "name" = "kitty";
-    };
-    "org/gnome/desktop/notifications/application/kitty" = {
-      "enable" = false;
-    };
-  };
-
-  # https://github.com/espanso/espanso/issues/281
-  services.espanso.configs.kitty = {
-    filter_class = "kitty";
-    disable_x11_fast_inject = true;
-  };
 }

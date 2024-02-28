@@ -152,12 +152,17 @@ in {
       "switch-windows-backward" = ["<Shift><Alt>Tab"];
     };
 
-    # Declare the available custom keybindings and let applications (kitty) define them.
     "org/gnome/settings-daemon/plugins/media-keys" = {
       "custom-keybindings" = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/edit-latest-screenshot/"
       ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {
+      "binding" = "<Super>Return";
+      "command" = config.terminal.bin;
+      "name" = config.terminal.name;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/edit-latest-screenshot" = {
@@ -246,6 +251,10 @@ in {
       "background" = "#00000000";
       "icon-display" = false;
       "show-tooltip" = false;
+    };
+
+    "org/gnome/desktop/notifications/application/${config.terminal.name}" = {
+      "enable" = false;
     };
   };
 }
