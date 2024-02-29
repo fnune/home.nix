@@ -3,6 +3,7 @@
   config,
   ...
 }: {
+  home.packages = with pkgs; [eza];
   programs = {
     zsh = {
       enable = config.shell.name == "zsh";
@@ -21,6 +22,7 @@
       ];
       shellAliases = {
         sudo = "sudo ";
+        ls = "eza";
       };
       history = {
         size = 100000;
