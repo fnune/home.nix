@@ -26,7 +26,6 @@
     ./desktop/sans.nix
     ./hardware/c920.nix
     ./options.nix
-    ./programs/alacritty.nix
     ./programs/bat.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
