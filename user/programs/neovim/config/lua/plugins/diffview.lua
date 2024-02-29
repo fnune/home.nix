@@ -17,7 +17,7 @@ return {
 
     m.nname("<leader>h", "Repository history")
     m.nmap("<leader>hq", ":DiffviewClose<cr>", { silent = true }, "Close diff view")
-    m.nmap("<leader>hh", ":DiffviewFileHistory<cr>", { silent = true }, "File history")
+    m.nmap("<leader>hh", ":DiffviewFileHistory %<cr>", { silent = true }, "File history")
     m.nmap(
       "<leader>hO",
       ":call DiffviewOpenCommitUnderCursor()<cr>",
