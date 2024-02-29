@@ -60,6 +60,7 @@ return {
         group_overrides = {
           ["@comment"] = { fg = colors.vscGray },
           ["Comment"] = { fg = colors.vscGray },
+          ["NormalFloat"] = { bg = colors.vscBack },
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
           ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
           ["SpecialComment"] = { fg = colors.vscGray },
