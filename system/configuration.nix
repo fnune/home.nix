@@ -79,7 +79,11 @@
   # Consider installing in home.nix instead
   environment.systemPackages = with pkgs; [
     # System and CLI
+    btop
     dig
+    dmidecode
+    du-dust
+    eza
     file
     gcc
     git
@@ -87,12 +91,14 @@
     jq
     killall
     lazydocker
+    lshw
     lsof
     man-pages
     man-pages-posix
     neovim
     nmap
     tree
+    util-linux
     wget
     wl-clipboard
     xclip
