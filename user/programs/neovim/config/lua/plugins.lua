@@ -20,6 +20,6 @@ lazy.setup({
   spec = { import = "plugins" },
   change_detection = { enabled = true, notify = false },
   ui = { border = constants.floating_border },
-  install = { missing = true, colorscheme = { "vscode" } },
+  install = { missing = true, colorscheme = { os.getenv("COLORSCHEME") } },
   dev = { path = "~/Development" },
 })

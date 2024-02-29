@@ -47,6 +47,7 @@ return {
   { "nvim-treesitter/playground" },
   {
     "Mofiqul/vscode.nvim",
+    enabled = os.getenv("COLORSCHEME") == "vscode",
     priority = 1000,
     lazy = false,
     config = function()

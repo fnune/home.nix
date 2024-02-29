@@ -12,7 +12,13 @@
         program = config.shell.bin;
         args = config.shell.args;
       };
-      import = ["${config.home.homeDirectory}/Development/vscode.nvim/extra/alacritty/alacritty.yml"];
+      import = let
+        colorschemeConf =
+          if config.colorscheme == "vscode"
+          then ["${config.home.homeDirectory}/Development/vscode.nvim/extra/alacritty/alacritty.yml"]
+          else [];
+      in
+        [] ++ colorschemeConf;
     };
   };
 }

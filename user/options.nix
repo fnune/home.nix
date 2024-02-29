@@ -1,13 +1,25 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
+  config.home.sessionVariables = {
+    COLORSCHEME = config.colorscheme;
+  };
+
   options = {
-    machine.scale = lib.mkOption {
-      type = lib.types.float;
-      default = 1.0;
-      description = "The display scaling that this machine uses on its primary monitor";
+    machine = {
+      scale = lib.mkOption {
+        type = lib.types.float;
+        default = 1.0;
+        description = "The display scaling that this machine uses on its primary monitor";
+      };
+    };
+    colorscheme = lib.mkOption {
+      type = lib.types.str;
+      default = "vscode";
+      description = "The preferred colorscheme for the terminal, Neovim and others";
     };
     shell = {
       name = lib.mkOption {

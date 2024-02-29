@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = [pkgs.bfs];
   programs = {
     fzf = {
@@ -12,23 +16,25 @@
         zvm_bindkey viins '^R' fzf-history-widget
       }
     '';
-    # https://github.com/Mofiqul/vscode.nvim/blob/main/lua/vscode/colors.lua
-    fzf.colors = {
-      "bg+" = "-1";
-      "fg+" = "#D4D4D4";
-      "hl+" = "#C586C0";
-      bg = "#1E1E1E";
-      border = "#444444";
-      fg = "#808080";
-      gutter = "#1E1E1E";
-      header = "#569CD6";
-      hl = "#C586C0";
-      info = "#9CDCFE";
-      marker = "#F44747";
-      pointer = "#646695";
-      prompt = "#808080";
-      separator = "#444444";
-      spinner = "#D7BA7D";
-    };
+    fzf.colors =
+      if config.colorscheme == "vscode"
+      then {
+        "bg+" = "-1";
+        "fg+" = "#D4D4D4";
+        "hl+" = "#C586C0";
+        bg = "#1E1E1E";
+        border = "#444444";
+        fg = "#808080";
+        gutter = "#1E1E1E";
+        header = "#569CD6";
+        hl = "#C586C0";
+        info = "#9CDCFE";
+        marker = "#F44747";
+        pointer = "#646695";
+        prompt = "#808080";
+        separator = "#444444";
+        spinner = "#D7BA7D";
+      }
+      else {};
   };
 }

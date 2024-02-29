@@ -2,9 +2,13 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  colorschemeConf =
+    if config.colorscheme == "vscode"
+    then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode.nvim/extra/kitty/vscode-dark.conf"
+    else "";
+in {
   home.packages = [pkgs.unstable.kitty];
-
   home.file.".config/kitty/kitty.conf".text = ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 
@@ -18,7 +22,9 @@
     mouse_hide_wait 1
     placement_strategy top-left
     hide_window_decorations yes
-    include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode.nvim/extra/kitty/vscode-dark.conf
+
+    ${colorschemeConf}
+
     include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
   '';
 }
