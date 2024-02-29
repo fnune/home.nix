@@ -35,6 +35,24 @@
         separator = "#444444";
         spinner = "#D7BA7D";
       }
+      else if config.colorscheme == "rose-pine"
+      then {
+        bg = "#191724";
+        "bg+" = "-1";
+        fg = "#908caa";
+        "fg+" = "#e0def4";
+        hl = "#ebbcba";
+        "hl+" = "#ebbcba";
+        border = "#403d52";
+        header = "#31748f";
+        gutter = "#191724";
+        spinner = "#f6c177";
+        info = "#9ccfd8";
+        separator = "#403d52";
+        pointer = "#c4a7e7";
+        marker = "#eb6f92";
+        prompt = "#908caa";
+      }
       else {};
   };
 }

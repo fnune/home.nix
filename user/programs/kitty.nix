@@ -3,9 +3,16 @@
   pkgs,
   ...
 }: let
+  rosePineUrl = "https://raw.githubusercontent.com/rose-pine/kitty/788bf1b/dist/rose-pine.conf";
+  rosePineConf = pkgs.fetchurl {
+    url = rosePineUrl;
+    sha256 = "sha256-D+eGb2KNmgZ6b5XSReIpyA+bnzn5xyOrhz6trmbmNO0";
+  };
   colorschemeConf =
     if config.colorscheme == "vscode"
     then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode.nvim/extra/kitty/vscode-dark.conf"
+    else if config.colorscheme == "rose-pine"
+    then "include ${rosePineConf}"
     else "";
 in {
   home.packages = [pkgs.unstable.kitty];

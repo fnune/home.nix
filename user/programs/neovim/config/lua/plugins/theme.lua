@@ -71,4 +71,17 @@ return {
       ApplyCommonHighlights()
     end,
   },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    enabled = os.getenv("COLORSCHEME") == "rose-pine",
+    lazy = false,
+    priority = 1000,
+    opts = { disable_italics = true, disable_float_background = true },
+    init = function()
+      vim.cmd.colorscheme("rose-pine")
+
+      ApplyCommonHighlights()
+    end,
+  },
 }

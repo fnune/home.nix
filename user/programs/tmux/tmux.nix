@@ -5,7 +5,9 @@
 }: let
   colorschemeConf =
     if config.colorscheme == "vscode"
-    then ./tmux.vscode.conf
+    then builtins.readFile ./tmux.vscode.conf
+    else if config.colorscheme == "rose-pine"
+    then builtins.readFile ./tmux.rose-pine.conf
     else "";
 in {
   programs.tmux = {
