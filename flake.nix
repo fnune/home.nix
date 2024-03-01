@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    memfaultd.url = "path:user/programs/memfault";
   };
 
   outputs = {
@@ -21,14 +22,28 @@
     nixpkgs-unstable,
     home-manager,
     plasma-manager,
+    memfaultd,
     ...
   }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
     nixosConfigurations = let
       makeNixosConfiguration = machineModule:
-        nixpkgs.lib.nixosSystem {
+        nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          modules = [./system/configuration.nix machineModule];
+          modules = [
+            ./system/configuration.nix
+            machineModule
+            ({
+              pkgs,
+              lib,
+              config,
+              ...
+            }:
+              import ./system/memfaultd.nix {
+                inherit pkgs lib config;
+                memfaultd = memfaultd.packages.${system}.default;
+              })
+          ];
         };
     in {
       "feanor" = makeNixosConfiguration ./system/configuration.feanor.nix;
