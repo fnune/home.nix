@@ -25,13 +25,13 @@ return {
     vim.o.showtabline = 2
 
     local theme = {
-      logo = "TabLineFill",
-      current_tab = "TabLineSel",
-      fill = "TabLineFill",
-      head = "TabLine",
-      tab = "TabLine",
-      tail = "TabLine",
-      win = "TabLine",
+      logo = "TabLine",
+      current_tab = "Normal",
+      fill = "TabLine",
+      head = "Normal",
+      tab = "Normal",
+      tail = "Normal",
+      win = "Normal",
     }
     local separators = {
       left = "",
