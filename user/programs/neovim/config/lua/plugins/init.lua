@@ -8,7 +8,6 @@ return {
   -- LSP & UI
   { "brenoprata10/nvim-highlight-colors", opts = { enable_tailwind = true } },
   { "folke/todo-comments.nvim", config = true },
-  { "folke/trouble.nvim" },
   { "mbbill/undotree" },
   { "nvim-tree/nvim-web-devicons" },
 }

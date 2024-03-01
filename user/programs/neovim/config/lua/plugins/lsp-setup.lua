@@ -1,7 +1,16 @@
 return {
+  { "rmagatti/goto-preview" },
   {
-    "rmagatti/goto-preview",
+    "folke/trouble.nvim",
     config = function()
+      local m = require("mapx")
+      m.nmap("<leader>x", ":Trouble document_diagnostics<cr>", { silent = true }, "List document diagnostics")
+      m.nmap("<leader>X", ":Trouble workspace_diagnostics<cr>", { silent = true }, "List workspace diagnostics")
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    init = function()
       local constants = require("constants")
       local goto_preview = require("goto-preview")
 
