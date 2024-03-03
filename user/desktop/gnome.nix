@@ -5,15 +5,15 @@
   ...
 }: let
   extensions = with pkgs.gnomeExtensions; [
+    no-overview
+  ];
+  extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
     appindicator
     caffeine
-    no-overview
+    hide-cursor
     pano
     system-monitor-next
     tiling-assistant
-  ];
-  extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
-    hide-cursor
   ];
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
