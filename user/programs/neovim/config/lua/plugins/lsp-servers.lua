@@ -19,7 +19,6 @@ return {
     setup("nil_ls", {})
     setup("pyright", {})
     setup("ruff_lsp", {})
-    setup("rust_analyzer", {})
     setup("tailwindcss", {})
     setup("taplo", {})
     setup("yamlls", {})
@@ -68,6 +67,16 @@ return {
           end
         end
       end,
+    })
+
+    setup("rust_analyzer", {
+      settings = {
+        ["rust-analyzer"] = {
+          diagnostics = {
+            disabled = { "unresolved-proc-macro" },
+          },
+        },
+      },
     })
   end,
 }
