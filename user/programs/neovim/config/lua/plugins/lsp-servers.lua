@@ -5,22 +5,26 @@ return {
     local lspconfig = require("lspconfig")
     local cmp_lsp = require("cmp_nvim_lsp")
 
-    local common = { capabilities = cmp_lsp.default_capabilities() }
+    local function setup(lsp, opts)
+      lspconfig[lsp].setup(vim.tbl_deep_extend("force", {
+        capabilities = cmp_lsp.default_capabilities(),
+      }, opts))
+    end
 
-    lspconfig.clangd.setup(common)
-    lspconfig.eslint.setup(common)
-    lspconfig.gdscript.setup(common)
-    lspconfig.jsonls.setup(common)
-    lspconfig.lua_ls.setup(common)
-    lspconfig.nil_ls.setup(common)
-    lspconfig.pyright.setup(common)
-    lspconfig.ruff_lsp.setup(common)
-    lspconfig.rust_analyzer.setup(common)
-    lspconfig.tailwindcss.setup(common)
-    lspconfig.taplo.setup(common)
-    lspconfig.yamlls.setup(common)
+    setup("clangd", {})
+    setup("eslint", {})
+    setup("gdscript", {})
+    setup("jsonls", {})
+    setup("lua_ls", {})
+    setup("nil_ls", {})
+    setup("pyright", {})
+    setup("ruff_lsp", {})
+    setup("rust_analyzer", {})
+    setup("tailwindcss", {})
+    setup("taplo", {})
+    setup("yamlls", {})
 
-    lspconfig.tsserver.setup(vim.tbl_deep_extend("force", common, {
+    setup("tsserver", {
       init_options = {
         hostInfo = "neovim",
         preferences = { importModuleSpecifierPreference = "non-relative" },
@@ -35,27 +39,27 @@ return {
           client.stop()
         end
       end,
-    }))
+    })
 
-    lspconfig.jsonls.setup(vim.tbl_deep_extend("force", common, {
+    setup("jsonls", {
       settings = { json = { schemas = require("schemastore").json.schemas(), validate = { enable = true } } },
-    }))
+    })
 
-    lspconfig.yamlls.setup(vim.tbl_deep_extend("force", common, {
+    setup("yamlls", {
       settings = { yaml = { schemas = require("schemastore").yaml.schemas() } },
-    }))
+    })
 
-    lspconfig.lua_ls.setup(vim.tbl_deep_extend("force", common, {
+    setup("lua_ls", {
       settings = { Lua = { diagnostics = { globals = { "vim" } } } },
-    }))
+    })
 
-    lspconfig.pyright.setup(vim.tbl_deep_extend("force", common, {
+    setup("pyright", {
       root_dir = function()
         return vim.fn.getcwd()
       end,
-    }))
+    })
 
-    lspconfig.denols.setup(vim.tbl_deep_extend("force", common, {
+    setup("denols", {
       root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
       on_attach = function(_, _)
         for _, client in ipairs(vim.lsp.get_active_clients()) do
@@ -64,6 +68,6 @@ return {
           end
         end
       end,
-    }))
+    })
   end,
 }
