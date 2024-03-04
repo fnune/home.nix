@@ -12,8 +12,8 @@
     caffeine
     hide-cursor
     pano
-    system-monitor-next
     tiling-assistant
+    vitals
   ];
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
@@ -251,6 +251,11 @@ in {
       "background" = "#00000000";
       "icon-display" = false;
       "show-tooltip" = false;
+    };
+
+    "org/gnome/shell/extensions/vitals" = {
+      "hot-sensors" = ["_memory_usage_" "_processor_usage_"];
+      "update-time" = 1;
     };
 
     "org/gnome/desktop/notifications/application/${config.terminal.name}" = {
