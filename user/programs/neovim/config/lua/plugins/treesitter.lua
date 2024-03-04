@@ -1,4 +1,5 @@
 return {
+  { "NoahTheDuke/vim-just", ft = { "just" } },
   { "nvim-treesitter/completion-treesitter", dependencies = { "nvim-treesitter/nvim-treesitter" } },
   { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
   {
