@@ -9,6 +9,7 @@ return {
       "renderer",
       wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
         border = constants.floating_border,
+        highlights = { border = "VertSplit" },
       }))
     )
   end,

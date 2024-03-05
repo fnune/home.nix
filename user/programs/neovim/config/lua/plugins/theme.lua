@@ -75,7 +75,16 @@ return {
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
           ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
           ["SpecialComment"] = { fg = colors.vscGray },
-          ["VertSplit"] = { fg = colors.vscTabOutside },
+          -- Borders
+          ["FloatBorder"] = { fg = colors.vscLeftDark },
+          ["TelescopePreviewBorder"] = { fg = colors.vscLeftDark },
+          ["TelescopePromptBorder"] = { fg = colors.vscLeftDark },
+          ["TelescopeResultsBorder"] = { fg = colors.vscLeftDark },
+          ["VertSplit"] = { fg = colors.vscLeftDark },
+          -- Scrollbars
+          ["PmenuSbar"] = { bg = colors.vscBack },
+          ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
+          ["ScrollView"] = { bg = colors.vscLeftMid },
         },
       })
 

@@ -25,9 +25,8 @@ return {
     vim.o.showtabline = 2
 
     local theme = {
-      logo = "TabLine",
       current_tab = "Normal",
-      fill = "TabLine",
+      fill = "StatusLineNC",
       head = "Normal",
       tab = "Normal",
       tail = "Normal",
@@ -43,7 +42,6 @@ return {
     }
     require("tabby.tabline").set(function(line)
       return {
-        { "  ", hl = theme.logo },
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.tab
           return {

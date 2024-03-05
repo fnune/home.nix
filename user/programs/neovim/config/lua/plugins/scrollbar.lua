@@ -7,6 +7,5 @@ return {
       signs_overflow = "right",
       search_symbol = { "○" },
     })
-    vim.cmd([[hi! link ScrollView StatusLine]])
   end,
 }
