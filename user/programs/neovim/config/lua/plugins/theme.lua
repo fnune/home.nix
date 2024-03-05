@@ -46,6 +46,17 @@ end
 return {
   { "nvim-treesitter/playground" },
   {
+    "levouh/tint.nvim",
+    opts = {
+      highlight_ignore_patterns = {
+        "DapUI*",
+        "EndOfBuffer",
+        "VertSplit",
+        "WinSeparator",
+      },
+    },
+  },
+  {
     "Mofiqul/vscode.nvim",
     enabled = os.getenv("COLORSCHEME") == "vscode",
     priority = 1000,
@@ -64,6 +75,7 @@ return {
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
           ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
           ["SpecialComment"] = { fg = colors.vscGray },
+          ["VertSplit"] = { fg = colors.vscTabOutside },
         },
       })
 
