@@ -144,7 +144,6 @@
   # Connectivity
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
-  services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
