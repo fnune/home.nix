@@ -4,6 +4,7 @@ return {
   { "felipec/vim-sanegx" },
   { "machakann/vim-swap" },
   { "matze/vim-move" },
+  { "mzlogin/vim-markdown-toc" },
   { "tpope/vim-abolish" },
   {
     "markonm/traces.vim",
