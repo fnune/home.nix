@@ -11,9 +11,6 @@ return {
         live_grep = { additional_args = { "--hidden" } },
         colorscheme = { enable_preview = true },
       },
-      extensions = {
-        smart_open = { match_algorithm = "fzf" },
-      },
     },
     init = function()
       local m = require("mapx")
