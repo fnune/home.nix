@@ -12,5 +12,6 @@ return {
     m.nmap("<leader>mn", recall.goto_next, "Go to the next global mark")
     m.nmap("<leader>mp", recall.goto_prev, "Go to the previous global mark")
     m.nmap("<leader>mc", recall.clear, "Clear all global marks")
+    m.nmap("<leader>ml", ":Telescope recall theme=ivy<CR>", { silent = true }, "Find global marks")
   end,
 }
