@@ -5,6 +5,7 @@
   home.packages = with pkgs.unstable; [
     kdenlive
     lutris
+    obsidian
     onlyoffice-bin
     quickemu
     screenkey
