@@ -14,6 +14,9 @@ return {
     local lspkind = require("lspkind")
     local cmp = require("cmp")
     local cmp_compare_underscore = require("cmp-under-comparator")
+    local cmp_window = vim.tbl_deep_extend("force", cmp.config.window.bordered(), {
+      border = constants.floating_border,
+    })
 
     cmp.setup({
       enabled = function()
@@ -60,14 +63,7 @@ return {
           end,
         }),
       },
-      window = {
-        completion = {
-          border = constants.floating_border,
-        },
-        documentation = {
-          border = constants.floating_border,
-        },
-      },
+      window = { completion = cmp_window, documentation = cmp_window },
       experimental = { ghost_text = true },
     })
 
