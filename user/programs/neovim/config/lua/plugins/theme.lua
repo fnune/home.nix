@@ -1,8 +1,8 @@
-function HideEndOfBufferCharacters()
+local function HideEndOfBufferCharacters()
   vim.cmd([[hi EndOfBuffer guifg=bg guibg=bg]])
 end
 
-function HighlightItalics()
+local function HighlightItalics()
   local groups = {
     "@comment",
     "@conditional",
@@ -37,7 +37,7 @@ function HighlightItalics()
   end
 end
 
-function ApplyCommonHighlights()
+local function ApplyCommonHighlights()
   vim.opt.termguicolors = true
   HighlightItalics()
   HideEndOfBufferCharacters()

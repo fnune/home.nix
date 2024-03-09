@@ -4,16 +4,17 @@ return {
     local lint = require("lint")
 
     lint.linters_by_ft = {
+      css = { "stylelint" },
       javascript = {},
       javascriptreact = { "stylelint" },
-      typescript = {},
-      typescriptreact = { "stylelint" },
       json = { "jsonlint" },
+      lua = { "luacheck" },
+      nix = { "statix" },
+      scss = { "stylelint" },
       sh = { "shellcheck" },
       sql = { "sqlfluff" },
-      css = { "stylelint" },
-      scss = { "stylelint" },
-      nix = { "statix" },
+      typescript = {},
+      typescriptreact = { "stylelint" },
     }
   end,
 

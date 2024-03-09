@@ -24,6 +24,7 @@
       taplo
       # Linters
       alejandra
+      luajitPackages.luacheck
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.jsonlint
