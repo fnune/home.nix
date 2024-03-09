@@ -1,4 +1,5 @@
 return {
+  { "folke/neodev.nvim", opts = { library = { plugins = { "neotest" }, types = true } }, priority = 51 },
   { "nvim-neotest/neotest-jest", lazy = true },
   { "nvim-neotest/neotest-python", lazy = true },
   { "rouge8/neotest-rust", lazy = true },
