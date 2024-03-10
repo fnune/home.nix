@@ -4,8 +4,6 @@ return {
   { "christoomey/vim-tmux-navigator" },
   { "machakann/vim-swap" },
   { "matze/vim-move" },
-  { "tpope/vim-abolish" },
-  { "markonm/traces.vim", init = function() vim.g.traces_abolish_integration = 1 end },
   { "tpope/vim-eunuch" },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
