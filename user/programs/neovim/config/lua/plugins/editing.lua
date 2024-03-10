@@ -2,7 +2,6 @@ return {
   { "backdround/improved-ft.nvim", opts = { use_default_mappings = true } },
   { "LunarVim/bigfile.nvim" },
   { "christoomey/vim-tmux-navigator" },
-  { "felipec/vim-sanegx" },
   { "machakann/vim-swap" },
   { "matze/vim-move" },
   { "tpope/vim-abolish" },
