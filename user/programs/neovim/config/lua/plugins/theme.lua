@@ -44,7 +44,6 @@ local function ApplyCommonHighlights()
 end
 
 return {
-  { "nvim-treesitter/playground" },
   {
     "levouh/tint.nvim",
     opts = {
