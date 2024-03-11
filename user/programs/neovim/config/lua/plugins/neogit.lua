@@ -1,3 +1,4 @@
+local constants = require("constants")
 return {
   "NeogitOrg/neogit",
   lazy = true,
@@ -9,6 +10,11 @@ return {
     kind = "vsplit",
     sections = { recent = { folded = false } },
     status = { recent_commit_count = 99 },
+    signs = {
+      hunk = { "", "" },
+      item = { constants.signs.caret_right, constants.signs.caret_down },
+      section = { constants.signs.caret_right, constants.signs.caret_down },
+    },
     integrations = {
       telescope = true,
       diffview = true,

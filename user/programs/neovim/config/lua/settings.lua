@@ -1,3 +1,5 @@
+local constants = require("constants")
+
 vim.cmd("syntax enable")
 vim.cmd("syntax sync minlines=10000")
 
@@ -40,7 +42,12 @@ vim.opt.ttimeoutlen = 100
 vim.opt.timeoutlen = 500
 vim.opt.wildmenu = true
 vim.opt.wrap = true
-vim.opt.fillchars = vim.opt.fillchars + "diff:╱,foldopen:,foldclose:"
+
+vim.opt.fillchars:append({
+  diff = "╱",
+  foldopen = constants.signs.caret_down,
+  foldclose = constants.signs.caret_right,
+})
 
 -- This is OK if swapfile is false because we won't be writing
 -- to the swap file the whole time, ruining the SSD.
