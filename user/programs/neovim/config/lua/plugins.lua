@@ -21,5 +21,5 @@ lazy.setup({
   change_detection = { enabled = true, notify = false },
   ui = { border = constants.floating_border },
   install = { missing = true, colorscheme = { os.getenv("COLORSCHEME") } },
-  dev = { path = "~/Development" },
+  dev = { path = "~/Development", fallback = true },
 })
