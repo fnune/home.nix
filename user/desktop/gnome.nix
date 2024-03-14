@@ -226,6 +226,7 @@ in {
 
     "org/gnome/shell/extensions/pano" = {
       "history-length" = 500;
+      "paste-on-select" = false;
       "play-audio-on-copy" = false;
       "send-notification-on-copy" = false;
     };
