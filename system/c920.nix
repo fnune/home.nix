@@ -36,6 +36,8 @@
       StandardError = "journal";
       User = "root";
       Group = "root";
+      Restart = "on-failure";
+      RestartSec = 5;
     };
   };
 }
