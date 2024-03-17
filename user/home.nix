@@ -42,6 +42,7 @@
     ./programs/psql/psql.nix
     ./programs/python.nix
     ./programs/rbenv.nix
+    ./programs/restream.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
     ./programs/slack.nix
