@@ -13,6 +13,7 @@
         v4l2Ctl = "${pkgs.v4l-utils}/bin/v4l2-ctl";
         script = pkgs.writeShellScript "inline" ''
           #!/bin/sh
+          set -euo pipefail
           echo "Starting C920 camera setup in ${sleepUntilReadySeconds}s..."
           sleep ${sleepUntilReadySeconds}
           DEVICE=$(${v4l2Ctl} --list-devices | grep -A1 C920 | tail -n1 | xargs)
