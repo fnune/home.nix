@@ -9,6 +9,7 @@ return {
     dependencies = {
       "nvim-neotest/neotest-jest",
       "nvim-neotest/neotest-python",
+      "nvim-neotest/nvim-nio",
       "rouge8/neotest-rust",
     },
     config = function()
