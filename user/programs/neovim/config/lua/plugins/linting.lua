@@ -12,7 +12,6 @@ return {
       nix = { "statix" },
       scss = { "stylelint" },
       sh = { "shellcheck" },
-      sql = { "sqlfluff" },
       typescript = {},
       typescriptreact = { "stylelint" },
     }

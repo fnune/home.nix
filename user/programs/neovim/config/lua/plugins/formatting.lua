@@ -9,6 +9,7 @@ return {
       python = { "ruff_fix", { "ruff_format", "black" } },
       rust = { "rustfmt" },
       sh = { "shfmt" },
+      sql = { "sql_formatter" },
     }
 
     local prettier_supported = {

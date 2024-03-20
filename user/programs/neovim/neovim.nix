@@ -35,6 +35,7 @@
       statix
       # Formatters
       nodePackages.prettier
+      nodePackages.sql-formatter
       prettierd
       python3Packages.black
       shfmt
