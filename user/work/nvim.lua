@@ -17,7 +17,6 @@ vim.o.makeprg = "./.git/hooks/pre-commit"
 
 vim.g.dbs = {
   { name = "memfault-pg-local", url = "postgresql://memfault:memfault@localhost:5432/memfault_db" },
-  { name = "memfault-tsdb-local", url = "postgresql://memfault:memfault@localhost:5433/memfault_db" },
 }
 
 vim.o.shadafile = ".vim/memfault.shada"
