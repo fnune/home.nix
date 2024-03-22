@@ -1,10 +1,14 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
+  home.packages = [pkgs.unstable.difftastic];
   programs.gpg.enable = true;
   programs.git = {
     enable = true;
     userName = "Fausto Núñez Alberro";
     userEmail = "fausto.nunez@mailbox.org";
-    delta.enable = true;
     includes = [
       {
         path = "${config.home.homeDirectory}/.local/gitconfig";
@@ -27,6 +31,12 @@
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
+      pager.difftool = true;
+      diff.tool = "difftastic";
+      difftool = {
+        prompt = false;
+        difftastic.cmd = "${pkgs.unstable.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
+      };
     };
   };
 }
