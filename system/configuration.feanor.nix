@@ -3,7 +3,6 @@
     ./configuration.nix
     ./work.nix
     ./hardware-configuration.feanor.nix
-    ./c920.nix
   ];
 
   networking.hostName = "feanor";
