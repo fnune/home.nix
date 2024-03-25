@@ -5,7 +5,7 @@
   ...
 }: let
   dstBrowsersPath = "${config.home.homeDirectory}/.local/share/playwright";
-  srcBrowsersPath = pkgs.playwright-driver.browsers;
+  srcBrowsersPath = pkgs.unstable.playwright-driver.browsers;
   dstChromiumVersions = ["1097" "1105"]; # microsoft/playwright/blob/v1.41.2/packages/playwright-core/browsers.json
 in {
   home.activation.createChromiumSymlinks = lib.hm.dag.entryAfter ["writeBoundary"] ''
