@@ -25,6 +25,7 @@
     ./desktop/sans.nix
     ./options.nix
     ./programs/bat.nix
+    ./programs/chess.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
     ./programs/fd.nix
