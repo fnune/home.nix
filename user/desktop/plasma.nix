@@ -5,7 +5,7 @@
 }: let
   cursor = {
     name = "Simp1e-Adw-Dark";
-    size = builtins.ceil config.machine.scale * 24;
+    size = 32;
     package = pkgs.simp1e-cursors;
   };
 in {
@@ -16,7 +16,6 @@ in {
 
   programs.plasma = {
     enable = true;
-    workspace.clickItemTo = "select";
     shortcuts = {
       "${config.terminal.name}.desktop"."_launch" = "Meta+Return";
 
@@ -91,114 +90,105 @@ in {
 
     configFile = {
       "kcminputrc" = {
-        "Mouse"."cursorSize" = cursor.size;
-        "Mouse"."cursorTheme" = cursor.name;
+        "Mouse"."cursorSize".value = cursor.size;
+        "Mouse"."cursorTheme".value = cursor.name;
         "Keyboard" = {
-          "RepeatDelay" = 200;
-          "RepeatRate" = 30;
+          "RepeatDelay".value = 200;
+          "RepeatRate".value = 30;
         };
       };
 
       "kdeglobals" = {
-        "KScreen"."ScaleFactor" = config.machine.scale;
+        "KScreen"."ScaleFactor".value = config.machine.scale;
         "General" = {
-          "fixed" = "Monospace,10,-1,5,50,0,0,0,0,0";
-          "font" = "Inter,10,-1,5,57,0,0,0,0,0,Medium";
-          "menuFont" = "Inter,10,-1,5,50,0,0,0,0,0";
-          "smallestReadableFont" = "Inter,8,-1,5,57,0,0,0,0,0,Medium";
-          "toolBarFont" = "Inter,10,-1,5,50,0,0,0,0,0";
+          "font".value = "Inter,12,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
+          "menuFont".value = "Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+          "smallestReadableFont".value = "Inter,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
+          "toolBarFont".value = "Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
         };
         "WM" = {
-          "activeFont" = "Inter,10,-1,5,63,0,0,0,0,0,Semi Bold";
+          "activeFont".value = "Inter,12,-1,5,600,0,0,0,0,0,0,0,0,0,0,1,Semi Bold";
         };
         "KDE" = {
-          "AnimationDurationFactor" = 0.27;
-          "ShowIconsInMenuItems" = false;
+          "AnimationDurationFactor".value = 0.27;
+          "ShowIconsInMenuItems".value = false;
         };
       };
 
       "ksmserverrc" = {
         "General" = {
-          "loginMode" = "emptySession";
+          "loginMode".value = "emptySession";
         };
       };
 
       "kwinrc" = {
-        "Xwayland"."Scale" = config.machine.scale;
-        "Desktops"."Number" = 10;
-        "Desktops"."Rows" = 1;
+        "Xwayland"."Scale".value = config.machine.scale;
+        "Desktops"."Number".value = 10;
+        "Desktops"."Rows".value = 1;
 
-        "Effect-slide"."HorizontalGap" = 0;
-        "Effect-slide"."SlideBackground" = false;
-        "Effect-slide"."VerticalGap" = 0;
+        "Effect-slide"."HorizontalGap".value = 0;
+        "Effect-slide"."SlideBackground".value = false;
+        "Effect-slide"."VerticalGap".value = 0;
 
         "NightColor" = {
-          "Active" = true;
-          "NightTemperature" = 3600;
-        };
-
-        "TabBox" = {
-          "LayoutName" = "thumbnail_grid";
-        };
-
-        "TabBoxAlternative" = {
-          "LayoutName" = "thumbnail_grid";
+          "Active".value = true;
+          "NightTemperature".value = 3600;
         };
 
         "Wayland" = {
           # I don't like this but it fixes a Firefox address bar clipboard bug:
           # https://bugzilla.mozilla.org/show_bug.cgi?id=1791417
-          "EnablePrimarySelection" = true;
+          "EnablePrimarySelection".value = true;
         };
 
         "Xwayland" = {
           # Let Xwayland apps access some global shortcut combinations:
-          "XwaylandEavesdrops" = "Combinations";
+          "XwaylandEavesdrops".value = "Combinations";
         };
       };
 
       "kxkbrc" = {
         "Layout" = {
-          "Options" = "caps:escape,compose:rwin";
-          "ResetOldOptions" = true;
+          "Options".value = "caps:escape,compose:rwin";
+          "ResetOldOptions".value = true;
         };
       };
 
       "plasma-localerc" = {
-        "Formats" = import ../locales.nix;
+        "Formats" = builtins.mapAttrs (name: value: {value = value;}) (import ../locales.nix);
         "Translations" = {
-          "LANGUAGE" = "en_US";
+          "LANGUAGE".value = "en_US";
         };
       };
 
       "ksplashrc" = {
         "KSplash" = {
-          "Engine" = "none";
+          "Engine".value = "none";
         };
       };
 
       "klaunchrc" = {
         "FeedbackStyle" = {
-          "BusyCursor" = false;
+          "BusyCursor".value = false;
         };
       };
 
       "krunnerrc" = {
         "General" = {
-          "FreeFloating" = true;
+          "FreeFloating".value = true;
         };
         "Plugins" = {
-          "appstreamEnabled" = false;
-          "bookmarksEnabled" = false;
-          "browserhistoryEnabled" = false;
-          "browsertabsEnabled" = false;
-          "desktopsessionsEnabled" = true;
-          "helprunnerEnabled" = false;
-          "katesessionsEnabled" = false;
-          "konsoleprofilesEnabled" = false;
-          "org.kde.activities2Enabled" = false;
-          "org.kde.windowedwidgetsEnabled" = false;
-          "webshortcutsEnabled" = false;
+          "appstreamEnabled".value = false;
+          "bookmarksEnabled".value = false;
+          "browserhistoryEnabled".value = false;
+          "browsertabsEnabled".value = false;
+          "desktopsessionsEnabled".value = true;
+          "helprunnerEnabled".value = false;
+          "katesessionsEnabled".value = false;
+          "konsoleprofilesEnabled".value = false;
+          "org.kde.activities2Enabled".value = false;
+          "org.kde.windowedwidgetsEnabled".value = false;
+          "webshortcutsEnabled".value = false;
         };
       };
     };
