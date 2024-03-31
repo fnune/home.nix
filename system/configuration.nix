@@ -1,9 +1,4 @@
-{
-  pkgs,
-  stdenv,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   system.stateVersion = "23.05";
 
   boot = {
@@ -15,7 +10,7 @@
       font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
     };
     kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
-    kernelPackages = pkgs.linuxPackages_6_7;
+    kernelPackages = pkgs.linuxPackages_6_8;
   };
 
   # Region and language

@@ -2,7 +2,7 @@
   description = "fnune's NixOS configuration files";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     home-manager = {
