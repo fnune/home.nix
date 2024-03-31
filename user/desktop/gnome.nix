@@ -22,7 +22,11 @@
   cursor = {
     name = "Simp1e-Adw-Dark";
     size = builtins.ceil (24 * config.machine.scale);
-    package = pkgs.simp1e-cursors;
+    package = pkgs.unstable.simp1e-cursors;
+  };
+  icons = {
+    name = "MoreWaita";
+    package = pkgs.unstable.morewaita-icon-theme;
   };
   editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
     LATEST_SCREENSHOT=$(ls -1v "${config.home.homeDirectory}/Pictures/Screenshots/"*.png | tail -n 1)
@@ -30,7 +34,7 @@
   '';
 in {
   home = {
-    packages = extensions ++ extensionsUnstable;
+    packages = [icons.package] ++ extensions ++ extensionsUnstable;
     pointerCursor = cursor;
 
     # Using dconf settings to set these does not work. Since dconf from within
@@ -43,7 +47,10 @@ in {
     '';
   };
 
-  gtk.cursorTheme = cursor;
+  gtk = {
+    cursorTheme = cursor;
+    iconTheme = icons;
+  };
 
   dconf.settings = {
     "org/gnome/shell" = {
@@ -65,7 +72,7 @@ in {
       "clock-show-weekday" = true;
       "cursor-size" = cursor.size;
       "enable-hot-corners" = false;
-      "icon-theme" = "Adwaita";
+      "icon-theme" = icons.name;
       "show-battery-percentage" = true;
       "text-scaling-factor" = config.machine.scale;
     };
