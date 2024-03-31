@@ -102,7 +102,6 @@
     # Desktop-related
     inter
     noto-fonts-cjk-sans
-    pkgs.libsForQt5.sddm-kcm
 
     # Browsers
     firefox-devedition-bin
