@@ -48,6 +48,7 @@
     ./programs/rpi.nix
     ./programs/rust.nix
     ./programs/slack.nix
+    ./programs/tailscale.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
     ./programs/ventoy.nix
