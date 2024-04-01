@@ -49,6 +49,7 @@
     ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
+    ./programs/ventoy.nix
     ./programs/zsh.nix
     ./work/work.nix
   ];
