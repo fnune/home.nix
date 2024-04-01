@@ -45,6 +45,7 @@
     ./programs/rbenv.nix
     ./programs/restream.nix
     ./programs/ripgrep.nix
+    ./programs/rpi.nix
     ./programs/rust.nix
     ./programs/slack.nix
     ./programs/thunderbird.nix
