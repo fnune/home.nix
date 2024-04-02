@@ -51,6 +51,7 @@
     ./programs/tailscale.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
+    ./programs/upscayl.nix
     ./programs/ventoy.nix
     ./programs/zsh.nix
     ./work/work.nix
