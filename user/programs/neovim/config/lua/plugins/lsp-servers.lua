@@ -16,13 +16,16 @@ return {
     setup("gdscript", {})
     setup("jsonls", {})
     setup("lua_ls", {})
-    setup("nil_ls", {})
     setup("pyright", {})
     setup("ruff_lsp", {})
     setup("rust_analyzer", {})
     setup("tailwindcss", {})
     setup("taplo", {})
     setup("yamlls", {})
+
+    setup("nil_ls", {
+      init_options = { nix = { flake = { autoArchive = true } } },
+    })
 
     setup("tsserver", {
       init_options = {
