@@ -9,8 +9,8 @@
 
   # Enable greedy file watchers like Vite
   boot.kernel.sysctl = {
-    "fs.inotify.max_user_instances" = 1048576;
-    "fs.inotify.max_user_watches" = 1048576;
+    "fs.inotify.max_user_instances" = 2097152;
+    "fs.inotify.max_user_watches" = 2097152;
   };
 
   environment.systemPackages = [pkgs.cloudflare-warp];
