@@ -77,6 +77,7 @@
     btop
     dig
     dmidecode
+    docker-compose
     du-dust
     eza
     file
