@@ -45,17 +45,6 @@ end
 
 return {
   {
-    "levouh/tint.nvim",
-    opts = {
-      highlight_ignore_patterns = {
-        "DapUI*",
-        "EndOfBuffer",
-        "VertSplit",
-        "WinSeparator",
-      },
-    },
-  },
-  {
     "Mofiqul/vscode.nvim",
     enabled = os.getenv("COLORSCHEME") == "vscode",
     priority = 1000,
@@ -103,6 +92,31 @@ return {
       vim.cmd.colorscheme("rose-pine")
 
       ApplyCommonHighlights()
+    end,
+  },
+  {
+    "levouh/tint.nvim",
+    priority = 20, -- https://github.com/rachartier/tiny-devicons-auto-colors.nvim/issues/1
+    event = "VeryLazy",
+    opts = {
+      highlight_ignore_patterns = {
+        "DapUI*",
+        "EndOfBuffer",
+        "VertSplit",
+        "WinSeparator",
+      },
+    },
+  },
+  {
+    "rachartier/tiny-devicons-auto-colors.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons", "Mofiqul/vscode.nvim" },
+    priority = 21, -- https://github.com/rachartier/tiny-devicons-auto-colors.nvim/issues/1
+    event = "VeryLazy",
+    config = function()
+      local auto_colors = require("tiny-devicons-auto-colors")
+      local colors = require("vscode.colors").get_colors()
+
+      auto_colors.setup({ colors = colors })
     end,
   },
 }
