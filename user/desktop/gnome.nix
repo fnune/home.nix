@@ -6,14 +6,14 @@
 }: let
   extensions = with pkgs.gnomeExtensions; [
     no-overview
+    pano
+    vitals
   ];
   extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
     appindicator
     caffeine
     hide-cursor
-    pano
     tiling-assistant
-    vitals
   ];
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
