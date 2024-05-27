@@ -3,7 +3,6 @@ return {
   "NeogitOrg/neogit",
   lazy = true,
   cmd = "Neogit",
-  tag = "v0.0.1",
   opts = {
     auto_show_console = false,
     disable_commit_confirmation = true,
