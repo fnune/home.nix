@@ -14,9 +14,9 @@
   };
 
   # Region and language
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "es";
-    xkbVariant = "";
+    variant = "";
   };
   console.keyMap = "es";
   i18n = {

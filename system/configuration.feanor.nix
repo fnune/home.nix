@@ -18,6 +18,7 @@
     gfxmodeEfi = "2560x1440";
     gfxpayloadEfi = "2560x1440x32";
   };
+  boot.plymouth.extraConfig = "DeviceScale=1";
 
   swapDevices = [
     {

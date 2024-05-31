@@ -4,16 +4,13 @@
   pkgs,
   ...
 }: let
-  extensions = with pkgs.gnomeExtensions; [
-    no-overview
-    pano
-    vitals
-  ];
-  extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
+  extensions = with pkgs.unstable.gnomeExtensions; [
     appindicator
     caffeine
     hide-cursor
     tiling-assistant
+    pano
+    vitals
   ];
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
@@ -34,7 +31,7 @@
   '';
 in {
   home = {
-    packages = [icons.package] ++ extensions ++ extensionsUnstable;
+    packages = [icons.package] ++ extensions;
     pointerCursor = cursor;
 
     # Using dconf settings to set these does not work. Since dconf from within
@@ -54,7 +51,7 @@ in {
 
   dconf.settings = {
     "org/gnome/shell" = {
-      "enabled-extensions" = (map (ext: ext.extensionUuid) (extensions ++ extensionsUnstable)) ++ extensionsBuiltIn;
+      "enabled-extensions" = (map (ext: ext.extensionUuid) extensions) ++ extensionsBuiltIn;
       "disabled-extensions" = [];
       "disable-user-extensions" = false;
     };

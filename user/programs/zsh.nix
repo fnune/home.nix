@@ -7,8 +7,8 @@
   programs = {
     zsh = {
       enable = config.shell.name == "zsh";
-      enableAutosuggestions = true;
-      oh-my-zsh = {enable = true;};
+      autosuggestion.enable = true;
+      oh-my-zsh.enable = true;
       plugins = [
         {
           name = "zsh-vi-mode";
