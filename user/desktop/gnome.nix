@@ -8,8 +8,9 @@
     appindicator
     caffeine
     hide-cursor
-    tiling-assistant
+    just-perfection
     pano
+    tiling-assistant
     vitals
   ];
   extensionsBuiltIn = [
@@ -265,6 +266,10 @@ in {
 
     "org/gnome/desktop/notifications/application/${config.terminal.name}" = {
       "enable" = false;
+    };
+
+    "org/gnome/shell/extensions/just-perfection" = {
+      "startup-status" = 0;
     };
   };
 }
