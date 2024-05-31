@@ -14,16 +14,6 @@
   };
 
   environment.systemPackages = [pkgs.cloudflare-warp];
-  systemd.services.warp-svc = {
-    enable = true;
-    description = "Cloudflare Warp Service";
-    partOf = ["graphical-session.target"];
-    wantedBy = ["default.target"];
-    serviceConfig = {
-      ExecStart = "${pkgs.cloudflare-warp}/bin/warp-svc";
-      Restart = "always";
-      StandardOutput = "journal";
-      StandardError = "journal";
-    };
-  };
+  systemd.packages = [pkgs.cloudflare-warp];
+  systemd.targets.multi-user.wants = ["warp-svc.service"];
 }
