@@ -8,6 +8,5 @@ export CELERY_WORKER_CONCURRENCY=10
 export INVOKE_MEMFAULT_PROCFILE_RUNNER=overmind
 export PYRIGHT_DAEMON_ENABLED=1
 export VOLTA_HOME="$HOME/.mambaforge/envs/memfault/.volta"
-export STRUCTLOG_RENDERER=dev
 
 export PATH="$PATH:$VOLTA_HOME/bin"
