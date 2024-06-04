@@ -4,7 +4,8 @@
   pkgs,
   ...
 }: let
-  extensions = with pkgs.unstable.gnomeExtensions; [
+  extensionsStable = [];
+  extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
     appindicator
     caffeine
     hide-cursor
@@ -13,6 +14,7 @@
     tiling-assistant
     vitals
   ];
+  extensions = extensionsStable ++ extensionsUnstable;
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
     "drive-menu@gnome-shell-extensions.gcampax.github.com"
@@ -55,6 +57,7 @@ in {
       "enabled-extensions" = (map (ext: ext.extensionUuid) extensions) ++ extensionsBuiltIn;
       "disabled-extensions" = [];
       "disable-user-extensions" = false;
+      "disable-extension-version-validation" = true;
     };
 
     "org/gnome/desktop/input-sources" = {
