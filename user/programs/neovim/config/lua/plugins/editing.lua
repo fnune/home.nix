@@ -7,5 +7,5 @@ return {
   { "tpope/vim-eunuch" },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
-  { "windwp/nvim-ts-autotag" },
+  { "windwp/nvim-ts-autotag", config = true },
 }
