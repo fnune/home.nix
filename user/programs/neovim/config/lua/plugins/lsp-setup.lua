@@ -2,10 +2,11 @@ return {
   { "rmagatti/goto-preview" },
   {
     "folke/trouble.nvim",
-    config = function()
+    opts = {},
+    cmd = "Trouble",
+    init = function()
       local m = require("mapx")
-      m.nmap("<leader>x", ":Trouble document_diagnostics<cr>", { silent = true }, "List document diagnostics")
-      m.nmap("<leader>X", ":Trouble workspace_diagnostics<cr>", { silent = true }, "List workspace diagnostics")
+      m.nmap("<leader>x", ":Trouble diagnostics<cr>", { silent = true }, "List diagnostics")
     end,
   },
   {
