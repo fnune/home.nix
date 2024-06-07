@@ -14,10 +14,10 @@
       deno
       lua-language-server
       nil
-      nodePackages.pyright
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
+      pyright
       ruff-lsp
       rustup
       tailwindcss-language-server
