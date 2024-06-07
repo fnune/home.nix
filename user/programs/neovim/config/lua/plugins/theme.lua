@@ -95,22 +95,8 @@ return {
     end,
   },
   {
-    "levouh/tint.nvim",
-    priority = 20, -- https://github.com/rachartier/tiny-devicons-auto-colors.nvim/issues/1
-    event = "VeryLazy",
-    opts = {
-      highlight_ignore_patterns = {
-        "DapUI*",
-        "EndOfBuffer",
-        "VertSplit",
-        "WinSeparator",
-      },
-    },
-  },
-  {
     "rachartier/tiny-devicons-auto-colors.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "Mofiqul/vscode.nvim" },
-    priority = 21, -- https://github.com/rachartier/tiny-devicons-auto-colors.nvim/issues/1
     event = "VeryLazy",
     config = function()
       local auto_colors = require("tiny-devicons-auto-colors")
