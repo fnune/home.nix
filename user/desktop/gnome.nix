@@ -52,7 +52,7 @@ in {
     iconTheme = icons;
   };
 
-  dconf.settings = {
+  dconf.settings = with lib.hm.gvariant; {
     "org/gnome/shell" = {
       "enabled-extensions" = (map (ext: ext.extensionUuid) extensions) ++ extensionsBuiltIn;
       "disabled-extensions" = [];
@@ -91,6 +91,15 @@ in {
     "org/gnome/desktop/wm/preferences" = {
       "focus-mode" = "click";
       "num-workspaces" = 10;
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      "sleep-inactive-ac-type" = "suspend";
+      "sleep-inactive-ac-timeout" = 3600;
+    };
+
+    "org/gnome/desktop/session" = {
+      "idle-delay" = mkUint32 900;
     };
 
     "org/gnome/shell/keybindings" = {
