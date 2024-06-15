@@ -7,7 +7,6 @@ return {
     auto_show_console = false,
     disable_commit_confirmation = true,
     disable_hint = true,
-    kind = "vsplit",
     sections = { recent = { folded = false } },
     status = { recent_commit_count = 99 },
     signs = {
