@@ -7,6 +7,7 @@
   extensionsStable = [];
   extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
     appindicator
+    blur-my-shell
     caffeine
     hide-cursor
     just-perfection
