@@ -12,6 +12,7 @@ return {
     local aerial = require("aerial")
     aerial.setup({
       layout = { min_width = constants.file_explorer_width_chars },
+      filter_kind = false,
     })
   end,
 }
