@@ -4,9 +4,9 @@
 
   home.packages = with pkgs.unstable; [
     kdenlive
+    libreoffice
     lutris
     obsidian
-    onlyoffice-bin
     quickemu
     screenkey
     signal-desktop
