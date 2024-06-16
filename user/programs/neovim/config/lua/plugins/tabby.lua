@@ -42,16 +42,24 @@ return {
     }
     require("tabby.tabline").set(function(line)
       return {
-        line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-          return {
-            line.sep(separators.left, theme.win, theme.fill),
-            win.is_current() and checkmarks.filled or checkmarks.empty,
-            win.buf_name(),
-            line.sep(separators.right, theme.win, theme.fill),
-            hl = theme.win,
-            margin = " ",
-          }
-        end),
+        line
+          .wins_in_tab(line.api.get_current_tab(), function(win)
+            local buftype = win.buf().type()
+            if buftype == "quickfix" or buftype == "nofile" then
+              return false
+            end
+            return true
+          end)
+          .foreach(function(win)
+            return {
+              line.sep(separators.left, theme.win, theme.fill),
+              win.is_current() and checkmarks.filled or checkmarks.empty,
+              win.buf_name(),
+              line.sep(separators.right, theme.win, theme.fill),
+              hl = theme.win,
+              margin = " ",
+            }
+          end),
         line.spacer(),
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.tab
