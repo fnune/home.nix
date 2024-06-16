@@ -4,5 +4,6 @@ return {
     render = "virtual",
     virtual_symbol = "",
     enable_tailwind = true,
+    exclude_buftypes = { "nofile" },
   },
 }
