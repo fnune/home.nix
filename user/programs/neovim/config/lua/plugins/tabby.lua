@@ -42,6 +42,17 @@ return {
     }
     require("tabby.tabline").set(function(line)
       return {
+        line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+          return {
+            line.sep(separators.left, theme.win, theme.fill),
+            win.is_current() and checkmarks.filled or checkmarks.empty,
+            win.buf_name(),
+            line.sep(separators.right, theme.win, theme.fill),
+            hl = theme.win,
+            margin = " ",
+          }
+        end),
+        line.spacer(),
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.tab
           return {
@@ -51,17 +62,6 @@ return {
             tab.number(),
             line.sep(separators.right, hl, theme.fill),
             hl = hl,
-            margin = " ",
-          }
-        end),
-        line.spacer(),
-        line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-          return {
-            line.sep(separators.left, theme.win, theme.fill),
-            win.is_current() and checkmarks.filled or checkmarks.empty,
-            win.buf_name(),
-            line.sep(separators.right, theme.win, theme.fill),
-            hl = theme.win,
             margin = " ",
           }
         end),
