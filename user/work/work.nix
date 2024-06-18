@@ -7,10 +7,9 @@
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
   home = {
-    packages = (with pkgs.unstable; [overmind graphite-cli heroku awscli2 ssm-session-manager-plugin]) ++ (with pkgs; [zoom-us]);
+    packages = (with pkgs.unstable; [overmind heroku awscli2 ssm-session-manager-plugin]) ++ (with pkgs; [zoom-us]);
 
     file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
-    file."${config.home.homeDirectory}/.zsh/includes/graphite".source = ./graphite.sh;
     file."${monorepo}/.nvim.lua".source = ./nvim.lua;
 
     activation.writeEnvrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
