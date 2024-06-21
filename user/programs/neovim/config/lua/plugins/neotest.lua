@@ -48,6 +48,10 @@ return {
       m.nname("<leader>t", "Tests")
       m.nname("<leader>tu", "Run with --snapshot-update")
 
+      m.nmap("<leader>tt", function()
+        neotest.summary.toggle()
+      end, "Toggle tests summary")
+
       m.nmap("<leader>ts", function()
         neotest.run.run()
       end, { silent = true }, "Run the closest test")
