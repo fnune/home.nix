@@ -5,6 +5,7 @@ return {
   cmd = "Neogit",
   opts = {
     auto_show_console = false,
+    console_timeout = 5000,
     disable_commit_confirmation = true,
     disable_hint = true,
     kind = "vsplit",
