@@ -72,7 +72,6 @@ return {
           -- Scrollbars
           ["PmenuSbar"] = { bg = colors.vscBack },
           ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
-          ["ScrollView"] = { bg = colors.vscLeftMid },
           -- Fixes
           ["NeogitWinSeparator"] = { link = "WinSeparator" },
         },
