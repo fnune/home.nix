@@ -75,7 +75,6 @@ return {
           ["ScrollView"] = { bg = colors.vscLeftMid },
           -- Fixes
           ["NeogitWinSeparator"] = { link = "WinSeparator" },
-          ["QuickFixLine"] = { bold = true },
         },
       })
 
