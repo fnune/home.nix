@@ -22,4 +22,5 @@ lazy.setup({
   ui = { border = constants.floating_border },
   install = { missing = true, colorscheme = { os.getenv("COLORSCHEME") } },
   dev = { path = "~/Development", fallback = true },
+  rocks = { enabled = false },
 })
