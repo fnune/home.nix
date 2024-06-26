@@ -41,6 +41,13 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
+      -- https://github.com/neovim/nvim-lspconfig/issues/1931
+      vim.notify = function(msg, ...)
+        if msg ~= "No information available" then
+          return require("notify")(msg, ...)
+        end
+      end
+
       local m = require("mapx")
       local bufopts = { noremap = true, silent = true }
 
