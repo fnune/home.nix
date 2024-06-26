@@ -8,7 +8,7 @@
   networking.hostName = "feanor";
 
   # Dual boot
-  environment.systemPackages = [pkgs.os-prober];
+  environment.systemPackages = [pkgs.os-prober pkgs.ddcutil];
   boot.loader.grub = {
     enable = true;
     device = "nodev";
@@ -26,4 +26,8 @@
       size = 8192;
     }
   ];
+
+  services.udev.packages = [pkgs.ddcutil];
+  services.ddccontrol.enable = true;
+  hardware.i2c.enable = true;
 }

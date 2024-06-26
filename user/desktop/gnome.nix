@@ -8,6 +8,7 @@
   extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
     appindicator
     blur-my-shell
+    brightness-control-using-ddcutil
     caffeine
     hide-cursor
     just-perfection
@@ -285,6 +286,11 @@ in {
       "startup-status" = 0;
       "switcher-popup-delay" = false;
       "window-demands-attention-focus" = false;
+    };
+
+    "org/gnome/shell/extensions/display-brightness-ddcutil" = {
+      "button-location" = 1;
+      "show-display-name" = false;
     };
   };
 }
