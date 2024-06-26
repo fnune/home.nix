@@ -42,9 +42,10 @@ return {
       end
 
       -- https://github.com/neovim/nvim-lspconfig/issues/1931
+      local notify = vim.notify
       vim.notify = function(msg, ...)
         if msg ~= "No information available" then
-          return require("notify")(msg, ...)
+          return notify(msg, ...)
         end
       end
 
