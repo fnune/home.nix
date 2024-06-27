@@ -290,7 +290,7 @@ in {
 
     "org/gnome/shell/extensions/display-brightness-ddcutil" = {
       "button-location" = 1;
-      "show-display-name" = false;
+      "show-display-name" = true;
     };
   };
 }

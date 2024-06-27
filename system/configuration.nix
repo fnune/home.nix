@@ -75,6 +75,7 @@
   environment.systemPackages = with pkgs; [
     # System and CLI
     btop
+    ddcutil
     dig
     dmidecode
     docker-compose
@@ -155,4 +156,9 @@
 
   # Help unpatched binaries find the libraries they need
   programs.nix-ld.enable = true;
+
+  # Control external monitor brightness
+  services.udev.packages = [pkgs.ddcutil];
+  services.ddccontrol.enable = true;
+  hardware.i2c.enable = true;
 }
