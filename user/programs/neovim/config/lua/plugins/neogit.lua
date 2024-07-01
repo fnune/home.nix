@@ -12,7 +12,6 @@ return {
     graph_style = "unicode",
     sections = { recent = { folded = false } },
     status = { recent_commit_count = 99 },
-    filewatcher = { enabled = false }, -- https://github.com/NeogitOrg/neogit/issues/1377
     signs = {
       hunk = { "", "" },
       item = { constants.signs.caret_right, constants.signs.caret_down },
