@@ -1,5 +1,6 @@
 return {
   { "folke/neodev.nvim", opts = { library = { plugins = { "neotest" }, types = true } }, priority = 51 },
+  { "marilari88/neotest-vitest", lazy = true },
   { "nvim-neotest/neotest-jest", lazy = true },
   { "nvim-neotest/neotest-python", lazy = true },
   { "rouge8/neotest-rust", lazy = true },
@@ -7,6 +8,7 @@ return {
     "nvim-neotest/neotest",
     lazy = true,
     dependencies = {
+      "marilari88/neotest-vitest",
       "nvim-neotest/neotest-jest",
       "nvim-neotest/neotest-python",
       "nvim-neotest/nvim-nio",
@@ -20,6 +22,7 @@ return {
           require("neotest-jest")({}),
           require("neotest-python")({}),
           require("neotest-rust")({}),
+          require("neotest-vitest")({}),
         },
         discovery = { enabled = false },
         quickfix = { open = false },
