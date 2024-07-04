@@ -10,6 +10,7 @@
     blur-my-shell
     brightness-control-using-ddcutil
     caffeine
+    disable-extension-updates
     hide-cursor
     just-perfection
     pano
