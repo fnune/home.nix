@@ -22,7 +22,7 @@ return {
     m.nmap("<leader>L", ":$tabnew<cr>", { silent = true }, "Create a new first tab")
     m.nmap("<leader>O", ":$tabe %<cr>", { silent = true }, "Open this buffer in a new tab")
 
-    vim.o.showtabline = 2
+    vim.o.showtabline = 1
 
     local theme = {
       current_tab = "Normal",
@@ -40,41 +40,25 @@ return {
       filled = "",
       empty = "",
     }
-    require("tabby.tabline").set(function(line)
-      return {
-        line
-          .wins_in_tab(line.api.get_current_tab(), function(win)
-            local buftype = win.buf().type()
-            if buftype == "quickfix" or buftype == "nofile" then
-              return false
-            end
-            return true
-          end)
-          .foreach(function(win)
+    require("tabby").setup({
+      line = function(line)
+        return {
+          line.spacer(),
+          line.tabs().foreach(function(tab)
+            local hl = tab.is_current() and theme.current_tab or theme.tab
             return {
-              line.sep(separators.left, theme.win, theme.fill),
-              win.is_current() and checkmarks.filled or checkmarks.empty,
-              win.buf_name(),
-              line.sep(separators.right, theme.win, theme.fill),
-              hl = theme.win,
+              line.sep(separators.left, hl, theme.fill),
+              tab.is_current() and checkmarks.filled or checkmarks.empty,
+              tab.name(),
+              tab.number(),
+              line.sep(separators.right, hl, theme.fill),
+              hl = hl,
               margin = " ",
             }
           end),
-        line.spacer(),
-        line.tabs().foreach(function(tab)
-          local hl = tab.is_current() and theme.current_tab or theme.tab
-          return {
-            line.sep(separators.left, hl, theme.fill),
-            tab.is_current() and checkmarks.filled or checkmarks.empty,
-            tab.name(),
-            tab.number(),
-            line.sep(separators.right, hl, theme.fill),
-            hl = hl,
-            margin = " ",
-          }
-        end),
-        hl = theme.fill,
-      }
-    end)
+          hl = theme.fill,
+        }
+      end,
+    })
   end,
 }

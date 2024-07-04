@@ -74,6 +74,7 @@ return {
           ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
           -- Fixes
           ["NeogitWinSeparator"] = { link = "WinSeparator" },
+          ["DropBarIconUIPickPivot"] = { link = "@comment.note" },
         },
       })
 
