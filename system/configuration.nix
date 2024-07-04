@@ -161,4 +161,7 @@
   services.udev.packages = [pkgs.ddcutil];
   services.ddccontrol.enable = true;
   hardware.i2c.enable = true;
+
+  # Eager OOM killer
+  services.earlyoom.enable = true;
 }
