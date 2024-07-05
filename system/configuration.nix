@@ -142,7 +142,7 @@
   hardware.bluetooth.enable = true;
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   # Enable additional man pages (see also pkgs.man-pages-posix)
   documentation.dev.enable = true;
