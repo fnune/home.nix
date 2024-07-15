@@ -85,6 +85,6 @@
   "vim-vsnip-integ": { "branch": "master", "commit": "1914e72cf3de70df7f5dde476cd299aba2440aef" },
   "vscode-js-debug": { "branch": "main", "commit": "19cd30297dc05b7a7fa9d1d02a8e9dfc1749362e" },
   "vscode.nvim": { "branch": "main", "commit": "3ba16d763097cecc75eb93761f4a981467acfc23" },
-  "which-key.nvim": { "branch": "main", "commit": "d9c7b9b3c70692725736181a3331139b78eb2573" },
+  "which-key.nvim": { "branch": "main", "commit": "0539da005b98b02cf730c1d9da82b8e8edb1c2d2" },
   "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" }
 }
