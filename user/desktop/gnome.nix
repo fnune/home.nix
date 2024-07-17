@@ -10,6 +10,7 @@
     blur-my-shell
     brightness-control-using-ddcutil
     caffeine
+    color-picker
     disable-extension-updates
     hide-cursor
     just-perfection
@@ -292,6 +293,10 @@ in {
     "org/gnome/shell/extensions/display-brightness-ddcutil" = {
       "button-location" = 1;
       "show-display-name" = true;
+    };
+
+    "org/gnome/shell/extensions/color-picker" = {
+      "enable-sound" = false;
     };
   };
 }
