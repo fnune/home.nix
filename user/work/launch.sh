@@ -18,7 +18,7 @@ function tl() {
     tm new-session -c "$memfault_path" -d -s memfault -n auxiliary
 
     tm split-window -c "$memfault_path" -h
-    tm send-keys "invoke dc.svc --log-sql" C-m
+    tm send-keys "invoke dc.svc" C-m
     tm split-window -c "$memfault_path" -v
     tm send-keys "rm -f .overmind.sock && invoke dev" C-m
     tm split-window -c "$memfault_path" -v
