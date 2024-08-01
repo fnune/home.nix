@@ -6,7 +6,7 @@ return {
     local formatters_by_ft = {
       lua = { "stylua" },
       nix = { "alejandra" },
-      python = { "ruff_fix", { "ruff_format", "black" } },
+      python = { "ruff_fix", "ruff_format" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
       sql = { "sql_formatter" },
@@ -27,7 +27,7 @@ return {
       "yaml",
     }
 
-    local prettier = { { "prettierd", "prettier" } }
+    local prettier = { "prettierd", "prettier", stop_after_first = true }
 
     for _, vim_ft in ipairs(prettier_supported) do
       formatters_by_ft[vim_ft] = prettier
