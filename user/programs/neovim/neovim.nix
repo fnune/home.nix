@@ -34,6 +34,7 @@
       sqlfluff
       statix
       # Formatters
+      biome
       nodePackages.prettier
       nodePackages.sql-formatter
       prettierd

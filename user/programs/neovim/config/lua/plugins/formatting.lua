@@ -12,18 +12,21 @@ return {
       sql = { "sql_formatter" },
     }
 
+    local biome_supported = {
+      "javascript",
+      "javascriptreact",
+      "json",
+      "typescript",
+      "typescriptreact",
+    }
+
     local prettier_supported = {
       "css",
       "graphql",
       "html",
-      "javascript",
-      "javascriptreact",
-      "json",
       "markdown",
       "markdown.mdx",
       "scss",
-      "typescript",
-      "typescriptreact",
       "yaml",
     }
 
@@ -31,6 +34,10 @@ return {
 
     for _, vim_ft in ipairs(prettier_supported) do
       formatters_by_ft[vim_ft] = prettier
+    end
+
+    for _, vim_ft in ipairs(biome_supported) do
+      formatters_by_ft[vim_ft] = { "biome" }
     end
 
     conform.setup({
