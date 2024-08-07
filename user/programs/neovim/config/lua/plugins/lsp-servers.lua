@@ -11,6 +11,7 @@ return {
       }, opts))
     end
 
+    setup("biome", {})
     setup("clangd", {})
     setup("eslint", {})
     setup("gdscript", {})
