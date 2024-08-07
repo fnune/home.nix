@@ -153,6 +153,7 @@
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
   };
+  nix.optimise.automatic = true;
 
   # Help unpatched binaries find the libraries they need
   programs.nix-ld.enable = true;

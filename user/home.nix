@@ -12,6 +12,10 @@
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
   news.display = "silent";
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 10d";
+  };
 
   home.sessionVariables = {
     NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [pkgs.stdenv.cc.cc pkgs.openssl];
