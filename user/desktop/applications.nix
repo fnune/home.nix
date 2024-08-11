@@ -11,6 +11,7 @@
     screenkey
     signal-desktop
     spotify
+    vlc
     yubioath-flutter
   ];
 }
