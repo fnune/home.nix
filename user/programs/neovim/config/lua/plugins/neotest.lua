@@ -8,6 +8,7 @@ return {
     "nvim-neotest/neotest",
     lazy = true,
     dependencies = {
+      "antoinemadec/FixCursorHold.nvim",
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-jest",
       "nvim-neotest/neotest-python",
