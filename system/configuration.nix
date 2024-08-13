@@ -54,6 +54,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   # Docker setup
@@ -63,7 +64,7 @@
   users.users.fausto = {
     isNormalUser = true;
     description = "Fausto Núñez Alberro";
-    extraGroups = ["networkmanager" "wheel" "dialout" "docker"];
+    extraGroups = ["networkmanager" "wheel" "dialout" "docker" "jackaudio" "audio"];
   };
 
   # Configure the Nix package manager

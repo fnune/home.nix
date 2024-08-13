@@ -3,6 +3,8 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.packages = with pkgs.unstable; [
+    ardour
+    guitarix
     kdenlive
     libreoffice
     lutris
