@@ -8,11 +8,6 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:pjones/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
   outputs = {
@@ -20,7 +15,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    plasma-manager,
     ...
   }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
@@ -36,7 +30,6 @@
     };
 
     homeConfigurations = let
-      plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
       unstableOverlay = final: prev: {
         unstable = import nixpkgs-unstable {
           inherit (prev) config;
@@ -49,11 +42,7 @@
             system = "x86_64-linux";
             overlays = [unstableOverlay];
           };
-          modules = [
-            ./user/home.nix
-            plasmaManager
-            machineModule
-          ];
+          modules = [./user/home.nix machineModule];
         };
     in {
       "feanor" = makeHomeConfiguration ./user/home.feanor.nix;
