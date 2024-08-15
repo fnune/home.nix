@@ -9,6 +9,7 @@
 
   # Dual boot
   environment.systemPackages = [pkgs.os-prober];
+  boot.loader.timeout = null; # Infinite time to choose
   boot.loader.grub = {
     enable = true;
     device = "nodev";
