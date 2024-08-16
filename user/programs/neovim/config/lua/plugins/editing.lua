@@ -4,7 +4,7 @@ return {
   { "christoomey/vim-tmux-navigator" },
   { "machakann/vim-swap" },
   { "matze/vim-move" },
-  { "tpope/vim-eunuch" },
+  { "chrisgrieser/nvim-genghis", config = true, dependencies = { "stevearc/dressing.nvim" } },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
   { "windwp/nvim-ts-autotag", config = true },
