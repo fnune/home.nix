@@ -86,6 +86,7 @@
     gcc
     git
     gnumake
+    gzip
     jq
     killall
     lazydocker
@@ -96,6 +97,7 @@
     neovim
     nmap
     tree
+    unzip
     util-linux
     wget
     wl-clipboard
