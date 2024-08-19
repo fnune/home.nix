@@ -24,6 +24,7 @@
 
   imports = [
     ./desktop/applications.nix
+    ./desktop/audio.nix
     ./desktop/gnome.nix
     ./desktop/mono.nix
     ./desktop/sans.nix
