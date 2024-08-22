@@ -1,4 +1,5 @@
 return {
+  { "saecki/live-rename.nvim", config = true },
   {
     "folke/trouble.nvim",
     opts = {},
@@ -12,6 +13,7 @@ return {
     "neovim/nvim-lspconfig",
     init = function()
       local constants = require("constants")
+      local live_rename = require("live-rename")
 
       vim.diagnostic.config({
         virtual_text = { severity = vim.diagnostic.severity.ERROR, source = "if_many", spacing = 1 },
@@ -60,7 +62,7 @@ return {
       end, "Next diagnostic")
 
       m.nmap("<leader>r", function()
-        vim.lsp.buf.rename()
+        live_rename.rename()
       end, bufopts, "Rename symbol")
 
       m.nname("g", "Go to")
