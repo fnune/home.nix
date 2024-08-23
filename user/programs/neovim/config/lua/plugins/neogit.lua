@@ -8,7 +8,7 @@ return {
     console_timeout = 5000,
     disable_commit_confirmation = true,
     disable_hint = true,
-    kind = "vsplit",
+    kind = "auto",
     graph_style = "unicode",
     sections = { recent = { folded = false } },
     status = { recent_commit_count = 99 },
