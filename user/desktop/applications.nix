@@ -5,12 +5,10 @@
 
   home.packages = with pkgs.unstable; [
     eyedropper
-    kdenlive
     libreoffice
     logseq
     lutris
     obsidian
-    quickemu
     satty
     screenkey
     signal-desktop

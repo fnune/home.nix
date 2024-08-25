@@ -47,15 +47,12 @@
     ./programs/psql/psql.nix
     ./programs/python.nix
     ./programs/rbenv.nix
-    ./programs/restream.nix
     ./programs/ripgrep.nix
-    ./programs/rpi.nix
     ./programs/rust.nix
     ./programs/satty.nix
     ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
-    ./programs/upscayl.nix
     ./programs/ventoy.nix
     ./programs/zsh.nix
     ./work/work.nix
