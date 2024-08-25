@@ -2,11 +2,14 @@
   home.packages = with pkgs.unstable; [
     ardour
     calf
+    distrho
     guitarix
     gxplugins-lv2
     lsp-plugins
     neural-amp-modeler-lv2
     qpwgraph
+    reaper
+    swh_lv2
   ];
 
   systemd.user.sessionVariables = {
