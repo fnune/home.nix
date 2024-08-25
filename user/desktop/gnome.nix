@@ -284,6 +284,7 @@ in {
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
+      "accessibility-menu" = false;
       "startup-status" = 0;
       "switcher-popup-delay" = false;
       "window-demands-attention-focus" = false;
