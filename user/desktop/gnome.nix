@@ -10,7 +10,6 @@
     blur-my-shell
     brightness-control-using-ddcutil
     caffeine
-    color-picker
     disable-extension-updates
     hide-cursor
     just-perfection
