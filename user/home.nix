@@ -39,7 +39,6 @@
     ./programs/git.nix
     ./programs/javascript.nix
     ./programs/kitty.nix
-    ./programs/ksnip.nix
     ./programs/maestral.nix
     ./programs/neovim/neovim.nix
     ./programs/nvd/nvd.nix
@@ -52,6 +51,7 @@
     ./programs/ripgrep.nix
     ./programs/rpi.nix
     ./programs/rust.nix
+    ./programs/satty.nix
     ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix

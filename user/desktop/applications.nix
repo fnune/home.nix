@@ -11,6 +11,7 @@
     lutris
     obsidian
     quickemu
+    satty
     screenkey
     signal-desktop
     spotify
