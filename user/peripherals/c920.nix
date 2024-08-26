@@ -4,7 +4,7 @@
   ...
 }: let
   v4l2Ctl = "${pkgs.v4l-utils}/bin/v4l2-ctl";
-  script = pkgs.writeShellScript "c920-camera-setup.sh" ''
+  script = pkgs.writeShellScriptBin "c920-camera-setup" ''
     #!/bin/sh
     set -euo pipefail
     echo "Starting C920 camera setup..."
@@ -25,12 +25,12 @@
     fi
   '';
 in {
-  home.packages = [pkgs.v4l-utils];
+  home.packages = [pkgs.v4l-utils script];
 
   xdg.configFile."autostart/c920-camera-setup.desktop".text = lib.mkAfter ''
     [Desktop Entry]
     Type=Application
-    Exec=${script}
+    Exec=${script}/bin/c920-camera-setup
     Hidden=false
     NoDisplay=true
     X-GNOME-Autostart-enabled=true
