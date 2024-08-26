@@ -292,6 +292,7 @@ in {
 
     "org/gnome/shell/extensions/display-brightness-ddcutil" = {
       "button-location" = 1;
+      "ddcutil-binary-path" = "${pkgs.ddcutil}/bin/ddcutil";
       "show-display-name" = true;
     };
 
