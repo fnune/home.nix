@@ -7,7 +7,6 @@
   xdg.configFile."satty/config.toml".text = ''
     [general]
     early-exit = true
-    fullscreen = true
     initial-tool = "arrow"
     output-filename = "${config.home.homeDirectory}/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S (edited).png"
     primary-highlighter = "block"
