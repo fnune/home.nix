@@ -7,14 +7,11 @@
   extensionsStable = [];
   extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
     appindicator
-    blur-my-shell
     brightness-control-using-ddcutil
     caffeine
     disable-extension-updates
     hide-cursor
-    just-perfection
     pano
-    tiling-assistant
     vitals
   ];
   extensions = extensionsStable ++ extensionsUnstable;
@@ -195,15 +192,6 @@ in {
       "screensaver" = [];
     };
 
-    "org/gnome/shell/extensions/space-bar/shortcuts" = {
-      "enable-activate-workspace-shortcuts" = false;
-      "enable-move-to-workspace-shortcuts" = false;
-    };
-
-    "org/gnome/shell/extensions/space-bar/appearance" = {
-      "workspaces-bar-padding" = 0;
-    };
-
     "org/gnome/shell/extensions/appindicator" = {
       "icon-size" = builtins.ceil (18 * config.machine.scale);
       "icon-saturation" = 1.0; # This is actually desaturation 100%
@@ -232,18 +220,6 @@ in {
       "accel-profile" = "flat";
     };
 
-    "org/gnome/shell/extensions/tiling-assistant" = {
-      "active-window-hint" = 0;
-      "dynamic-keybinding-behavior" = 1;
-      "restore-window" = ["<Super>e"];
-      "single-screen-gap" = 12;
-      "tile-bottom-half" = ["<Super>j"];
-      "tile-left-half" = ["<Super>h"];
-      "tile-right-half" = ["<Super>l"];
-      "tile-top-half" = ["<Super>k"];
-      "window-gap" = 12;
-    };
-
     "org/gnome/shell/extensions/pano" = {
       "history-length" = 500;
       "paste-on-select" = false;
@@ -268,12 +244,6 @@ in {
       ];
     };
 
-    "org/gnome/shell/extensions/system-monitor" = {
-      "background" = "#00000000";
-      "icon-display" = false;
-      "show-tooltip" = false;
-    };
-
     "org/gnome/shell/extensions/vitals" = {
       "hot-sensors" = ["_memory_usage_" "_processor_usage_"];
       "update-time" = 1;
@@ -283,21 +253,10 @@ in {
       "enable" = false;
     };
 
-    "org/gnome/shell/extensions/just-perfection" = {
-      "accessibility-menu" = false;
-      "startup-status" = 0;
-      "switcher-popup-delay" = false;
-      "window-demands-attention-focus" = false;
-    };
-
     "org/gnome/shell/extensions/display-brightness-ddcutil" = {
       "button-location" = 1;
       "ddcutil-binary-path" = "${pkgs.ddcutil}/bin/ddcutil";
       "show-display-name" = true;
-    };
-
-    "org/gnome/shell/extensions/color-picker" = {
-      "enable-sound" = false;
     };
   };
 }
