@@ -23,11 +23,11 @@ return {
     },
     ignored_settings = {
       "NeogitCommitPopup--allow-empty",
+      "NeogitCommitPopup--no-edit",
+      "NeogitCommitPopup--no-verify",
       "NeogitPullPopup--rebase",
       "NeogitPushPopup--force",
       "NeogitPushPopup--force-with-lease",
-      "NeogitRevertPopup--no-edit",
-      "NeogitRevertPopup--no-verify",
     },
   },
   init = function()
