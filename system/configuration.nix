@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  imports = [./gsconnect.nix ./audio.nix];
+
   system.stateVersion = "23.05";
 
   boot = {
@@ -29,7 +31,6 @@
   services.xserver.desktopManager.gnome.enable = true;
   services.unclutter.enable = true;
   services.geoclue2.enable = true;
-  imports = [./gsconnect.nix];
 
   # Pinentry and Kwallet integration
   services.pcscd.enable = true;
@@ -42,18 +43,6 @@
   # Enable CUPS to print documents
   services.printing.enable = true;
   security.sudo.extraConfig = "Defaults pwfeedback";
-
-  # Enable sound with pipewire
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   # Docker setup
   virtualisation.docker.enable = true;
