@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  home.packages = with pkgs.unstable; [gnome.gnome-chess stockfish];
+  home.packages = with pkgs.unstable; [gnome-chess stockfish];
 }
