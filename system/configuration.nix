@@ -123,6 +123,7 @@
     };
   };
   environment.sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
+  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
 
   # Steam, plus fixes for 32-bit apps
   programs.steam.enable = true;
