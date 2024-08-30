@@ -2,6 +2,7 @@
   home.packages = with pkgs.unstable; [
     ardour
     calf
+    carla
     distrho
     guitarix
     gxplugins-lv2
@@ -10,6 +11,8 @@
     qpwgraph
     reaper
     swh_lv2
+    yabridge
+    yabridgectl
   ];
 
   systemd.user.sessionVariables = {
