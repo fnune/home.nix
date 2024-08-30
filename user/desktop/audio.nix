@@ -4,13 +4,18 @@
     calf
     carla
     distrho
+    drumgizmo
     guitarix
     gxplugins-lv2
     lsp-plugins
     neural-amp-modeler-lv2
     qpwgraph
     reaper
+    rkrlv2
     swh_lv2
+    x42-avldrums
+    x42-gmsynth
+    x42-plugins
     yabridge
     yabridgectl
   ];
