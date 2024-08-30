@@ -83,6 +83,10 @@ in {
       "show-weekdate" = true;
     };
 
+    "org/gnome/desktop/sound" = {
+      "event-sounds" = false;
+    };
+
     "org/gnome/mutter" = {
       "edge-tiling" = true;
       "dynamic-workspaces" = false;
