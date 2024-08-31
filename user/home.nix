@@ -37,6 +37,7 @@
     ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix
+    ./programs/gnome-development.nix
     ./programs/javascript.nix
     ./programs/kitty.nix
     ./programs/maestral.nix
