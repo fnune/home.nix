@@ -31,6 +31,7 @@
   services.xserver.desktopManager.gnome.enable = true;
   services.unclutter.enable = true;
   services.geoclue2.enable = true;
+  services.flatpak.enable = true;
 
   # Pinentry and Kwallet integration
   services.pcscd.enable = true;
