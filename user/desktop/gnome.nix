@@ -12,7 +12,6 @@
     disable-extension-updates
     hide-cursor
     just-perfection
-    pano
     vitals
   ];
   extensions = extensionsStable ++ extensionsUnstable;
@@ -223,13 +222,6 @@ in {
     "org/gnome/desktop/peripherals/mouse" = {
       "natural-scroll" = false;
       "accel-profile" = "flat";
-    };
-
-    "org/gnome/shell/extensions/pano" = {
-      "history-length" = 500;
-      "paste-on-select" = false;
-      "play-audio-on-copy" = false;
-      "send-notification-on-copy" = false;
     };
 
     "org/gnome/shell/extensions/caffeine" = {
