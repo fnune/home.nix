@@ -99,7 +99,6 @@ in {
       };
 
       "kdeglobals" = {
-        "KScreen"."ScaleFactor".value = config.machine.scale;
         "General" = {
           "font".value = "Inter,12,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
           "menuFont".value = "Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
@@ -122,7 +121,6 @@ in {
       };
 
       "kwinrc" = {
-        "Xwayland"."Scale".value = config.machine.scale;
         "Desktops"."Number".value = 10;
         "Desktops"."Rows".value = 1;
 
@@ -133,17 +131,6 @@ in {
         "NightColor" = {
           "Active".value = true;
           "NightTemperature".value = 3600;
-        };
-
-        "Wayland" = {
-          # I don't like this but it fixes a Firefox address bar clipboard bug:
-          # https://bugzilla.mozilla.org/show_bug.cgi?id=1791417
-          "EnablePrimarySelection".value = true;
-        };
-
-        "Xwayland" = {
-          # Let Xwayland apps access some global shortcut combinations:
-          "XwaylandEavesdrops".value = "Combinations";
         };
       };
 

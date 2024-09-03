@@ -25,10 +25,13 @@
   };
   services.automatic-timezoned.enable = true;
 
-  # GNOME
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Plasma
+  services.displayManager = {
+    sddm.enable = true;
+    sddm.wayland.enable = true;
+    defaultSession = "plasma";
+  };
+  services.desktopManager.plasma6.enable = true;
   services.geoclue2.enable = true;
   services.flatpak.enable = true;
 

@@ -25,8 +25,8 @@
   imports = [
     ./desktop/applications.nix
     ./desktop/audio.nix
-    ./desktop/gnome.nix
     ./desktop/mono.nix
+    ./desktop/plasma.nix
     ./desktop/sans.nix
     ./options.nix
     ./programs/bat.nix
@@ -50,7 +50,6 @@
     ./programs/rbenv.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
-    ./programs/satty.nix
     ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
