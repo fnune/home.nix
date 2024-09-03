@@ -1,8 +1,6 @@
 local constants = require("constants")
 return {
   "NeogitOrg/neogit",
-  lazy = true,
-  cmd = "Neogit",
   opts = {
     disable_commit_confirmation = true,
     disable_hint = true,
