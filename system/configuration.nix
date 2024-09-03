@@ -37,6 +37,7 @@
 
   # Pinentry and Kwallet integration
   services.pcscd.enable = true;
+  programs.ssh.enableAskPassword = true;
   environment.sessionVariables.SSH_ASKPASS_REQUIRE = "prefer";
   programs.gnupg.agent = {
     enable = true;
