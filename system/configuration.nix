@@ -96,6 +96,7 @@
     zsh
 
     # Desktop-related
+    ddcui
     inter
     noto-fonts-cjk-sans
 
@@ -155,7 +156,6 @@
 
   # Control external monitor brightness
   services.udev.packages = [pkgs.ddcutil];
-  services.ddccontrol.enable = true;
   hardware.i2c.enable = true;
 
   # Eager OOM killer
