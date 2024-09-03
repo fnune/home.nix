@@ -10,6 +10,7 @@
     brightness-control-using-ddcutil
     caffeine
     disable-extension-updates
+    hide-cursor
     just-perfection
     vitals
   ];
@@ -27,6 +28,10 @@
     name = "MoreWaita";
     package = pkgs.unstable.morewaita-icon-theme;
   };
+  editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
+    LATEST_SCREENSHOT=$(ls -1v "${config.home.homeDirectory}/Pictures/Screenshots/"*.png | tail -n 1)
+    ${pkgs.unstable.satty}/bin/satty --filename "$LATEST_SCREENSHOT"
+  '';
 in {
   home = {
     packages = [icons.package] ++ extensions;
@@ -114,6 +119,9 @@ in {
       "switch-to-application-10" = [];
 
       "toggle-overview" = ["<Super>d"];
+
+      "screenshot" = ["Print"];
+      "show-screenshot-ui" = ["<Shift>Print"];
     };
 
     "org/gnome/desktop/wm/keybindings" = {
@@ -168,8 +176,7 @@ in {
     "org/gnome/settings-daemon/plugins/media-keys" = {
       "custom-keybindings" = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-full/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/screenshot-area/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/edit-latest-screenshot/"
       ];
     };
 
@@ -177,6 +184,12 @@ in {
       "binding" = "<Super>Return";
       "command" = config.terminal.bin;
       "name" = config.terminal.name;
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/edit-latest-screenshot" = {
+      "binding" = "<Ctrl>Print";
+      "command" = "${editLatestScreenshot}/bin/edit-latest-screenshot";
+      "name" = "Edit the latest screenshot";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
