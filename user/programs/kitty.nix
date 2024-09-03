@@ -26,7 +26,6 @@ in {
     clipboard_control write-clipboard write-primary no-append
     confirm_os_window_close 0
     enable_audio_bell no
-    mouse_hide_wait 1
     placement_strategy top-left
     hide_window_decorations yes
 

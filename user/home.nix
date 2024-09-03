@@ -34,6 +34,7 @@
     ./programs/direnv.nix
     ./programs/editorconfig.nix
     ./programs/fd.nix
+    ./programs/flameshot.nix
     ./programs/fortune.nix
     ./programs/fzf.nix
     ./programs/git.nix
@@ -50,7 +51,6 @@
     ./programs/rbenv.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
-    ./programs/satty.nix
     ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
