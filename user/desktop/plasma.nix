@@ -9,7 +9,7 @@
     package = pkgs.simp1e-cursors;
   };
 in {
-  home.packages = with pkgs.unstable; [gnome.gnome-backgrounds];
+  home.packages = with pkgs.unstable; [gnome-backgrounds];
 
   gtk.cursorTheme = cursor;
   home.pointerCursor = cursor;
