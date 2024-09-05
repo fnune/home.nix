@@ -24,7 +24,7 @@ return {
       init_options = { nix = { flake = { autoArchive = true } } },
     })
 
-    setup("tsserver", {
+    setup("ts_ls", {
       init_options = {
         hostInfo = "neovim",
         preferences = { importModuleSpecifierPreference = "non-relative" },

@@ -14,25 +14,25 @@
       deno
       lua-language-server
       nil
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages.yaml-language-server
       pyright
       ruff-lsp
       rustup
       tailwindcss-language-server
       taplo
+      typescript-language-server
+      vscode-langservers-extracted
+      yaml-language-server
       # Linters
       alejandra
       eslint
       eslint_d
       luajitPackages.luacheck
       nodePackages.jsonlint
-      nodePackages.stylelint
       ruff
       shellcheck
       sqlfluff
       statix
+      stylelint
       # Formatters
       biome
       nodePackages.prettier
