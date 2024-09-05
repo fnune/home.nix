@@ -89,6 +89,16 @@ in {
     };
 
     configFile = {
+      "breezerc" = {
+        "Common" = {
+          "OutlineIntensity".value = "OutlineOff";
+        };
+
+        "Windeco" = {
+          "TitleAlignment" = "AlignLeft";
+        };
+      };
+
       "kcminputrc" = {
         "Mouse"."cursorSize".value = cursor.size;
         "Mouse"."cursorTheme".value = cursor.name;
