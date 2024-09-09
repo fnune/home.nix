@@ -92,10 +92,17 @@ in {
       "breezerc" = {
         "Common" = {
           "OutlineIntensity".value = "OutlineOff";
+          "ShadowSize".value = "ShadowLarge";
+          "ShadowStrength".value = 215;
+        };
+
+        "Style" = {
+          "ToolBarDrawItemSeparator".value = false;
         };
 
         "Windeco" = {
-          "TitleAlignment" = "AlignLeft";
+          "ButtonSize".value = "ButtonSmall";
+          "TitleAlignment".value = "AlignLeft";
         };
       };
 
