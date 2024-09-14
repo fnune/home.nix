@@ -92,7 +92,6 @@
     util-linux
     wget
     wl-clipboard
-    xclip
     zsh
 
     # Desktop-related
