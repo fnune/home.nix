@@ -17,4 +17,5 @@
   systemd.packages = [pkgs.cloudflare-warp];
   systemd.targets.multi-user.wants = ["warp-svc.service"];
   systemd.user.services.warp-taskbar.enable = false;
+  systemd.user.services."app-com.cloudflare.WarpTaskbar@autostart".enable = false;
 }

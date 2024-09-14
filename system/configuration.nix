@@ -32,7 +32,6 @@
     defaultSession = "plasma";
   };
   services.desktopManager.plasma6.enable = true;
-  services.geoclue2.enable = true;
   services.flatpak.enable = true;
 
   # Pinentry and Kwallet integration

@@ -9,7 +9,4 @@
   boot.loader.timeout = 0;
   boot.loader.systemd-boot.enable = true;
   boot.plymouth.extraConfig = "DeviceScale=1";
-
-  services.tlp.enable = true;
-  services.power-profiles-daemon.enable = false;
 }
