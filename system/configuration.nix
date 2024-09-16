@@ -105,7 +105,6 @@
   programs.firefox = {
     # Browser configuration
     enable = true;
-    package = pkgs.firefox-bin;
     policies = {
       DisableAppUpdate = true;
       DisablePocket = true;
