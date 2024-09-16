@@ -183,9 +183,6 @@ in {
         };
         "Plugins" = {
           "appstreamEnabled".value = false;
-          "bookmarksEnabled".value = false;
-          "browserhistoryEnabled".value = false;
-          "browsertabsEnabled".value = false;
           "desktopsessionsEnabled".value = true;
           "helprunnerEnabled".value = false;
           "katesessionsEnabled".value = false;
