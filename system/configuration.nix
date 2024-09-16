@@ -33,6 +33,7 @@
   };
   services.desktopManager.plasma6.enable = true;
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   # Pinentry and Kwallet integration
   services.pcscd.enable = true;
