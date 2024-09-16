@@ -100,7 +100,7 @@
     noto-fonts-cjk-sans
 
     # Browsers
-    firefox-devedition-bin
+    firefox-devedition
     google-chrome
   ];
   programs.firefox = {

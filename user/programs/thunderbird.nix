@@ -2,7 +2,6 @@
   programs = {
     thunderbird = {
       enable = true;
-      package = pkgs.thunderbird-bin;
       profiles = {};
       settings = {
         # Search Settings -> Config Editor to grab these.
