@@ -9,7 +9,19 @@
     package = pkgs.simp1e-cursors;
   };
 in {
-  home.packages = with pkgs.unstable; [gnome-backgrounds];
+  home.packages =
+    (with pkgs.unstable; [
+      libreoffice-qt
+    ])
+    ++ (with pkgs.kdePackages; [
+      filelight
+      isoimagewriter
+      kalarm
+      kalk
+      kdeconnect-kde
+      kjournald
+      kweather
+    ]);
 
   gtk.cursorTheme = cursor;
   home.pointerCursor = cursor;

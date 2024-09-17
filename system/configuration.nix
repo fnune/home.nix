@@ -34,6 +34,7 @@
   services.desktopManager.plasma6.enable = true;
   services.flatpak.enable = true;
   xdg.portal.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [konsole];
 
   # Pinentry and Kwallet integration
   services.pcscd.enable = true;
