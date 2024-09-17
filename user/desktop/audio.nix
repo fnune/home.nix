@@ -3,6 +3,7 @@
     calf
     distrho
     drumgizmo
+    easyeffects
     guitarix
     gxplugins-lv2
     neural-amp-modeler-lv2
