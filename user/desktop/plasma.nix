@@ -11,9 +11,10 @@
 in {
   home.packages =
     (with pkgs.unstable; [
+      krita
       libreoffice-qt
     ])
-    ++ (with pkgs.kdePackages; [
+    ++ (with pkgs.unstable.kdePackages; [
       filelight
       isoimagewriter
       kalarm
