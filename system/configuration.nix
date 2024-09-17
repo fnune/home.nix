@@ -130,6 +130,7 @@
 
   # Steam, plus fixes for 32-bit apps
   programs.steam.enable = true;
+  environment.sessionVariables.STEAM_FORCE_DESKTOPUI_SCALING = "1.3";
 
   # Connectivity
   networking.networkmanager.enable = true;
