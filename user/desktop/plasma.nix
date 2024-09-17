@@ -18,7 +18,6 @@ in {
       isoimagewriter
       kalarm
       kalk
-      kdeconnect-kde
       kjournald
       kweather
     ]);
