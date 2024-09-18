@@ -15,7 +15,19 @@
     then "include ${rosePineConf}"
     else "";
 in {
-  home.packages = [pkgs.unstable.kitty];
+  nixpkgs.overlays = [
+    (final: prev: {
+      kitty = prev.kitty.overrideAttrs (o: {
+        postInstall =
+          (o.postInstall or "")
+          + ''
+            cp -f ${./whiskers.png} $out/share/icons/hicolor/256x256/apps/kitty.png
+            cp -f ${./whiskers.svg} $out/share/icons/hicolor/scalable/apps/kitty.svg
+          '';
+      });
+    })
+  ];
+  home.packages = with pkgs; [kitty];
   home.file.".config/kitty/kitty.conf".text = ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 

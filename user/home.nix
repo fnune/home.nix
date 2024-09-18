@@ -39,7 +39,7 @@
     ./programs/git.nix
     ./programs/gnome-development.nix
     ./programs/javascript.nix
-    ./programs/kitty.nix
+    ./programs/kitty/kitty.nix
     ./programs/maestral.nix
     ./programs/neovim/neovim.nix
     ./programs/nvd/nvd.nix
