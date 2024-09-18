@@ -118,6 +118,12 @@ in {
         };
       };
 
+      "plasmaparc" = {
+        "General" = {
+          "RaiseMaximumVolume".value = true;
+        };
+      };
+
       "kcminputrc" = {
         "Mouse"."cursorSize".value = cursor.size;
         "Mouse"."cursorTheme".value = cursor.name;
