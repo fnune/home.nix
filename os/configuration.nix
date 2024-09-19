@@ -66,9 +66,6 @@
   };
   nix.optimise.automatic = true;
 
-  # Help unpatched binaries find the libraries they need
-  programs.nix-ld.enable = true;
-
   # Control external monitor brightness
   services.udev.packages = [pkgs.ddcutil];
   hardware.i2c.enable = true;

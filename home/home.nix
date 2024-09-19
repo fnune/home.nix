@@ -17,11 +17,6 @@
     options = "--delete-older-than 10d";
   };
 
-  home.sessionVariables = {
-    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [pkgs.stdenv.cc.cc pkgs.openssl];
-    NIX_LD = lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
-  };
-
   imports = [
     ./desktop/applications.nix
     ./desktop/audio.nix
