@@ -1,16 +1,13 @@
 {pkgs, ...}: {
-  imports = [./plasma.nix ./audio.nix];
-
   system.stateVersion = "23.05";
 
-  boot = {
-    initrd.systemd.enable = true;
-    plymouth = {
-      enable = true;
-      theme = "spinner";
-      font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
-    };
-    kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
+  imports = [./plasma.nix ./browsers.nix ./audio.nix ./plymouth.nix ./work.nix];
+
+  # Define a user account
+  users.users.fausto = {
+    isNormalUser = true;
+    description = "Fausto Núñez Alberro";
+    extraGroups = ["networkmanager" "wheel" "dialout" "docker"];
   };
 
   # Region and language
@@ -34,90 +31,11 @@
     enableSSHSupport = true;
   };
 
-  # Enable CUPS to print documents
-  services.printing.enable = true;
-  security.sudo.extraConfig = "Defaults pwfeedback";
-
-  # Docker setup
-  virtualisation.docker.enable = true;
-
-  # Define a user account
-  users.users.fausto = {
-    isNormalUser = true;
-    description = "Fausto Núñez Alberro";
-    extraGroups = ["networkmanager" "wheel" "dialout" "docker" "jackaudio" "audio"];
-  };
-
-  # Configure the Nix package manager
+  # Package management
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
   services.flatpak.enable = true;
-
-  # Consider installing in home.nix instead
-  environment.systemPackages = with pkgs; [
-    # System and CLI
-    btop
-    ddcutil
-    dig
-    dmidecode
-    docker-compose
-    du-dust
-    eza
-    file
-    gcc
-    git
-    gnumake
-    gzip
-    jq
-    killall
-    lazydocker
-    lshw
-    lsof
-    man-pages
-    man-pages-posix
-    neovim
-    nmap
-    tree
-    unzip
-    util-linux
-    wget
-    wl-clipboard
-    zsh
-
-    # Desktop-related
-    ddcui
-    inter
-    noto-fonts-cjk-sans
-
-    # Browsers
-    firefox-devedition
-    google-chrome
-  ];
-  programs.firefox = {
-    # Browser configuration
-    enable = true;
-    policies = {
-      DisableAppUpdate = true;
-      DisablePocket = true;
-      DisplayBookmarksToolbar = "never";
-      Homepage.StartPage = "none";
-      PasswordManagerEnabled = false;
-      SearchEngines.Default = "DuckDuckGo";
-      Preferences = {
-        "browser.aboutConfig.showWarning" = false;
-        "browser.search.suggest.enabled" = false;
-        "browser.sessionstore.max_resumed_crashes" = -1;
-        "browser.translations.automaticallyPopup" = false;
-        "browser.urlbar.resultMenu.keyboardAccessible" = false;
-        "services.sync.username" = "fausto.nunez@mailbox.org";
-        "widget.use-xdg-desktop-portal" = true;
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-      };
-    };
-  };
-  environment.sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
-  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
 
   # Steam, plus fixes for 32-bit apps
   programs.steam.enable = true;
@@ -129,6 +47,12 @@
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
   services.tailscale.enable = false;
+
+  # Enable CUPS to print documents
+  services.printing.enable = true;
+
+  # Docker setup
+  virtualisation.docker.enable = true;
 
   # Enable additional man pages (see also pkgs.man-pages-posix)
   documentation.dev.enable = true;
@@ -153,4 +77,41 @@
 
   # Allows e.g. using the right file picker
   xdg.portal.enable = true;
+
+  # Show stars while entering sudo password
+  security.sudo.extraConfig = "Defaults pwfeedback";
+
+  # Packages I want always to be available
+  environment.systemPackages = with pkgs; [
+    btop
+    ddcui
+    ddcutil
+    dig
+    dmidecode
+    docker-compose
+    du-dust
+    eza
+    file
+    gcc
+    git
+    gnumake
+    gzip
+    inter
+    jq
+    killall
+    lazydocker
+    lshw
+    lsof
+    man-pages
+    man-pages-posix
+    neovim
+    nmap
+    noto-fonts-cjk-sans
+    tree
+    unzip
+    util-linux
+    wget
+    wl-clipboard
+    zsh
+  ];
 }

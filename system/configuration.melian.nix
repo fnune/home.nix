@@ -1,9 +1,5 @@
 {...}: {
-  imports = [
-    ./configuration.nix
-    ./work.nix
-    ./hardware-configuration.melian.nix
-  ];
+  imports = [./configuration.nix ./hardware-configuration.melian.nix];
 
   networking.hostName = "melian";
   boot.loader.timeout = 0;

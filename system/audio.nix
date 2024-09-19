@@ -1,4 +1,5 @@
 {...}: {
+  users.users.fausto.extraGroups = ["jackaudio" "audio"];
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services = {

@@ -1,9 +1,5 @@
 {pkgs, ...}: {
-  imports = [
-    ./configuration.nix
-    ./work.nix
-    ./hardware-configuration.feanor.nix
-  ];
+  imports = [./configuration.nix ./hardware-configuration.feanor.nix];
 
   networking.hostName = "feanor";
 
