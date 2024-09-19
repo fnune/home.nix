@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$IN_NIX_SHELL" ]; then
-  use flake ~/.home.nix/user/work/nix/miniforge
+  use flake ~/.home.nix/home/work/nix/miniforge
 fi
 
 export CELERY_WORKER_CONCURRENCY=3

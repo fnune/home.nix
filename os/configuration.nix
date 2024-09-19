@@ -18,7 +18,7 @@
   console.keyMap = "es";
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = import ../user/locales.nix;
+    extraLocaleSettings = import ../home/locales.nix;
   };
   services.automatic-timezoned.enable = true;
 

@@ -28,11 +28,11 @@
       makeNixosConfiguration = machineModule:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [./system/configuration.nix machineModule];
+          modules = [./os/configuration.nix machineModule];
         };
     in {
-      "feanor" = makeNixosConfiguration ./system/configuration.feanor.nix;
-      "melian" = makeNixosConfiguration ./system/configuration.melian.nix;
+      "feanor" = makeNixosConfiguration ./os/configuration.feanor.nix;
+      "melian" = makeNixosConfiguration ./os/configuration.melian.nix;
     };
 
     homeConfigurations = let
@@ -50,14 +50,14 @@
             overlays = [unstableOverlay];
           };
           modules = [
-            ./user/home.nix
+            ./home/home.nix
             plasmaManager
             machineModule
           ];
         };
     in {
-      "fausto@feanor" = makeHomeConfiguration ./user/home.feanor.nix;
-      "fausto@melian" = makeHomeConfiguration ./user/home.melian.nix;
+      "fausto@feanor" = makeHomeConfiguration ./home/home.feanor.nix;
+      "fausto@melian" = makeHomeConfiguration ./home/home.melian.nix;
     };
   };
 }
