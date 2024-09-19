@@ -62,6 +62,8 @@ in
 
       eval "$(conda shell.zsh hook)"
       conda activate memfault || mamba env create --file environment.yml -n memfault
+
+      source .venv/bin/activate
     '';
 
     runScript = "$SHELL -c \"$MEMFAULT_LAUNCH_COMMAND\"";
