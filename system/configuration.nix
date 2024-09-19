@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./gsconnect.nix ./audio.nix];
+  imports = [./plasma.nix ./audio.nix];
 
   system.stateVersion = "23.05";
 
@@ -25,19 +25,7 @@
   };
   services.automatic-timezoned.enable = true;
 
-  # Plasma
-  services.displayManager = {
-    sddm.enable = true;
-    sddm.wayland.enable = true;
-    defaultSession = "plasma";
-  };
-  services.desktopManager.plasma6.enable = true;
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [konsole];
-  programs.kdeconnect.enable = true;
-
-  # Pinentry and Kwallet integration
+  # Pinentry integration
   services.pcscd.enable = true;
   programs.ssh.enableAskPassword = true;
   environment.sessionVariables.SSH_ASKPASS_REQUIRE = "prefer";
@@ -64,6 +52,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  services.flatpak.enable = true;
 
   # Consider installing in home.nix instead
   environment.systemPackages = with pkgs; [
@@ -161,4 +150,7 @@
 
   # Eager OOM killer
   services.earlyoom.enable = true;
+
+  # Allows e.g. using the right file picker
+  xdg.portal.enable = true;
 }
