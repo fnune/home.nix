@@ -12,10 +12,6 @@
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
   news.display = "silent";
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 10d";
-  };
 
   imports = [
     ./desktop/applications.nix
