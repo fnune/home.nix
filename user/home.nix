@@ -42,7 +42,6 @@
     ./programs/kitty/kitty.nix
     ./programs/maestral.nix
     ./programs/neovim/neovim.nix
-    ./programs/nvd/nvd.nix
     ./programs/obs-studio.nix
     ./programs/playwright.nix
     ./programs/psql/psql.nix

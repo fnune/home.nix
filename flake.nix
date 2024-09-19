@@ -56,8 +56,8 @@
           ];
         };
     in {
-      "feanor" = makeHomeConfiguration ./user/home.feanor.nix;
-      "melian" = makeHomeConfiguration ./user/home.melian.nix;
+      "fausto@feanor" = makeHomeConfiguration ./user/home.feanor.nix;
+      "fausto@melian" = makeHomeConfiguration ./user/home.melian.nix;
     };
   };
 }

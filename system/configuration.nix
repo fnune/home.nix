@@ -57,11 +57,12 @@
   # Enable additional man pages (see also pkgs.man-pages-posix)
   documentation.dev.enable = true;
 
-  # Clean up old configurations regularly
-  nix.gc = {
-    automatic = true;
-    randomizedDelaySec = "14m";
-    options = "--delete-older-than 10d";
+  # Update utility & cleaning up of old configurations
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 10d --keep 10";
+    flake = "/home/fausto/.home.nix/";
   };
   nix.optimise.automatic = true;
 
