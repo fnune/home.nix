@@ -5,7 +5,6 @@
   ];
 
   programs.firefox = {
-    # Browser configuration
     enable = true;
     policies = {
       DisableAppUpdate = true;
