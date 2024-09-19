@@ -10,7 +10,7 @@
   };
   wallpaper-sddm = pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
     [General]
-    background=${wallpaper}/share/backgrounds/kedi.jpg
+    background=${wallpaper}/share/wallpapers/kedi.jpg
   '';
 in {
   services.displayManager = {
