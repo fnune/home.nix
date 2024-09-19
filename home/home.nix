@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{...}: {
   home = {
     username = "fausto";
     homeDirectory = "/home/fausto";
