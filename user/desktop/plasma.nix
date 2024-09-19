@@ -19,6 +19,7 @@ in {
       isoimagewriter
       kalarm
       kalk
+      kcolorchooser
       kjournald
       kweather
     ]);
