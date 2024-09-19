@@ -36,14 +36,14 @@
         inherit system;
       };
     };
+    nixpkgsOverlayModule = {...}: {nixpkgs.overlays = [nixpkgsOverlay];};
   in {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
     nixosConfigurations = let
       makeNixosConfiguration = machineModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [./os/configuration.nix machineModule];
-          overlays = [nixpkgsOverlay];
+          modules = [./os/configuration.nix machineModule nixpkgsOverlayModule];
         };
     in {
       "feanor" = makeNixosConfiguration ./os/configuration.feanor.nix;
