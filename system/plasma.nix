@@ -4,8 +4,8 @@
     src = ../assets;
     dontUnpack = true;
     installPhase = ''
-      mkdir -p $out/share/backgrounds
-      cp $src/kedi.jpg $out/share/backgrounds/kedi.jpg
+      mkdir -p $out/share/wallpapers
+      cp $src/kedi.jpg $out/share/wallpapers/kedi.jpg
     '';
   };
   wallpaper-sddm = pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
@@ -32,6 +32,7 @@ in {
 
   environment.systemPackages = [
     pkgs.simp1e-cursors
+    wallpaper
     wallpaper-sddm
   ];
 }
