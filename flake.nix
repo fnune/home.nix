@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,16 +20,30 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    nixpkgs-development,
     home-manager,
     plasma-manager,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+    nixpkgsOverlay = final: prev: {
+      unstable = import nixpkgs-unstable {
+        inherit (prev) config;
+        inherit system;
+      };
+      development = import nixpkgs-development {
+        inherit (prev) config;
+        inherit system;
+      };
+    };
+  in {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
     nixosConfigurations = let
       makeNixosConfiguration = machineModule:
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [./os/configuration.nix machineModule];
+          overlays = [nixpkgsOverlay];
         };
     in {
       "feanor" = makeNixosConfiguration ./os/configuration.feanor.nix;
@@ -37,17 +52,11 @@
 
     homeConfigurations = let
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
-      unstableOverlay = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit (prev) config;
-          system = "x86_64-linux";
-        };
-      };
       makeHomeConfiguration = machineModule:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            overlays = [unstableOverlay];
+            inherit system;
+            overlays = [nixpkgsOverlay];
           };
           modules = [
             ./home/home.nix
