@@ -168,6 +168,10 @@ in {
           "Active".value = true;
           "NightTemperature".value = 3600;
         };
+
+        "Windows" = {
+          "BorderlessMaximizedWindows".value = true;
+        };
       };
 
       "kxkbrc" = {
