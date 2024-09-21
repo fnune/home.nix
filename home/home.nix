@@ -30,6 +30,7 @@
     ./programs/maestral.nix
     ./programs/neovim/neovim.nix
     ./programs/obs-studio.nix
+    ./programs/pcloud.nix
     ./programs/playwright.nix
     ./programs/psql/psql.nix
     ./programs/python.nix
