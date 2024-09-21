@@ -12,7 +12,6 @@
     [General]
     background=${wallpaper}/share/wallpapers/kedi.jpg
   '';
-  koi = pkgs.kdePackages.callPackage ./koi.nix {};
 in {
   services.displayManager = {
     defaultSession = "plasma";
@@ -32,7 +31,7 @@ in {
   programs.kdeconnect.enable = true;
 
   environment.systemPackages = [
-    koi
+    pkgs.development.kdePackages.koi
     pkgs.simp1e-cursors
     wallpaper
     wallpaper-sddm
