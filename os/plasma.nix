@@ -5,12 +5,12 @@
     dontUnpack = true;
     installPhase = ''
       mkdir -p $out/share/wallpapers
-      cp $src/kedi.jpg $out/share/wallpapers/kedi.jpg
+      cp -R $src/Kedi $out/share/wallpapers/Kedi
     '';
   };
   wallpaper-sddm = pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
     [General]
-    background=${wallpaper}/share/wallpapers/kedi.jpg
+    background=${wallpaper}/share/wallpapers/Kedi/contents/images/5120x2880.jpg
   '';
 in {
   services.displayManager = {
