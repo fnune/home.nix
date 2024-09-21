@@ -105,6 +105,7 @@
     neovim
     nmap
     noto-fonts-cjk-sans
+    pciutils
     tree
     unzip
     util-linux
