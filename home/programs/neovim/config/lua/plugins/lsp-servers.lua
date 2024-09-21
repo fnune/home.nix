@@ -24,6 +24,7 @@ return {
       setup("pyright", {})
       setup("ruff_lsp", {})
       setup("rust_analyzer", {})
+      setup("stylelint_lsp", {})
       setup("tailwindcss", {})
       setup("taplo", {})
 

@@ -16,6 +16,7 @@
       pyright
       ruff-lsp
       rustup
+      stylelint-lsp
       tailwindcss-language-server
       taplo
       typescript-language-server
