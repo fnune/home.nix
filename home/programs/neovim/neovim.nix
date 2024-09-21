@@ -11,7 +11,6 @@
       }))
       # LSPs
       clang-tools
-      deno
       lua-language-server
       nil
       pyright

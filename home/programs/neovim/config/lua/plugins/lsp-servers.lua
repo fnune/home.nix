@@ -21,6 +21,7 @@ return {
       setup("clangd", {})
       setup("eslint", {})
       setup("gdscript", {})
+      setup("pyright", {})
       setup("ruff_lsp", {})
       setup("rust_analyzer", {})
       setup("tailwindcss", {})
@@ -40,16 +41,6 @@ return {
 
       setup("lua_ls", {
         settings = { Lua = { diagnostics = { globals = { "vim" } } } },
-      })
-
-      setup("pyright", {
-        root_dir = function()
-          return vim.fn.getcwd()
-        end,
-      })
-
-      setup("denols", {
-        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
       })
     end,
   },
