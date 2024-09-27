@@ -48,9 +48,6 @@
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
   services.tailscale.enable = false;
 
-  # Enable CUPS to print documents
-  services.printing.enable = true;
-
   # Docker setup
   virtualisation.docker.enable = true;
 
