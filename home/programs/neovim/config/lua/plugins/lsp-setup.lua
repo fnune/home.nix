@@ -16,11 +16,9 @@ return {
       local live_rename = require("live-rename")
 
       vim.diagnostic.config({
-        virtual_text = { severity = vim.diagnostic.severity.ERROR, source = "if_many", spacing = 1 },
-        underline = true,
-        severity_sort = true,
-        signs = { severity = vim.diagnostic.severity.ERROR },
         float = { border = constants.floating_border },
+        severity_sort = true,
+        signs = false,
       })
 
       vim.lsp.handlers["textDocument/hover"] =
