@@ -55,16 +55,16 @@
     },
     "nixpkgs-development": {
       "locked": {
-        "lastModified": 1727327642,
-        "narHash": "sha256-q43ysdHNenlhFruIztckNieB3bmS1SL7IvfswYHmGPs=",
-        "owner": "alexyao2015",
+        "lastModified": 1726909070,
+        "narHash": "sha256-BlFwcJsN3RmEHL1IZp4Z93D2r293jX46hqeJBaX7q4E=",
+        "owner": "fnune",
         "repo": "nixpkgs",
-        "rev": "ae94af3add8f90e01e26669244b895ae2763462d",
+        "rev": "37b1de296ad4f68042da69cc6731b5784b7957cb",
         "type": "github"
       },
       "original": {
-        "owner": "alexyao2015",
-        "ref": "fix/koi",
+        "owner": "fnune",
+        "ref": "fnune/testing",
         "repo": "nixpkgs",
         "type": "github"
       }
