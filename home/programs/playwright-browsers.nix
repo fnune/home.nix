@@ -11,7 +11,7 @@
       owner = "Microsoft";
       repo = "playwright";
       rev = "v${version}";
-      sha256 = sha256;
+      inherit sha256;
     };
     installPhase = ''
       mkdir -p $out
