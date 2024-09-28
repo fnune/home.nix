@@ -19,7 +19,6 @@ return {
 
       setup("biome", {})
       setup("clangd", {})
-      setup("eslint", {})
       setup("gdscript", {})
       setup("ocamllsp", {})
       setup("pyright", {})
