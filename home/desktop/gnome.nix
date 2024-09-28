@@ -28,6 +28,7 @@
     name = "MoreWaita";
     package = pkgs.unstable.morewaita-icon-theme;
   };
+  fontSize = 11;
   editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
     LATEST_SCREENSHOT=$(ls -1v "${config.home.homeDirectory}/Pictures/Screenshots/"*.png | tail -n 1)
     ${pkgs.unstable.satty}/bin/satty --filename "$LATEST_SCREENSHOT"
@@ -76,6 +77,9 @@ in {
       "icon-theme" = icons.name;
       "show-battery-percentage" = true;
       "text-scaling-factor" = config.machine.scale;
+      "font-name" = "${config.fontconfig.sans} ${builtins.toString fontSize}";
+      "document-font-name" = "${config.sansFont} ${builtins.toString fontSize}";
+      "monospace-font-name" = "${config.fontconfig.mono} ${builtins.toString fontSize - 1}";
     };
 
     "org/gnome/desktop/calendar" = {
@@ -90,6 +94,7 @@ in {
       "edge-tiling" = true;
       "dynamic-workspaces" = false;
       "overlay-key" = "";
+      "titlebar-font" = "${config.fontconfig.sans} Bold ${builtins.toString fontSize}";
     };
 
     "org/gnome/desktop/wm/preferences" = {

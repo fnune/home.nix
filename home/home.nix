@@ -12,9 +12,8 @@
   imports = [
     ./desktop/applications.nix
     ./desktop/audio.nix
-    ./desktop/mono.nix
+    ./desktop/fonts.nix
     ./desktop/plasma.nix
-    ./desktop/sans.nix
     ./options.nix
     ./programs/bat.nix
     ./programs/chess.nix

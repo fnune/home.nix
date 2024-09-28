@@ -8,6 +8,7 @@
     size = 32;
     package = pkgs.simp1e-cursors;
   };
+  fontSize = "12";
 in {
   home.packages =
     (with pkgs.unstable; [
@@ -136,13 +137,16 @@ in {
 
       "kdeglobals" = {
         "General" = {
-          "font".value = "Inter,12,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
-          "menuFont".value = "Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-          "smallestReadableFont".value = "Inter,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
-          "toolBarFont".value = "Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+          "font".value = "${config.fontconfig.sans},${fontSize},-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
+          "menuFont".value = "${config.fontconfig.sans},${fontSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+          "smallestReadableFont".value = "${config.fontconfig.sans},10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
+          "toolBarFont".value = "${config.fontconfig.sans},${fontSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+          "XftAntialias".value = config.fontconfig.antialias;
+          "XftHintStyle".value = config.fontconfig.hinting;
+          "XftSubPixel".value = config.fontconfig.subpixel;
         };
         "WM" = {
-          "activeFont".value = "Inter,12,-1,5,600,0,0,0,0,0,0,0,0,0,0,1,Semi Bold";
+          "activeFont".value = "${config.fontconfig.sans},${fontSize},-1,5,600,0,0,0,0,0,0,0,0,0,0,1,Semi Bold";
         };
         "KDE" = {
           "AnimationDurationFactor".value = 0.27;

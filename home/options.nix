@@ -16,6 +16,34 @@
         description = "The display scaling that this machine uses on its primary monitor";
       };
     };
+    # See https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
+    fontconfig = {
+      sans = lib.mkOption {
+        type = lib.types.str;
+        default = "Inter";
+        description = "Sans font to use for the desktop";
+      };
+      mono = lib.mkOption {
+        type = lib.types.str;
+        default = "SFMono Nerd Font";
+        description = "Monospace font to use for the desktop and terminal";
+      };
+      subpixel = lib.mkOption {
+        type = lib.types.str;
+        default = "rgb";
+        description = "Subpixel rendering method: 'none', 'rgb', 'bgr', 'vrgb', 'vbgr'";
+      };
+      hinting = lib.mkOption {
+        type = lib.types.str;
+        default = "hintslight";
+        description = "Hinting: 'hintnone', 'hintslight', 'hintmedium', 'hintfull'";
+      };
+      antialias = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Antialiasing";
+      };
+    };
     colorscheme = lib.mkOption {
       type = lib.types.str;
       default = "vscode";

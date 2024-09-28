@@ -13,7 +13,7 @@
     save-after-copy = true
 
     [font]
-    family = "Inter"
+    family = "${config.fontconfig.sans}"
     style = "Regular"
 
     [color-palette]
