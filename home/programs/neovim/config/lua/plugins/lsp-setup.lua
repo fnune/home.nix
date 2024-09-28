@@ -4,16 +4,14 @@ return {
     "folke/trouble.nvim",
     opts = {},
     cmd = "Trouble",
-    init = function()
-      local m = require("mapx")
-      m.nmap("<leader>x", ":Trouble diagnostics<cr>", { silent = true }, "List diagnostics")
-    end,
+    keys = {
+      { "<leader>x", ":Trouble diagnostics<cr>", desc = "List diagnostics", silent = true },
+    },
   },
   {
     "neovim/nvim-lspconfig",
     init = function()
       local constants = require("constants")
-      local live_rename = require("live-rename")
 
       vim.diagnostic.config({
         float = { border = constants.floating_border },
@@ -44,60 +42,90 @@ return {
           return notify(msg, ...)
         end
       end
-
-      local m = require("mapx")
-      local bufopts = { noremap = true, silent = true }
-
-      m.nmap("K", function()
-        vim.lsp.buf.hover()
-      end, bufopts, "Show documentation")
-
-      m.nmap("<leader>k", function()
-        vim.diagnostic.goto_prev()
-      end, "Previous diagnostic")
-      m.nmap("<leader>j", function()
-        vim.diagnostic.goto_next()
-      end, "Next diagnostic")
-
-      m.nmap("<leader>r", function()
-        live_rename.rename()
-      end, bufopts, "Rename symbol")
-
-      m.nname("g", "Go to")
-
-      -- Go to definition
-      m.nmap("gd", function()
-        vim.lsp.buf.definition()
-      end, bufopts, "Go to definition")
-
-      -- Go to declaration
-      m.nmap("gD", function()
-        vim.lsp.buf.declaration()
-      end, bufopts, "Go to declaration")
-
-      -- Go to implementation
-      m.nmap("gi", function()
-        vim.lsp.buf.implementation()
-      end, bufopts, "Go to implementation")
-
-      -- Go to type definition
-      m.nmap("gT", function()
-        vim.lsp.buf.type_definition()
-      end, bufopts, "Go to type definition")
-
-      -- Go to references
-      m.nmap("gr", function()
-        vim.lsp.buf.references()
-      end, bufopts, "Show references")
-
-      m.nname("<leader>a", "Code actions")
-      m.nmap("<leader>ac", function()
-        vim.lsp.buf.code_action()
-      end, "Apply code action (normal)")
-      m.xmap("<leader>ac", function()
-        vim.lsp.buf.code_action()
-      end, "Apply code action (visual)")
     end,
+    keys = {
+      {
+        "K",
+        function()
+          vim.lsp.buf.hover()
+        end,
+        desc = "Show documentation",
+        silent = true,
+      },
+      {
+        "<leader>k",
+        function()
+          vim.diagnostic.goto_prev()
+        end,
+        desc = "Previous diagnostic",
+        silent = true,
+      },
+      {
+        "<leader>j",
+        function()
+          vim.diagnostic.goto_next()
+        end,
+        desc = "Next diagnostic",
+        silent = true,
+      },
+      {
+        "<leader>r",
+        function()
+          require("live-rename").rename()
+        end,
+        desc = "Rename symbol",
+        silent = true,
+      },
+      {
+        "gd",
+        function()
+          vim.lsp.buf.definition()
+        end,
+        desc = "Go to definition",
+        silent = true,
+      },
+      {
+        "gD",
+        function()
+          vim.lsp.buf.declaration()
+        end,
+        desc = "Go to declaration",
+        silent = true,
+      },
+      {
+        "gi",
+        function()
+          vim.lsp.buf.implementation()
+        end,
+        desc = "Go to implementation",
+        silent = true,
+      },
+      {
+        "gT",
+        function()
+          vim.lsp.buf.type_definition()
+        end,
+        desc = "Go to type definition",
+        silent = true,
+      },
+      {
+        "gr",
+        function()
+          vim.lsp.buf.references()
+        end,
+        desc = "Show references",
+        silent = true,
+      },
+      {
+        "<leader>ac",
+        function()
+          vim.lsp.buf.code_action()
+        end,
+        mode = { "n", "x" },
+        desc = "Apply code action (normal)",
+        silent = true,
+      },
+    },
   },
   {
     "ray-x/lsp_signature.nvim",
@@ -113,16 +141,25 @@ return {
         hint_enable = false,
         toggle_key = toggle_key,
       })
-
-      local m = require("mapx")
-
-      m.inoremap(toggle_key, function()
-        signature.toggle_float_win()
-      end, "Toggle LSP function signature help in insert mode")
-
-      m.nnoremap(toggle_key, function()
-        signature.toggle_float_win()
-      end, "Toggle LSP function signature help in normal mode")
     end,
+    keys = {
+      {
+        "<C-s>",
+        function()
+          require("lsp_signature").toggle_float_win()
+        end,
+        mode = "i",
+        desc = "Toggle LSP function signature help in insert mode",
+        silent = true,
+      },
+      {
+        "<C-s>",
+        function()
+          require("lsp_signature").toggle_float_win()
+        end,
+        desc = "Toggle LSP function signature help in normal mode",
+        silent = true,
+      },
+    },
   },
 }

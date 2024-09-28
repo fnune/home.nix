@@ -14,12 +14,10 @@ return {
       disable_netrw = true,
       actions = { file_popup = { open_win_config = { border = constants.floating_border } } },
     },
-    init = function()
-      local m = require("mapx")
-
-      m.nmap("<leader>e", ":NvimTreeToggle<cr>", { silent = true }, "Toggle the file explorer view")
-      m.nmap("<leader>E", ":NvimTreeFindFile<cr>", { silent = true }, "Find the current file in the explorer")
-    end,
+    keys = {
+      { "<leader>e", ":NvimTreeToggle<cr>", desc = "Toggle the file explorer view", silent = true },
+      { "<leader>E", ":NvimTreeFindFile<cr>", desc = "Find the current file in the explorer", silent = true },
+    },
   },
   {
     "antosha417/nvim-lsp-file-operations",

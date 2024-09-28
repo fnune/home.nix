@@ -46,12 +46,14 @@ return {
       format_on_save = { lsp_format = "fallback" },
     })
   end,
-  init = function()
-    local m = require("mapx")
-    local conform = require("conform")
-
-    m.nmap("<leader>p", function()
-      conform.format({ async = true, lsp_fallback = true })
-    end, { silent = true }, "Format document")
-  end,
+  keys = {
+    {
+      "<leader>p",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      desc = "Format document",
+      silent = true,
+    },
+  },
 }

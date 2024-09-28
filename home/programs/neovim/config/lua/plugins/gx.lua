@@ -5,9 +5,8 @@ return {
   config = true,
   init = function()
     vim.g.netrw_nogx = 1
-
-    local m = require("mapx")
-    m.nmap("gx", ":Browse<CR>", { silent = true }, "Browse")
-    m.xmap("gx", ":Browse<CR>", { silent = true }, "Browse")
   end,
+  keys = {
+    { "gx", ":Browse<CR>", mode = { "n", "x" }, desc = "Browse", silent = true },
+  },
 }

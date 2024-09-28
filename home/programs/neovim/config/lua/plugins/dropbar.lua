@@ -5,12 +5,4 @@ return {
     local dropbar = require("dropbar")
     dropbar.setup({})
   end,
-  init = function()
-    local dropbar_api = require("dropbar.api")
-
-    local m = require("mapx")
-    m.nmap("<leader>B", function()
-      dropbar_api.pick()
-    end, "Navigate breadcrumbs")
-  end,
 }

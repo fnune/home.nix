@@ -5,9 +5,6 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    local m = require("mapx")
-    m.nmap("<leader>T", "<cmd>AerialToggle!<cr>", "Code outline window")
-
     local constants = require("constants")
     local aerial = require("aerial")
     aerial.setup({
@@ -15,4 +12,7 @@ return {
       filter_kind = false,
     })
   end,
+  keys = {
+    { "<leader>T", "<cmd>AerialToggle!<cr>", desc = "Code outline window", silent = true },
+  },
 }

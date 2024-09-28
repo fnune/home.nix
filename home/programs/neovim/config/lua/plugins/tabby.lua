@@ -3,25 +3,6 @@ return {
   event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
-    local m = require("mapx")
-    m.nmap("<M-1>", "1gt", { silent = false }, "Open tab 1")
-    m.nmap("<M-2>", "2gt", { silent = false }, "Open tab 2")
-    m.nmap("<M-3>", "3gt", { silent = false }, "Open tab 3")
-    m.nmap("<M-4>", "4gt", { silent = false }, "Open tab 4")
-    m.nmap("<M-5>", "5gt", { silent = false }, "Open tab 5")
-    m.nmap("<M-6>", "6gt", { silent = false }, "Open tab 6")
-    m.nmap("<M-7>", "7gt", { silent = false }, "Open tab 7")
-    m.nmap("<M-8>", "8gt", { silent = false }, "Open tab 8")
-    m.nmap("<M-9>", "9gt", { silent = false }, "Open tab 9")
-    m.nmap("<M-0>", ":tablast<cr>", { silent = false }, "Open the last tab")
-
-    m.nmap("<S-h>", ":tabprevious<cr>", { silent = true }, "Previous tab")
-    m.nmap("<S-l>", ":tabnext<cr>", { silent = true }, "Next tab")
-
-    m.nmap("<leader>H", ":0tabnew<cr>", { silent = true }, "Create a new last tab")
-    m.nmap("<leader>L", ":$tabnew<cr>", { silent = true }, "Create a new first tab")
-    m.nmap("<leader>O", ":$tabe %<cr>", { silent = true }, "Open this buffer in a new tab")
-
     vim.o.showtabline = 1
 
     local theme = {
@@ -61,4 +42,18 @@ return {
       end,
     })
   end,
+  keys = {
+    { "<M-1>", "1gt", desc = "Open tab 1", silent = false },
+    { "<M-2>", "2gt", desc = "Open tab 2", silent = false },
+    { "<M-3>", "3gt", desc = "Open tab 3", silent = false },
+    { "<M-4>", "4gt", desc = "Open tab 4", silent = false },
+    { "<M-5>", "5gt", desc = "Open tab 5", silent = false },
+    { "<M-6>", "6gt", desc = "Open tab 6", silent = false },
+    { "<M-7>", "7gt", desc = "Open tab 7", silent = false },
+    { "<M-8>", "8gt", desc = "Open tab 8", silent = false },
+    { "<M-9>", "9gt", desc = "Open tab 9", silent = false },
+    { "<M-0>", ":tablast<cr>", desc = "Open the last tab", silent = false },
+    { "<S-h>", ":tabprevious<cr>", desc = "Previous tab", silent = true },
+    { "<S-l>", ":tabnext<cr>", desc = "Next tab", silent = true },
+  },
 }

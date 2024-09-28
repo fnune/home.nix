@@ -13,24 +13,6 @@ return {
     },
   },
   init = function()
-    local m = require("mapx")
-
-    m.nname("<leader>h", "Repository history")
-    m.nmap("<leader>hq", ":DiffviewClose<cr>", { silent = true }, "Close diff view")
-    m.nmap("<leader>hh", ":DiffviewFileHistory %<cr>", { silent = true }, "File history")
-    m.nmap(
-      "<leader>hO",
-      ":call DiffviewOpenCommitUnderCursor()<cr>",
-      { silent = true },
-      "Diff for the commit under the cursor"
-    )
-    m.nmap(
-      "<leader>hH",
-      ":call DiffviewFileHistoryFromCommitUnderCursor()<cr>",
-      { silent = true },
-      "File history starting from the commit under the cursor"
-    )
-
     -- See https://github.com/sindrets/diffview.nvim/issues/196#issuecomment-1244133866
     vim.cmd([[
       function DiffviewOpenCommitUnderCursor()
@@ -42,4 +24,20 @@ return {
       endfunction
     ]])
   end,
+  keys = {
+    { "<leader>hq", ":DiffviewClose<cr>", desc = "Close diff view", silent = true },
+    { "<leader>hh", ":DiffviewFileHistory %<cr>", desc = "File history", silent = true },
+    {
+      "<leader>hO",
+      ":call DiffviewOpenCommitUnderCursor()<cr>",
+      desc = "Diff for the commit under the cursor",
+      silent = true,
+    },
+    {
+      "<leader>hH",
+      ":call DiffviewFileHistoryFromCommitUnderCursor()<cr>",
+      desc = "File history starting from the commit under the cursor",
+      silent = true,
+    },
+  },
 }

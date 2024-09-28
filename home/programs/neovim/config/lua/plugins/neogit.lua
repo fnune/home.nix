@@ -26,9 +26,7 @@ return {
       "NeogitPushPopup--force-with-lease",
     },
   },
-  init = function()
-    local m = require("mapx")
-
-    m.nmap("<leader>g", ":Neogit<cr>", { silent = true }, "Open neogit")
-  end,
+  keys = {
+    { "<leader>g", ":Neogit<cr>", desc = "Open neogit", silent = true },
+  },
 }

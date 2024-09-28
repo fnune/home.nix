@@ -5,55 +5,6 @@ return {
     lazy = true,
     version = "0.7.0",
     init = function()
-      local m = require("mapx")
-      local dap = require("dap")
-      local dap_widgets = require("dap.ui.widgets")
-
-      m.nname("<leader>d", "Debugging")
-      m.nmap("<leader>db", function()
-        dap.toggle_breakpoint()
-      end, "Toggle breakpoint")
-      m.nmap("<leader>dc", function()
-        dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-      end, "Add a conditional breakpoint")
-      m.nmap("<leader>dm", function()
-        dap.set_breakpoint(nil, nil, vim.fn.input("Log-point message: "))
-      end, "Add a log-point message")
-      m.nmap("<leader>dh", function()
-        dap_widgets.hover()
-      end, "Show value")
-      m.nmap("<leader>dp", function()
-        dap_widgets.preview()
-      end, "Preview value")
-
-      m.nmap("<F1>", function()
-        dap.disconnect()
-      end, "Debugger: disconnect")
-      m.nmap("<F4>", function()
-        dap.run_last()
-      end, "Debugger: run last")
-      m.nmap("<F5>", function()
-        dap.continue()
-      end, "Debugger: continue")
-      m.nmap("<F6>", function()
-        dap.pause()
-      end, "Debugger: pause")
-      m.nmap("<F7>", function()
-        dap.terminate()
-      end, "Debugger: terminate")
-      m.nmap("<F9>", function()
-        dap.step_back()
-      end, "Debugger: step back")
-      m.nmap("<F10>", function()
-        dap.step_over()
-      end, "Debugger: step over")
-      m.nmap("<F11>", function()
-        dap.step_into()
-      end, "Debugger: step into")
-      m.nmap("<F12>", function()
-        dap.step_out()
-      end, "Debugger: step out")
-
       vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "DiagnosticError", linehl = "", numhl = "" })
       vim.fn.sign_define(
         "DapBreakpointCondition",
@@ -69,6 +20,106 @@ return {
         { text = " ", texthl = "DiagnosticHint", linehl = "CursorLine", numhl = "CursorLine" }
       )
     end,
+    keys = {
+      {
+        "<leader>db",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Toggle breakpoint",
+      },
+      {
+        "<leader>dc",
+        function()
+          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+        end,
+        desc = "Add a conditional breakpoint",
+      },
+      {
+        "<leader>dm",
+        function()
+          require("dap").set_breakpoint(nil, nil, vim.fn.input("Log-point message: "))
+        end,
+        desc = "Add a log-point message",
+      },
+      {
+        "<leader>dh",
+        function()
+          require("dap.ui.widgets").hover()
+        end,
+        desc = "Show value",
+      },
+      {
+        "<leader>dp",
+        function()
+          require("dap.ui.widgets").preview()
+        end,
+        desc = "Preview value",
+      },
+      {
+        "<F1>",
+        function()
+          require("dap").disconnect()
+        end,
+        desc = "Debugger: disconnect",
+      },
+      {
+        "<F4>",
+        function()
+          require("dap").run_last()
+        end,
+        desc = "Debugger: run last",
+      },
+      {
+        "<F5>",
+        function()
+          require("dap").continue()
+        end,
+        desc = "Debugger: continue",
+      },
+      {
+        "<F6>",
+        function()
+          require("dap").pause()
+        end,
+        desc = "Debugger: pause",
+      },
+      {
+        "<F7>",
+        function()
+          require("dap").terminate()
+        end,
+        desc = "Debugger: terminate",
+      },
+      {
+        "<F9>",
+        function()
+          require("dap").step_back()
+        end,
+        desc = "Debugger: step back",
+      },
+      {
+        "<F10>",
+        function()
+          require("dap").step_over()
+        end,
+        desc = "Debugger: step over",
+      },
+      {
+        "<F11>",
+        function()
+          require("dap").step_into()
+        end,
+        desc = "Debugger: step into",
+      },
+      {
+        "<F12>",
+        function()
+          require("dap").step_out()
+        end,
+        desc = "Debugger: step out",
+      },
+    },
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -99,11 +150,6 @@ return {
         dapui.open({ reset = true })
       end
 
-      local m = require("mapx")
-      m.nmap("<leader>dd", function()
-        dapui.toggle({ reset = true })
-      end, "Toggle debugging view")
-
       vim.api.nvim_create_autocmd("ExitPre", {
         nested = true,
         callback = function()
@@ -111,6 +157,15 @@ return {
         end,
       })
     end,
+    keys = {
+      {
+        "<leader>dd",
+        function()
+          require("dapui").toggle({ reset = true })
+        end,
+        desc = "Toggle debugging view",
+      },
+    },
   },
   {
     "mfussenegger/nvim-dap-python",

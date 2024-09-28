@@ -2,16 +2,42 @@ return {
   "fnune/recall.nvim",
   dev = true,
   config = function()
-    local m = require("mapx")
     local recall = require("recall")
-
     recall.setup({})
-
-    m.nname("<leader>m", "Global marks")
-    m.nmap("<leader>mm", recall.toggle, "Toggle a global mark")
-    m.nmap("<leader>mn", recall.goto_next, "Go to the next global mark")
-    m.nmap("<leader>mp", recall.goto_prev, "Go to the previous global mark")
-    m.nmap("<leader>mc", recall.clear, "Clear all global marks")
-    m.nmap("<leader>ml", ":Telescope recall theme=ivy<CR>", { silent = true }, "Find global marks")
   end,
+  keys = {
+    {
+      "<leader>mm",
+      function()
+        require("recall").toggle()
+      end,
+      desc = "Toggle a global mark",
+      silent = true,
+    },
+    {
+      "<leader>mn",
+      function()
+        require("recall").goto_next()
+      end,
+      desc = "Go to the next global mark",
+      silent = true,
+    },
+    {
+      "<leader>mp",
+      function()
+        require("recall").goto_prev()
+      end,
+      desc = "Go to the previous global mark",
+      silent = true,
+    },
+    {
+      "<leader>mc",
+      function()
+        require("recall").clear()
+      end,
+      desc = "Clear all global marks",
+      silent = true,
+    },
+    { "<leader>ml", ":Telescope recall theme=ivy<CR>", desc = "Find global marks", silent = true },
+  },
 }

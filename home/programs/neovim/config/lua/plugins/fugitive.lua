@@ -4,8 +4,8 @@ return {
   cmd = { "Git" },
   init = function()
     vim.cmd([[let $GIT_CONFIG_PARAMETERS = "'blame.date=short'"]])
-
-    local m = require("mapx")
-    m.nmap("<leader>hb", ":Git blame<cr>", { silent = true }, "Open git blame view")
   end,
+  keys = {
+    { "<leader>hb", ":Git blame<cr>", desc = "Open git blame view", silent = true },
+  },
 }
