@@ -6,6 +6,7 @@ return {
     local formatters_by_ft = {
       lua = { "stylua" },
       nix = { "alejandra" },
+      ocaml = { "ocamlformat" },
       python = { "ruff_fix", "ruff_format" },
       rust = { "rustfmt" },
       sh = { "shfmt" },

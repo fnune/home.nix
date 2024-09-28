@@ -21,6 +21,7 @@ return {
       setup("clangd", {})
       setup("eslint", {})
       setup("gdscript", {})
+      setup("ocamllsp", {})
       setup("pyright", {})
       setup("ruff_lsp", {})
       setup("rust_analyzer", {})
