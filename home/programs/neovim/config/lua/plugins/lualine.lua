@@ -3,8 +3,6 @@ return {
   dependencies = { "linrongbin16/lsp-progress.nvim" },
   config = function()
     local lualine = require("lualine")
-    local timetracking = require("timetracking")
-
     local lsp_progress = require("lsp-progress")
     lsp_progress.setup({})
 
@@ -25,7 +23,7 @@ return {
             return require("lsp-progress").progress()
           end,
         },
-        lualine_x = { timetracking.WatsonStatus, "filetype" },
+        lualine_x = { "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
