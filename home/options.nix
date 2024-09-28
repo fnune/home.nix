@@ -25,7 +25,7 @@
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "SFMono Nerd Font";
+        default = "BlexMono Nerd Font";
         description = "Monospace font to use for the desktop and terminal";
       };
       subpixel = lib.mkOption {

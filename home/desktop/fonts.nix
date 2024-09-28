@@ -3,35 +3,8 @@
   config,
   lib,
   ...
-}: let
-  patcherBin = "${pkgs.unstable.nerd-font-patcher}/bin/nerd-font-patcher";
-  src = pkgs.fetchgit {
-    url = "https://github.com/bahmanworld/San-Francisco-Mono.git";
-    rev = "refs/tags/2022";
-    sha256 = "sha256-Qn4v3Snci+gPMbz1n0s+l5YvRCNW3rFV8ajCWsz+4Ig";
-  };
-  sf-mono-font = pkgs.stdenv.mkDerivation {
-    inherit src;
-    name = "sf-mono-nerdfont";
-    buildInputs = [pkgs.nerd-font-patcher];
-    installPhase = let
-      faces = [
-        "SFMono-Bold.otf"
-        "SFMono-BoldItalic.otf"
-        "SFMono-Regular.otf"
-        "SFMono-RegularItalic.otf"
-      ];
-    in ''
-      mkdir -p $out/share/fonts/sf-mono-nerdfont
-      for font in ${toString faces}; do
-        echo "Patching $font..."
-        ${patcherBin} "$src/$font" --complete -out $out/share/fonts/sf-mono-nerdfont > /dev/null 2>&1
-      done
-    '';
-    postInstall = "fc-cache -fv";
-  };
-in {
-  home.packages = [sf-mono-font pkgs.noto-fonts-emoji];
+}: {
+  home.packages = [pkgs.noto-fonts-emoji pkgs.unstable.nerdfonts];
 
   # When changing font configuration using the UI, Plasma will use the first
   # file it finds in 'conf.d' as its target. Give it an empty file so that it
