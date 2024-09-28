@@ -189,7 +189,7 @@ in {
       };
 
       "plasma-localerc" = {
-        "Formats" = builtins.mapAttrs (name: value: {value = value;}) (import ../locales.nix);
+        "Formats" = builtins.mapAttrs (name: value: {inherit value;}) (import ../locales.nix);
         "Translations" = {
           "LANGUAGE".value = "en_US";
         };
