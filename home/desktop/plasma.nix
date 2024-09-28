@@ -8,7 +8,7 @@
     size = 32;
     package = pkgs.simp1e-cursors;
   };
-  fontSize = "12";
+  fontSize = "12.5";
 in {
   home.packages =
     (with pkgs.unstable; [
