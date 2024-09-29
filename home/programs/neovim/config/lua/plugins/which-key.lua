@@ -6,18 +6,19 @@ return {
       local wk = require("which-key")
 
       wk.setup({
-        window = { border = constants.floating_border, padding = { 0, 0, 0, 0 } },
+        win = { border = constants.floating_border, padding = { 0, 0, 0, 0 } },
+        icons = { mappings = false },
       })
 
-      wk.register({
-        ["<leader>a"] = { name = "Code actions" },
-        ["<leader>d"] = { name = "Debugging" },
-        ["<leader>h"] = { name = "Repository history" },
-        ["<leader>m"] = { name = "Global marks" },
-        ["<leader>s"] = { name = "Search" },
-        ["<leader>t"] = { name = "Tests" },
-        ["<leader>tu"] = { name = "Run with --snapshot-update" },
-        ["g"] = { name = "Go to" },
+      wk.add({
+        { "<leader>a", group = "Code actions" },
+        { "<leader>d", group = "Debugging" },
+        { "<leader>h", group = "Repository history" },
+        { "<leader>m", group = "Global marks" },
+        { "<leader>s", group = "Search" },
+        { "<leader>t", group = "Tests" },
+        { "<leader>tu", group = "Run with --snapshot-update" },
+        { "g", group = "Go to" },
       })
     end,
   },
