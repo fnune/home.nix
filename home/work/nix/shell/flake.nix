@@ -14,11 +14,9 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
-        mambaforge = import ./default.nix {
-          inherit (pkgs) lib fetchurl makeWrapper buildFHSEnv runCommand system;
-        };
+        shell = import ./default.nix {inherit pkgs;};
       in {
-        devShells.default = mambaforge.env;
+        devShells.default = shell.env;
       }
     );
 }
