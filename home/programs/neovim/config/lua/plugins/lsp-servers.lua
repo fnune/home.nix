@@ -21,7 +21,6 @@ return {
       setup("clangd", {})
       setup("gdscript", {})
       setup("ocamllsp", {})
-      setup("pyright", {})
       setup("ruff_lsp", {})
       setup("rust_analyzer", {})
       setup("stylelint_lsp", {})
@@ -34,6 +33,12 @@ return {
 
       setup("jsonls", {
         settings = { json = { schemas = require("schemastore").json.schemas(), validate = { enable = true } } },
+      })
+
+      setup("pyright", {
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
       })
 
       setup("yamlls", {
