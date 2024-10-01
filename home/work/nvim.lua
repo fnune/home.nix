@@ -1,8 +1,8 @@
-local function home(path)
-  return os.getenv("HOME") .. path
+local function mamba(path)
+  return os.getenv("MAMBA_ROOT_PREFIX") .. path
 end
 
-local memfault_python_bin = home("/.mambaforge/envs/memfault/bin/python")
+local memfault_python_bin = mamba("/envs/memfault/bin/python")
 
 local neotest = require("neotest")
 

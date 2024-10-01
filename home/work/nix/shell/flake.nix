@@ -1,5 +1,5 @@
 {
-  description = "A flake for Mambaforge";
+  description = "A flake for a Memfault shell environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-24.05";
