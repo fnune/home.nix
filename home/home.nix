@@ -17,6 +17,7 @@
     ./options.nix
     ./programs/bat.nix
     ./programs/chess.nix
+    ./programs/devenv.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
     ./programs/fd.nix
