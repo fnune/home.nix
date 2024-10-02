@@ -40,7 +40,7 @@ in {
     enable_audio_bell no
     mouse_hide_wait 1
     placement_strategy top-left
-    hide_window_decorations yes
+    hide_window_decorations no
 
     ${colorschemeConf}
 
