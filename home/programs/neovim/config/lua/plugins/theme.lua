@@ -53,6 +53,10 @@ return {
       local colors = require("vscode.colors").get_colors()
       local vscode = require("vscode")
 
+      vim.g.ThemePalette = function()
+        return colors
+      end
+
       vscode.setup({
         disable_nvimtree_bg = true,
         underline_links = true,
@@ -93,6 +97,10 @@ return {
     init = function()
       vim.cmd.colorscheme("rose-pine")
 
+      vim.g.ThemePalette = function()
+        return require("rose-pine.palette")
+      end
+
       ApplyCommonHighlights()
     end,
   },
@@ -102,9 +110,7 @@ return {
     event = "VeryLazy",
     config = function()
       local auto_colors = require("tiny-devicons-auto-colors")
-      local colors = require("vscode.colors").get_colors()
-
-      auto_colors.setup({ colors = colors })
+      auto_colors.setup({ colors = vim.g.ThemePalette() })
     end,
   },
 }
