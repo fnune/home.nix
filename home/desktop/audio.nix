@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs.unstable; [
     calf
-    distrho
     drumgizmo
     guitarix
     gxplugins-lv2
