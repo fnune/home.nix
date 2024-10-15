@@ -13,7 +13,6 @@
     screenkey
     signal-desktop
     spotify
-    unstable.jan
     yubioath-flutter
   ];
 }
