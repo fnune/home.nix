@@ -6,14 +6,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "b0o/SchemaStore.nvim", "hrsh7th/cmp-nvim-lsp" },
+    dependencies = { "b0o/SchemaStore.nvim" },
     config = function()
       local lspconfig = require("lspconfig")
-      local cmp_lsp = require("cmp_nvim_lsp")
 
       local function setup(lsp, opts)
         lspconfig[lsp].setup(vim.tbl_deep_extend("force", {
-          capabilities = cmp_lsp.default_capabilities(),
+          -- capabilities = cmp_lsp.default_capabilities(),
         }, opts))
       end
 
