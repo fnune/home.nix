@@ -1,5 +1,6 @@
 return {
   "stevearc/aerial.nvim",
+  event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
@@ -10,6 +11,7 @@ return {
     aerial.setup({
       layout = { min_width = constants.file_explorer_width_chars },
       filter_kind = false,
+      attach_mode = "global",
     })
   end,
   keys = {

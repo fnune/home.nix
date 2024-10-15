@@ -1,6 +1,8 @@
 local constants = require("constants")
 return {
   "NeogitOrg/neogit",
+  event = "VeryLazy",
+  dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     disable_commit_confirmation = true,
     disable_hint = true,
