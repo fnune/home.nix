@@ -54,5 +54,4 @@ vim.opt.fillchars:append({
 vim.opt.updatetime = 100
 vim.opt.backup = false
 vim.opt.swapfile = false
-vim.opt.undofile = false
 vim.opt.writebackup = false
