@@ -56,19 +56,11 @@ return {
       }),
       formatting = {
         format = lspkind.cmp_format({
-          mode = "symbol",
-          before = function(entry, vim_item)
-            vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
-
-            -- Show the source of an auto-importable completion
-            local detail = entry.completion_item.detail
-            vim_item.menu = detail or ""
-            if #vim_item.menu > 20 then
-              vim_item.menu = vim_item.menu:sub(1, 20) .. "…"
-            end
-
-            return vim_item
-          end,
+          mode = "symbol_text",
+          maxwidth = 50,
+          ellipsis_char = "…",
+          show_labelDetails = true,
+          before = require("tailwindcss-colorizer-cmp").formatter,
         }),
       },
       window = { completion = cmp_window, documentation = cmp_window },
