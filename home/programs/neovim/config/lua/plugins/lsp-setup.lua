@@ -1,5 +1,6 @@
 return {
   { "saecki/live-rename.nvim", config = true },
+  { "j-hui/fidget.nvim", config = true },
   {
     "folke/trouble.nvim",
     opts = {},
