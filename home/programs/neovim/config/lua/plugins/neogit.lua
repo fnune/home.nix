@@ -4,7 +4,6 @@ return {
   event = "VeryLazy",
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
-    disable_commit_confirmation = true,
     disable_hint = true,
     kind = "auto",
     graph_style = "unicode",
@@ -29,6 +28,6 @@ return {
     },
   },
   keys = {
-    { "<leader>g", ":Neogit<cr>", desc = "Open neogit", silent = true },
+    { "<leader>g", vim.cmd.Neogit, desc = "Open neogit", silent = true },
   },
 }
