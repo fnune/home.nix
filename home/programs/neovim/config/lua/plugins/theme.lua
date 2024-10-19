@@ -15,7 +15,7 @@ return {
     palette = function()
       return require("vscode.colors").get_colors()
     end,
-    setup = function()
+    config = function()
       local vscode = require("vscode")
       local colors = require("vscode.colors").get_colors()
       vscode.setup({

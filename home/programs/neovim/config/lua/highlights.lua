@@ -52,9 +52,9 @@ M.make_theme = function(config)
     name = config.name,
     lazy = not enabled,
     priority = 1000,
-    config = function()
-      if config.setup then
-        config.setup()
+    config = function(plugin)
+      if config.config then
+        config.config(plugin)
       end
 
       vim.g.ThemePalette = config.palette or function()
