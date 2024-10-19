@@ -1,62 +1,49 @@
-local function HideEndOfBufferCharacters()
-  vim.cmd([[hi EndOfBuffer guifg=bg guibg=bg]])
-end
+local highlights = require("highlights")
 
-local function HighlightItalics()
-  local groups = {
-    "@comment",
-    "@conditional",
-    "@exception",
-    "@include",
-    "@keyword",
-    "@keyword.function",
-    "@keyword.operator",
-    "@repeat",
-    "Comment",
-    "Conditional",
-    "Exception",
-    "Include",
-    "Keyword",
-    "Repeat",
-    "SpecialComment",
-  }
-
-  local function set_italic_safe(group)
-    local success, hl_info = pcall(vim.api.nvim_exec, string.format("highlight %s", group), true)
-    if success and not hl_info:find("links to") then
-      local gui = hl_info:match("gui=(%S+)") -- Assume termguicolors, no need for cterm
-      if not gui or not gui:find("italic") then
-        gui = gui and gui .. ",italic" or "italic"
-        vim.cmd(string.format("highlight %s gui=%s", group, gui))
+local function make_theme(config)
+  local enabled = os.getenv("COLORSCHEME") == config.name
+  return {
+    config.repo,
+    name = config.name,
+    lazy = not enabled,
+    priority = 1000,
+    config = function()
+      if config.setup then
+        config.setup()
       end
-    end
-  end
 
-  for _, group in ipairs(groups) do
-    set_italic_safe(group)
-  end
-end
+      vim.g.ThemePalette = config.palette or function()
+        return {}
+      end
 
-local function ApplyCommonHighlights()
-  vim.opt.termguicolors = true
-  HighlightItalics()
-  HideEndOfBufferCharacters()
+      if enabled then
+        vim.cmd.colorscheme(config.colorscheme or config.name)
+      end
+
+      highlights.apply_common_highlights()
+    end,
+  }
 end
 
 return {
   {
-    "Mofiqul/vscode.nvim",
-    enabled = os.getenv("COLORSCHEME") == "vscode",
-    priority = 1000,
-    lazy = false,
+    "rachartier/tiny-devicons-auto-colors.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
     config = function()
-      local colors = require("vscode.colors").get_colors()
+      local auto_colors = require("tiny-devicons-auto-colors")
+      auto_colors.setup({ colors = vim.g.ThemePalette() })
+    end,
+  },
+  make_theme({
+    name = "vscode",
+    repo = "Mofiqul/vscode.nvim",
+    palette = function()
+      return require("vscode.colors").get_colors()
+    end,
+    setup = function()
       local vscode = require("vscode")
-
-      vim.g.ThemePalette = function()
-        return colors
-      end
-
+      local colors = require("vscode.colors").get_colors()
       vscode.setup({
         disable_nvimtree_bg = true,
         underline_links = true,
@@ -67,50 +54,25 @@ return {
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
           ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
           ["SpecialComment"] = { fg = colors.vscGray },
-          -- Borders
           ["FloatBorder"] = { fg = colors.vscLeftDark },
           ["TelescopePreviewBorder"] = { fg = colors.vscLeftDark },
           ["TelescopePromptBorder"] = { fg = colors.vscLeftDark },
           ["TelescopeResultsBorder"] = { fg = colors.vscLeftDark },
           ["VertSplit"] = { fg = colors.vscLeftDark },
-          -- Scrollbars
           ["PmenuSbar"] = { bg = colors.vscBack },
           ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
-          -- Fixes
           ["NeogitWinSeparator"] = { link = "WinSeparator" },
           ["DropBarIconUIPickPivot"] = { link = "@comment.note" },
         },
       })
-
       vscode.load()
-
-      ApplyCommonHighlights()
     end,
-  },
-  {
-    "rose-pine/neovim",
+  }),
+  make_theme({
     name = "rose-pine",
-    enabled = os.getenv("COLORSCHEME") == "rose-pine",
-    lazy = false,
-    priority = 1000,
-    opts = { disable_italics = true, disable_float_background = true },
-    init = function()
-      vim.cmd.colorscheme("rose-pine")
-
-      vim.g.ThemePalette = function()
-        return require("rose-pine.palette")
-      end
-
-      ApplyCommonHighlights()
+    repo = "rose-pine/neovim",
+    palette = function()
+      return require("rose-pine.palette")
     end,
-  },
-  {
-    "rachartier/tiny-devicons-auto-colors.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "Mofiqul/vscode.nvim" },
-    event = "VeryLazy",
-    config = function()
-      local auto_colors = require("tiny-devicons-auto-colors")
-      auto_colors.setup({ colors = vim.g.ThemePalette() })
-    end,
-  },
+  }),
 }
