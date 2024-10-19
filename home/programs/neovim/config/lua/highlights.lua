@@ -45,4 +45,33 @@ M.apply_common_highlights = function()
   M.hide_end_of_buffer_characters()
 end
 
+M.make_theme = function(config)
+  local enabled = os.getenv("COLORSCHEME") == config.name
+  return {
+    config.repo,
+    name = config.name,
+    lazy = not enabled,
+    priority = 1000,
+    config = function()
+      if config.setup then
+        config.setup()
+      end
+
+      vim.g.ThemePalette = config.palette or function()
+        return {}
+      end
+
+      if enabled then
+        vim.cmd.colorscheme(config.colorscheme or config.name)
+      end
+
+      M.apply_common_highlights()
+    end,
+  }
+end
+
+M.get_palette = function()
+  return vim.g.ThemePalette()
+end
+
 return M

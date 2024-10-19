@@ -1,30 +1,4 @@
 local highlights = require("highlights")
-
-local function make_theme(config)
-  local enabled = os.getenv("COLORSCHEME") == config.name
-  return {
-    config.repo,
-    name = config.name,
-    lazy = not enabled,
-    priority = 1000,
-    config = function()
-      if config.setup then
-        config.setup()
-      end
-
-      vim.g.ThemePalette = config.palette or function()
-        return {}
-      end
-
-      if enabled then
-        vim.cmd.colorscheme(config.colorscheme or config.name)
-      end
-
-      highlights.apply_common_highlights()
-    end,
-  }
-end
-
 return {
   {
     "rachartier/tiny-devicons-auto-colors.nvim",
@@ -32,10 +6,10 @@ return {
     event = "VeryLazy",
     config = function()
       local auto_colors = require("tiny-devicons-auto-colors")
-      auto_colors.setup({ colors = vim.g.ThemePalette() })
+      auto_colors.setup({ colors = highlights.get_palette() })
     end,
   },
-  make_theme({
+  highlights.make_theme({
     name = "vscode",
     repo = "Mofiqul/vscode.nvim",
     palette = function()
@@ -68,7 +42,7 @@ return {
       vscode.load()
     end,
   }),
-  make_theme({
+  highlights.make_theme({
     name = "rose-pine",
     repo = "rose-pine/neovim",
     palette = function()
