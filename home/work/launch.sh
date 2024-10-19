@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function t() {
-  export MEMFAULT_LAUNCH_COMMAND="source $HOME/.zsh/includes/t; tl"
+  export MEMFAULT_LAUNCH_COMMAND="source $HOME/.zsh/includes/t; tl $1"
   cd "$HOME/Development/memfault" || exit
   export MEMFAULT_LAUNCH_COMMAND=""
 }
@@ -13,16 +13,35 @@ alias tk="tm kill-server"
 
 function tl() {
   memfault_path="$HOME/Development/memfault"
+  quick=false
+
+  if [[ $1 == "--quick" ]]; then
+    quick=true
+  fi
 
   if ! tm list-sessions | grep -q "memfault"; then
     tm new-session -c "$memfault_path" -d -s memfault -n auxiliary
 
     tm split-window -c "$memfault_path" -h
-    tm send-keys "invoke dc.svc" C-m
+    if [[ $quick == false ]]; then
+      tm send-keys "invoke dc.svc" C-m
+    else
+      tm send-keys "invoke dc.svc"
+    fi
+
     tm split-window -c "$memfault_path" -v
-    tm send-keys "rm -f .overmind.sock && invoke dev" C-m
+    if [[ $quick == false ]]; then
+      tm send-keys "rm -f .overmind.sock && invoke dev" C-m
+    else
+      tm send-keys "rm -f .overmind.sock && invoke dev"
+    fi
+
     tm split-window -c "$memfault_path" -v
-    tm send-keys ".lint/pyright.sh" C-m
+    if [[ $quick == false ]]; then
+      tm send-keys ".lint/pyright.sh" C-m
+    else
+      tm send-keys ".lint/pyright.sh"
+    fi
 
     tm select-pane -t 0
     tm select-layout main-vertical
