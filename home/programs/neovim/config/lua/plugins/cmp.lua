@@ -5,9 +5,9 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
+    "luckasRanarison/tailwind-tools.nvim",
     "lukas-reineke/cmp-under-comparator",
     "onsails/lspkind.nvim",
-    "roobert/tailwindcss-colorizer-cmp.nvim",
   },
   config = function()
     local constants = require("constants")
@@ -56,11 +56,11 @@ return {
       }),
       formatting = {
         format = lspkind.cmp_format({
-          mode = "symbol_text",
+          mode = "symbol",
           maxwidth = 50,
           ellipsis_char = "…",
           show_labelDetails = true,
-          before = require("tailwindcss-colorizer-cmp").formatter,
+          before = require("tailwind-tools.cmp").lspkind_format,
         }),
       },
       window = { completion = cmp_window, documentation = cmp_window },
