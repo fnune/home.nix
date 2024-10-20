@@ -10,7 +10,7 @@
   };
   colorschemeConf =
     if config.colorscheme == "vscode"
-    then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode.nvim/extra/kitty/vscode-dark.conf"
+    then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode/extra/kitty/vscode-dark.conf"
     else if config.colorscheme == "rose-pine"
     then "include ${rosePineConf}"
     else "";
