@@ -5,10 +5,7 @@
 }: {
   home = {
     packages = with pkgs.unstable; [
-      (neovim.overrideAttrs (oldAttrs: {
-        # https://github.com/NixOS/nixpkgs/pull/155688
-        NIX_LDFLAGS = ["-lstdc++"];
-      }))
+      neovim
       # LSPs
       clang-tools
       lua-language-server
