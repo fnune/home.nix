@@ -35,8 +35,12 @@ return {
           ["VertSplit"] = { fg = colors.vscLeftDark },
           ["PmenuSbar"] = { bg = colors.vscBack },
           ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
-          ["NeogitWinSeparator"] = { link = "WinSeparator" },
           ["DropBarIconUIPickPivot"] = { link = "@comment.note" },
+          ["NeogitWinSeparator"] = { link = "WinSeparator" },
+          ["NeogitHunkHeaderCursor"] = { link = "NeogitHunkHeaderHighlight" },
+          ["NeogitDiffAddCursor"] = { link = "NeogitDiffAddHighlight" },
+          ["NeogitDiffDeleteCursor"] = { link = "NeogitDiffDeleteHighlight" },
+          ["NeogitDiffContextCursor"] = { link = "NeogitDiffContextHighlight" },
         },
       })
       vscode.load()
