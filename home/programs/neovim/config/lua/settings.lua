@@ -41,7 +41,7 @@ vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 100
 vim.opt.timeoutlen = 500
 vim.opt.wildmenu = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.fillchars:append({
   diff = "╱",
