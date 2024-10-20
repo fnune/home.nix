@@ -5,7 +5,7 @@
 }: {
   home = {
     packages = with pkgs.unstable; [
-      neovim
+      (neovim.override {withNodeJs = true;})
       # LSPs
       clang-tools
       lua-language-server
