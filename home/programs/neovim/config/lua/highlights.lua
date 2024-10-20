@@ -52,6 +52,7 @@ M.make_theme = function(config)
     name = config.name,
     lazy = not enabled,
     priority = 1000,
+    dev = config.dev or false,
     config = function(plugin)
       if config.config then
         config.config(plugin)
