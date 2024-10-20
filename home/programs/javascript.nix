@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  home.packages = with pkgs.unstable; [nodejs];
+  home.packages = with pkgs.unstable; [nodejs yarn];
 }
