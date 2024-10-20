@@ -1,5 +1,6 @@
 return {
   "gelguy/wilder.nvim",
+  build = ":UpdateRemotePlugins",
   config = function()
     local constants = require("constants")
     local wilder = require("wilder")
