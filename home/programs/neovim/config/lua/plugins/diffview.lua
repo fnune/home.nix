@@ -23,6 +23,19 @@ return {
         exe 'norm! 0"xyiw' | wincmd l | exe 'DiffviewFileHistory % --range=' . getreg("x")
       endfunction
     ]])
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "fugitiveblame",
+      callback = function()
+        vim.api.nvim_buf_set_keymap(
+          0,
+          "n",
+          "<CR>",
+          ":call DiffviewOpenCommitUnderCursor()<CR>",
+          { noremap = true, silent = true }
+        )
+      end,
+    })
   end,
   keys = {
     { "<leader>hq", ":DiffviewClose<cr>", desc = "Close diff view", silent = true },
