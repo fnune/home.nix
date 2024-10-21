@@ -32,7 +32,7 @@
         done
       '';
       envExtra = ''
-        PROMPT=$' %{\033[3m%}%(5~|…/%3~|%~)%{\033[0m%} %(?.%{$fg[green]%}.%{$fg[red]%}[%?] )λ%{$reset_color%} '
+        PROMPT=' %F{normal}%~ %(?.%F{green}.%F{red})λ%f '
 
         export SHELL=$(which zsh)
         export KEYTIMEOUT=1
