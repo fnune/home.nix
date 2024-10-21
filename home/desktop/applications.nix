@@ -8,8 +8,6 @@
     exiftool
     haruna
     logseq
-    lutris
-    obsidian
     screenkey
     signal-desktop
     spotify
