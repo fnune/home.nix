@@ -14,11 +14,11 @@
 
   package = pkgs.stdenv.mkDerivation rec {
     pname = "vanta";
-    version = "2.6.1";
+    version = "2.10.0";
 
     src = pkgs.fetchurl {
       url = "https://vanta-agent-repo.s3.amazonaws.com/targets/versions/${version}/vanta-amd64.deb";
-      sha256 = "sha256-zofGSN+dTXkvBb7cpywWImTfHGTuj8r0qbveJoByUSU";
+      sha256 = "sha256-10nuthUmxM1TRV+/7ZlBjydLJypUVD+QXbphP4UfOCk";
     };
 
     nativeBuildInputs = with pkgs; [dpkg autoPatchelfHook];
