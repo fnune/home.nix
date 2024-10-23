@@ -9,6 +9,7 @@ return {
     graph_style = "unicode",
     sections = { recent = { folded = false } },
     status = { recent_commit_count = 99 },
+    initial_branch_name = "fnune/",
     signs = {
       hunk = { "", "" },
       item = { constants.signs.caret_right, constants.signs.caret_down },
