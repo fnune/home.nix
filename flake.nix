@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -18,7 +18,7 @@
 
   outputs = {
     nixpkgs,
-    nixos-unstable,
+    nixpkgs-unstable,
     nixpkgs-development,
     home-manager,
     plasma-manager,
@@ -26,7 +26,7 @@
   }: let
     system = "x86_64-linux";
     nixpkgsOverlay = final: prev: {
-      unstable = import nixos-unstable {
+      unstable = import nixpkgs-unstable {
         inherit (prev) config;
         inherit system;
       };
