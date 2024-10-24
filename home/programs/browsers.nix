@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs.unstable; [google-chrome];
+    packages = with pkgs; [firefox-devedition google-chrome];
     sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
