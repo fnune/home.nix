@@ -10,7 +10,7 @@
   # Define a user account
   users.users.fausto = {
     isNormalUser = true;
-    description = config.profile.name;
+    description = "Fausto Núñez Alberro";
     extraGroups = ["networkmanager" "wheel" "dialout" "docker"];
   };
 
