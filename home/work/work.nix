@@ -16,12 +16,4 @@ in {
       echo '${builtins.readFile ./envrc.sh}' > ${monorepo}/.envrc
     '';
   };
-
-  programs.firefox.profiles.default.containers = {
-    "Production" = {
-      id = 1;
-      color = "red";
-      icon = "briefcase";
-    };
-  };
 }

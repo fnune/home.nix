@@ -16,7 +16,6 @@
     ./desktop/plasma.nix
     ./options.nix
     ./programs/bat.nix
-    ./programs/browsers.nix
     ./programs/devenv.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
