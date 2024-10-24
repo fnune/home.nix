@@ -1,12 +1,16 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   system.stateVersion = "23.05";
 
-  imports = [./plasma.nix ./browsers.nix ./audio.nix ./plymouth.nix ./work.nix ./cachix.nix];
+  imports = [./plasma.nix ./audio.nix ./plymouth.nix ./work.nix ./cachix.nix];
 
   # Define a user account
   users.users.fausto = {
     isNormalUser = true;
-    description = "Fausto Núñez Alberro";
+    description = config.profile.name;
     extraGroups = ["networkmanager" "wheel" "dialout" "docker"];
   };
 

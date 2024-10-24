@@ -9,6 +9,18 @@
   };
 
   options = {
+    profile = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        default = "Fausto Núñez Alberro";
+      };
+      email = {
+        personal = lib.mkOption {
+          type = lib.types.str;
+          default = "fausto.nunez@mailbox.org";
+        };
+      };
+    };
     machine = {
       scale = lib.mkOption {
         type = lib.types.float;

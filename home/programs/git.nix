@@ -7,8 +7,8 @@
   programs.gpg.enable = true;
   programs.git = {
     enable = true;
-    userName = "Fausto Núñez Alberro";
-    userEmail = "fausto.nunez@mailbox.org";
+    userName = config.profile.name;
+    userEmail = config.profile.email.personal;
     includes = [
       {
         path = "${config.home.homeDirectory}/.local/gitconfig";
