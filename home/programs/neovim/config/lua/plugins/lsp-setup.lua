@@ -18,6 +18,7 @@ return {
         float = { border = constants.floating_border },
         severity_sort = true,
         signs = false,
+        virtual_text = { prefix = constants.signs.error_single },
       })
 
       vim.lsp.handlers["textDocument/hover"] =

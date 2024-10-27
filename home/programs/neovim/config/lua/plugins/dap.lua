@@ -1,3 +1,4 @@
+local constants = require("constants")
 return {
   { "theHamsta/nvim-dap-virtual-text", config = true, lazy = true, dependencies = { "mfussenegger/nvim-dap" } },
   {
@@ -5,7 +6,7 @@ return {
     lazy = true,
     version = "0.7.0",
     init = function()
-      vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "DiagnosticError", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
       vim.fn.sign_define(
         "DapBreakpointCondition",
         { text = "󰟃 ", texthl = "DiagnosticWarn", linehl = "", numhl = "" }
