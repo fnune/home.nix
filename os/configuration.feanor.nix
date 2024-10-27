@@ -28,4 +28,9 @@
       size = 8192;
     }
   ];
+
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
 }
