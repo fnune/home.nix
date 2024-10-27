@@ -16,7 +16,6 @@ in {
     (with pkgs.unstable; [
       krita
       libreoffice-qt
-      variety
     ])
     ++ (with pkgs.unstable.kdePackages; [
       filelight
