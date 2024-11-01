@@ -5,7 +5,7 @@
   sha256,
 }: let
   fontconfig = pkgs.makeFontsConf {fontDirectories = [];};
-  playwright-browsers-json = pkgs.stdenv.mkDerivation rec {
+  playwright-browsers-json = pkgs.stdenv.mkDerivation {
     name = "playwright-${version}-browsers";
     src = pkgs.fetchFromGitHub {
       owner = "Microsoft";

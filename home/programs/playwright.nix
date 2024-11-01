@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   playwright-browsers = pkgs.callPackage ./playwright-browsers.nix {
-    version = "1.47.1";
-    sha256 = "sha256-tPlzDBxDunUrQFqJZTc6FS+pUkww5x9IpWtCvNIS8Mg";
+    version = "1.48.1";
+    sha256 = "sha256-VMp/Tjd5w2v+IHD+CMaR/XdMJHkS/u7wFe0hNxa1TbE";
   };
 in {
   home.packages = [playwright-browsers];
