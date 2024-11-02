@@ -20,7 +20,6 @@ return {
       local colors = require("vscode.colors").get_colors()
       vscode.setup({
         disable_nvimtree_bg = true,
-        underline_links = true,
         group_overrides = {
           ["@comment"] = { fg = colors.vscGray },
           ["@punctuation.delimiter.jsdoc"] = { fg = colors.vscGray },
