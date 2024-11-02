@@ -23,6 +23,7 @@ return {
         underline_links = true,
         group_overrides = {
           ["@comment"] = { fg = colors.vscGray },
+          ["@punctuation.delimiter.jsdoc"] = { fg = colors.vscGray },
           ["Comment"] = { fg = colors.vscGray },
           ["NormalFloat"] = { bg = colors.vscBack },
           ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
