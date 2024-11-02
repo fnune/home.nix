@@ -27,7 +27,7 @@ in {
       });
     })
   ];
-  home.packages = with pkgs; [kitty];
+  home.packages = with pkgs; [kitty pkgs.unstable.nerdfonts];
   home.file.".config/kitty/kitty.conf".text = ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 
@@ -41,6 +41,7 @@ in {
     mouse_hide_wait 1
     placement_strategy top-left
     hide_window_decorations no
+    symbol_map U+002A BlexMono Nerd Font
 
     ${colorschemeConf}
 
