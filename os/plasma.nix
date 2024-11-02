@@ -1,16 +1,9 @@
 {pkgs, ...}: let
-  wallpaper = pkgs.stdenvNoCC.mkDerivation {
-    name = "wallpaper";
-    src = ../assets;
-    dontUnpack = true;
-    installPhase = ''
-      mkdir -p $out/share/wallpapers
-      cp -R $src/Kedi $out/share/wallpapers/Kedi
-    '';
-  };
   wallpaper-sddm = pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
     [General]
-    background=${wallpaper}/share/wallpapers/Kedi/contents/images/5120x2880.jpg
+    type=color
+    color=#212121
+    background=
   '';
 in {
   services.displayManager = {
@@ -33,7 +26,6 @@ in {
   environment.systemPackages = [
     pkgs.development.kdePackages.koi
     pkgs.simp1e-cursors
-    wallpaper
     wallpaper-sddm
   ];
 }
