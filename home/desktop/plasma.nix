@@ -14,6 +14,7 @@
 in {
   home.packages =
     (with pkgs.unstable; [
+      inkscape
       krita
       libreoffice-qt
     ])
