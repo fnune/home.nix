@@ -86,7 +86,7 @@
       };
       bin = lib.mkOption {
         type = lib.types.path;
-        default = "${pkgs.unstable.kitty}/bin/kitty";
+        default = "${pkgs.kittyWithWhiskers}/bin/kitty";
         description = "The full path to the terminal emulator binary";
       };
     };

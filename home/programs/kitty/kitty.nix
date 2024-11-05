@@ -17,19 +17,17 @@
 in {
   nixpkgs.overlays = [
     (final: prev: {
-      unstable = {
-        kitty = prev.unstable.kitty.overrideAttrs (o: {
-          postInstall =
-            (o.postInstall or "")
-            + ''
-              cp -f ${./whiskers.png} $out/share/icons/hicolor/256x256/apps/kitty.png
-              cp -f ${./whiskers.svg} $out/share/icons/hicolor/scalable/apps/kitty.svg
-            '';
-        });
-      };
+      kittyWithWhiskers = final.unstable.kitty.overrideAttrs (o: {
+        postInstall =
+          (o.postInstall or "")
+          + ''
+            cp -f ${./whiskers.png} $out/share/icons/hicolor/256x256/apps/kitty.png
+            cp -f ${./whiskers.svg} $out/share/icons/hicolor/scalable/apps/kitty.svg
+          '';
+      });
     })
   ];
-  home.packages = with pkgs.unstable; [kitty nerdfonts];
+  home.packages = with pkgs; [kittyWithWhiskers unstable.nerdfonts];
   home.file.".config/kitty/kitty.conf".text = ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 
