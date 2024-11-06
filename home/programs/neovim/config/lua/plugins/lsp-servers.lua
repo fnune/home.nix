@@ -21,7 +21,7 @@ return {
       setup("clangd", {})
       setup("gdscript", {})
       setup("ocamllsp", {})
-      setup("ruff_lsp", {})
+      setup("ruff", {})
       setup("rust_analyzer", {})
       setup("stylelint_lsp", {})
       setup("taplo", {})

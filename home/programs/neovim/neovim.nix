@@ -12,7 +12,6 @@
       nil
       ocamlPackages.ocaml-lsp
       pyright
-      ruff-lsp
       rustup
       stylelint-lsp
       tailwindcss-language-server
