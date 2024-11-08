@@ -31,9 +31,9 @@ function tl() {
 
     tm split-window -c "$memfault_path" -v
     if [[ $quick == false ]]; then
-      tm send-keys "rm -f .overmind.sock && invoke dev" C-m
+      tm send-keys "invoke dev" C-m
     else
-      tm send-keys "rm -f .overmind.sock && invoke dev"
+      tm send-keys "invoke dev"
     fi
 
     tm split-window -c "$memfault_path" -v
