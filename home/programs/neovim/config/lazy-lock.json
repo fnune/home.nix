@@ -1,7 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "5f0639d68cbea3ab8a9a24a51a5f984d86ea8438" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "64aed5788796d1f241da0afbd096e6dd649694bd" },
   "aerial.nvim": { "branch": "master", "commit": "247df216704cbe3cfa68e2ae5515c3485e281364" },
   "bigfile.nvim": { "branch": "main", "commit": "33eb067e3d7029ac77e081cfe7c45361887a311a" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
