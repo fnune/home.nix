@@ -36,6 +36,7 @@ return {
           ["PmenuSbar"] = { bg = colors.vscBack },
           ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
           ["DropBarIconUIPickPivot"] = { link = "@comment.note" },
+          ["VisualWhitespace"] = { fg = colors.vscDisabledBlue, bg = colors.vscSelection },
         },
       })
       vscode.load()
