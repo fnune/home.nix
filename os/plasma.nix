@@ -22,6 +22,7 @@ in {
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [konsole];
   programs.kdeconnect.enable = true;
+  programs.gnupg.agent.pinentryPackage = pkgs.callPackage ./pinentry-kwallet.nix {};
 
   environment.systemPackages = [
     pkgs.kdePackages.koi
