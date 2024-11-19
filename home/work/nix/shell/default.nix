@@ -13,5 +13,5 @@ pkgs.buildFHSEnv {
     source .venv/bin/activate
   '';
 
-  runScript = "$SHELL -c \"$MEMFAULT_LAUNCH_COMMAND\"";
+  runScript = "zsh -c \"$MEMFAULT_LAUNCH_COMMAND\"";
 }

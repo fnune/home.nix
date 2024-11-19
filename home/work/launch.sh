@@ -6,10 +6,15 @@ function t() {
   export MEMFAULT_LAUNCH_COMMAND=""
 }
 
-# Use a special instance so that I can launch tmux in other windows without
-# that environment becoming isolated by the FHS env of Memfault.
-alias tm="tmux -Lmemfault"
-alias tk="tm kill-server"
+function tm() {
+  # Use a special instance so that I can launch tmux in other windows without
+  # that environment becoming isolated by the FHS env of Memfault.
+  tmux -Lmemfault "$@"
+}
+
+function tk() {
+  tm kill-server
+}
 
 function tl() {
   memfault_path="$HOME/Development/memfault"
