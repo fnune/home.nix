@@ -4,7 +4,6 @@
   ...
 }: {
   home.packages = [pkgs.difftastic];
-  programs.gpg.enable = true;
   programs.git = {
     enable = true;
     userName = config.profile.name;
