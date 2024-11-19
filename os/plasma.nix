@@ -24,7 +24,7 @@ in {
   programs.kdeconnect.enable = true;
 
   environment.systemPackages = [
-    pkgs.development.kdePackages.koi
+    pkgs.kdePackages.koi
     pkgs.simp1e-cursors
     wallpaper-sddm
   ];
