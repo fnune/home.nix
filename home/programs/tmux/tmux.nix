@@ -12,10 +12,9 @@
 in {
   programs.tmux = {
     enable = true;
-    package = pkgs.unstable.tmux;
     extraConfig = builtins.readFile ./tmux.conf + "\n" + colorschemeConf;
     terminal = "tmux-256color";
-    plugins = with pkgs.unstable.tmuxPlugins; [
+    plugins = with pkgs.tmuxPlugins; [
       yank
       vim-tmux-navigator
       extrakto

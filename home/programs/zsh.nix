@@ -8,7 +8,7 @@
     zsh = {
       enable = config.shell.name == "zsh";
       autosuggestion.enable = true;
-      plugins = with pkgs.unstable; [
+      plugins = with pkgs; [
         {
           name = "zsh-vi-mode";
           src = "${zsh-vi-mode}/share/zsh-vi-mode";

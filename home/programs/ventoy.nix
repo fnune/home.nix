@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  home.packages = with pkgs.unstable; [ventoy-full];
+  home.packages = with pkgs; [ventoy-full];
 }

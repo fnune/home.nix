@@ -13,12 +13,12 @@
   monoFontSize = "10.5";
 in {
   home.packages =
-    (with pkgs.unstable; [
+    (with pkgs; [
       inkscape
       krita
       libreoffice-qt
     ])
-    ++ (with pkgs.unstable.kdePackages; [
+    ++ (with pkgs.kdePackages; [
       filelight
       isoimagewriter
       kalarm

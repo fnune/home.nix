@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  home.packages = with pkgs.unstable; [devenv];
+  home.packages = with pkgs; [devenv];
 }

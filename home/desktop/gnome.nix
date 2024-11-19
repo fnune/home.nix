@@ -4,8 +4,7 @@
   pkgs,
   ...
 }: let
-  extensionsStable = [];
-  extensionsUnstable = with pkgs.unstable.gnomeExtensions; [
+  extensionsStable = with pkgs.gnomeExtensions; [
     appindicator
     brightness-control-using-ddcutil
     caffeine
@@ -14,6 +13,7 @@
     just-perfection
     vitals
   ];
+  extensionsUnstable = [];
   extensions = extensionsStable ++ extensionsUnstable;
   extensionsBuiltIn = [
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
@@ -31,7 +31,7 @@
   fontSize = 11;
   editLatestScreenshot = pkgs.writeShellScriptBin "edit-latest-screenshot" ''
     LATEST_SCREENSHOT=$(ls -1v "${config.home.homeDirectory}/Pictures/Screenshots/"*.png | tail -n 1)
-    ${pkgs.unstable.satty}/bin/satty --filename "$LATEST_SCREENSHOT"
+    ${pkgs.satty}/bin/satty --filename "$LATEST_SCREENSHOT"
   '';
 in {
   home = {

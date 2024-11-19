@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  home.packages = [pkgs.unstable.difftastic];
+  home.packages = [pkgs.difftastic];
   programs.gpg.enable = true;
   programs.git = {
     enable = true;
@@ -35,7 +35,7 @@
       diff.tool = "difftastic";
       difftool = {
         prompt = false;
-        difftastic.cmd = "${pkgs.unstable.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
+        difftastic.cmd = "${pkgs.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
       };
     };
   };

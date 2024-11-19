@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = with pkgs.unstable; [tailscale-systray];
+  home.packages = with pkgs; [tailscale-systray];
 
   xdg.configFile."autostart/tailscale-systray.desktop".text = ''
     [Desktop Entry]
