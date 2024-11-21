@@ -6,6 +6,7 @@
   home.packages = [pkgs.difftastic];
   programs.git = {
     enable = true;
+    package = pkgs.previous.git;
     userName = config.profile.name;
     userEmail = config.profile.email.personal;
     includes = [

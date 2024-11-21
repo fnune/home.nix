@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-previous.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
     home-manager = {
@@ -18,6 +19,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-previous,
     nixpkgs-unstable,
     nixpkgs-development,
     home-manager,
@@ -27,6 +29,10 @@
     system = "x86_64-linux";
     nixpkgsOverlay = final: prev: {
       unstable = import nixpkgs-unstable {
+        inherit (prev) config;
+        inherit system;
+      };
+      previous = import nixpkgs-previous {
         inherit (prev) config;
         inherit system;
       };
