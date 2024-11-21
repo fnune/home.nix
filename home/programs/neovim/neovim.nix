@@ -41,6 +41,8 @@
       stylua
       # Debuggers
       python3Packages.debugpy
+      # Lower-level tools
+      tree-sitter
     ];
 
     file = {
