@@ -20,7 +20,7 @@ in {
     };
   };
   services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [konsole];
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [elisa khelpcenter konsole];
   programs.kdeconnect.enable = true;
   programs.gnupg.agent.pinentryPackage = pkgs.callPackage ./pinentry-kwallet.nix {};
 
