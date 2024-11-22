@@ -41,7 +41,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
-  services.flatpak.enable = true;
 
   # Steam, plus fixes for 32-bit apps
   programs.steam.enable = true;
