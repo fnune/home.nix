@@ -34,7 +34,7 @@ in {
   programs.plasma = {
     enable = true;
     shortcuts = {
-      "${config.terminal.name}.desktop"."_launch" = "Meta+Return";
+      "services/${config.terminal.name}.desktop"."_launch" = "Meta+Return";
 
       "org.kde.krunner.desktop"."_launch" = "Meta+D";
       "org.kde.plasma.emojier.desktop"."_launch" = "Meta+.";
