@@ -18,7 +18,6 @@ in {
     ++ (with pkgs.kdePackages; [
       filelight
       isoimagewriter
-      kalarm
       kalk
       kcolorchooser
       kjournald
