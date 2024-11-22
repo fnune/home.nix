@@ -30,9 +30,9 @@ in {
   programs.plasma = {
     enable = true;
     fonts = let
-      fontSize = 12.5;
-      fontSizeSmall = 10.5;
-      monoFontSize = 10.5;
+      fontSize = 13;
+      fontSizeSmall = 11;
+      monoFontSize = 11;
       sans = {
         family = config.fontconfig.sans;
         weight = "medium";
