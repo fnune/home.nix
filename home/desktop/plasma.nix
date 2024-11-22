@@ -255,6 +255,9 @@ in {
         "General" = {
           "FreeFloating".value = true;
         };
+        "Plugins/Favorites" = {
+          "plugins".value = "krunner_services,krunner_sessions,krunner_systemsettings";
+        };
         "Plugins" = {
           "appstreamEnabled".value = false;
           "desktopsessionsEnabled".value = true;
