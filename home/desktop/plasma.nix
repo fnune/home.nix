@@ -8,9 +8,6 @@
     size = 32;
     package = pkgs.simp1e-cursors;
   };
-  fontSize = "12.5";
-  fontSizeSmall = "10.5";
-  monoFontSize = "10.5";
 in {
   home.packages =
     (with pkgs; [
@@ -33,6 +30,37 @@ in {
 
   programs.plasma = {
     enable = true;
+    fonts = let
+      fontSize = 12.5;
+      fontSizeSmall = 10.5;
+      monoFontSize = 10.5;
+      sans = {
+        family = config.fontconfig.sans;
+        weight = "medium";
+        pointSize = fontSize;
+      };
+      sansBold = {
+        family = config.fontconfig.sans;
+        weight = "bold";
+        pointSize = fontSize;
+      };
+      sansSmall = {
+        family = config.fontconfig.sans;
+        weight = "medium";
+        pointSize = fontSizeSmall;
+      };
+      mono = {
+        family = config.fontconfig.mono;
+        pointSize = monoFontSize;
+      };
+    in {
+      general = sans;
+      menu = sans;
+      toolbar = sans;
+      windowTitle = sansBold;
+      small = sansSmall;
+      fixedWidth = mono;
+    };
     shortcuts = {
       "services/${config.terminal.name}.desktop"."_launch" = "Meta+Return";
 
@@ -149,14 +177,6 @@ in {
           "XftAntialias".value = config.fontconfig.antialias;
           "XftHintStyle".value = config.fontconfig.hinting;
           "XftSubPixel".value = config.fontconfig.subpixel;
-          "fixed".value = "${config.fontconfig.mono},${monoFontSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-          "font".value = "${config.fontconfig.sans},${fontSize},-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
-          "menuFont".value = "${config.fontconfig.sans},${fontSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-          "smallestReadableFont".value = "${config.fontconfig.sans},${fontSizeSmall},-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium";
-          "toolBarFont".value = "${config.fontconfig.sans},${fontSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-        };
-        "WM" = {
-          "activeFont".value = "${config.fontconfig.sans},${fontSize},-1,5,600,0,0,0,0,0,0,0,0,0,0,1,Semi Bold";
         };
         "KDE" = {
           "AnimationDurationFactor".value = 0.27;
