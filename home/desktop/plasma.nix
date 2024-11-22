@@ -61,6 +61,7 @@ in {
       };
       "kwin" = {
         "Show Desktop" = []; # Clashes with krunner shortcut
+        "Window Minimize" = ""; # Accidental minimize is annoying
 
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
