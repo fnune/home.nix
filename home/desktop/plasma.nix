@@ -60,7 +60,6 @@ in {
         "activate task manager entry 10" = [];
       };
       "kwin" = {
-        "Show Desktop" = []; # Clashes with krunner shortcut
         "Window Minimize" = ""; # Accidental minimize is annoying
 
         "Switch to Desktop 1" = "Meta+1";
