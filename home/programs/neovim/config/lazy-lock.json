@@ -1,7 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "44bc6bc398fa59738eaf9535000424457e3e1f6b" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "68910b1584fb7fe520c4d5aa8e05c207cbba290e" },
   "aerial.nvim": { "branch": "master", "commit": "ddd25f57e5205b36bc2e939c486b47818bef9ec3" },
   "bigfile.nvim": { "branch": "main", "commit": "33eb067e3d7029ac77e081cfe7c45361887a311a" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
@@ -53,7 +53,7 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "e239a560f338be31337e7abc3ee42515daf23f5e" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "9c74db656c3d0b1c4392fc89a016b1910539e7c0" },
   "nvim-web-devicons": { "branch": "master", "commit": "f09be61d05bebcba85bb47be1931322d51b95644" },
-  "oil.nvim": { "branch": "master", "commit": "740b8fd425a2b77f7f40eb5ac155ebe66ff9515c" },
+  "oil.nvim": { "branch": "master", "commit": "99ce32f4a2ecf76263b72fcc31efb163faa1a941" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "recall.nvim": { "branch": "main", "commit": "4e844601dd1387f1dad1b4bd555ad8a2ac817d8e" },
