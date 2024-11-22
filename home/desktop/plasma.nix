@@ -98,8 +98,9 @@ in {
         "Window Quick Tile Right" = "Meta+L";
         "Window Quick Tile Top" = "Meta+K";
 
-        "view_zoom_in" = [];
-        "view_zoom_out" = [];
+        "view_actual_size" = "Meta+Ctrl+0,Meta+0,Zoom to Actual Size";
+        "view_zoom_in" = "Meta+Ctrl++,Meta++,Zoom In";
+        "view_zoom_out" = "Meta+Ctrl+-,Meta+-,Zoom Out";
       };
 
       "ksmserver"."Lock Session" = [];
@@ -171,6 +172,8 @@ in {
         "Effect-slide"."HorizontalGap".value = 0;
         "Effect-slide"."SlideBackground".value = false;
         "Effect-slide"."VerticalGap".value = 0;
+
+        "Effect-zoom"."ZoomFactor" = 1.05;
 
         "NightColor" = {
           "Active".value = true;
