@@ -9,7 +9,7 @@ return {
     graph_style = "unicode",
     sections = { recent = { folded = false } },
     status = { recent_commit_count = 99 },
-    console_timeout = 10000,
+    auto_show_console_on = "error",
     initial_branch_name = "fnune/",
     signs = {
       hunk = { "", "" },
