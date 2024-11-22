@@ -169,12 +169,6 @@ in {
         "Desktops"."Number".value = 10;
         "Desktops"."Rows".value = 1;
 
-        "Effect-slide"."HorizontalGap".value = 0;
-        "Effect-slide"."SlideBackground".value = false;
-        "Effect-slide"."VerticalGap".value = 0;
-
-        "Effect-zoom"."ZoomFactor" = 1.05;
-
         "NightColor" = {
           "Active".value = true;
           "NightTemperature".value = 3600;
@@ -182,6 +176,16 @@ in {
 
         "Windows" = {
           "BorderlessMaximizedWindows".value = true;
+        };
+
+        "Effect-zoom" = {
+          "ZoomFactor" = 1.05;
+        };
+
+        "Effect-slide" = {
+          "HorizontalGap".value = 0;
+          "SlideBackground".value = false;
+          "VerticalGap".value = 0;
         };
       };
 
