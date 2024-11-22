@@ -14,6 +14,7 @@
     ./desktop/audio.nix
     ./desktop/fonts.nix
     ./desktop/plasma.nix
+    ./desktop/wallpapers.nix
     ./options.nix
     ./programs/bat.nix
     ./programs/devenv.nix
