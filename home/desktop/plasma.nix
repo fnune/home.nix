@@ -101,6 +101,8 @@ in {
         "view_actual_size" = "Meta+Ctrl+0,Meta+0,Zoom to Actual Size";
         "view_zoom_in" = "Meta+Ctrl++,Meta++,Zoom In";
         "view_zoom_out" = "Meta+Ctrl+-,Meta+-,Zoom Out";
+
+        "ToggleMouseClick" = "Meta+Ctrl+.,Meta+*,Toggle Mouse Click Effect";
       };
 
       "ksmserver"."Lock Session" = [];
@@ -186,6 +188,17 @@ in {
           "HorizontalGap".value = 0;
           "SlideBackground".value = false;
           "VerticalGap".value = 0;
+        };
+
+        "Effect-mouseclick" = {
+          "Color1" = "160,160,160";
+          "Color2" = "255,0,0";
+          "Color3" = "255,128,128";
+          "LineWidth" = 2;
+          "RingCount" = 1;
+          "RingLife" = 200;
+          "RingSize" = 50;
+          "ShowText" = false;
         };
       };
 
