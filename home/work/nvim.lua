@@ -8,7 +8,7 @@ neotest.setup_project(vim.loop.cwd(), {
   },
 })
 
-vim.o.makeprg = "./.git/hooks/pre-commit"
+vim.o.makeprg = "lefthook --colors=off run pre-commit"
 
 vim.g.dbs = {
   { name = "memfault-pg-local", url = "postgresql://memfault:memfault@localhost:5432/memfault_db" },

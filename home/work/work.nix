@@ -7,7 +7,7 @@
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
   home = {
-    packages = with pkgs.unstable; [micromamba overmind awscli2 ssm-session-manager-plugin];
+    packages = with pkgs.unstable; [awscli2 lefthook micromamba overmind ssm-session-manager-plugin];
 
     file."${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
     file."${monorepo}/.nvim.lua".source = ./nvim.lua;
