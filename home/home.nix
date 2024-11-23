@@ -31,7 +31,6 @@
     ./programs/python.nix
     ./programs/ripgrep.nix
     ./programs/rust.nix
-    ./programs/slack.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
     ./programs/ventoy.nix
