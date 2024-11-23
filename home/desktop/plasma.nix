@@ -269,14 +269,27 @@ in {
           "plugins".value = "krunner_services,krunner_sessions,krunner_systemsettings";
         };
         "Plugins" = {
-          "appstreamEnabled".value = false;
-          "desktopsessionsEnabled".value = true;
-          "helprunnerEnabled".value = false;
-          "katesessionsEnabled".value = false;
-          "konsoleprofilesEnabled".value = false;
-          "org.kde.activities2Enabled".value = false;
-          "org.kde.windowedwidgetsEnabled".value = false;
-          "webshortcutsEnabled".value = false;
+          "baloosearchEnabled" = true;
+          "browserhistoryEnabled" = true;
+          "browsertabsEnabled" = true;
+          "desktopsessionsEnabled" = true;
+          "krunner_servicesEnabled" = true;
+          "krunner_sessionsEnabled" = true;
+          "krunner_systemsettingsEnabled" = true;
+          # Disabled:
+          "appstreamEnabled" = false;
+          "bookmarksEnabled" = false;
+          "helprunnerEnabled" = false;
+          "katesessionsEnabled" = false;
+          "konsoleprofilesEnabled" = false;
+          "krunner_appstreamEnabled" = false;
+          "krunner_katesessionsEnabled" = false;
+          "krunner_konsoleprofilesEnabled" = false;
+          "krunner_webshortcutsEnabled" = false;
+          "org.kde.activities2Enabled" = false;
+          "org.kde.windowedwidgetsEnabled" = false;
+          "webshortcutsEnabled" = false;
+          "windowsEnabled" = false;
         };
       };
     };
