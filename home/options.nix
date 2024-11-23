@@ -61,6 +61,11 @@
       default = "vscode";
       description = "The preferred colorscheme for the terminal, Neovim and others";
     };
+    wallpapers = lib.mkOption {
+      type = lib.types.str;
+      default = "Pictures/Wallpapers";
+      description = "A path to store wallpapers, relative to ~";
+    };
     shell = {
       name = lib.mkOption {
         type = lib.types.str;

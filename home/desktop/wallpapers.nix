@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   source = pkgs.fetchFromGitHub {
     owner = "dharmx";
     repo = "walls";
@@ -6,5 +10,5 @@
     sha256 = "sha256-M96jJy3L0a+VkJ+DcbtrRAquwDWaIG9hAUxenr/TcQU";
   };
 in {
-  home.file."Pictures/Wallpapers".source = source + "/mountain";
+  home.file.${config.wallpapers}.source = source + "/mountain";
 }

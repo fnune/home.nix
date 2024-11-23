@@ -60,6 +60,17 @@ in {
       small = sansSmall;
       fixedWidth = mono;
     };
+    workspace = {
+      wallpaperSlideShow = {
+        path = "${config.home.homeDirectory}/${config.wallpapers}";
+        interval = 2 * 60 * 60;
+      };
+    };
+    kscreenlocker = {
+      appearance = {
+        wallpaperPlainColor = "33,33,33";
+      };
+    };
     shortcuts = {
       "services/${config.terminal.name}.desktop"."_launch" = "Meta+Return";
 
