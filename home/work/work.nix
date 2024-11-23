@@ -6,6 +6,8 @@
 }: let
   monorepo = "${config.home.homeDirectory}/Development/memfault";
 in {
+  imports = [./playwright.nix];
+
   home = {
     packages = with pkgs.unstable; [awscli2 lefthook micromamba overmind ssm-session-manager-plugin];
 
