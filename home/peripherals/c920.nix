@@ -33,7 +33,6 @@ in {
     Exec=${script}/bin/c920-camera-setup
     Hidden=false
     NoDisplay=true
-    X-GNOME-Autostart-enabled=true
     Name=C920 Camera Setup
   '';
 }

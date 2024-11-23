@@ -10,8 +10,6 @@
       libreoffice-qt
     ])
     ++ (with pkgs.kdePackages; [
-      filelight
-      isoimagewriter
       kalk
       kcharselect
       kcolorchooser
