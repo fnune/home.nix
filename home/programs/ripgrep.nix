@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   fzfRgCommand = ''
-    rg --hidden --files --follow -g \"!{.git,node_modules}/*\" 2> /dev/null
+    ${pkgs.ripgrep}/bin/rg --hidden --files --follow -g \"!{.git,node_modules}/*\" 2> /dev/null
   '';
 in {
   home.packages = [pkgs.ripgrep];

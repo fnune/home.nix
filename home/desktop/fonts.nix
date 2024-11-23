@@ -4,17 +4,19 @@
   lib,
   ...
 }: {
-  home.packages = with pkgs.unstable; [noto-fonts-emoji nerdfonts];
+  home = {
+    packages = with pkgs.unstable; [noto-fonts-emoji noto-fonts-cjk-sans nerdfonts];
 
-  # When changing font configuration using the UI, Plasma will use the first
-  # file it finds in 'conf.d' as its target. Give it an empty file so that it
-  # does not unlink other configuration files in this module:
-  home.activation.writeDesktopFontconfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    touch ${config.home.homeDirectory}/.config/fontconfig/conf.d/00-desktop.conf
-  '';
+    # When changing font configuration using the UI, Plasma will use the first
+    # file it finds in 'conf.d' as its target. Give it an empty file so that it
+    # does not unlink other configuration files in this module:
+    activation.writeDesktopFontconfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      touch ${config.home.homeDirectory}/.config/fontconfig/conf.d/00-desktop.conf
+    '';
 
-  # https://blog.aktsbot.in/no-more-blurry-fonts.html
-  home.sessionVariables.FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+    # https://blog.aktsbot.in/no-more-blurry-fonts.html
+    sessionVariables.FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+  };
 
   xdg.configFile = {
     "fontconfig/conf.d/99-rendering.conf".text = ''

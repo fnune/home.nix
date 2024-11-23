@@ -91,7 +91,6 @@
 
   # Packages I want always to be available
   environment.systemPackages = with pkgs; [
-    btop
     config.cursors.package
     ddcui
     ddcutil
@@ -115,7 +114,6 @@
     man-pages-posix
     neovim
     nmap
-    noto-fonts-cjk-sans
     pciutils
     tree
     unzip

@@ -1,10 +1,19 @@
 {pkgs, ...}: {
   networking.hosts."127.0.0.1" = ["minio" "rabbitmq"];
-
-  # Remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
-  systemd.services.vanta = {
-    enable = true;
-    inherit (import ../packages/vanta.nix {inherit pkgs;}) wantedBy description serviceConfig;
+  systemd = {
+    services.vanta = {
+      # Remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
+      enable = true;
+      inherit (import ../packages/vanta.nix {inherit pkgs;}) wantedBy description serviceConfig;
+    };
+    packages = [pkgs.cloudflare-warp];
+    targets.multi-user.wants = ["warp-svc.service"];
+    user = {
+      services = {
+        warp-taskbar.enable = false;
+        "app-com.cloudflare.WarpTaskbar@autostart".enable = false;
+      };
+    };
   };
 
   # Enable greedy file watchers like Vite
@@ -14,8 +23,4 @@
   };
 
   environment.systemPackages = [pkgs.cloudflare-warp];
-  systemd.packages = [pkgs.cloudflare-warp];
-  systemd.targets.multi-user.wants = ["warp-svc.service"];
-  systemd.user.services.warp-taskbar.enable = false;
-  systemd.user.services."app-com.cloudflare.WarpTaskbar@autostart".enable = false;
 }

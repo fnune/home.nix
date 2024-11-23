@@ -10,23 +10,33 @@
     background=
   '';
 in {
-  services.displayManager = {
-    defaultSession = "plasma";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-      settings = {
-        Theme = {
-          Font = config.fontconfig.sans;
-          CursorTheme = config.cursors.name;
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager = {
+      defaultSession = "plasma";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        settings = {
+          Theme = {
+            Font = config.fontconfig.sans;
+            CursorTheme = config.cursors.name;
+          };
         };
       };
     };
   };
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [elisa khelpcenter konsole];
-  programs.kdeconnect.enable = true;
-  programs.gnupg.agent.pinentryPackage = pkgs.callPackage ../packages/pinentry-kwallet.nix {};
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    khelpcenter
+    konsole
+  ];
+
+  programs = {
+    kdeconnect.enable = true;
+    gnupg.agent.pinentryPackage = pkgs.callPackage ../packages/pinentry-kwallet.nix {};
+  };
 
   environment.systemPackages = [
     pkgs.kdePackages.koi
