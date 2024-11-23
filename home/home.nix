@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   home = {
     username = "fausto";
     homeDirectory = "/home/fausto";
@@ -10,12 +10,12 @@
   news.display = "silent";
 
   imports = [
+    ../options.nix
     ./desktop/applications.nix
     ./desktop/audio.nix
     ./desktop/fonts.nix
     ./desktop/plasma.nix
     ./desktop/wallpapers.nix
-    ./options.nix
     ./programs/bat.nix
     ./programs/devenv.nix
     ./programs/direnv.nix

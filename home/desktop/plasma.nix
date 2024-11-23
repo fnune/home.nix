@@ -2,13 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  cursor = {
-    name = "Simp1e-Adw-Dark";
-    size = 32;
-    package = pkgs.simp1e-cursors;
-  };
-in {
+}: {
   home.packages =
     (with pkgs; [
       inkscape
@@ -24,8 +18,8 @@ in {
       kweather
     ]);
 
-  gtk.cursorTheme = cursor;
-  home.pointerCursor = cursor;
+  gtk.cursorTheme = config.cursors;
+  home.pointerCursor = config.cursors;
 
   programs.plasma = {
     enable = true;
@@ -174,8 +168,8 @@ in {
       };
 
       "kcminputrc" = {
-        "Mouse"."cursorSize".value = cursor.size;
-        "Mouse"."cursorTheme".value = cursor.name;
+        "Mouse"."cursorSize".value = config.cursors.size;
+        "Mouse"."cursorTheme".value = config.cursors.name;
         "Keyboard" = {
           "RepeatDelay".value = 200;
           "RepeatRate".value = 30;

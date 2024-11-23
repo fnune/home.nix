@@ -19,11 +19,6 @@
     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
     "drive-menu@gnome-shell-extensions.gcampax.github.com"
   ];
-  cursor = {
-    name = "Simp1e-Adw-Dark";
-    size = builtins.ceil (24 * config.machine.scale);
-    package = pkgs.unstable.simp1e-cursors;
-  };
   icons = {
     name = "MoreWaita";
     package = pkgs.unstable.morewaita-icon-theme;
@@ -36,7 +31,7 @@
 in {
   home = {
     packages = [icons.package] ++ extensions;
-    pointerCursor = cursor;
+    pointerCursor = config.cursors;
 
     # Using dconf settings to set these does not work. Since dconf from within
     # the Nix store does not share the user's D-Bus session, I need to resort to
@@ -49,7 +44,7 @@ in {
   };
 
   gtk = {
-    cursorTheme = cursor;
+    cursorTheme = config.cursors;
     iconTheme = icons;
   };
 

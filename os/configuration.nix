@@ -5,7 +5,15 @@
 }: {
   system.stateVersion = "23.05";
 
-  imports = [./plasma.nix ./browsers.nix ./audio.nix ./plymouth.nix ./work.nix ./cachix.nix];
+  imports = [
+    ../options.nix
+    ./plasma.nix
+    ./browsers.nix
+    ./audio.nix
+    ./plymouth.nix
+    ./work.nix
+    ./cachix.nix
+  ];
 
   # Define a user account
   users.users.fausto = {
@@ -84,6 +92,7 @@
   # Packages I want always to be available
   environment.systemPackages = with pkgs; [
     btop
+    config.cursors.package
     ddcui
     ddcutil
     dig

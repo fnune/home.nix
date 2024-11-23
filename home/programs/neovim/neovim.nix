@@ -55,6 +55,7 @@
       EDITOR = "nvim";
       SUDO_EDITOR = "nvim";
       VISUAL = "nvim";
+      COLORSCHEME = config.colorscheme;
     };
   };
   programs.git.extraConfig.user.editor = "nvim";

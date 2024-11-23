@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   wallpaper-sddm = pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
     [General]
     type=color
@@ -13,8 +17,8 @@ in {
       wayland.enable = true;
       settings = {
         Theme = {
-          Font = "Inter";
-          CursorTheme = "Simp1e-Adw-Dark";
+          Font = config.fontconfig.sans;
+          CursorTheme = config.cursors.name;
         };
       };
     };
@@ -26,7 +30,6 @@ in {
 
   environment.systemPackages = [
     pkgs.kdePackages.koi
-    pkgs.simp1e-cursors
     wallpaper-sddm
   ];
 }

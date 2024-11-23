@@ -1,13 +1,8 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: {
-  config.home.sessionVariables = {
-    COLORSCHEME = config.colorscheme;
-  };
-
   options = {
     profile = {
       name = lib.mkOption {
@@ -65,6 +60,23 @@
       type = lib.types.str;
       default = "Pictures/Wallpapers";
       description = "A path to store wallpapers, relative to ~";
+    };
+    cursors = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        default = "Simp1e-Adw-Dark";
+        description = "The name of the cursor theme";
+      };
+      size = lib.mkOption {
+        type = lib.types.int;
+        default = 32;
+        description = "The size of the cursor";
+      };
+      package = lib.mkOption {
+        type = lib.types.package;
+        default = pkgs.simp1e-cursors;
+        description = "The package with the cursor theme";
+      };
     };
     shell = {
       name = lib.mkOption {
