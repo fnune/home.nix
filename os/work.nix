@@ -4,7 +4,7 @@
   # Remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
   systemd.services.vanta = {
     enable = true;
-    inherit (import ../home/work/nix/vanta {inherit pkgs;}) wantedBy description serviceConfig;
+    inherit (import ../packages/vanta.nix {inherit pkgs;}) wantedBy description serviceConfig;
   };
 
   # Enable greedy file watchers like Vite
