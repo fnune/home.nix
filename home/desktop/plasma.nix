@@ -158,7 +158,6 @@
 
         "Windeco" = {
           "ButtonSize".value = "ButtonSmall";
-          "TitleAlignment".value = "AlignLeft";
         };
       };
 
