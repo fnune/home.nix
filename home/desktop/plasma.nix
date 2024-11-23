@@ -13,6 +13,7 @@
       filelight
       isoimagewriter
       kalk
+      kcharselect
       kcolorchooser
       kjournald
       kweather
