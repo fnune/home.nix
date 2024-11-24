@@ -307,6 +307,12 @@
           "windowsEnabled" = false;
         };
       };
+
+      "dolphinrc" = {
+        "General" = {
+          "EditableUrl" = true;
+        };
+      };
     };
   };
 }
