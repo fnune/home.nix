@@ -7,12 +7,13 @@
 
   imports = [
     ../options.nix
-    ./plasma.nix
-    ./browsers.nix
     ./audio.nix
+    ./browsers.nix
+    ./cachix.nix
+    ./fonts.nix
+    ./plasma.nix
     ./plymouth.nix
     ./work.nix
-    ./cachix.nix
   ];
 
   # Define a user account
@@ -104,7 +105,6 @@
     git
     gnumake
     gzip
-    inter
     jq
     killall
     lazydocker
