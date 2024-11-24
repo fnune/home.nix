@@ -155,7 +155,7 @@
         "view_zoom_in" = "Meta+Ctrl++,Meta++,Zoom In";
         "view_zoom_out" = "Meta+Ctrl+-,Meta+-,Zoom Out";
 
-        "ToggleMouseClick" = "Meta+Ctrl+.,Meta+*,Toggle Mouse Click Effect";
+        "ToggleMouseClick" = "Meta+Ctrl+.";
       };
 
       "ksmserver"."Lock Session" = [];
