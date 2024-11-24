@@ -144,7 +144,7 @@
 
         "Window Close" = "Meta+Shift+Q";
         "Window Fullscreen" = "Meta+Shift+F";
-        "Window Maximize" = "Meta+F"; # Clashes with Window Quick Tile Right
+        "Window Maximize" = "Meta+F";
 
         "Window Quick Tile Bottom" = "Meta+J";
         "Window Quick Tile Left" = "Meta+H";
