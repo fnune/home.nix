@@ -281,7 +281,7 @@
           "FreeFloating".value = true;
         };
         "Plugins/Favorites" = {
-          "plugins".value = "krunner_services,krunner_sessions,krunner_systemsettings";
+          "plugins".value = "krunner_placesrunner,krunner_services,krunner_sessions,krunner_systemsettings";
         };
         "Plugins" = {
           "baloosearchEnabled" = true;
