@@ -22,6 +22,25 @@
 
   programs.plasma = {
     enable = true;
+    panels = [
+      {
+        inherit (config.panel) height;
+        location = "top";
+        hiding = "normalpanel";
+        lengthMode = "fill";
+        screen = null;
+        widgets = [
+          "org.kde.plasma.pager"
+          "org.kde.plasma.icontasks"
+          "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.systemtray"
+          "org.kde.plasma.weather"
+          "org.kde.plasma.kickoff"
+          "org.kde.plasma.digitalclock"
+        ];
+        extraSettings = builtins.readFile ./plasma-panel.js;
+      }
+    ];
     fonts = let
       fontSize = 13;
       fontSizeSmall = 11;

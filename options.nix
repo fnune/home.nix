@@ -61,6 +61,13 @@
       default = "Pictures/Wallpapers";
       description = "A path to store wallpapers, relative to ~";
     };
+    panel = {
+      height = lib.mkOption {
+        type = lib.types.int;
+        default = 34;
+        description = "Height of the desktop environment panel";
+      };
+    };
     cursors = {
       name = lib.mkOption {
         type = lib.types.str;
