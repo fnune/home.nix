@@ -176,6 +176,10 @@
 
       "kdeglobals" = {
         "General" = {
+          "AccentColor" = "31,118,255";
+          "BrowserApplication" = "firefox.desktop";
+          "TerminalApplication" = config.terminal.name;
+          "TerminalService" = "${config.terminal.name}.service";
           "XftAntialias".value = config.fontconfig.antialias;
           "XftHintStyle".value = config.fontconfig.hinting;
           "XftSubPixel".value = config.fontconfig.subpixel;
