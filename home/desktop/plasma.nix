@@ -230,6 +230,14 @@
           "BorderlessMaximizedWindows".value = true;
         };
 
+        "Plugins" = {
+          "hidecursorEnabled".value = true;
+        };
+
+        "Effect-hidecursor" = {
+          "InactivityDuration" = 3;
+        };
+
         "Effect-zoom" = {
           "ZoomFactor" = 1.05;
         };
