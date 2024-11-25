@@ -3,6 +3,8 @@
   config,
   ...
 }: {
+  imports = [./plasma-monitor.nix];
+
   home.packages =
     (with pkgs; [
       inkscape
