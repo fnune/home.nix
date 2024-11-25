@@ -248,6 +248,11 @@
           "RingSize" = 50;
           "ShowText" = false;
         };
+
+        "org.kde.kdecoration2" = {
+          "ButtonsOnLeft" = "M"; # Application icon & "more actions"
+          "ButtonsOnRight" = "X"; # Just the close button
+        };
       };
 
       "kxkbrc" = {
