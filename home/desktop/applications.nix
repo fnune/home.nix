@@ -12,6 +12,7 @@
     exiftool
     haruna
     logseq
+    maestral-gui
     screenkey
     signal-desktop
     spotify
