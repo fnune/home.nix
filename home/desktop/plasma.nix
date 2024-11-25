@@ -153,9 +153,9 @@
         "Window Quick Tile Right" = "Meta+L";
         "Window Quick Tile Top" = "Meta+K";
 
-        "view_actual_size" = "Meta+Ctrl+0,Meta+0,Zoom to Actual Size";
-        "view_zoom_in" = "Meta+Ctrl++,Meta++,Zoom In";
-        "view_zoom_out" = "Meta+Ctrl+-,Meta+-,Zoom Out";
+        "view_actual_size" = "Meta+Ctrl+0";
+        "view_zoom_in" = "Meta+Ctrl++";
+        "view_zoom_out" = "Meta+Ctrl+-";
 
         "ToggleMouseClick" = "Meta+Ctrl+.";
       };
