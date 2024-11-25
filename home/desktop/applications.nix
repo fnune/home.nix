@@ -3,7 +3,6 @@
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
-      permittedInsecurePackages = ["electron-27.3.11"]; # For logseq
     };
   };
 
@@ -11,8 +10,8 @@
     digikam
     exiftool
     haruna
-    logseq
     maestral
+    obsidian
     screenkey
     signal-desktop
     spotify
