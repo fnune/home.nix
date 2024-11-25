@@ -1,32 +1,34 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+set -euxo pipefail
 
 TEMP_DIR="/tmp/plasma-monitor"
-PREVIOUS_DUMP="$TEMP_DIR/previous_dump"
-CURRENT_DUMP="$TEMP_DIR/current_dump"
+PREVIOUS="$TEMP_DIR/previous"
+CURRENT="$TEMP_DIR/current"
 DIFF_FILE="$TEMP_DIR/diff_log"
 
 mkdir -p "$TEMP_DIR"
 
-if [ ! -f "$PREVIOUS_DUMP" ]; then
-  nix run github:pjones/plasma-manager >"$PREVIOUS_DUMP"
-  echo "Initial configuration captured in $TEMP_DIR."
+capture() { nix run github:pjones/plasma-manager; }
+
+if [ ! -f "$PREVIOUS" ]; then
+  capture >"$PREVIOUS" && echo "Wrote initial configuration in $PREVIOUS."
+else
+  echo "Found existing configuration in $PREVIOUS."
 fi
 
 while true; do
-  nix run github:pjones/plasma-manager >"$CURRENT_DUMP"
-
-  DIFF_OUTPUT=$(diff -u "$PREVIOUS_DUMP" "$CURRENT_DUMP")
-
-  if [ -n "$DIFF_OUTPUT" ]; then
-    TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-    {
-      echo "[$TIMESTAMP] Plasma config changes detected:"
-      echo "$DIFF_OUTPUT"
-      echo "---"
-    } >>"$DIFF_FILE"
+  if capture >"$CURRENT"; then
+    DIFF_OUTPUT=$(diff -u "$PREVIOUS" "$CURRENT" || true)
+    [ -n "$DIFF_OUTPUT" ] && {
+      TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+      {
+        echo "[$TIMESTAMP] Changes:"
+        echo "$DIFF_OUTPUT"
+        echo "---"
+      } >>"$DIFF_FILE"
+    }
+    cp "$CURRENT" "$PREVIOUS"
   fi
-
-  cp "$CURRENT_DUMP" "$PREVIOUS_DUMP"
-
   sleep 300
 done
