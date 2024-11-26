@@ -30,6 +30,7 @@
     ./programs/psql/psql.nix
     ./programs/python.nix
     ./programs/ripgrep.nix
+    ./programs/tableplus.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
     ./programs/ventoy.nix
