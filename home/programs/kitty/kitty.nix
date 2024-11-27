@@ -27,7 +27,7 @@ in {
       });
     })
   ];
-  home.packages = with pkgs; [kittyWithWhiskers unstable.nerdfonts];
+  home.packages = with pkgs; [kittyWithWhiskers];
   home.file.".config/kitty/kitty.conf".text = ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 

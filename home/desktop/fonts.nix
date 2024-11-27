@@ -5,7 +5,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs.unstable; [nerdfonts];
+    packages = with pkgs.unstable; [nerd-fonts.geist-mono nerd-fonts.blex-mono];
 
     # When changing font configuration using the UI, Plasma will use the first
     # file it finds in 'conf.d' as its target. Give it an empty file so that it
