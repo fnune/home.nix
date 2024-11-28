@@ -1,5 +1,9 @@
 {pkgs, ...}: {
-  networking.hosts."127.0.0.1" = ["minio" "rabbitmq"];
+  networking = {
+    hosts."127.0.0.1" = ["minio" "rabbitmq"];
+    firewall.allowedTCPPorts = [8000];
+  };
+
   systemd = {
     services.vanta = {
       # Remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
