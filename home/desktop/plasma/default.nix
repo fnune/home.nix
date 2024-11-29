@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  imports = [./plasma-monitor.nix ./plasma-palette.nix];
+  imports = [./monitor.nix ./palette.nix];
 
   home.packages =
     (with pkgs; [
@@ -41,7 +41,7 @@
           "org.kde.plasma.kickoff"
           "org.kde.plasma.digitalclock"
         ];
-        extraSettings = builtins.readFile ./plasma-panel.js;
+        extraSettings = builtins.readFile ./panel.js;
       }
     ];
     fonts = let
@@ -275,7 +275,7 @@
       };
 
       "plasma-localerc" = {
-        "Formats" = builtins.mapAttrs (name: value: {inherit value;}) (import ../locales.nix);
+        "Formats" = builtins.mapAttrs (name: value: {inherit value;}) (import ../../locales.nix);
         "Translations" = {
           "LANGUAGE".value = "en_US";
         };
