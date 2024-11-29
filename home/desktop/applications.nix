@@ -9,7 +9,6 @@
   home.packages = with pkgs; [
     digikam
     exiftool
-    haruna
     maestral
     obsidian
     screenkey

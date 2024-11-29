@@ -7,6 +7,7 @@
 
   home.packages =
     (with pkgs; [
+      haruna
       inkscape
       krita
       libreoffice-qt
@@ -327,6 +328,16 @@
       "dolphinrc" = {
         "General" = {
           "EditableUrl" = true;
+        };
+      };
+
+      "haruna/haruna.conf" = {
+        "General" = {
+          "ShowHeader".value = false;
+          "ShowMenuBar".value = false;
+        };
+        "Playlist" = {
+          "CanToggleWithMouse".value = false;
         };
       };
     };
