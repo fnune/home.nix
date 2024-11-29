@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  imports = [./plasma-monitor.nix];
+  imports = [./plasma-monitor.nix ./plasma-palette.nix];
 
   home.packages =
     (with pkgs; [
