@@ -23,6 +23,7 @@
     ./programs/fd.nix
     ./programs/fzf.nix
     ./programs/git.nix
+    ./programs/jetbrains.nix
     ./programs/kitty/kitty.nix
     ./programs/neovim/neovim.nix
     ./programs/obs-studio.nix
