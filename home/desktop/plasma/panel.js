@@ -33,6 +33,14 @@ configure("org.kde.plasma.icontasks", {
   },
 });
 
+configure("org.kde.plasma.systemmonitor.memory", {
+  Appearance: { chartFace: "org.kde.ksysguard.linechart" },
+});
+
+configure("org.kde.plasma.systemmonitor.cpu", {
+  Appearance: { chartFace: "org.kde.ksysguard.linechart" },
+});
+
 configure("org.kde.plasma.kickoff", {
   General: {
     icon: "application-menu-symbolic",
