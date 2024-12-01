@@ -7,6 +7,7 @@
   };
 
   home.packages = with pkgs; [
+    dbgate
     digikam
     exiftool
     maestral
