@@ -33,6 +33,7 @@
         lengthMode = "fill";
         screen = null;
         widgets = [
+          "org.kde.plasma.marginsseparator"
           "org.kde.plasma.pager"
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.icontasks"
@@ -43,6 +44,7 @@
           "org.kde.plasma.weather"
           "org.kde.plasma.kickoff"
           "org.kde.plasma.digitalclock"
+          "org.kde.plasma.marginsseparator"
         ];
         extraSettings = builtins.readFile ./panel.js;
       }
