@@ -90,6 +90,9 @@
   # Show stars while entering sudo password
   security.sudo.extraConfig = "Defaults pwfeedback";
 
+  # Enable things like Volta for projects that need it
+  programs.nix-ld.enable = true;
+
   # Packages I want always to be available
   environment.systemPackages = with pkgs; [
     config.cursors.package
@@ -118,6 +121,7 @@
     tree
     unzip
     util-linux
+    volta
     wget
     wl-clipboard
     zsh
