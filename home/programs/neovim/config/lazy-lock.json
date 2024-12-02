@@ -89,7 +89,7 @@
   "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" },
   "vim-vsnip-integ": { "branch": "master", "commit": "90ae474e8b05ed41e36d6f58382a9fbfb4b672c4" },
   "visual-whitespace.nvim": { "branch": "main", "commit": "76cffcf1523e8949c2cf9909915ec91e5d17972b" },
-  "vscode": { "branch": "main", "commit": "18097b7aa47538afa780c821309c8b992972d726" },
+  "vscode": { "branch": "main", "commit": "041b25f663b12ad28e62620e7d68a4e5196b5dec" },
   "vscode-js-debug": { "branch": "main", "commit": "19cd30297dc05b7a7fa9d1d02a8e9dfc1749362e" },
   "which-key.nvim": { "branch": "main", "commit": "9b365a6428a9633e3eeb34dbef1b791511c54f70" },
   "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" }

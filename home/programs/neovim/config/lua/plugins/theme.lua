@@ -11,34 +11,13 @@ return {
   },
   highlights.make_theme({
     name = "vscode",
-    repo = "Mofiqul/vscode.nvim",
+    repo = "fnune/vscode.fnune.nvim",
     palette = function()
       return require("vscode.colors").get_colors()
     end,
     config = function()
       local vscode = require("vscode")
-      local colors = require("vscode.colors").get_colors()
-      vscode.setup({
-        disable_nvimtree_bg = true,
-        group_overrides = {
-          ["@comment"] = { fg = colors.vscGray },
-          ["@punctuation.delimiter.jsdoc"] = { fg = colors.vscGray },
-          ["Comment"] = { fg = colors.vscGray },
-          ["NormalFloat"] = { bg = colors.vscBack },
-          ["Pmenu"] = { fg = colors.vscPopupFront, bg = "NONE" },
-          ["PmenuSel"] = { fg = "NONE", bg = colors.vscPopupHighlightBlue },
-          ["SpecialComment"] = { fg = colors.vscGray },
-          ["FloatBorder"] = { fg = colors.vscLeftDark },
-          ["TelescopePreviewBorder"] = { fg = colors.vscLeftDark },
-          ["TelescopePromptBorder"] = { fg = colors.vscLeftDark },
-          ["TelescopeResultsBorder"] = { fg = colors.vscLeftDark },
-          ["VertSplit"] = { fg = colors.vscLeftDark },
-          ["PmenuSbar"] = { bg = colors.vscBack },
-          ["PmenuThumb"] = { fg = colors.vscLeftMid, bg = colors.vscLeftMid },
-          ["DropBarIconUIPickPivot"] = { link = "@comment.note" },
-          ["VisualNonText"] = { fg = colors.vscDisabledBlue, bg = colors.vscSelection },
-        },
-      })
+      vscode.setup({ disable_nvimtree_bg = true })
       vscode.load()
     end,
   }),
