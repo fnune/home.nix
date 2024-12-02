@@ -34,7 +34,6 @@
         screen = null;
         widgets = [
           "org.kde.plasma.marginsseparator"
-          "org.kde.plasma.marginsseparator"
           "org.kde.plasma.pager"
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.icontasks"
