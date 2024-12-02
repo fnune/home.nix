@@ -17,6 +17,7 @@
     ./desktop/plasma
     ./desktop/wallpapers.nix
     ./programs/bat.nix
+    ./programs/dbgate/dbgate.nix
     ./programs/devenv.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
