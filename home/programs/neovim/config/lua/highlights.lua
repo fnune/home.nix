@@ -50,6 +50,7 @@ M.make_theme = function(config)
   return {
     config.repo,
     name = config.name,
+    branch = config.branch,
     lazy = not enabled,
     priority = 1000,
     dev = config.dev or false,
