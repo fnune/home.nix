@@ -83,7 +83,7 @@
     workspace = {
       wallpaperSlideShow = {
         path = "${config.home.homeDirectory}/${config.wallpapers}";
-        interval = 2 * 60 * 60;
+        interval = 30 * 60;
       };
     };
     kscreenlocker = {
