@@ -10,6 +10,13 @@ return {
     },
   },
   {
+    "Wansmer/symbol-usage.nvim",
+    event = "LspAttach",
+    config = function()
+      require("symbol-usage").setup({ vt_position = "end_of_line", request_pending_text = false })
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     init = function()
       local constants = require("constants")
