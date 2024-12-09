@@ -102,7 +102,6 @@
     dmidecode
     docker-compose
     du-dust
-    eza
     file
     gcc
     git
