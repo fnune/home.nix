@@ -40,7 +40,7 @@ in {
     enable_audio_bell no
     placement_strategy top-left
     hide_window_decorations no
-    symbol_map U+002A BlexMono Nerd Font
+    modify_font underline_position +3
 
     ${colorschemeConf}
 
