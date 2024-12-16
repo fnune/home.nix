@@ -3,9 +3,19 @@
   config,
   ...
 }: {
+  programs = {
+    neovim = {
+      enable = true;
+      extraLuaPackages = ps: [ps.magick];
+      extraPackages = [pkgs.imagemagick];
+      withNodeJs = true;
+      withPython3 = true;
+      withRuby = true;
+    };
+  };
+
   home = {
     packages = with pkgs.unstable; [
-      (neovim.override {withNodeJs = true;})
       # LSPs
       clang-tools
       lua-language-server
