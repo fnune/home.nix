@@ -55,7 +55,7 @@
         # Lower-level tools
         tree-sitter
       ])
-      ++ (with pkgs; [tailwindcss-language-server]);
+      ++ (with pkgs.development; [tailwindcss-language-server]); # https://github.com/NixOS/nixpkgs/pull/365788
 
     file = {
       ".config/nvim/" = {
