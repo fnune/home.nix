@@ -16,6 +16,7 @@
     ./desktop/fonts.nix
     ./desktop/plasma
     ./desktop/wallpapers.nix
+    ./notifier.nix
     ./programs/bat.nix
     ./programs/dbgate/dbgate.nix
     ./programs/devenv.nix
