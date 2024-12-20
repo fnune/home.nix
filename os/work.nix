@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   networking = {
-    hosts."127.0.0.1" = ["minio" "rabbitmq"];
+    hosts."127.0.0.1" = ["minio" "rabbitmq" "virtual-sql.test"];
     firewall.allowedTCPPorts = [8000];
   };
 
