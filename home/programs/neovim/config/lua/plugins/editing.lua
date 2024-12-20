@@ -4,7 +4,6 @@ return {
   { "christoomey/vim-tmux-navigator" },
   { "machakann/vim-swap" },
   { "matze/vim-move" },
-  { "stevearc/stickybuf.nvim", config = true },
   { "tpope/vim-eunuch" },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
