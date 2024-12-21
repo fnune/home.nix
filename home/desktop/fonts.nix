@@ -96,6 +96,12 @@
             <family>${config.fontconfig.mono}</family>
           </prefer>
         </alias>
+        <alias binding="strong">
+          <family>DejaVu Sans Mono</family>
+          <prefer>
+            <family>${config.fontconfig.mono}</family>
+          </prefer>
+        </alias>
       </fontconfig>
     '';
   };
