@@ -31,7 +31,6 @@ return {
   highlights.make_theme({
     name = "standard",
     repo = "fnune/standard",
-    dev = true,
     palette = function()
       return require("standard.palette").tokens
     end,
