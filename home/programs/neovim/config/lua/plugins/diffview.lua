@@ -11,6 +11,13 @@ return {
         width = constants.file_explorer_width_chars,
       },
     },
+    hooks = {
+      diff_buf_win_enter = function(_, winid, _)
+        -- Turn off cursor line for diffview windows because of bg conflict
+        -- https://github.com/neovim/neovim/issues/9800
+        vim.wo[winid].culopt = "number"
+      end,
+    },
   },
   init = function()
     -- See https://github.com/sindrets/diffview.nvim/issues/196#issuecomment-1244133866
