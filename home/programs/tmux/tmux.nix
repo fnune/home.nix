@@ -8,6 +8,8 @@
     then builtins.readFile ./tmux.vscode.conf
     else if config.colorscheme == "rose-pine"
     then builtins.readFile ./tmux.rose-pine.conf
+    else if config.colorscheme == "standard"
+    then builtins.readFile ./tmux.standard.conf
     else "";
 in {
   programs.tmux = {

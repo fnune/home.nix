@@ -13,6 +13,8 @@
     then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/vscode/extra/kitty/vscode-dark.conf"
     else if config.colorscheme == "rose-pine"
     then "include ${rosePineConf}"
+    else if config.colorscheme == "standard"
+    then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/standard/kitty/standard.dark.conf"
     else "";
 in {
   nixpkgs.overlays = [

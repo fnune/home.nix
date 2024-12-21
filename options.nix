@@ -53,7 +53,7 @@
     };
     colorscheme = lib.mkOption {
       type = lib.types.str;
-      default = "vscode";
+      default = "standard";
       description = "The preferred colorscheme for the terminal, Neovim and others";
     };
     wallpapers = lib.mkOption {

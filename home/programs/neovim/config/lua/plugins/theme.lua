@@ -28,4 +28,11 @@ return {
       return require("rose-pine.palette")
     end,
   }),
+  highlights.make_theme({
+    name = "standard",
+    repo = "fnune/standard",
+    palette = function()
+      return require("standard.palette").tokens
+    end,
+  }),
 }
