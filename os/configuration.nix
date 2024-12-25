@@ -115,8 +115,10 @@
     man-pages
     man-pages-posix
     neovim
+    nettools
     nmap
     pciutils
+    traceroute
     tree
     unzip
     util-linux
