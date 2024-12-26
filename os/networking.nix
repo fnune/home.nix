@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  users.users.fausto.extraGroups = ["networkmanager" "dialout"];
+  users.users.fausto.extraGroups = ["networkmanager" "dialout" "wireshark"];
 
   hardware.bluetooth.enable = true;
   networking.networkmanager.enable = true;
