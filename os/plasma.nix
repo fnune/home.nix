@@ -33,12 +33,16 @@ in {
     konsole
   ];
 
+  # Allows e.g. using the right file picker
+  xdg.portal.enable = true;
+
   programs = {
     kdeconnect.enable = true;
     gnupg.agent.pinentryPackage = pkgs.callPackage ../packages/pinentry-kwallet.nix {};
   };
 
   environment.systemPackages = [
+    config.cursors.package
     pkgs.kdePackages.koi
     wallpaper-sddm
   ];
