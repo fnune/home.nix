@@ -4,9 +4,14 @@
   hardware.bluetooth.enable = true;
   networking.networkmanager.enable = true;
 
-  programs.wireshark = {
-    enable = true;
-    package = pkgs.wireshark;
+  programs = {
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+    tcpdump = {
+      enable = true;
+    };
   };
 
   services = {
@@ -21,7 +26,6 @@
     lsof
     nettools
     nmap
-    tcpdump
     traceroute
     wget
     whois
