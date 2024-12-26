@@ -1,10 +1,13 @@
 {pkgs, ...}: {
   users.users.fausto.extraGroups = ["networkmanager" "dialout"];
 
+  hardware.bluetooth.enable = true;
   networking.networkmanager.enable = true;
 
-  hardware.bluetooth.enable = true;
-  programs.wireshark.enable = true;
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
   services = {
     mullvad-vpn = {
