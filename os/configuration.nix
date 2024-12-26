@@ -118,12 +118,15 @@
     nettools
     nmap
     pciutils
+    tcpdump
     traceroute
     tree
     unzip
     util-linux
     volta
     wget
+    whois
+    wireshark
     wl-clipboard
     zsh
   ];
