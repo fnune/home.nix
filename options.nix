@@ -32,7 +32,7 @@
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "SauceCodePro Nerd Font";
+        default = "TX-02";
         description = "Monospace font to use for the desktop and terminal";
       };
       subpixel = lib.mkOption {
