@@ -332,7 +332,6 @@
 
       "dolphinrc" = {
         "General" = {
-          "EditableUrl" = true;
           "ShowSelectionToggle" = false;
         };
       };
