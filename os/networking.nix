@@ -31,6 +31,7 @@
     lsof
     nettools
     nmap
+    openssl
     traceroute
     wget
     whois
