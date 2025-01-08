@@ -80,6 +80,11 @@
       small = sansSmall;
       fixedWidth = mono;
     };
+    desktop = {
+      mouseActions = {
+        middleClick = null;
+      };
+    };
     workspace = {
       wallpaperSlideShow = {
         path = "${config.home.homeDirectory}/${config.wallpapers}";
