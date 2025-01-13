@@ -25,6 +25,7 @@ return {
       setup("rust_analyzer", {})
       setup("stylelint_lsp", {})
       setup("taplo", {})
+      setup("terraformls", {})
 
       setup("nil_ls", {
         init_options = { nix = { flake = { autoArchive = true } } },

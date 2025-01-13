@@ -27,6 +27,7 @@
       stylelint-lsp
       tailwindcss-language-server
       taplo
+      terraform-ls
       typescript-language-server
       vscode-langservers-extracted
       yaml-language-server
