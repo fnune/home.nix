@@ -5,6 +5,13 @@ return {
     opts = {
       defaults = {
         file_ignore_patterns = { "%.git/.*", "%.cache/.*", "%.yarn/.*" },
+        layout_strategy = "vertical",
+        layout_config = {
+          height = vim.o.lines,
+          width = vim.o.columns,
+          prompt_position = "bottom",
+          preview_height = 0.5,
+        },
       },
       pickers = {
         find_files = { hidden = true },
@@ -13,18 +20,18 @@ return {
       },
     },
     keys = {
-      { "<leader>f", ":Telescope find_files theme=ivy<CR>", desc = "Find files", silent = true },
-      { "<leader>F", ":Telescope live_grep theme=ivy<CR>", desc = "Find text in files", silent = true },
-      { "<leader>b", ":Telescope buffers theme=ivy<CR>", desc = "Find buffers", silent = true },
+      { "<leader>f", ":Telescope find_files<CR>", desc = "Find files", silent = true },
+      { "<leader>F", ":Telescope live_grep<CR>", desc = "Find text in files", silent = true },
+      { "<leader>b", ":Telescope buffers<CR>", desc = "Find buffers", silent = true },
       {
         "<leader>sS",
-        ":Telescope lsp_document_symbols theme=ivy<CR>",
+        ":Telescope lsp_document_symbols<CR>",
         desc = "Find symbols in the document",
         silent = true,
       },
       {
         "<leader>sW",
-        ":Telescope lsp_dynamic_workspace_symbols theme=ivy<CR>",
+        ":Telescope lsp_dynamic_workspace_symbols<CR>",
         desc = "Find symbols across the workspace",
         silent = true,
       },
