@@ -7,6 +7,7 @@
   };
 
   home.packages = with pkgs; [
+    beekeeper-studio
     digikam
     exiftool
     maestral
