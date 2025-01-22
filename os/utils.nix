@@ -29,7 +29,6 @@
     tree
     unzip
     util-linux
-    volta
     wl-clipboard
     zsh
   ];
