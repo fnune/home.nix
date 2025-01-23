@@ -29,6 +29,7 @@
     ./programs/obs-studio.nix
     ./programs/psql/psql.nix
     ./programs/python.nix
+    ./programs/maestral.nix
     ./programs/ripgrep.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix

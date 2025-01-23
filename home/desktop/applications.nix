@@ -10,7 +10,6 @@
     beekeeper-studio
     digikam
     exiftool
-    maestral
     obsidian
     screenkey
     signal-desktop
