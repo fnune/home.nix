@@ -8,6 +8,7 @@
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
   news.display = "silent";
+  systemd.user.startServices = "sd-switch";
 
   imports = [
     ../options.nix
