@@ -17,35 +17,28 @@
     then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/standard/kitty/standard.dark.conf"
     else "";
 in {
-  nixpkgs.overlays = [
-    (final: prev: {
-      kittyWithWhiskers = final.unstable.kitty.overrideAttrs (o: {
-        postInstall =
-          (o.postInstall or "")
-          + ''
-            cp -f ${./whiskers.png} $out/share/icons/hicolor/256x256/apps/kitty.png
-            cp -f ${./whiskers.svg} $out/share/icons/hicolor/scalable/apps/kitty.svg
-          '';
-      });
-    })
-  ];
-  home.packages = with pkgs; [kittyWithWhiskers];
-  home.file.".config/kitty/kitty.conf".text = ''
-    shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
+  home.packages = with pkgs; [unstable.kitty];
 
-    map ctrl+PLUS change_font_size all +1
-    map ctrl+MINUS change_font_size all -1
-    map ctrl+0 change_font_size all 0
+  home.file = {
+    ".local/share/icons/hicolor/256x256/apps/kitty.png".source = ./whiskers.png;
+    ".local/share/icons/hicolor/scalable/apps/kitty.svg".source = ./whiskers.svg;
+    ".config/kitty/kitty.conf".text = ''
+      shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 
-    clipboard_control write-clipboard write-primary no-append
-    confirm_os_window_close 0
-    enable_audio_bell no
-    placement_strategy top-left
-    hide_window_decorations no
-    modify_font underline_position +3
+      map ctrl+PLUS change_font_size all +1
+      map ctrl+MINUS change_font_size all -1
+      map ctrl+0 change_font_size all 0
 
-    ${colorschemeConf}
+      clipboard_control write-clipboard write-primary no-append
+      confirm_os_window_close 0
+      enable_audio_bell no
+      placement_strategy top-left
+      hide_window_decorations no
+      modify_font underline_position +3
 
-    include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
-  '';
+      ${colorschemeConf}
+
+      include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
+    '';
+  };
 }
