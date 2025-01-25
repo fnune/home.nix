@@ -37,6 +37,9 @@ return {
           { name = "vsnip", group_index = 1 },
           { name = "natdat", group_index = 1 },
           { name = "buffer", group_index = 2 },
+          per_filetype = {
+            codecompanion = { { name = "codecompanion", group_index = 1 } },
+          },
         },
         sorting = {
           comparators = {
