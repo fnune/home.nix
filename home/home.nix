@@ -19,6 +19,7 @@
     ./desktop/wallpapers.nix
     ./notifier.nix
     ./programs/bat.nix
+    ./programs/browsers.nix
     ./programs/devenv.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
@@ -26,11 +27,11 @@
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty/kitty.nix
+    ./programs/maestral.nix
     ./programs/neovim/neovim.nix
     ./programs/obs-studio.nix
     ./programs/psql/psql.nix
     ./programs/python.nix
-    ./programs/maestral.nix
     ./programs/ripgrep.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix

@@ -1,12 +1,12 @@
 {pkgs, ...}: {
-  environment = {
-    systemPackages = with pkgs; [firefox-devedition google-chrome];
+  home = {
     sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
 
   programs.firefox = {
     enable = true;
+    package = pkgs.unstable.firefox;
     policies = {
       DisableAppUpdate = true;
       DisablePocket = true;
@@ -17,7 +17,7 @@
       PasswordManagerEnabled = false;
       SearchEngines = {
         Default = "DuckDuckGo";
-        Remove = ["Bing" "Google" "Wikipedia (en)"];
+        Remove = ["Bing" "Ecosia" "Google" "Wikipedia (en)"];
       };
       Preferences = {
         "browser.aboutConfig.showWarning" = false;
@@ -34,5 +34,13 @@
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
     };
+  };
+
+  programs.chromium = {
+    enable = true;
+    package = pkgs.unstable.chromium;
+    extensions = [
+      {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
+    ];
   };
 }
