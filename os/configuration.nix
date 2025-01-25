@@ -6,7 +6,6 @@ _: {
     ./audio.nix
     ./authorization.nix
     ./browsers.nix
-    ./cachix.nix
     ./containerization.nix
     ./fonts.nix
     ./networking.nix
