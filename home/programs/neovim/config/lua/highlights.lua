@@ -50,6 +50,7 @@ M.make_theme = function(opts)
   return {
     opts.repo,
     name = opts.name,
+    version = opts.version,
     branch = opts.branch,
     lazy = not enabled,
     priority = 1000,

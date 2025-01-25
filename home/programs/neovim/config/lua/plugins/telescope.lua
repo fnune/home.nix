@@ -1,7 +1,6 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
     opts = {
       defaults = {
         file_ignore_patterns = { "%.git/.*", "%.cache/.*", "%.yarn/.*" },

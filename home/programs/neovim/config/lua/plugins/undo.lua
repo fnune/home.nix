@@ -1,6 +1,7 @@
 return {
   {
     "mbbill/undotree",
+    version = false,
     event = "VeryLazy",
     keys = {
       { "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle the 'undo' tree" },

@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  version = false,
   config = function()
     local lualine = require("lualine")
     lualine.setup({

@@ -1,7 +1,6 @@
 local vaultpath = vim.fn.expand("~") .. "/Storage/Vault"
 return {
   "epwalsh/obsidian.nvim",
-  version = "*",
   lazy = true,
   cmd = { "ObsidianQuickSwitch" },
   event = { "BufReadPre " .. vaultpath .. "/*.md" },

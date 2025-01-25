@@ -11,6 +11,7 @@ return {
   },
   highlights.make_theme({
     name = "vscode",
+    version = false,
     repo = "fnune/vscode.fnune.nvim",
     palette = function()
       return require("vscode.colors").get_colors()
@@ -30,6 +31,7 @@ return {
   }),
   highlights.make_theme({
     name = "standard",
+    version = false,
     repo = "fnune/standard",
     palette = function()
       return require("standard.palette").tokens

@@ -1,5 +1,6 @@
 return {
   "fnune/recall.nvim",
+  version = false,
   dev = true,
   config = function()
     local recall = require("recall")

@@ -7,6 +7,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
+      "hrsh7th/vim-vsnip-integ",
       "luckasRanarison/tailwind-tools.nvim",
       "lukas-reineke/cmp-under-comparator",
       "onsails/lspkind.nvim",

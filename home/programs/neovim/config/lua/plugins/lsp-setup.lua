@@ -138,6 +138,7 @@ return {
   },
   {
     "ray-x/lsp_signature.nvim",
+    version = false,
     config = function()
       local constants = require("constants")
       local toggle_key = "<C-s>"

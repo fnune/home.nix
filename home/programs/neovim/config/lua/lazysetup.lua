@@ -26,4 +26,5 @@ lazy.setup({
   install = { missing = true, colorscheme = { os.getenv("COLORSCHEME") } },
   dev = { path = "~/Development", fallback = true },
   rocks = { enabled = false },
+  defaults = { version = "*" },
 })
