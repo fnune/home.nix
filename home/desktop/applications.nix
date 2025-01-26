@@ -10,6 +10,7 @@
     beekeeper-studio
     digikam
     exiftool
+    freecad-wayland
     obsidian
     screenkey
     signal-desktop
