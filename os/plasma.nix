@@ -41,9 +41,5 @@ in {
     gnupg.agent.pinentryPackage = pkgs.callPackage ../packages/pinentry-kwallet.nix {};
   };
 
-  environment.systemPackages = [
-    config.cursors.package
-    pkgs.kdePackages.koi
-    wallpaper-sddm
-  ];
+  environment.systemPackages = [config.cursors.package wallpaper-sddm];
 }
