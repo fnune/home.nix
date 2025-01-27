@@ -4,6 +4,8 @@
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
 
+  home.packages = [pkgs.unstable.firefox-devedition-bin];
+
   programs.firefox = {
     enable = true;
     package = pkgs.unstable.firefox;
