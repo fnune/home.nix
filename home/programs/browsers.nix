@@ -38,7 +38,7 @@
 
   programs.chromium = {
     enable = true;
-    package = pkgs.unstable.chromium;
+    package = pkgs.unstable.ungoogled-chromium;
     extensions = [
       {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
     ];
