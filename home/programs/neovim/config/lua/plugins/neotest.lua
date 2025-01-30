@@ -36,6 +36,7 @@ return {
         discovery = { enabled = false },
         quickfix = { open = false },
         output = { open_on_run = false },
+        output_panel = { enabled = true, open = "vsplit" },
       })
 
       vim.api.nvim_create_autocmd("FileType", {
