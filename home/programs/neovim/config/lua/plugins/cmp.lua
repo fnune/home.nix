@@ -1,87 +1,91 @@
-return {
-  { "Gelio/cmp-natdat", config = true },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      "hrsh7th/vim-vsnip-integ",
-      "luckasRanarison/tailwind-tools.nvim",
-      "lukas-reineke/cmp-under-comparator",
-      "onsails/lspkind.nvim",
-    },
-    config = function()
-      local constants = require("constants")
-      local lspkind = require("lspkind")
-      local cmp = require("cmp")
-      local cmp_compare_underscore = require("cmp-under-comparator")
-      local cmp_window = vim.tbl_deep_extend("force", cmp.config.window.bordered(), {
-        border = constants.floating_border,
-      })
+local constants = require("constants")
 
-      cmp.setup({
-        enabled = function()
-          local context = require("cmp.config.context")
-          local is_prompt = vim.api.nvim_buf_get_option(0, "buftype") == "prompt"
-          local is_comment = context.in_treesitter_capture("comment") or context.in_syntax_group("Comment")
-          return not (is_prompt or is_comment)
-        end,
-        snippet = {
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-          end,
+local function node_type_matches(node_types)
+  local success, node = pcall(vim.treesitter.get_node)
+  if success and node then
+    return vim.tbl_contains(node_types, node:type())
+  end
+  return false
+end
+
+local function is_in_comment()
+  return node_type_matches({ "comment", "line_comment", "block_comment" })
+end
+
+return {
+  {
+    "saghen/blink.cmp",
+    dependencies = { "rafamadriz/friendly-snippets", "kristijanhusak/vim-dadbod-completion" },
+    config = function()
+      local blink = require("blink.cmp")
+
+      blink.setup({
+        keymap = {
+          preset = "super-tab",
+          ["<CR>"] = { "accept", "fallback" },
+          cmdline = { preset = "super-tab" },
+        },
+        signature = {
+          enabled = true,
+          window = {
+            show_documentation = true,
+            border = constants.floating_border,
+            scrollbar = false,
+          },
         },
         sources = {
-          { name = "nvim_lsp", group_index = 1 },
-          { name = "vsnip", group_index = 1 },
-          { name = "natdat", group_index = 1 },
-          { name = "buffer", group_index = 2 },
+          default = function(_)
+            if is_in_comment() then
+              return { "buffer", "path" }
+            end
+            return { "lsp", "path", "snippets", "buffer" }
+          end,
           per_filetype = {
-            codecompanion = { { name = "codecompanion", group_index = 1 } },
+            codecompanion = { "codecompanion" },
+            gitcommit = { "buffer" },
+            sql = { "dadbod", "lsp", "snippets" },
+          },
+          providers = {
+            dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
           },
         },
-        sorting = {
-          comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.score,
-            cmp.config.compare.recently_used,
-            cmp_compare_underscore.under,
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
+        completion = {
+          list = {
+            selection = {
+              preselect = false,
+              auto_insert = false,
+            },
+          },
+          menu = {
+            border = constants.floating_border,
+            draw = { treesitter = { "lsp" } },
+            scrollbar = false,
+            auto_show = function(_)
+              return not (
+                is_in_comment()
+                or vim.bo.filetype == "DressingInput"
+                or vim.bo.filetype == "gitcommit"
+                or vim.bo.filetype == "markdown"
+              )
+            end,
+          },
+          documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 150,
+            window = { border = constants.floating_border, scrollbar = false },
+          },
+          ghost_text = {
+            enabled = true,
           },
         },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          ["<TAB>"] = cmp.mapping.confirm({ select = true }),
-        }),
-        formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol",
-            maxwidth = 50,
-            ellipsis_char = "…",
-            show_labelDetails = true,
-            before = require("tailwind-tools.cmp").lspkind_format,
-          }),
-        },
-        window = { completion = cmp_window, documentation = cmp_window },
-        experimental = { ghost_text = true },
       })
 
-      for _, filetype in ipairs({ "gitcommit", "NeogitCommitMessage" }) do
-        cmp.setup.filetype(filetype, {
-          completion = { autocomplete = false },
-          sources = cmp.config.sources({ { name = "buffer" } }),
-        })
-      end
-
-      vim.cmd("hi! link CmpItemMenu Comment")
+      vim.cmd([[
+        hi! link BlinkCmpMenuBorder FloatBorder
+        hi! link BlinkCmpDocBorder FloatBorder
+        hi! link BlinkCmpSignatureHelpBorder FloatBorder
+        hi! link BlinkCmpGhostText Conceal
+      ]])
     end,
   },
 }

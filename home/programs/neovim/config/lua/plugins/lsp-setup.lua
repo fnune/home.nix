@@ -136,40 +136,4 @@ return {
       },
     },
   },
-  {
-    "ray-x/lsp_signature.nvim",
-    version = false,
-    config = function()
-      local constants = require("constants")
-      local toggle_key = "<C-s>"
-
-      local signature = require("lsp_signature")
-      signature.setup({
-        bind = true,
-        floating_window = true,
-        handler_opts = { border = constants.floating_border },
-        hint_enable = false,
-        toggle_key = toggle_key,
-      })
-    end,
-    keys = {
-      {
-        "<C-s>",
-        function()
-          require("lsp_signature").toggle_float_win()
-        end,
-        mode = "i",
-        desc = "Toggle LSP function signature help in insert mode",
-        silent = true,
-      },
-      {
-        "<C-s>",
-        function()
-          require("lsp_signature").toggle_float_win()
-        end,
-        desc = "Toggle LSP function signature help in normal mode",
-        silent = true,
-      },
-    },
-  },
 }

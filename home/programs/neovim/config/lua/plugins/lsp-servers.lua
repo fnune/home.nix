@@ -2,19 +2,24 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
+    config = function()
+      local server = require("typescript-tools")
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
+      server.setup({
+        capabilities = capabilities,
+        settings = { expose_as_code_action = "all" },
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "b0o/SchemaStore.nvim", "hrsh7th/cmp-nvim-lsp" },
+    dependencies = { "b0o/SchemaStore.nvim", "saghen/blink.cmp" },
     config = function()
       local lspconfig = require("lspconfig")
-      local cmp_lsp = require("cmp_nvim_lsp")
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local function setup(lsp, opts)
-        lspconfig[lsp].setup(vim.tbl_deep_extend("force", {
-          capabilities = cmp_lsp.default_capabilities(),
-        }, opts))
+        lspconfig[lsp].setup(vim.tbl_deep_extend("force", { capabilities = capabilities }, opts))
       end
 
       setup("biome", {})
