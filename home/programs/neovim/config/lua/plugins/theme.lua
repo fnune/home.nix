@@ -5,8 +5,12 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     config = function()
+      local colors = {}
+      for _, color in pairs(highlights.get_palette()) do
+        table.insert(colors, color)
+      end
       local auto_colors = require("tiny-devicons-auto-colors")
-      auto_colors.setup({ colors = highlights.get_palette() })
+      auto_colors.setup({ colors = colors })
     end,
   },
   highlights.make_theme({
