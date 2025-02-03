@@ -1,1 +1,4 @@
-return { "echasnovski/mini.pairs", config = true }
+return {
+  "windwp/nvim-autopairs",
+  opts = { disable_filetype = { "gitcommit", "markdown", "codecompanion" } },
+}
