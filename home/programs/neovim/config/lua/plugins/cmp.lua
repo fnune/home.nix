@@ -58,7 +58,9 @@ return {
           list = {
             selection = {
               preselect = false,
-              auto_insert = false,
+              auto_insert = function(ctx)
+                return ctx.mode ~= "cmdline"
+              end,
             },
           },
           menu = {
