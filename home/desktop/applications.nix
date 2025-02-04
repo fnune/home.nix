@@ -6,7 +6,7 @@
     };
   };
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs.unstable; [
     beekeeper-studio
     digikam
     exiftool
