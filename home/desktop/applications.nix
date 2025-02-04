@@ -7,7 +7,7 @@
   };
 
   home.packages = with pkgs.unstable; [
-    beekeeper-studio
+    dbeaver-bin
     digikam
     exiftool
     freecad-wayland
