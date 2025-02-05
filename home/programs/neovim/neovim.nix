@@ -21,7 +21,6 @@
       clang-tools
       lua-language-server
       nil
-      ocamlPackages.ocaml-lsp
       pyright
       rustup
       stylelint-lsp
@@ -46,7 +45,6 @@
       biome
       nodePackages.prettier
       nodePackages.sql-formatter
-      ocamlPackages.ocamlformat
       prettierd
       python3Packages.black
       shfmt

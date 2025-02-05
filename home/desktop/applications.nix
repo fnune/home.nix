@@ -9,12 +9,7 @@
   home.packages = with pkgs.unstable; [
     dbeaver-bin
     digikam
-    exiftool
-    freecad-wayland
-    obsidian
-    screenkey
     signal-desktop
     spotify
-    yubioath-flutter
   ];
 }
