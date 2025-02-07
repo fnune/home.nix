@@ -9,6 +9,14 @@ return {
         find_files = { hidden = true },
         live_grep = { additional_args = { "--hidden" } },
         colorscheme = { enable_preview = true },
+        buffers = {
+          sort_lastused = true,
+          mappings = {
+            i = {
+              ["<c-d>"] = "delete_buffer",
+            },
+          },
+        },
       },
     },
     keys = {
