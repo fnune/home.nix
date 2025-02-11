@@ -32,7 +32,7 @@
       yaml-language-server
       # Linters
       alejandra
-      eslint
+      # eslint Currently broken
       eslint_d
       luajitPackages.luacheck
       nodePackages.jsonlint
