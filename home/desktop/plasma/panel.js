@@ -55,13 +55,9 @@ configure("org.kde.plasma.weather", {
 
 configure("org.kde.plasma.digitalclock", {
   Appearance: {
-    autoFontAndSize: false,
+    autoFontAndSize: true,
     dateDisplayFormat: "BesideTime",
     dateFormat: "longDate",
-    fontFamily: "Inter",
-    fontSize: 11,
-    fontStyleName: "Medium",
-    fontWeight: 500,
     selectedTimeZones: "Local,America/New_York,America/Los_Angeles",
     showWeekNumbers: true,
   },
