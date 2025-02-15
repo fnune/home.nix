@@ -22,12 +22,12 @@
     ./programs/browsers.nix
     ./programs/devenv.nix
     ./programs/direnv.nix
+    ./programs/dropbox.nix
     ./programs/editorconfig.nix
     ./programs/fd.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty/kitty.nix
-    ./programs/maestral.nix
     ./programs/neovim/neovim.nix
     ./programs/obs-studio.nix
     ./programs/psql/psql.nix

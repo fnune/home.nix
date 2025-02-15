@@ -1,4 +1,4 @@
-local vaultpath = vim.fn.expand("~") .. "/Storage/Vault"
+local vaultpath = vim.fn.expand("~") .. "/Dropbox/Vault"
 return {
   "epwalsh/obsidian.nvim",
   lazy = true,
@@ -17,7 +17,7 @@ return {
     workspaces = {
       {
         name = "main",
-        path = "~/Storage/Vault",
+        path = "~/Dropbox/Vault",
       },
     },
     mappings = {
