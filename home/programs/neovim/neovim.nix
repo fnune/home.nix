@@ -18,6 +18,7 @@
   home = {
     packages = with pkgs.unstable; [
       # LSPs
+      basedpyright
       clang-tools
       lua-language-server
       nil

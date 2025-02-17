@@ -40,11 +40,7 @@ return {
         settings = { json = { schemas = require("schemastore").json.schemas(), validate = { enable = true } } },
       })
 
-      setup("pyright", {
-        root_dir = function()
-          return vim.fn.getcwd()
-        end,
-      })
+      setup("basedpyright", {})
 
       setup("yamlls", {
         settings = { yaml = { schemas = require("schemastore").yaml.schemas() } },
