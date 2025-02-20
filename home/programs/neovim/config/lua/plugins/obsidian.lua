@@ -7,7 +7,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   init = function()
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = "markdown",
+      pattern = { "markdown", "Avante" },
       callback = function()
         vim.opt_local.conceallevel = 2
       end,

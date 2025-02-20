@@ -11,7 +11,7 @@ return {
       })
 
       wk.add({
-        { "<leader>a", group = "Code actions" },
+        { "<leader>a", group = "Artificial intelligence" },
         { "<leader>d", group = "Debugging" },
         { "<leader>h", group = "Repository history" },
         { "<leader>m", group = "Global marks" },

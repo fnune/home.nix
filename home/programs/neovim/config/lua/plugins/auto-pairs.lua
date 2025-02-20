@@ -5,7 +5,6 @@ return {
       "TelescopePrompt",
       "gitcommit",
       "markdown",
-      "codecompanion",
     },
   },
 }

@@ -126,7 +126,7 @@ return {
         silent = true,
       },
       {
-        "<leader>ac",
+        "<c-space>",
         function()
           vim.lsp.buf.code_action()
         end,

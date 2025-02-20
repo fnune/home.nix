@@ -16,7 +16,11 @@ return {
   { "xzbdmw/colorful-menu.nvim", opts = {} },
   {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets", "kristijanhusak/vim-dadbod-completion" },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "kristijanhusak/vim-dadbod-completion",
+      "Kaiser-Yang/blink-cmp-avante",
+    },
     config = function()
       local blink = require("blink.cmp")
 
@@ -42,12 +46,17 @@ return {
             return { "lsp", "path", "snippets", "buffer" }
           end,
           per_filetype = {
-            codecompanion = { "codecompanion" },
+            AvanteInput = { "avante" },
             gitcommit = { "buffer" },
             sql = { "dadbod", "lsp", "snippets" },
           },
           providers = {
             dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+            avante = {
+              module = "blink-cmp-avante",
+              name = "Avante",
+              opts = {},
+            },
           },
         },
         completion = {
@@ -83,6 +92,7 @@ return {
             auto_show = function(_)
               return not (
                 is_in_comment()
+                or vim.bo.filetype == "AvanteInput"
                 or vim.bo.filetype == "DressingInput"
                 or vim.bo.filetype == "gitcommit"
                 or vim.bo.filetype == "markdown"
