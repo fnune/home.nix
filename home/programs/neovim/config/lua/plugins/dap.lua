@@ -123,6 +123,7 @@ return {
   {
     "rcarriga/nvim-dap-ui",
     lazy = true,
+    version = false,
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     opts = {
       controls = {
