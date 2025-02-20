@@ -8,7 +8,7 @@ end
 
 return {
   { "folke/neodev.nvim", opts = { library = { plugins = { "neotest" }, types = true } }, priority = 51 },
-  { "marilari88/neotest-vitest", lazy = true },
+  { "marilari88/neotest-vitest", lazy = true, version = false },
   { "nvim-neotest/neotest-jest", lazy = true },
   { "nvim-neotest/neotest-python", lazy = true },
   { "rouge8/neotest-rust", lazy = true },

@@ -53,6 +53,7 @@
       # Debuggers
       python3Packages.debugpy
       # Lower-level tools
+      nodejs_23
       tree-sitter
     ];
 

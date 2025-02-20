@@ -1,5 +1,9 @@
 return {
-  { "theHamsta/nvim-dap-virtual-text", config = true, lazy = true, dependencies = { "mfussenegger/nvim-dap" } },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    config = true,
+    dependencies = { "mfussenegger/nvim-dap" },
+  },
   {
     "mfussenegger/nvim-dap",
     lazy = true,
