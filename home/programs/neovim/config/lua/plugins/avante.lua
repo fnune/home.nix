@@ -2,7 +2,7 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
-  version = "*",
+  version = false,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
@@ -20,7 +20,7 @@ return {
           local cwd = params.cwd
           local selected_filepaths = params.selected_filepaths
 
-          local cmd = string.format("rg --files --hidden --follow --glob '!.git/' '%s'", vim.fn.fnameescape(cwd))
+          local cmd = string.format("rg --files --hidden --follow '%s'", vim.fn.fnameescape(cwd))
           local output = vim.fn.system(cmd)
 
           local filepaths = vim.split(output, "\n", { trimempty = true })
