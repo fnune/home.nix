@@ -33,7 +33,7 @@
       yaml-language-server
       # Linters
       alejandra
-      # eslint Currently broken
+      eslint
       eslint_d
       luajitPackages.luacheck
       nodePackages.jsonlint
@@ -43,7 +43,7 @@
       statix
       stylelint
       # Formatters
-      biome
+      # biome Currently broken
       nodePackages.prettier
       nodePackages.sql-formatter
       prettierd
