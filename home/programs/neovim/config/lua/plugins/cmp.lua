@@ -29,7 +29,6 @@ return {
           preset = "super-tab",
           ["<CR>"] = { "accept", "fallback" },
         },
-        cmdline = { keymap = { preset = "super-tab" } },
         signature = {
           enabled = true,
           window = {
