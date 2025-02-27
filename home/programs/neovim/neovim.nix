@@ -43,7 +43,7 @@
       statix
       stylelint
       # Formatters
-      # biome Currently broken
+      biome
       nodePackages.prettier
       nodePackages.sql-formatter
       prettierd
