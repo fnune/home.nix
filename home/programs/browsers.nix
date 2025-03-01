@@ -6,6 +6,18 @@
 
   home.packages = [pkgs.unstable.firefox-devedition-bin];
 
+  programs.brave = {
+    enable = true;
+    extensions = [
+      {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
+      {id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";} # 1Password
+      {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # Vimium
+      {id = "mnjggcdmjocbbbhaepdhchncahnbgone";} # SponsorBlock for YouTube
+      {id = "edibdbjcniadpccecjdfdjjppcpchdlm";} # I still don't care about cookies
+      {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
+    ];
+  };
+
   programs.firefox = {
     enable = true;
     package = pkgs.unstable.firefox;
@@ -36,13 +48,5 @@
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
     };
-  };
-
-  programs.chromium = {
-    enable = true;
-    package = pkgs.unstable.ungoogled-chromium;
-    extensions = [
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
-    ];
   };
 }

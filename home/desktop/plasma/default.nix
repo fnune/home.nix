@@ -209,7 +209,7 @@
       "kdeglobals" = {
         "General" = {
           "AccentColor" = "31,118,255";
-          "BrowserApplication" = "firefox.desktop";
+          "BrowserApplication" = "brave.desktop";
           "TerminalApplication" = config.terminal.name;
           "TerminalService" = "${config.terminal.name}.service";
           "XftAntialias".value = config.fontconfig.antialias;
