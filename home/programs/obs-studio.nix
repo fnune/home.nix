@@ -1,6 +1,10 @@
 {pkgs, ...}: {
+  programs.obs-studio = {
+    enable = true;
+    package = pkgs.unstable.obs-studio;
+    plugins = [pkgs.unstable.obs-studio-plugins.obs-backgroundremoval];
+  };
   home = {
-    packages = [pkgs.obs-studio];
     file.".local/share/applications/com.obsproject.Studio.desktop".text = ''
       [Desktop Entry]
       Version=1.0
