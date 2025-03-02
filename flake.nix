@@ -2,7 +2,7 @@
   description = "fnune's NixOS configuration files";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-previous.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";

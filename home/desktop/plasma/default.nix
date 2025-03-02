@@ -50,9 +50,9 @@
       }
     ];
     fonts = let
-      fontSize = 13;
-      fontSizeSmall = 11;
-      monoFontSize = 11;
+      fontSize = 12;
+      fontSizeSmall = 10;
+      monoFontSize = 10;
       sans = {
         family = config.fontconfig.sans;
         weight = "medium";
