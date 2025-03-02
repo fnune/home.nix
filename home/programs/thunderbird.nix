@@ -1,7 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   programs = {
     thunderbird = {
       enable = true;
+      package = pkgs.thunderbird-latest;
       profiles = {};
       settings = {
         # Search Settings -> Config Editor to grab these.
