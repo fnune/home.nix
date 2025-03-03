@@ -15,6 +15,7 @@
       {id = "mnjggcdmjocbbbhaepdhchncahnbgone";} # SponsorBlock for YouTube
       {id = "edibdbjcniadpccecjdfdjjppcpchdlm";} # I still don't care about cookies
       {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
+      {id = "ocabkmapohekeifbkoelpmppmfbcibna";} # Redirect to web client for Zoom links
     ];
   };
 
