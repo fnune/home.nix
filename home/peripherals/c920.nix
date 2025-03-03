@@ -13,11 +13,11 @@
       echo "Configuring C920 camera settings..."
       ${v4l2Ctl} -d $DEVICE --set-ctrl=focus_automatic_continuous=0 2> /dev/null || v4l2-ctl -d $DEVICE --set-ctrl=focus_auto=0
       ${v4l2Ctl} -d $DEVICE --set-ctrl=gain=190
-      ${v4l2Ctl} -d $DEVICE --set-ctrl=zoom_absolute=100
-      ${v4l2Ctl} -d $DEVICE --set-ctrl=focus_absolute=130
+      ${v4l2Ctl} -d $DEVICE --set-ctrl=zoom_absolute=110
+      ${v4l2Ctl} -d $DEVICE --set-ctrl=focus_absolute=150
       ${v4l2Ctl} -d $DEVICE --set-ctrl=pan_absolute=1400
       ${v4l2Ctl} -d $DEVICE --set-ctrl=white_balance_automatic=1 2> /dev/null || v4l2-ctl -d $DEVICE --set-ctrl=white_balance_temperature_auto=1
-      ${v4l2Ctl} -d $DEVICE --set-ctrl=sharpness=160
+      ${v4l2Ctl} -d $DEVICE --set-ctrl=sharpness=130
       ${v4l2Ctl} -d $DEVICE --set-ctrl=auto_exposure=3 2> /dev/null || v4l2-ctl -d $DEVICE --set-ctrl=exposure_auto=3
       echo "C920 camera setup completed."
     else
