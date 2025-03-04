@@ -6,12 +6,13 @@
 
   home.packages = [pkgs.unstable.firefox-devedition-bin];
 
-  programs.brave = {
+  programs.chromium = {
     enable = true;
     extensions = [
       {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
       {id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";} # 1Password
       {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # Vimium
+      {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
       {id = "mnjggcdmjocbbbhaepdhchncahnbgone";} # SponsorBlock for YouTube
       {id = "edibdbjcniadpccecjdfdjjppcpchdlm";} # I still don't care about cookies
       {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
