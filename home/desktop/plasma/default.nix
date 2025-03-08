@@ -172,8 +172,8 @@
 
         "KrohnkiteToggleFloat" = "Meta+Space";
         "KrohnkiteToggleFloatAll" = "Meta+Shift+Space";
-        "KrohnkitegrowWidth" = "Meta+_"; # Lowercase 'g' is not a typo of this config
-        "KrohnkiteShrinkWidth" = "Meta+*";
+        "KrohnkitegrowWidth" = "Meta+*"; # Lowercase 'g' is not a typo of this config
+        "KrohnkiteShrinkWidth" = "Meta+_";
 
         "ToggleMouseClick" = "Meta+Ctrl+.";
       };
