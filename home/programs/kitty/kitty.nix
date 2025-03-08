@@ -32,9 +32,10 @@ in {
       clipboard_control write-clipboard write-primary no-append
       confirm_os_window_close 0
       enable_audio_bell no
-      placement_strategy top-left
-      hide_window_decorations no
       modify_font underline_position +3
+      placement_strategy top-left
+      shell_integration no-title
+      window_margin_width 4
 
       ${colorschemeConf}
 
