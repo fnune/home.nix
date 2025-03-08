@@ -17,6 +17,7 @@
       kcharselect
       kcolorchooser
       kjournald
+      krohnkite
       kweather
     ]);
 
@@ -159,14 +160,20 @@
         "Window Fullscreen" = "Meta+Shift+F";
         "Window Maximize" = "Meta+F";
 
-        "Window Quick Tile Bottom" = "Meta+J";
-        "Window Quick Tile Left" = "Meta+H";
-        "Window Quick Tile Right" = "Meta+L";
-        "Window Quick Tile Top" = "Meta+K";
+        "KrohnkiteFocusDown" = "Meta+J";
+        "KrohnkiteFocusLeft" = "Meta+H";
+        "KrohnkiteFocusRight" = "Meta+L";
+        "KrohnkiteFocusUp" = "Meta+K";
 
-        "view_actual_size" = "Meta+Ctrl+0";
-        "view_zoom_in" = "Meta+Ctrl++";
-        "view_zoom_out" = "Meta+Ctrl+-";
+        "KrohnkiteShiftDown" = "Meta+Shift+J";
+        "KrohnkiteShiftLeft" = "Meta+Shift+H";
+        "KrohnkiteShiftRight" = "Meta+Shift+L";
+        "KrohnkiteShiftUp" = "Meta+Shift+K";
+
+        "KrohnkiteToggleFloat" = "Meta+Space";
+        "KrohnkiteToggleFloatAll" = "Meta+Shift+Space";
+        "KrohnkitegrowWidth" = "Meta+_"; # Lowercase 'g' is not a typo of this config
+        "KrohnkiteShrinkWidth" = "Meta+*";
 
         "ToggleMouseClick" = "Meta+Ctrl+.";
       };
@@ -177,7 +184,6 @@
     configFile = {
       "breezerc" = {
         "Common" = {
-          "OutlineIntensity".value = "OutlineOff";
           "ShadowSize".value = "ShadowLarge";
           "ShadowStrength".value = 215;
         };
@@ -237,10 +243,6 @@
           "NightTemperature".value = 3600;
         };
 
-        "Windows" = {
-          "BorderlessMaximizedWindows".value = true;
-        };
-
         "Plugins" = {
           "hidecursorEnabled".value = true;
         };
@@ -274,6 +276,34 @@
         "org.kde.kdecoration2" = {
           "ButtonsOnLeft" = "M"; # Application icon & "more actions"
           "ButtonsOnRight" = "X"; # Just the close button
+        };
+
+        "Plugins" = {
+          "krohnkiteEnabled".value = true;
+        };
+        "Script-krohnkite" = let
+          gap = 10;
+        in {
+          "enableFloatingLayout".value = true;
+          "enableTileLayout".value = true;
+
+          # NB: the Plasma panel is layer 1
+          "tiledWindowsLayer".value = 1;
+          "floatedWindowsLayer".value = 2;
+
+          "enableBTreeLayout".value = false;
+          "enableColumnsLayout".value = false;
+          "enableMonocleLayout".value = false;
+          "enableSpiralLayout".value = false;
+          "enableSpreadLayout".value = false;
+          "enableStairLayout".value = false;
+          "enableThreeColumnLayout".value = false;
+
+          "screenGapBottom".value = gap;
+          "screenGapLeft".value = gap;
+          "screenGapRight".value = gap;
+          "screenGapTop".value = gap;
+          "tileLayoutGap".value = gap;
         };
       };
 
