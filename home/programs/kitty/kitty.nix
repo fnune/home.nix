@@ -35,7 +35,7 @@ in {
       modify_font underline_position +3
       placement_strategy top-left
       shell_integration no-title
-      window_margin_width 4
+      window_margin_width 6
 
       ${colorschemeConf}
 
