@@ -10,7 +10,6 @@
     _1password-gui
     bitwarden-desktop
     dbeaver-bin
-    digikam
     signal-desktop
     spotify
   ];
