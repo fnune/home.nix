@@ -48,6 +48,7 @@
         "services.sync.username" = "fausto.nunez@mailbox.org";
         "widget.use-xdg-desktop-portal" = true;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "widget.wayland.fractional-scale.enabled" = true;
       };
     };
   };

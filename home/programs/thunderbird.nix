@@ -12,7 +12,9 @@
         "mailnews.default_sort_type" = 18;
         "mailnews.message_display.disable_remote_image" = false;
         "mailnews.start_page.enabled" = false;
+        "widget.use-xdg-desktop-portal" = true;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "widget.wayland.fractional-scale.enabled" = true;
       };
     };
   };
