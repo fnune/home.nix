@@ -10,6 +10,7 @@
     _1password-gui
     bitwarden-desktop
     czkawka-full
+    darktable
     dbeaver-bin
     signal-desktop
     spotify
