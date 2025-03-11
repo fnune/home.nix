@@ -9,6 +9,9 @@
   # Show stars while entering sudo password
   security.sudo.extraConfig = "Defaults pwfeedback";
 
+  # Allow mounting with e.g. `sshfs` with `-o allow_other`
+  programs.fuse.userAllowOther = true;
+
   environment.systemPackages = with pkgs; [
     ddcui
     ddcutil
@@ -26,6 +29,7 @@
     man-pages-posix
     neovim
     pciutils
+    sshfs
     tree
     unzip
     util-linux
