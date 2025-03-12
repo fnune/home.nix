@@ -6,22 +6,15 @@
 
   home.packages = [pkgs.unstable.firefox-devedition-bin];
 
-  programs.librewolf = {
+  programs.firefox = {
     enable = true;
-    package = pkgs.unstable.librewolf;
+    package = pkgs.unstable.firefox;
     profiles = {
       default = {
         name = "Default";
         isDefault = true;
         settings = {
           "extensions.autoDisableScopes" = 0;
-          "privacy.clearOnShutdown.cache" = false;
-          "privacy.clearOnShutdown.cookies" = false;
-          "privacy.clearOnShutdown.history" = false;
-          "privacy.clearOnShutdown_v2.cache" = false;
-          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
-          "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = false;
-          "privacy.resistFingerprinting" = false;
           "services.sync.username" = "fausto.nunez@mailbox.org";
         };
         extensions = {
