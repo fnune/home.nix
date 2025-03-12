@@ -6,6 +6,10 @@
     nixpkgs-previous.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +28,7 @@
     nixpkgs-development,
     home-manager,
     plasma-manager,
+    nur,
     ...
   }: let
     system = "x86_64-linux";
@@ -39,6 +44,10 @@
       development = import nixpkgs-development {
         inherit (prev) config;
         inherit system;
+      };
+      nur = import nur {
+        nurpkgs = prev;
+        pkgs = prev;
       };
     };
     nixpkgsOverlayModule = _: {nixpkgs.overlays = [nixpkgsOverlay];};
