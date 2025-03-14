@@ -60,8 +60,10 @@
   programs.chromium = {
     enable = true;
     extensions = [
+      {id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";} # 1Password
       {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
       {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
+      {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
     ];
   };
 }
