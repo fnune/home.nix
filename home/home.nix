@@ -5,6 +5,13 @@
     stateVersion = "23.05";
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+  };
+
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
   news.display = "silent";
@@ -15,6 +22,7 @@
     ./desktop/applications.nix
     ./desktop/audio.nix
     ./desktop/fonts.nix
+    ./desktop/photo.nix
     ./desktop/plasma
     ./desktop/wallpapers.nix
     ./notifier.nix

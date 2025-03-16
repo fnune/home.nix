@@ -8,8 +8,6 @@
   home.packages =
     (with pkgs; [
       haruna
-      inkscape
-      krita
       libreoffice-qt
     ])
     ++ (with pkgs.kdePackages; [
