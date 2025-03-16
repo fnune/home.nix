@@ -13,6 +13,7 @@
       libreoffice-qt
     ])
     ++ (with pkgs.kdePackages; [
+      filelight
       kalk
       kcharselect
       kcolorchooser
