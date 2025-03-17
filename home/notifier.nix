@@ -12,7 +12,11 @@
       Install.WantedBy = ["default.target"];
       Service = {
         Type = "oneshot";
-        Environment = "PATH=$PATH:${pkgs.openssh}/bin";
+        Environment = [
+          "PATH='${pkgs.git}/bin:${pkgs.openssh}/bin:${pkgs.curl}/bin:${pkgs.gcc}/bin:$PATH'"
+          "GIT_SSH_COMMAND='${pkgs.openssh}/bin/ssh -i ${config.home.homeDirectory}/.ssh/id_ed25519'"
+          "CC='${pkgs.gcc}/bin/cc'"
+        ];
         ExecStart = pkgs.writeShellScript "nix-update-notifier" ''
           echo "Starting update notifier"
 
@@ -24,7 +28,10 @@
             exit 0
           fi
 
-          ${pkgs.git}/bin/git fetch origin
+          if ! ${pkgs.git}/bin/git fetch origin; then
+            echo "Failed to fetch from origin, skipping update check"
+            exit 0
+          fi
 
           if ${pkgs.git}/bin/git merge-base --is-ancestor HEAD origin/main; then
             if [ "$(${pkgs.git}/bin/git rev-parse HEAD)" != "$(${pkgs.git}/bin/git rev-parse origin/main)" ]; then
