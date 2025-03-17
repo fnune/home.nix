@@ -81,7 +81,7 @@
       Install.WantedBy = ["timers.target"];
       Timer = {
         Unit = "nix-update-notifier.service";
-        OnCalendar = "weekly";
+        OnCalendar = "Sat *-*-* 06:00:00";
         Persistent = true;
       };
     };
