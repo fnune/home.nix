@@ -25,20 +25,20 @@
           fi
 
           ${pkgs.git}/bin/git fetch origin
-          local_commit=$(${pkgs.git}/bin/git rev-parse HEAD)
-          remote_commit=$(${pkgs.git}/bin/git rev-parse origin/main)
-          if [ "$local_commit" != "$remote_commit" ]; then
-            echo "Local main is not up to date with origin/main, skipping update check"
-            exit 0
+
+          if ${pkgs.git}/bin/git merge-base --is-ancestor HEAD origin/main; then
+            if [ "$(${pkgs.git}/bin/git rev-parse HEAD)" != "$(${pkgs.git}/bin/git rev-parse origin/main)" ]; then
+              echo "Local main is behind origin/main, skipping update check"
+              exit 0
+            fi
           else
-            echo "Local main is up to date with origin/main"
+            echo "Local main is ahead of or diverged from origin/main"
           fi
 
           updates_found=false
 
           echo "Running 'nix flake update'..."
           ${pkgs.nix}/bin/nix flake update &> /dev/null
-
           if ! ${pkgs.git}/bin/git diff --quiet flake.lock; then
             echo "Updates found in 'flake.lock'"
             echo "Staging 'flake.lock' changes"
@@ -67,7 +67,7 @@
               --icon=nix-snowflake \
               --expire-time=10000 \
               "Updates available" \
-              "Operating system updates have been found."
+              "System updates have been found."
             exit 1
           else
             echo "No updates available"
