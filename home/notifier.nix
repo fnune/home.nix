@@ -56,6 +56,8 @@
 
           if ! ${pkgs.git}/bin/git diff --quiet "$LAZY_LOCK"; then
             echo "Updates found in lazy-lock.json"
+            echo "Staging 'lazy-lock.json' changes"
+            ${pkgs.git}/bin/git add "$LAZY_LOCK"
             updates_found=true
           else
             echo "No Neovim plugin updates available"
@@ -68,10 +70,8 @@
               --expire-time=10000 \
               "Updates available" \
               "System updates have been found."
-            exit 1
           else
             echo "No updates available"
-            exit 0
           fi
         '';
       };
