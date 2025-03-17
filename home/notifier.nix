@@ -58,9 +58,9 @@
       Unit.Description = "Check for updates periodically";
       Install.WantedBy = ["timers.target"];
       Timer = {
-        OnStartupSec = "10s";
-        OnUnitActiveSec = 600;
         Unit = "nix-update-notifier.service";
+        OnCalendar = "weekly";
+        Persistent = true;
       };
     };
   };
