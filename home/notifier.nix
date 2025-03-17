@@ -34,22 +34,44 @@
             echo "Local main is up to date with origin/main"
           fi
 
+          updates_found=false
+
           echo "Running 'nix flake update'..."
           ${pkgs.nix}/bin/nix flake update &> /dev/null
 
           if ! ${pkgs.git}/bin/git diff --quiet flake.lock; then
             echo "Updates found in 'flake.lock'"
+            echo "Staging 'flake.lock' changes"
+            ${pkgs.git}/bin/git add flake.lock
+            updates_found=true
+          else
+            echo "No nix updates available"
+          fi
+
+          echo "Checking for Neovim plugin updates with lazy.nvim..."
+          LAZY_LOCK="${config.home.homeDirectory}/.home.nix/home/programs/neovim/config/lazy-lock.json"
+
+          ${pkgs.neovim}/bin/nvim --headless "+Lazy! update" +qa
+          echo "lazy.nvim update completed"
+
+          if ! ${pkgs.git}/bin/git diff --quiet "$LAZY_LOCK"; then
+            echo "Updates found in lazy-lock.json"
+            updates_found=true
+          else
+            echo "No Neovim plugin updates available"
+          fi
+
+          if [ "$updates_found" = "true" ]; then
             ${pkgs.libnotify}/bin/notify-send \
               --app-name="⚙️ System" \
               --icon=nix-snowflake \
               --expire-time=10000 \
               "Updates available" \
-              "There are new input hashes available for your system flake."
-
-            echo "Staging 'flake.lock' changes"
-            ${pkgs.git}/bin/git add flake.lock
+              "Operating system updates have been found."
+            exit 1
           else
             echo "No updates available"
+            exit 0
           fi
         '';
       };
