@@ -9,7 +9,7 @@
         Description = "Check for updates";
         After = ["network-online.target"];
       };
-      Install.WantedBy = ["default.target"];
+      Install.WantedBy = [];
       Service = {
         Type = "oneshot";
         Environment = [
