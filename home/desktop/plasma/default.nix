@@ -366,6 +366,8 @@
 
       "dolphinrc" = {
         "General" = {
+          "EditableUrl" = false;
+          "ShowFullPath" = true;
           "ShowSelectionToggle" = false;
         };
       };
