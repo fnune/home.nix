@@ -13,6 +13,7 @@ return {
   opts = {
     provider = "claude",
     hints = { enabled = false },
+    windows = { ask = { start_insert = false } },
     file_selector = {
       provider = "telescope",
       provider_opts = {
