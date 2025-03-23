@@ -1,11 +1,8 @@
-{config, ...}: {
+_: {
   programs = {
     bat = {
       enable = true;
-      config.theme =
-        if config.colorscheme == "vscode"
-        then "Visual Studio Dark+"
-        else false;
+      config.theme = "base16"; # Uses terminal colors
     };
     zsh.shellAliases.cat = "bat";
   };
