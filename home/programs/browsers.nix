@@ -12,7 +12,6 @@
         name = "Default";
         isDefault = true;
         settings = {
-          "extensions.autoDisableScopes" = 0;
           "services.sync.username" = "fausto.nunez@mailbox.org";
         };
         extensions = {
