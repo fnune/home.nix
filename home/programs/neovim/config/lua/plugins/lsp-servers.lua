@@ -22,6 +22,7 @@ return {
         lspconfig[lsp].setup(vim.tbl_deep_extend("force", { capabilities = capabilities }, opts))
       end
 
+      setup("angularls", {})
       setup("biome", {})
       setup("clangd", {})
       setup("gdscript", {})
