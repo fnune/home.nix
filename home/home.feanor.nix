@@ -1,5 +1,3 @@
-{...}: {
-  imports = [./peripherals/c920.nix];
-
+_: {
   machine.scale = 1.2;
 }
