@@ -42,10 +42,12 @@ return {
     })
 
     vim.cmd([[
+      hi AvanteSidebarWinHorizontalSeparator guifg=bg guibg=bg
       hi! link AvanteConflictCurrent DiffDelete
       hi! link AvanteConflictCurrentLabel NeogitDiffDeleteCursor
       hi! link AvanteConflictIncoming DiffAdd
       hi! link AvanteConflictIncomingLabel NeogitDiffAddCursor
+      hi! link AvanteSidebarWinSeparator WinSeparator
     ]])
   end,
 }
