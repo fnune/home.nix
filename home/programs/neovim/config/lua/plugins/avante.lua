@@ -6,9 +6,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
     "nvim-tree/nvim-web-devicons",
-    "stevearc/dressing.nvim",
   },
   config = function()
     require("avante").setup({
@@ -16,7 +14,7 @@ return {
       hints = { enabled = false },
       windows = { ask = { start_insert = false } },
       file_selector = {
-        provider = "telescope",
+        provider = "snacks",
         provider_opts = {
           get_filepaths = function(params)
             local cwd = params.cwd

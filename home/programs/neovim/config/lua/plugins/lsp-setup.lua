@@ -22,16 +22,10 @@ return {
       local constants = require("constants")
 
       vim.diagnostic.config({
-        float = { border = constants.floating_border },
         severity_sort = true,
         signs = false,
         virtual_text = { prefix = constants.signs.error_single },
       })
-
-      vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, { border = constants.floating_border })
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = constants.floating_border })
 
       local signs = {
         Error = constants.signs.error,
@@ -88,7 +82,7 @@ return {
       {
         "gd",
         function()
-          vim.lsp.buf.definition()
+          require("snacks").picker.lsp_definitions()
         end,
         desc = "Go to definition",
         silent = true,
@@ -96,7 +90,7 @@ return {
       {
         "gD",
         function()
-          vim.lsp.buf.declaration()
+          require("snacks").picker.lsp_declaration()
         end,
         desc = "Go to declaration",
         silent = true,
@@ -104,7 +98,7 @@ return {
       {
         "gi",
         function()
-          vim.lsp.buf.implementation()
+          require("snacks").picker.lsp_implementations()
         end,
         desc = "Go to implementation",
         silent = true,
@@ -112,7 +106,7 @@ return {
       {
         "gT",
         function()
-          vim.lsp.buf.type_definition()
+          require("snacks").picker.lsp_type_definitions()
         end,
         desc = "Go to type definition",
         silent = true,
@@ -120,7 +114,7 @@ return {
       {
         "gr",
         function()
-          vim.lsp.buf.references()
+          require("snacks").picker.lsp_references()
         end,
         desc = "Show references",
         silent = true,

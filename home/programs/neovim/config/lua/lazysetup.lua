@@ -17,12 +17,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
-local constants = require("constants")
 
 lazy.setup({
   spec = { import = "plugins" },
   change_detection = { enabled = true, notify = false },
-  ui = { border = constants.floating_border },
+  ui = { size = { width = 1, height = 1 } },
   install = { missing = true, colorscheme = { os.getenv("COLORSCHEME") } },
   dev = { path = "~/Development", fallback = true },
   rocks = { enabled = false },
