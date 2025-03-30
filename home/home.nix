@@ -37,6 +37,7 @@
     ./programs/git.nix
     ./programs/kitty/kitty.nix
     ./programs/neovim/neovim.nix
+    ./programs/numi.nix
     ./programs/obs-studio.nix
     ./programs/psql/psql.nix
     ./programs/python.nix
