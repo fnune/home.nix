@@ -56,3 +56,7 @@ vim.opt.updatetime = 100
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.writebackup = false
+
+-- Usually, deprecated resources are used by plugins and I want
+-- to opt out of messages warning me of their impending removal.
+vim.deprecate = function() end
