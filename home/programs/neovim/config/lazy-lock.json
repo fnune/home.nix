@@ -67,7 +67,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "traces.vim": { "branch": "master", "commit": "261602a6ee8d40d13522242ec5671456a230c17e" },
   "trouble.nvim": { "branch": "main", "commit": "748ca2789044607f19786b1d837044544c55e80a" },
-  "typescript-tools.nvim": { "branch": "master", "commit": "255782c1840b3356f921ce949ace8efd633ba6ac" },
   "undotree": { "branch": "master", "commit": "b951b87b46c34356d44aa71886aecf9dd7f5788a" },
   "vim-abolish": { "branch": "master", "commit": "880a562ff9176773897930b5a26a496f68e5a985" },
   "vim-dadbod": { "branch": "master", "commit": "6f8b99868fd5560d6eb47f82ca76ec62e3d5ae78" },

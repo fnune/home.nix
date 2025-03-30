@@ -28,8 +28,8 @@
       tailwindcss-language-server
       taplo
       terraform-ls
-      typescript-language-server
       vscode-langservers-extracted
+      vtsls
       yaml-language-server
       # Linters
       alejandra

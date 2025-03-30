@@ -1,17 +1,5 @@
 return {
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      local server = require("typescript-tools")
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-      server.setup({
-        capabilities = capabilities,
-        settings = { expose_as_code_action = "all" },
-      })
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     dependencies = { "b0o/SchemaStore.nvim", "saghen/blink.cmp" },
     config = function()
@@ -32,6 +20,7 @@ return {
       setup("stylelint_lsp", {})
       setup("taplo", {})
       setup("terraformls", {})
+      setup("vtsls", {})
 
       setup("nil_ls", {
         init_options = { nix = { flake = { autoArchive = true } } },
