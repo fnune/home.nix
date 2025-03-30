@@ -45,13 +45,14 @@ return {
     conform.setup({
       formatters_by_ft = formatters_by_ft,
       format_on_save = { lsp_format = "fallback" },
+      default_format_opts = { lsp_format = "fallback" },
     })
   end,
   keys = {
     {
       "<leader>p",
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require("conform").format({ async = true })
       end,
       desc = "Format document",
       silent = true,
