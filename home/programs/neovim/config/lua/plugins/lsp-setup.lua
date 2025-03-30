@@ -22,10 +22,14 @@ return {
       local constants = require("constants")
 
       vim.diagnostic.config({
+        float = { border = constants.floating_border },
         severity_sort = true,
         signs = false,
         virtual_text = { prefix = constants.signs.error_single },
       })
+
+      vim.lsp.handlers["textDocument/hover"] =
+        vim.lsp.with(vim.lsp.handlers.hover, { border = constants.floating_border })
 
       local signs = {
         Error = constants.signs.error,

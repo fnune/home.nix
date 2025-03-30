@@ -1,3 +1,5 @@
+local constants = require("constants")
+
 local function node_type_matches(node_types)
   local success, node = pcall(vim.treesitter.get_node)
   if success and node then
@@ -31,6 +33,7 @@ return {
           enabled = true,
           window = {
             show_documentation = true,
+            border = constants.floating_border,
             scrollbar = false,
           },
         },
@@ -70,6 +73,7 @@ return {
             },
           },
           menu = {
+            border = constants.floating_border,
             draw = {
               columns = { { "kind_icon" }, { "label", gap = 1 } },
               components = {
@@ -96,7 +100,7 @@ return {
           documentation = {
             auto_show = true,
             auto_show_delay_ms = 150,
-            window = { scrollbar = false },
+            window = { border = constants.floating_border, scrollbar = false },
           },
           ghost_text = {
             enabled = true,
