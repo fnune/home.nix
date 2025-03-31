@@ -81,7 +81,7 @@
   "vim-repeat": { "branch": "master", "commit": "8106e142dfdc278ff3eaaadd7b362ad7949d4357" },
   "vim-surround": { "branch": "master", "commit": "aeb933272e72617f7c4d35e1f003be16836b948d" },
   "vim-tmux-navigator": { "branch": "master", "commit": "791dacfcfc8ccb7f6eb1c853050883b03e5a22fe" },
-  "visual-whitespace.nvim": { "branch": "main", "commit": "133feba0103b67acd329893ed8b3168f30bb0acc" },
+  "visual-whitespace.nvim": { "branch": "compat-v10", "commit": "133feba0103b67acd329893ed8b3168f30bb0acc" },
   "vscode": { "branch": "main", "commit": "287325f90168b076086601f6bda02745871f5c96" },
   "vscode-js-debug": { "branch": "main", "commit": "2fbe263844bdb97af58ea8bb3c194388349d1405" },
   "which-key.nvim": { "branch": "main", "commit": "fcbf4eea17cb299c02557d576f0d568878e354a4" }
