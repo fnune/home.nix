@@ -11,6 +11,7 @@ _: {
     ./packaging.nix
     ./plasma.nix
     ./plymouth.nix
+    ./printing.nix
     ./region-language.nix
     ./utils.nix
     ./work.nix
