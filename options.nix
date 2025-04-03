@@ -47,7 +47,7 @@
       };
       hinting = lib.mkOption {
         type = lib.types.str;
-        default = "hintfull";
+        default = "hintmedium";
         description = "Hinting: 'hintnone', 'hintslight', 'hintmedium', 'hintfull'";
       };
       antialias = lib.mkOption {
