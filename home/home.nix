@@ -21,7 +21,6 @@
     ../options.nix
     ./desktop/applications.nix
     ./desktop/audio.nix
-    ./desktop/fonts.nix
     ./desktop/photo.nix
     ./desktop/plasma
     ./desktop/wallpapers.nix

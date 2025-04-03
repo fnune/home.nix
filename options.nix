@@ -35,6 +35,11 @@
         default = "TX-02";
         description = "Monospace font to use for the desktop and terminal";
       };
+      emoji = lib.mkOption {
+        type = lib.types.str;
+        default = "Noto Color Emoji";
+        description = "Emoji font to use for the desktop and terminal";
+      };
       subpixel = lib.mkOption {
         type = lib.types.str;
         default = "rgb";
