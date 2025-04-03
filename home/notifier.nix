@@ -12,6 +12,10 @@
       Install.WantedBy = [];
       Service = {
         Type = "oneshot";
+        Restart = "on-failure";
+        RestartSec = 60;
+        StartLimitIntervalSec = "24h";
+        StartLimitBurst = 5;
         Environment = [
           "PATH='${pkgs.git}/bin:${pkgs.openssh}/bin:${pkgs.curl}/bin:${pkgs.gcc}/bin:$PATH'"
           "GIT_SSH_COMMAND='${pkgs.openssh}/bin/ssh -i ${config.home.homeDirectory}/.ssh/id_ed25519'"
