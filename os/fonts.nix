@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  fonts.fontconfig.useEmbeddedBitmaps = true;
   environment.systemPackages = with pkgs; [
     inter
     noto-fonts-cjk-sans
