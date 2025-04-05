@@ -8,14 +8,14 @@
       Unit = {
         Description = "Check for updates";
         After = ["network-online.target"];
+        StartLimitIntervalSec = "24h";
+        StartLimitBurst = 5;
       };
       Install.WantedBy = [];
       Service = {
         Type = "oneshot";
         Restart = "on-failure";
         RestartSec = 60;
-        StartLimitIntervalSec = "24h";
-        StartLimitBurst = 5;
         Environment = [
           "PATH='${pkgs.git}/bin:${pkgs.openssh}/bin:${pkgs.curl}/bin:${pkgs.gcc}/bin:$PATH'"
           "GIT_SSH_COMMAND='${pkgs.openssh}/bin/ssh -i ${config.home.homeDirectory}/.ssh/id_ed25519'"
@@ -33,8 +33,8 @@
           fi
 
           if ! ${pkgs.git}/bin/git fetch origin; then
-            echo "Failed to fetch from origin, skipping update check"
-            exit 0
+            echo "Failed to fetch from origin"
+            exit 1
           fi
 
           if ${pkgs.git}/bin/git merge-base --is-ancestor HEAD origin/main; then
