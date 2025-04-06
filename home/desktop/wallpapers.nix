@@ -30,5 +30,8 @@
     rm ${builtins.concatStringsSep " " excludes}
   '';
 in {
-  home.file.${config.wallpapers}.source = wallpapers;
+  home = {
+    packages = with pkgs.unstable; [plasma-plugin-blurredwallpaper];
+    file.${config.wallpapers}.source = wallpapers;
+  };
 }

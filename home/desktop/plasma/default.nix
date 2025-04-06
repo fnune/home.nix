@@ -85,12 +85,6 @@
         middleClick = null;
       };
     };
-    workspace = {
-      wallpaperSlideShow = {
-        path = "${config.home.homeDirectory}/${config.wallpapers}";
-        interval = 30 * 60;
-      };
-    };
     kscreenlocker = {
       appearance = {
         wallpaperPlainColor = "33,33,33";
