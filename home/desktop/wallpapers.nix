@@ -12,6 +12,7 @@
   excludes = [
     "a_body_of_water_with_rocks_and_a_cliff.jpg"
     "a_close_up_of_rocks.jpg"
+    "a_cup_of_coffee_with_foam.jpg"
     "a_iceberg_in_the_water_with_mountains_in_the_background.jpg"
     "a_mountain_range_with_snow_on_top.jpeg"
     "a_mountain_range_with_snow_on_top_01.jpg"
@@ -31,10 +32,14 @@
     "a_waterfall_in_the_snow.jpg"
   ];
   wallpapers = pkgs.runCommand "filter-wallpapers" {} ''
-    cp -r ${source}/mountain $out
-    cd $out
-    chmod -R +w .
-    rm ${builtins.concatStringsSep " " excludes}
+    mkdir -p $out
+    chmod -R +w $out
+
+    cp --no-clobber ${source}/{aerial,mountain,nature}/*.{jpg,jpeg,png} $out/
+
+    pushd $out
+      rm ${builtins.concatStringsSep " " excludes}
+    popd
   '';
 in {
   home = {
