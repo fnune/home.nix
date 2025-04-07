@@ -27,6 +27,7 @@
     lshw
     man-pages
     man-pages-posix
+    moreutils
     neovim
     pciutils
     sshfs
