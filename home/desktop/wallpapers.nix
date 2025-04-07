@@ -51,7 +51,6 @@
   '';
 in {
   home = {
-    packages = with pkgs.unstable; [plasma-plugin-blurredwallpaper];
     file.${config.wallpapers}.source = wallpapers;
   };
 }
