@@ -1,3 +1,4 @@
+local constants = require("constants")
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -14,7 +15,7 @@ return {
       provider = "claude",
       hints = { enabled = false },
       behavior = { enable_claude_text_editor_tool_mode = true },
-      windows = { ask = { start_insert = false } },
+      windows = { ask = { start_insert = false }, edit = { border = constants.floating_border } },
       system_prompt = [[
         Important user preferences:
 
