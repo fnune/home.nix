@@ -6,7 +6,7 @@
   # Dual boot
   environment.systemPackages = [pkgs.os-prober];
   boot = {
-    plymouth.extraConfig = "DeviceScale=1";
+    plymouth.extraConfig = "DeviceScale=2";
     loader = {
       timeout = null; # Infinite time to choose
       grub = {
@@ -15,8 +15,8 @@
         efiInstallAsRemovable = true;
         efiSupport = true;
         useOSProber = true;
-        gfxmodeEfi = "2560x1440";
-        gfxpayloadEfi = "2560x1440x32";
+        gfxmodeEfi = "3840x2160";
+        gfxpayloadEfi = "3840x2160x32";
       };
     };
   };

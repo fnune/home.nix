@@ -275,7 +275,7 @@
           "krohnkiteEnabled".value = true;
         };
         "Script-krohnkite" = let
-          gap = 10;
+          gap = builtins.floor (9 * config.machine.scale);
         in {
           "enableFloatingLayout".value = true;
           "enableTileLayout".value = true;
