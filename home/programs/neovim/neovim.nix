@@ -6,7 +6,7 @@
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.stable.neovim-unwrapped;
+      package = pkgs.unstable.neovim-unwrapped;
       extraLuaPackages = ps: [ps.magick];
       extraPackages = [pkgs.imagemagick];
       withNodeJs = true;
@@ -28,8 +28,8 @@
       tailwindcss-language-server
       taplo
       terraform-ls
+      typescript-language-server
       vscode-langservers-extracted
-      vtsls
       yaml-language-server
       # Linters
       alejandra
@@ -53,6 +53,7 @@
       # Debuggers
       python3Packages.debugpy
       # Lower-level tools
+      inotify-tools
       nodejs_23
       tree-sitter
     ];

@@ -1,4 +1,3 @@
-local constants = require("constants")
 return {
   "Yu-Leo/blame-column.nvim",
   cmd = "BlameColumnToggle",
@@ -7,11 +6,6 @@ return {
       hue = 75,
       lightness_min = 0,
       lightness_max = 30,
-    },
-    commit_info = {
-      window_opts = {
-        border = constants.floating_border,
-      },
     },
   },
   keys = {

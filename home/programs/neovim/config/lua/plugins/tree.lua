@@ -9,7 +9,6 @@ return {
       diagnostics = { enable = false },
       renderer = { group_empty = true },
       disable_netrw = true,
-      actions = { file_popup = { open_win_config = { border = constants.floating_border } } },
     },
     keys = {
       { "<leader>e", ":NvimTreeToggle<cr>", desc = "Toggle the file explorer view", silent = true },

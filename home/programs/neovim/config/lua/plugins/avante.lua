@@ -15,7 +15,7 @@ return {
       provider = "claude",
       hints = { enabled = false },
       behavior = { enable_claude_text_editor_tool_mode = true },
-      windows = { ask = { start_insert = false }, edit = { border = constants.floating_border } },
+      windows = { ask = { start_insert = false } },
       system_prompt = [[
         Important user preferences:
 

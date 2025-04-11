@@ -1,15 +1,27 @@
+local function setup(lsp, opts)
+  require("lspconfig")[lsp].setup(opts)
+end
+
+local function with_defaults(server_opts)
+  local capabilities_blink = require("blink.cmp").get_lsp_capabilities()
+  local capabilities_common = { general = { positionEncodings = { "utf-16" } } }
+  local capabilities = vim.tbl_deep_extend("force", capabilities_blink, capabilities_common)
+  return vim.tbl_deep_extend("force", { capabilities = capabilities }, server_opts)
+end
+
 return {
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    config = function()
+      local server = require("typescript-tools")
+      server.setup(with_defaults({ settings = { expose_as_code_action = "all" } }))
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = { "b0o/SchemaStore.nvim", "saghen/blink.cmp" },
     config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-      local function setup(lsp, opts)
-        lspconfig[lsp].setup(vim.tbl_deep_extend("force", { capabilities = capabilities }, opts))
-      end
-
       setup("angularls", {})
       setup("biome", {})
       setup("clangd", {})
@@ -20,7 +32,6 @@ return {
       setup("stylelint_lsp", {})
       setup("taplo", {})
       setup("terraformls", {})
-      setup("vtsls", {})
 
       setup("nil_ls", {
         init_options = { nix = { flake = { autoArchive = true } } },
