@@ -56,6 +56,8 @@
       inotify-tools
       nodejs_23
       tree-sitter
+      # AI
+      claude-code
     ];
 
     file = {

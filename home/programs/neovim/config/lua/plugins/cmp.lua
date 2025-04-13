@@ -42,17 +42,11 @@ return {
             return { "lsp", "path", "snippets", "buffer" }
           end,
           per_filetype = {
-            AvanteInput = { "avante" },
             gitcommit = { "buffer" },
             sql = { "dadbod", "lsp", "snippets" },
           },
           providers = {
             dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-            avante = {
-              module = "blink-cmp-avante",
-              name = "Avante",
-              opts = {},
-            },
           },
         },
         completion = {
@@ -87,7 +81,6 @@ return {
             auto_show = function(_)
               return not (
                 is_in_comment()
-                or vim.bo.filetype == "AvanteInput"
                 or vim.bo.filetype == "gitcommit"
                 or vim.bo.filetype == "markdown"
               )
