@@ -17,7 +17,6 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "kristijanhusak/vim-dadbod-completion",
-      "Kaiser-Yang/blink-cmp-avante",
     },
     config = function()
       local blink = require("blink.cmp")
