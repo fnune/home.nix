@@ -3,7 +3,7 @@
     _1password-gui
     bitwarden-desktop
     dbeaver-bin
-    signal-desktop
+    signal-desktop-bin
     spotify
   ];
 }
