@@ -15,9 +15,6 @@ return {
       dim = { enabled = false },
       styles = { zen = { backdrop = { blend = 30 } } },
     })
-    vim.cmd([[
-      hi! link SnacksInputBorder FloatBorder
-    ]])
   end,
   keys = {
     {

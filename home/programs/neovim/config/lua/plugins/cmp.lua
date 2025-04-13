@@ -79,11 +79,7 @@ return {
             },
             scrollbar = false,
             auto_show = function(_)
-              return not (
-                is_in_comment()
-                or vim.bo.filetype == "gitcommit"
-                or vim.bo.filetype == "markdown"
-              )
+              return not (is_in_comment() or vim.bo.filetype == "gitcommit" or vim.bo.filetype == "markdown")
             end,
           },
           documentation = {
@@ -96,13 +92,6 @@ return {
           },
         },
       })
-
-      vim.cmd([[
-        hi! link BlinkCmpMenuBorder FloatBorder
-        hi! link BlinkCmpDocBorder FloatBorder
-        hi! link BlinkCmpSignatureHelpBorder FloatBorder
-        hi! link BlinkCmpGhostText Conceal
-      ]])
     end,
   },
 }

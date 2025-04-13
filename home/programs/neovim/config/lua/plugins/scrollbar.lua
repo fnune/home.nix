@@ -17,9 +17,5 @@ return {
         GitDelete = { text = "_" },
       },
     })
-
-    vim.cmd([[
-      hi! link ScrollbarHandle PmenuSbar
-    ]])
   end,
 }
