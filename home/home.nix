@@ -23,7 +23,6 @@
     ./desktop/audio.nix
     ./desktop/photo.nix
     ./desktop/plasma
-    ./desktop/wallpapers.nix
     ./notifier.nix
     ./programs/bat.nix
     ./programs/browsers.nix
