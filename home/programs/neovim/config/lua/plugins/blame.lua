@@ -1,7 +1,6 @@
 return {
   "Yu-Leo/blame-column.nvim",
   cmd = "BlameColumnToggle",
-  dev = true,
   opts = {
     time_based_bg_opts = {
       hue = 75,
