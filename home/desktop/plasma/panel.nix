@@ -83,7 +83,7 @@
               dateDisplayFormat = "BesideTime";
               dateFormat = "longDate";
               fontFamily = config.fontconfig.sans;
-              fontSize = 14;
+              fontSize = 13;
               fontStyleName = "Medium";
               fontWeight = 500;
               selectedTimeZones = "Local,America/New_York,America/Los_Angeles";
