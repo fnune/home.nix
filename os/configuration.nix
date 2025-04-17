@@ -14,7 +14,6 @@ _: {
     ./printing.nix
     ./region-language.nix
     ./utils.nix
-    ./work.nix
   ];
 
   users.users.fausto = {

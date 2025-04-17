@@ -45,6 +45,5 @@
     ./programs/ventoy.nix
     ./programs/vivid/vivid.nix
     ./programs/zsh.nix
-    ./work/work.nix
   ];
 }
