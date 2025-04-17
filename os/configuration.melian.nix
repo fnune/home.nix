@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./configuration.nix ./hardware-configuration.melian.nix];
+  imports = [./configuration.nix];
 
   networking.hostName = "melian";
   boot = {
