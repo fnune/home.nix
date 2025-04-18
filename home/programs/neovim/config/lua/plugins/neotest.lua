@@ -8,6 +8,7 @@ end
 
 return {
   { "folke/neodev.nvim", opts = { library = { plugins = { "neotest" }, types = true } }, priority = 51 },
+  { "fredrikaverpil/neotest-golang", lazy = true },
   { "marilari88/neotest-vitest", lazy = true, version = false },
   { "nvim-neotest/neotest-jest", lazy = true },
   { "nvim-neotest/neotest-python", lazy = true },
@@ -28,6 +29,7 @@ return {
 
       neotest.setup({
         adapters = {
+          require("neotest-golang")({}),
           require("neotest-jest")({}),
           require("neotest-python")({}),
           require("neotest-rust")({}),

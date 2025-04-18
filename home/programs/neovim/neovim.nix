@@ -18,8 +18,10 @@
   home = {
     packages = with pkgs.unstable; [
       # LSPs
+      angular-language-server
       basedpyright
       clang-tools
+      gopls
       lua-language-server
       nil
       pyright
@@ -35,6 +37,7 @@
       alejandra
       eslint
       eslint_d
+      go-tools
       luajitPackages.luacheck
       nodePackages.jsonlint
       ruff
@@ -51,6 +54,7 @@
       shfmt
       stylua
       # Debuggers
+      delve
       python3Packages.debugpy
       # Lower-level tools
       inotify-tools

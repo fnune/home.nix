@@ -26,6 +26,7 @@ return {
       setup("biome", {})
       setup("clangd", {})
       setup("gdscript", {})
+      setup("gopls", {})
       setup("ocamllsp", {})
       setup("ruff", {})
       setup("rust_analyzer", {})

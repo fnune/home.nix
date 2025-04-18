@@ -178,6 +178,12 @@ return {
     end,
   },
   {
+    "leoluz/nvim-dap-go",
+    config = function()
+      require("dap-go").setup()
+    end,
+  },
+  {
     "microsoft/vscode-js-debug",
     build = [[
       npm install --legacy-peer-deps --ignore-scripts --no-package-lock
