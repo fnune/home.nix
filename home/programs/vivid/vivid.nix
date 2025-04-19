@@ -9,5 +9,7 @@
     then "$(vivid generate " + ./vscode.yml + ")"
     else if config.colorscheme == "rose-pine"
     then "$(vivid generate rose-pine)"
+    else if config.colorscheme == "standard"
+    then "$(vivid generate " + ./standard.yml + ")"
     else "";
 }
