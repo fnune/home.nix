@@ -14,26 +14,6 @@ return {
     end,
   },
   highlights.make_theme({
-    name = "vscode",
-    version = false,
-    repo = "fnune/vscode.fnune.nvim",
-    palette = function()
-      return require("vscode.colors").get_colors()
-    end,
-    config = function()
-      local vscode = require("vscode")
-      vscode.setup({ disable_nvimtree_bg = true })
-      vscode.load()
-    end,
-  }),
-  highlights.make_theme({
-    name = "rose-pine",
-    repo = "rose-pine/neovim",
-    palette = function()
-      return require("rose-pine.palette")
-    end,
-  }),
-  highlights.make_theme({
     name = "standard",
     version = false,
     repo = "fnune/standard",

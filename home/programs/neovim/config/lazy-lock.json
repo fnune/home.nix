@@ -58,7 +58,7 @@
   "repolink.nvim": { "branch": "master", "commit": "55edfedbaef3e894d2ab5107ea7fadc64cb8258d" },
   "rose-pine": { "branch": "main", "commit": "00ec4cec924b624920baac9d42eac02e1efcae76" },
   "snacks.nvim": { "branch": "main", "commit": "5eac729fa290248acfe10916d92a5ed5e5c0f9ed" },
-  "standard": { "branch": "main", "commit": "3803f460974c8546186600e7e1e7abf7e9727b4f" },
+  "standard": { "branch": "main", "commit": "fe4297ba8f7f9118a8b474de36849bb0d17c4c4c" },
   "symbol-usage.nvim": { "branch": "main", "commit": "d6fff0e061d555624760ed82113ddf8587358c4e" },
   "tabby.nvim": { "branch": "main", "commit": "21b01d26627ee5fe94c8ae560bd1b0797dff3c40" },
   "tailwind-tools.nvim": { "branch": "master", "commit": "abe7368392345c53174979c2cf033e832de80ef8" },
