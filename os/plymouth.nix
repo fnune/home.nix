@@ -4,7 +4,7 @@
     plymouth = {
       enable = true;
       theme = "spinner";
-      font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
+      font = "${pkgs.adwaita-fonts}/share/fonts/Adwaita/AdwaitaSans-Regular.ttf";
     };
     kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
   };

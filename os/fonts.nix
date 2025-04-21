@@ -34,6 +34,7 @@
 
       localConf = let
         sansAliases = [
+          "Inter"
           "Helvetica"
           "-apple-system"
         ];
@@ -67,7 +68,7 @@
     };
 
     packages = with pkgs; [
-      inter
+      adwaita-fonts
       nerd-fonts.sauce-code-pro
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif

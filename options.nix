@@ -27,12 +27,12 @@
     fontconfig = {
       sans = lib.mkOption {
         type = lib.types.str;
-        default = "Inter";
+        default = "Adwaita Sans";
         description = "Sans font to use for the desktop";
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "TX-02";
+        default = "Adwaita Mono";
         description = "Monospace font to use for the desktop and terminal";
       };
       emoji = lib.mkOption {
