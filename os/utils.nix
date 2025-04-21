@@ -34,6 +34,7 @@
     tree
     unzip
     util-linux
+    watchexec
     wl-clipboard
     zsh
   ];
