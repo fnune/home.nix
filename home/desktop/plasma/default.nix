@@ -259,7 +259,7 @@
 
           # NB: the Plasma panel is layer 1
           "tiledWindowsLayer".value = 1;
-          "floatedWindowsLayer".value = 2;
+          "floatedWindowsLayer".value = 1;
 
           "enableBTreeLayout".value = false;
           "enableColumnsLayout".value = false;
