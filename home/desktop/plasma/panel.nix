@@ -13,11 +13,6 @@
         }
         {
           name = "org.kde.plasma.pager";
-          config = {
-            General = {
-              displayedText = "Number";
-            };
-          };
         }
         {
           name = "org.kde.plasma.marginsseparator";
