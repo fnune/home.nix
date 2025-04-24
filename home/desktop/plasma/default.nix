@@ -255,7 +255,14 @@
         in {
           "enableFloatingLayout".value = true;
           "enableTileLayout".value = true;
-          "floatingClass".value = "systemsettings,org.kde.dolphin,kcmshell6";
+          "floatingClass".value =
+            builtins.concatStringsSep ","
+            [
+              "kcmshell6"
+              "org.kde.dolphin"
+              "org.kde.plasma.emojier"
+              "systemsettings"
+            ];
 
           # NB: the Plasma panel is layer 1
           "tiledWindowsLayer".value = 1;
