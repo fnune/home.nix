@@ -13,10 +13,16 @@ end
 return {
   { "xzbdmw/colorful-menu.nvim", opts = {} },
   {
+    "MattiasMTS/cmp-dbee",
+    dependencies = { "kndndrj/nvim-dbee" },
+    ft = "sql",
+    opts = {},
+  },
+  {
     "saghen/blink.cmp",
     dependencies = {
       "rafamadriz/friendly-snippets",
-      "kristijanhusak/vim-dadbod-completion",
+      "saghen/blink.compat",
     },
     config = function()
       local blink = require("blink.cmp")
@@ -42,10 +48,14 @@ return {
           end,
           per_filetype = {
             gitcommit = { "buffer" },
-            sql = { "dadbod", "lsp", "snippets" },
+            sql = { "dbee", "lsp", "snippets" },
           },
           providers = {
-            dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+            dbee = {
+              name = "cmp-dbee",
+              module = "blink.compat.source",
+              opts = {},
+            },
           },
         },
         completion = {
