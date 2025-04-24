@@ -260,6 +260,7 @@
             [
               "kcmshell6"
               "org.kde.dolphin"
+              "org.kde.kcharselect"
               "org.kde.plasma.emojier"
               "systemsettings"
             ];
