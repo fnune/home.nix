@@ -14,6 +14,9 @@ return {
     })
   end,
   opts = {
+    ui = {
+      enable = false, -- Using render-markdown.nvim
+    },
     workspaces = {
       {
         name = "main",
