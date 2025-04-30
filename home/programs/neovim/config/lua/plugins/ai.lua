@@ -4,6 +4,6 @@ return {
   build = "npm install --frozen-lockfile",
   opts = {
     picker = "snacks",
-    sidebar_position = "right",
+    sidebarPosition = "right",
   },
 }
