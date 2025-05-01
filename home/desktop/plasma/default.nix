@@ -259,6 +259,7 @@
             builtins.concatStringsSep ","
             [
               "kcmshell6"
+              "org.freedesktop.impl.portal.desktop.kde"
               "org.kde.dolphin"
               "org.kde.kcharselect"
               "org.kde.plasma.emojier"
