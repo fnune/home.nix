@@ -27,7 +27,7 @@
         size = 100000;
         path = "${config.home.homeDirectory}/.zsh_history";
       };
-      initExtra = let
+      initContent = let
         windowTitle = "Terminal";
       in ''
         echo -ne "\e]0;${windowTitle}\a"
