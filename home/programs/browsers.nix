@@ -51,6 +51,7 @@
         "widget.use-xdg-desktop-portal" = true;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         "widget.wayland.fractional-scale.enabled" = true;
+        "zen.view.experimental-no-window-controls" = true;
       };
     };
   in {
