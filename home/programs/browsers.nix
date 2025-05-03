@@ -4,10 +4,8 @@
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.unstable.firefox;
-    profiles = {
+  programs = let
+    firefoxProfiles = {
       default = {
         name = "Default";
         isDefault = true;
@@ -27,9 +25,10 @@
         };
       };
     };
-    policies = {
+    firefoxPolicies = {
       DisableAppUpdate = true;
       DisablePocket = true;
+      DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
       Homepage.StartPage = "none";
       NewTabPage = false;
@@ -54,14 +53,25 @@
         "widget.wayland.fractional-scale.enabled" = true;
       };
     };
-  };
-
-  programs.chromium = {
-    enable = true;
-    extensions = [
-      {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
-      {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
-    ];
+  in {
+    zen-browser = {
+      enable = true;
+      profiles = firefoxProfiles;
+      policies = firefoxPolicies;
+    };
+    firefox = {
+      enable = true;
+      package = pkgs.unstable.firefox;
+      profiles = firefoxProfiles;
+      policies = firefoxPolicies;
+    };
+    chromium = {
+      enable = true;
+      extensions = [
+        {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
+        {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
+        {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
+      ];
+    };
   };
 }
