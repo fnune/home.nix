@@ -10,7 +10,7 @@ return {
       indent = { enabled = false },
       pipe_table = { style = "normal" },
       sign = { enabled = false },
-      file_types = { "markdown", "Avante" },
+      file_types = { "markdown", "codecompanion" },
       overrides = {
         buftype = {
           nofile = {

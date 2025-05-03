@@ -48,7 +48,7 @@ return {
             return { "lsp", "path", "snippets", "buffer" }
           end,
           per_filetype = {
-            AvanteInput = { "avante" },
+            codecompanion = { "codecompanion" },
             gitcommit = { "buffer" },
             sql = { "dbee", "lsp", "snippets" },
           },
@@ -56,11 +56,6 @@ return {
             dbee = {
               name = "cmp-dbee",
               module = "blink.compat.source",
-              opts = {},
-            },
-            avante = {
-              module = "blink-cmp-avante",
-              name = "Avante",
               opts = {},
             },
           },
