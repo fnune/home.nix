@@ -47,6 +47,7 @@ return {
             return { "lsp", "path", "snippets", "buffer" }
           end,
           per_filetype = {
+            codecompanion = { "codecompanion" },
             gitcommit = { "buffer" },
             sql = { "dbee", "lsp", "snippets" },
           },

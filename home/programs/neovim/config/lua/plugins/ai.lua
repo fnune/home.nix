@@ -1,9 +1,17 @@
 return {
-  "dlants/magenta.nvim",
-  lazy = false,
-  build = "npm install --frozen-lockfile",
+  "olimorris/codecompanion.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
   opts = {
-    picker = "snacks",
-    sidebarPosition = "right",
+    strategies = {
+      chat = {
+        adapter = "anthropic",
+      },
+      inline = {
+        adapter = "anthropic",
+      },
+    },
   },
 }
