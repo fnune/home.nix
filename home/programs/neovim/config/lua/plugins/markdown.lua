@@ -11,6 +11,13 @@ return {
       pipe_table = { style = "normal" },
       sign = { enabled = false },
       file_types = { "markdown", "codecompanion" },
+      overrides = {
+        buftype = {
+          nofile = {
+            code = { border = "hide" },
+          },
+        },
+      },
     },
   },
   {

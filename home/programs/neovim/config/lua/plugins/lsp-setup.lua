@@ -51,7 +51,7 @@ return {
       {
         "K",
         function()
-          vim.lsp.buf.hover()
+          vim.lsp.buf.hover({ max_width = 80 })
         end,
         desc = "Show documentation",
         silent = true,
