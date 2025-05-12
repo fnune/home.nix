@@ -283,6 +283,7 @@
           "enableStairLayout".value = false;
           "enableThreeColumnLayout".value = false;
 
+          "screenGapBetween".value = gap;
           "screenGapBottom".value = gap;
           "screenGapLeft".value = gap;
           "screenGapRight".value = gap;
