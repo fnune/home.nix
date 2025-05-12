@@ -42,7 +42,6 @@
     ./programs/ripgrep.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
-    ./programs/ventoy.nix
     ./programs/vivid/vivid.nix
     ./programs/zsh.nix
   ];
