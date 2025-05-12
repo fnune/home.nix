@@ -116,7 +116,6 @@ return {
           "objc",
           "ocaml",
           "ocaml_interface",
-          "org",
           "pascal",
           "passwd",
           "perl",
