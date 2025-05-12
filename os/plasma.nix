@@ -38,6 +38,7 @@ in {
 
   programs = {
     kdeconnect.enable = true;
+    partition-manager.enable = true;
     gnupg.agent.pinentryPackage = pkgs.callPackage ../packages/pinentry-kwallet.nix {};
   };
 
