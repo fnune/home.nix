@@ -12,6 +12,7 @@
     ])
     ++ (with pkgs.kdePackages; [
       filelight
+      isoimagewriter
       kalk
       kcharselect
       kcolorchooser
@@ -261,7 +262,9 @@
               "kcmshell6"
               "org.freedesktop.impl.portal.desktop.kde"
               "org.kde.dolphin"
+              "org.kde.isoimagewriter"
               "org.kde.kcharselect"
+              "org.kde.partitionmanager"
               "org.kde.plasma.emojier"
               "systemsettings"
             ];
