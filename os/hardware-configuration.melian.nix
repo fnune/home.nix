@@ -20,6 +20,11 @@
 
   boot.initrd.luks.devices."luks-b9da1d95-fa96-4efc-bda5-cf5d435a8387".device = "/dev/disk/by-uuid/b9da1d95-fa96-4efc-bda5-cf5d435a8387";
 
+  boot.initrd.luks.devices."cryptswap" = {
+    device = "/dev/disk/by-uuid/fb6a6b48-fe69-4847-9120-1effdc900ccb";  # nvme0n1p3
+    preLVM = true;
+  };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/6769-6C1D";
       fsType = "vfat";
@@ -27,7 +32,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/cfb2ca61-7d39-44bd-927e-56ddbbf2b596"; }
+    [ { device = "/dev/mapper/cryptswap"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
