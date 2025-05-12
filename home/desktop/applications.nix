@@ -4,5 +4,6 @@
     dbeaver-bin
     signal-desktop-bin
     spotify
+    zoom-us
   ];
 }
