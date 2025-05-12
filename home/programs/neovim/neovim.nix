@@ -58,7 +58,7 @@
       python3Packages.debugpy
       # Lower-level tools
       inotify-tools
-      nodejs_23
+      nodejs_24
       tree-sitter
     ];
 
