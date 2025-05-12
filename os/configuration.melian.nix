@@ -1,5 +1,7 @@
 {...}: {
-  imports = [./configuration.nix];
+  system.stateVersion = "24.05";
+
+  imports = [./configuration.nix ./hardware-configuration.melian.nix];
 
   networking.hostName = "melian";
   boot = {
@@ -8,5 +10,13 @@
       systemd-boot.enable = true;
     };
     plymouth.extraConfig = "DeviceScale=1";
+  };
+
+  hardware = {
+    tuxedo-drivers.enable = true;
+    tuxedo-rs = {
+      enable = true;
+      tailor-gui.enable = true;
+    };
   };
 }

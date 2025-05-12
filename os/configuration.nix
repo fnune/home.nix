@@ -1,6 +1,4 @@
 _: {
-  system.stateVersion = "23.05";
-
   imports = [
     ../options.nix
     ./audio.nix

@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  system.stateVersion = "23.05";
+
   imports = [./configuration.nix ./hardware-configuration.feanor.nix];
 
   networking.hostName = "feanor";
