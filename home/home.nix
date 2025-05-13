@@ -44,5 +44,6 @@
     ./programs/tmux/tmux.nix
     ./programs/vivid/vivid.nix
     ./programs/zsh.nix
+    ./work.nix
   ];
 }
