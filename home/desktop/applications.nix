@@ -6,6 +6,7 @@
     signal-desktop-bin
     slack
     spotify
+    yubioath-flutter
     zoom-us
   ];
 }
