@@ -14,11 +14,11 @@
 
   package = pkgs.stdenv.mkDerivation rec {
     pname = "vanta";
-    version = "2.10.0";
+    version = "2.13.1";
 
     src = pkgs.fetchurl {
-      url = "https://vanta-agent-repo.s3.amazonaws.com/targets/versions/${version}/vanta-amd64.deb";
-      sha256 = "sha256-10nuthUmxM1TRV+/7ZlBjydLJypUVD+QXbphP4UfOCk";
+      url = "https://agent-downloads.vanta.com/targets/versions/${version}/vanta-amd64.deb";
+      sha256 = "sha256-Ct74W9BYlC3lmh/CrnR2z60tFUyV1bDGL6wHv/dnD0Y";
     };
 
     nativeBuildInputs = with pkgs; [dpkg autoPatchelfHook];
@@ -28,7 +28,7 @@
       dpkg-deb -x $src .
     '';
 
-    # To complete the installation, ropy VANTA_{KEY,OWNER_EMAIL} from https://app.vanta.com/employee/onboarding
+    # To complete the installation, copy VANTA_{KEY,OWNER_EMAIL} from https://app.vanta.com/employee/onboarding
     #
     # export VANTA_KEY="..."
     # export VANTA_OWNER_EMAIL="..."
