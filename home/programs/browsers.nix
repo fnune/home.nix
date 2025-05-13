@@ -72,6 +72,7 @@
         {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
         {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
         {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
+        {id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";} # 1Password
       ];
     };
   };
