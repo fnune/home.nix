@@ -277,6 +277,7 @@
               "org.kde.partitionmanager"
               "org.kde.plasma.emojier"
               "systemsettings"
+              "zoom"
             ];
 
           # NB: the Plasma panel is layer 1
