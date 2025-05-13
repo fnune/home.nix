@@ -175,6 +175,14 @@
         };
       };
 
+      "spectaclerc" = {
+        "General" = {
+          "autoSaveImage".value = true;
+          "clipboardGroup".value = "PostScreenshotCopyImage";
+          "showCaptureInstructions".value = false;
+        };
+      };
+
       "kcminputrc" = {
         "Mouse"."cursorSize".value = config.cursors.size;
         "Mouse"."cursorTheme".value = config.cursors.name;
