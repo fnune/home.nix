@@ -26,6 +26,7 @@ return {
       setup("biome", {})
       setup("clangd", {})
       setup("gdscript", {})
+      setup("golangci_lint_ls", {})
       setup("gopls", {})
       setup("ocamllsp", {})
       setup("ruff", {})
