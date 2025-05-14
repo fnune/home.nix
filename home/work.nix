@@ -13,10 +13,12 @@ in {
       go-migrate
       golangci-lint
       golangci-lint-langserver
+      kubectl
       mysql80
       pulumi
       pulumi-esc
       pulumiPackages.pulumi-language-nodejs
+      pulumictl
       slack
       yarn
       zoom-us
