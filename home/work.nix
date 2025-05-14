@@ -13,6 +13,7 @@ in {
       go-migrate
       golangci-lint
       golangci-lint-langserver
+      gotools
       kubectl
       mysql80
       pulumi

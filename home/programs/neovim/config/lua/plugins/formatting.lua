@@ -5,6 +5,7 @@ return {
     local conform = require("conform")
 
     local formatters_by_ft = {
+      go = { "goimports", "gofmt" },
       lua = { "stylua" },
       nix = { "alejandra" },
       ocaml = { "ocamlformat" },
