@@ -61,6 +61,12 @@
       default = "standard";
       description = "The preferred colorscheme for the terminal, Neovim and others";
     };
+    accent = {
+      rgb = lib.mkOption {
+        type = lib.types.str;
+        default = "31,118,255";
+      };
+    };
     panel = {
       height = lib.mkOption {
         type = lib.types.int;

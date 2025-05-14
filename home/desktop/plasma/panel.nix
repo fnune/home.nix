@@ -35,6 +35,9 @@
             Appearance = {
               chartFace = "org.kde.ksysguard.linechart";
             };
+            SensorColors = {
+              "cpu/all/usage" = config.accent.rgb;
+            };
           };
         }
         {
@@ -45,6 +48,9 @@
           config = {
             Appearance = {
               chartFace = "org.kde.ksysguard.linechart";
+            };
+            SensorColors = {
+              "memory/physical/used" = config.accent.rgb;
             };
           };
         }

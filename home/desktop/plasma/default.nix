@@ -194,7 +194,7 @@
 
       "kdeglobals" = {
         "General" = {
-          "AccentColor" = "31,118,255";
+          "AccentColor" = config.accent.rgb;
           "BrowserApplication" = "zen-beta.desktop";
           "TerminalApplication" = config.terminal.name;
           "TerminalService" = "${config.terminal.name}.service";
