@@ -21,6 +21,7 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = {
+      "Kaiser-Yang/blink-cmp-avante",
       "rafamadriz/friendly-snippets",
       "saghen/blink.compat",
     },
@@ -47,7 +48,7 @@ return {
             return { "lsp", "path", "snippets", "buffer" }
           end,
           per_filetype = {
-            codecompanion = { "codecompanion" },
+            AvanteInput = { "avante" },
             gitcommit = { "buffer" },
             sql = { "dbee", "lsp", "snippets" },
           },
@@ -55,6 +56,11 @@ return {
             dbee = {
               name = "cmp-dbee",
               module = "blink.compat.source",
+              opts = {},
+            },
+            avante = {
+              module = "blink-cmp-avante",
+              name = "Avante",
               opts = {},
             },
           },
@@ -89,7 +95,12 @@ return {
             },
             scrollbar = false,
             auto_show = function(_)
-              return not (is_in_comment() or vim.bo.filetype == "gitcommit" or vim.bo.filetype == "markdown")
+              return not (
+                is_in_comment()
+                or vim.bo.filetype == "AvanteInput"
+                or vim.bo.filetype == "gitcommit"
+                or vim.bo.filetype == "markdown"
+              )
             end,
           },
           documentation = {
