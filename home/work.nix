@@ -19,7 +19,7 @@ in {
       mysql80
       pulumi
       pulumi-esc
-      pulumiPackages.pulumi-language-nodejs
+      pulumiPackages.pulumi-nodejs
       pulumictl
       slack
       yarn

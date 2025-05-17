@@ -2,8 +2,7 @@
   description = "fnune's NixOS configuration files";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-previous.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
     nur = {
@@ -28,7 +27,6 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-previous,
     nixpkgs-unstable,
     nixpkgs-development,
     home-manager,
@@ -39,10 +37,6 @@
   }: let
     system = "x86_64-linux";
     nixpkgsOverlay = final: prev: {
-      previous = import nixpkgs-previous {
-        inherit (prev) config;
-        inherit system;
-      };
       unstable = import nixpkgs-unstable {
         inherit (prev) config;
         inherit system;
