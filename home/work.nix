@@ -10,7 +10,6 @@ in {
       _1password-gui
       awscli2
       go
-      go-migrate
       golangci-lint
       golangci-lint-langserver
       gotools
@@ -32,14 +31,6 @@ in {
     sessionVariables = {
       CYPRESS_INSTALL_BINARY = 0;
       CYPRESS_RUN_BINARY = "${pkgs.unstable.cypress}/bin/Cypress";
-    };
-  };
-
-  programs = {
-    zsh = {
-      shellAliases = {
-        migratecli = "migrate";
-      };
     };
   };
 }
