@@ -19,6 +19,7 @@ return {
       "css",
       "graphql",
       "html",
+      "htmlangular",
       "javascript",
       "javascriptreact",
       "json",
