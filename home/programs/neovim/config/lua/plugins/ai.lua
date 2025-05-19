@@ -12,9 +12,10 @@ return {
 
   config = function()
     require("avante").setup({
-      provider = "claude",
+      provider = "gemini",
+      gemini = { model = "gemini-2.5-flash-preview-04-17" },
       hints = { enabled = false },
-      behavior = { enable_claude_text_editor_tool_mode = true },
+      behavior = { auto_apply_diff_after_generation = true },
       windows = { ask = { start_insert = false } },
       system_prompt = [[
         Important user preferences:
