@@ -62,6 +62,9 @@
         middleClick = null;
       };
     };
+    workspace = {
+      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/SafeLanding";
+    };
     kscreenlocker = {
       appearance = {
         wallpaperPlainColor = "33,33,33";
