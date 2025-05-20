@@ -15,7 +15,6 @@ return {
       provider = "gemini",
       gemini = { model = "gemini-2.5-flash-preview-04-17" },
       hints = { enabled = false },
-      behavior = { auto_apply_diff_after_generation = true },
       windows = { ask = { start_insert = false } },
       system_prompt = [[
         Important user preferences:
