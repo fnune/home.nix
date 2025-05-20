@@ -41,5 +41,12 @@ return {
       end,
       desc = "Open inbox and actions in vertical splits",
     },
+    {
+      "<leader>W",
+      function()
+        vim.cmd("vsplit " .. vaultpath .. "/onboarding.md")
+      end,
+      desc = "Open work notes",
+    },
   },
 }
