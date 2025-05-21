@@ -26,6 +26,7 @@
     ./notifier.nix
     ./programs/bat.nix
     ./programs/browsers.nix
+    ./programs/claude-code.nix
     ./programs/devenv.nix
     ./programs/direnv.nix
     ./programs/dropbox.nix

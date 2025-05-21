@@ -15,6 +15,7 @@
     ];
     ignores = [
       ".ccls-cache"
+      ".claude"
       ".direnv"
       ".envrc"
       ".idea"
