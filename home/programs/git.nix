@@ -37,6 +37,9 @@
         prompt = false;
         difftastic.cmd = "${pkgs.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
       };
+      url = {
+        "git@github.com:".insteadOf = "https://github.com/";
+      };
     };
   };
 }
