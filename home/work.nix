@@ -14,6 +14,7 @@ in {
       golangci-lint-langserver
       gotools
       kubectl
+      lefthook
       mockgen
       mysql80
       pulumi
