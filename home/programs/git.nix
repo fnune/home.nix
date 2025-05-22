@@ -3,7 +3,12 @@
   config,
   ...
 }: {
-  home.packages = [pkgs.difftastic];
+  home = {
+    packages = [pkgs.difftastic];
+    sessionVariables = {
+      GIT_SSH_COMMAND = "ssh -i ${config.home.homeDirectory}/.ssh/id_ed25519 -o IdentitiesOnly=yes";
+    };
+  };
   programs.git = {
     enable = true;
     userName = config.profile.name;
