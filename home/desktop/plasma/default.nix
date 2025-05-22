@@ -72,6 +72,7 @@
     };
     shortcuts = {
       "services/${config.terminal.name}.desktop"."_launch" = "Meta+Return";
+      "services/${config.browser.name}.desktop"."new-window" = "Meta+Shift+Return";
 
       "org.kde.krunner.desktop"."_launch" = "Meta+D";
       "org.kde.plasma.emojier.desktop"."_launch" = "Meta+.";
@@ -198,7 +199,7 @@
       "kdeglobals" = {
         "General" = {
           "AccentColor" = config.accent.rgb;
-          "BrowserApplication" = "zen-beta.desktop";
+          "BrowserApplication" = "${config.browser.name}.desktop";
           "TerminalApplication" = config.terminal.name;
           "TerminalService" = "${config.terminal.name}.service";
           "XftAntialias".value = config.fontconfig.antialias;

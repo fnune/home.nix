@@ -120,5 +120,12 @@
         description = "The full path to the terminal emulator binary";
       };
     };
+    browser = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        default = "zen-beta";
+        description = "The preferred browser";
+      };
+    };
   };
 }
