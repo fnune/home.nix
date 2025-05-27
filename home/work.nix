@@ -13,6 +13,8 @@ in {
       golangci-lint
       golangci-lint-langserver
       gotools
+      jetbrains.datagrip
+      k9s
       kubectl
       lefthook
       mockgen
