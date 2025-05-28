@@ -77,16 +77,15 @@
           };
         }
         {
+          name = "org.kde.plasma.marginsseparator";
+        }
+        {
           name = "org.kde.plasma.digitalclock";
           config = {
             Appearance = {
-              autoFontAndSize = false;
+              autoFontAndSize = true;
               dateDisplayFormat = "BesideTime";
               dateFormat = "longDate";
-              fontFamily = config.fontconfig.sans;
-              fontSize = 9;
-              fontStyleName = "Medium";
-              fontWeight = 500;
               selectedTimeZones = "Local,America/New_York,America/Los_Angeles";
               showWeekNumbers = true;
             };
