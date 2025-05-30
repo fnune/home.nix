@@ -12,7 +12,7 @@ return {
       python = { "ruff_fix", "ruff_format" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
-      sql = { "sql_formatter" },
+      sql = { "sqlfluff" },
     }
 
     local prettier_supported = {
