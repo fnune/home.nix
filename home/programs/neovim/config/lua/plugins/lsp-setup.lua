@@ -91,7 +91,7 @@ return {
       {
         "gD",
         function()
-          require("snacks").picker.lsp_declaration()
+          require("snacks").picker.lsp_declarations()
         end,
         desc = "Go to declaration",
         silent = true,
