@@ -19,6 +19,7 @@ vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.linebreak = true
 vim.opt.list = true
+vim.opt.listchars.tab = "  "
 vim.opt.number = true
 vim.opt.redrawtime = 10000
 vim.opt.relativenumber = false
