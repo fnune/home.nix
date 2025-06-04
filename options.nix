@@ -32,7 +32,7 @@
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "TX-02";
+        default = "Adwaita Mono";
         description = "Monospace font to use for the desktop and terminal";
       };
       emoji = lib.mkOption {
