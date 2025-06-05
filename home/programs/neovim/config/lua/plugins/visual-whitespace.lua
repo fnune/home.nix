@@ -1,4 +1,7 @@
+local constants = require("constants")
 return {
   "mcauley-penney/visual-whitespace.nvim",
-  config = true,
+  opts = {
+    list_chars = constants.listchars.visual,
+  },
 }

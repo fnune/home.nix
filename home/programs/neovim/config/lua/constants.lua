@@ -13,6 +13,20 @@ local constants = {
     hint_single = "",
     info_single = "",
   },
+  listchars = {
+    normal = {
+      space = " ",
+      tab = "  ",
+      nbsp = "␣",
+      eol = " ",
+    },
+    visual = {
+      space = "·",
+      tab = "↦ ",
+      nbsp = "␣",
+      eol = "↲",
+    },
+  },
 }
 
 return constants
