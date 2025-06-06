@@ -1,7 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e51f2b142d88bb666dcaa77d93a07f4b419aca70" },
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "8563ed7d7e9f5e94949a7fa8d99fa318bf4e71d9" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "e702367b99c0763e3e5580998aa6d323c6cdb65e" },
   "aerial.nvim": { "branch": "master", "commit": "5c0df1679bf7c814c924dc6646cc5291daca8363" },
   "auto-session": { "branch": "main", "commit": "79ef41274354a486cf4f100a7adf4a7575802ccf" },
   "blame-column.nvim": { "branch": "main", "commit": "af31fdd83905d1a07a115ac28ba93bbf93940bfc" },
@@ -44,7 +44,7 @@
   "nvim-dbee": { "branch": "master", "commit": "21d2cc0844a16262bb6ea93ab3d0a0f20bd87853" },
   "nvim-fundo": { "branch": "main", "commit": "ac9c9372c4bf677721e24f144ef29d3a05c2b589" },
   "nvim-highlight-colors": { "branch": "main", "commit": "b42a5ccec7457b44e89f7ed3b3afb1b375bb2093" },
-  "nvim-lint": { "branch": "master", "commit": "8d628d0eca9b9cdc6e9672a274fefc6b9986ee4b" },
+  "nvim-lint": { "branch": "master", "commit": "cc26ae6a620298bb3f33b0e0681f99a10ae57781" },
   "nvim-lsp-file-operations": { "branch": "master", "commit": "9744b738183a5adca0f916527922078a965515ed" },
   "nvim-lspconfig": { "branch": "master", "commit": "3ea99227e316c5028f57a4d86a1a7fd01dd876d0" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
