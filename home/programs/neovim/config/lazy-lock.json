@@ -10,7 +10,7 @@
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
   "cmp-dbee": { "branch": "main", "commit": "1650f67b9bf43c029fc37570665ca895a33cdf5a" },
   "codeactions-on-save.nvim": { "branch": "main", "commit": "1445e1ab60f64f62ff7765cd6537333f636ca29b" },
-  "codecompanion.nvim": { "branch": "main", "commit": "bb3fc915301ba58b870ccf9817037f0a4c2350c8" },
+  "codecompanion.nvim": { "branch": "main", "commit": "0570b2bb2ed681bc1eb364d4b6b7f40b0f187d58" },
   "colorful-menu.nvim": { "branch": "master", "commit": "bc3e82609f2fcf7dad7ca87c20e65e51d5d9d87c" },
   "conform.nvim": { "branch": "master", "commit": "0e93e0d12d2f7ebdea9e3e444dfaff0050cefbe6" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
