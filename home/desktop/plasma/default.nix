@@ -278,6 +278,7 @@
               "org.kde.dolphin"
               "org.kde.isoimagewriter"
               "org.kde.kcharselect"
+              "org.kde.kded6"
               "org.kde.partitionmanager"
               "org.kde.plasma.emojier"
               "systemsettings"
