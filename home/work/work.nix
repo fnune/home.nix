@@ -4,7 +4,7 @@
   ...
 }: let
   service = "${config.home.homeDirectory}/go/src/github.com/pulumi/pulumi-service";
-  awsso = pkgs.callPackage ../packages/awsso.nix {};
+  awsso = pkgs.callPackage ../../packages/awsso.nix {};
 in {
   home = {
     packages = with pkgs.unstable; [
@@ -30,8 +30,11 @@ in {
       zoom-us
     ];
 
-    file."${service}/.nvim.lua".source = ./work.lua;
-    file."${service}/.envrc.local".source = ./work.envrc;
+    file = {
+      "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
+      "${service}/.envrc.local".source = ./envrc.sh;
+      "${service}/.nvim.lua".source = ./nvim.lua;
+    };
 
     sessionVariables = {
       CYPRESS_INSTALL_BINARY = 0;
