@@ -27,7 +27,13 @@ return {
       setup("clangd", {})
       setup("gdscript", {})
       setup("golangci_lint_ls", {})
-      setup("gopls", {})
+      setup("gopls", {
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=integration" },
+          },
+        },
+      })
       setup("ocamllsp", {})
       setup("ruff", {})
       setup("rust_analyzer", {})
