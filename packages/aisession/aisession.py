@@ -26,17 +26,70 @@ class AISessionManager:
     claude_path: str = "claude"
     instructions_template: Path = Path(__file__).parent / "aisession-instructions.md"
 
-    allowed_bash_commands: list[str] = field(default_factory=lambda: [
-        "git:*",
-        "npm:*",
-        "yarn:*",
-        "python:*",
-        "cargo:*",
-        "make:*",
-    ])
-    allowed_file_tools: list[str] = field(default_factory=lambda: ["Edit", "Read", "Write", "MultiEdit"])
-    allowed_search_tools: list[str] = field(default_factory=lambda: ["Glob", "Grep", "LS"])
-    allowed_planning_tools: list[str] = field(default_factory=lambda: ["Task", "TodoRead", "TodoWrite"])
+    allowed_bash_commands: list[str] = field(
+        default_factory=lambda: [
+            "git:*",
+            "npm:*",
+            "yarn:*",
+            "python:*",
+            "cargo:*",
+            "make:*",
+            "grep:*",
+            "find:*",
+            "ls:*",
+            "cat:*",
+            "head:*",
+            "tail:*",
+            "wc:*",
+            "sort:*",
+            "uniq:*",
+            "awk:*",
+            "sed:*",
+            "tree:*",
+            "fd:*",
+            "rg:*",
+            "bat:*",
+            "grep:*",
+            "find:*",
+            "ls:*",
+            "cat:*",
+            "head:*",
+            "tail:*",
+            "wc:*",
+            "sort:*",
+            "uniq:*",
+            "awk:*",
+            "sed:*",
+            "tree:*",
+            "fd:*",
+            "rg:*",
+            "bat:*",
+            "grep:*",
+            "find:*",
+            "ls:*",
+            "cat:*",
+            "head:*",
+            "tail:*",
+            "wc:*",
+            "sort:*",
+            "uniq:*",
+            "awk:*",
+            "sed:*",
+            "tree:*",
+            "fd:*",
+            "rg:*",
+            "bat:*",
+        ]
+    )
+    allowed_file_tools: list[str] = field(
+        default_factory=lambda: ["Edit", "Read", "Write", "MultiEdit"]
+    )
+    allowed_search_tools: list[str] = field(
+        default_factory=lambda: ["Glob", "Grep", "LS"]
+    )
+    allowed_planning_tools: list[str] = field(
+        default_factory=lambda: ["Task", "TodoRead", "TodoWrite"]
+    )
 
     @property
     def allowed_tools_str(self) -> str:
@@ -168,6 +221,13 @@ class AISessionManager:
         print(f"Worktree: {worktree_path}")
         print(f"Instructions: {claude_instructions}")
 
+        try:
+            with open(claude_instructions, "r") as f:
+                instructions_content = f.read()
+        except FileNotFoundError:
+            print(f"Error: Instructions file '{claude_instructions}' not found")
+            sys.exit(1)
+
         _ = subprocess.run(
             ["tmux", "new-session", "-d", "-s", session_name, "-c", worktree_path],
             check=True,
@@ -179,7 +239,7 @@ class AISessionManager:
                 "send-keys",
                 "-t",
                 session_name,
-                f"{self.claude_path} --allowedTools \"{self.allowed_tools_str}\" '{claude_instructions}'",
+                f'{self.claude_path} --allowedTools "{self.allowed_tools_str}" {subprocess.list2cmdline([instructions_content])}',
                 "Enter",
             ],
             check=True,
