@@ -1,12 +1,18 @@
-local function setup(lsp, opts)
-  require("lspconfig")[lsp].setup(opts)
-end
-
 local function with_defaults(server_opts)
   local capabilities_blink = require("blink.cmp").get_lsp_capabilities()
-  local capabilities_common = { general = { positionEncodings = { "utf-16" } } }
+  local capabilities_common = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  }
   local capabilities = vim.tbl_deep_extend("force", capabilities_blink, capabilities_common)
   return vim.tbl_deep_extend("force", { capabilities = capabilities }, server_opts)
+end
+
+local function setup(lsp, opts)
+  require("lspconfig")[lsp].setup(with_defaults(opts))
 end
 
 return {
@@ -15,7 +21,10 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
       local server = require("typescript-tools")
-      server.setup(with_defaults({ settings = { expose_as_code_action = "all" } }))
+      server.setup(with_defaults({
+        general = { positionEncodings = { "utf-16" } },
+        settings = { expose_as_code_action = "all" },
+      }))
     end,
   },
   {
