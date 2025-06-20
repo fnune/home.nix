@@ -15,6 +15,7 @@
       isoimagewriter
       kalk
       kcharselect
+      kclock
       kcolorchooser
       kjournald
       krohnkite
@@ -278,6 +279,7 @@
               "org.kde.dolphin"
               "org.kde.isoimagewriter"
               "org.kde.kcharselect"
+              "org.kde.kclock"
               "org.kde.kded6"
               "org.kde.partitionmanager"
               "org.kde.plasma.emojier"
