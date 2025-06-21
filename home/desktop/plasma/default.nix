@@ -276,6 +276,7 @@
             [
               "kcmshell6"
               "org.freedesktop.impl.portal.desktop.kde"
+              "org.kde.bluedevilwizard"
               "org.kde.dolphin"
               "org.kde.isoimagewriter"
               "org.kde.kcharselect"
