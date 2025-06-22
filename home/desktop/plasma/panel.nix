@@ -30,6 +30,9 @@
           };
         }
         {
+          name = "org.kde.plasma.marginsseparator";
+        }
+        {
           name = "org.kde.plasma.systemmonitor.cpu";
           config = {
             Appearance = {
@@ -39,9 +42,6 @@
               "cpu/all/usage" = config.accent.rgb;
             };
           };
-        }
-        {
-          name = "org.kde.plasma.marginsseparator";
         }
         {
           name = "org.kde.plasma.systemmonitor.memory";
