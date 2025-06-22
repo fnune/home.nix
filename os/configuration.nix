@@ -12,6 +12,7 @@ _: {
     ./printing.nix
     ./region-language.nix
     ./utils.nix
+    ./virtualization.nix
   ];
 
   users.users.fausto = {
