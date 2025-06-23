@@ -47,6 +47,7 @@
       stylelint
       # Formatters
       biome
+      gofumpt
       nodePackages.prettier
       prettierd
       python3Packages.black
