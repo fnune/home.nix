@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 function t() {
-  local service_repo="$HOME/go/src/github.com/pulumi/pulumi-service"
+  local repos="$HOME/go/src/github.com/pulumi"
+  local service_repo="$repos/pulumi-service"
+  local pulumi_repo="$repos/pulumi"
 
   cd "$service_repo" || exit
 
-  if ! tmux list-sessions | grep -q pulumi-service; then
+  if ! tmux list-sessions | grep -q "^pulumi-service:"; then
     tmux new-session -c "$service_repo" -d -s pulumi-service -n auxiliary
 
     tmux split-window -c "$service_repo" -h
@@ -18,9 +20,12 @@ function t() {
 
     tmux new-window -c "$service_repo" -n editor
     tmux send-keys -t pulumi-service:editor "$EDITOR" C-m
-
-    tmux attach-session -t pulumi-service
-  else
-    tmux attach-session -t pulumi-service
   fi
+
+  if ! tmux list-sessions | grep -q "^pulumi OSS:"; then
+    tmux new-session -c "$pulumi_repo" -d -s "pulumi OSS" -n main
+    tmux send-keys -t "pulumi OSS:main" "$EDITOR" C-m
+  fi
+
+  tmux attach-session -t pulumi-service
 }
