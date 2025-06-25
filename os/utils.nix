@@ -30,6 +30,7 @@
     moreutils
     neovim
     pciutils
+    lm_sensors
     sshfs
     tree
     unzip
