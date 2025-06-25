@@ -34,6 +34,7 @@ return {
       setup("angularls", {})
       setup("biome", {})
       setup("clangd", {})
+      setup("eslint", {})
       setup("gdscript", {})
       setup("golangci_lint_ls", {})
       setup("gopls", {
