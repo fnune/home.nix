@@ -66,9 +66,6 @@
           };
         }
         {
-          name = "org.kde.plasma.marginsseparator";
-        }
-        {
           name = "org.kde.plasma.kickoff";
           config = {
             General = {
