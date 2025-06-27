@@ -148,6 +148,28 @@
       "ksmserver"."Lock Session" = [];
     };
 
+    window-rules = [
+      {
+        description = "Start terminals maximized";
+        match = {
+          window-class = {
+            value = config.terminal.name;
+            type = "exact";
+          };
+        };
+        apply = {
+          maximizehoriz = {
+            value = true;
+            apply = "initially";
+          };
+          maximizevert = {
+            value = true;
+            apply = "initially";
+          };
+        };
+      }
+    ];
+
     configFile = {
       "breezerc" = {
         "Common" = {
