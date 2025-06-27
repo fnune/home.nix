@@ -3,7 +3,7 @@
     {
       inherit (config.panel) height;
       hiding = "normalpanel";
-      lengthMode = "fit";
+      lengthMode = "fill";
       location = "top";
       opacity = "adaptive";
       screen = null;
