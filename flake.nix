@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
+    tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +34,7 @@
     plasma-manager,
     zen-browser,
     nur,
+    tuxedo-nixos,
     ...
   }: let
     system = "x86_64-linux";
@@ -54,14 +56,14 @@
   in {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
     nixosConfigurations = let
-      makeNixosConfiguration = machineModule:
+      makeNixosConfiguration = modules:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [./os/configuration.nix machineModule nixpkgsOverlayModule];
+          modules = [./os/configuration.nix nixpkgsOverlayModule] ++ modules;
         };
     in {
-      "feanor" = makeNixosConfiguration ./os/configuration.feanor.nix;
-      "melian" = makeNixosConfiguration ./os/configuration.melian.nix;
+      "feanor" = makeNixosConfiguration [./os/configuration.feanor.nix];
+      "melian" = makeNixosConfiguration [./os/configuration.melian.nix tuxedo-nixos.nixosModules.default];
     };
 
     homeConfigurations = let
