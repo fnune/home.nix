@@ -70,7 +70,7 @@
     panel = {
       height = lib.mkOption {
         type = lib.types.int;
-        default = 38;
+        default = 44;
         description = "Height of the desktop environment panel";
       };
     };
