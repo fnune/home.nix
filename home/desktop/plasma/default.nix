@@ -30,43 +30,85 @@
       fontSize = 11;
       fontSizeSmall = 9;
       monoFontSize = 9;
-      sans = {
+    in {
+      general = {
         family = config.fontconfig.sans;
         weight = "medium";
         pointSize = fontSize;
       };
-      sansBold = {
+      menu = {
+        family = config.fontconfig.sans;
+        weight = "medium";
+        pointSize = fontSize;
+      };
+      toolbar = {
+        family = config.fontconfig.sans;
+        weight = "medium";
+        pointSize = fontSize;
+      };
+      windowTitle = {
         family = config.fontconfig.sans;
         weight = "bold";
         pointSize = fontSize;
       };
-      sansSmall = {
+      small = {
         family = config.fontconfig.sans;
         weight = "medium";
         pointSize = fontSizeSmall;
       };
-      mono = {
+      fixedWidth = {
         family = config.fontconfig.mono;
         pointSize = monoFontSize;
       };
-    in {
-      general = sans;
-      menu = sans;
-      toolbar = sans;
-      windowTitle = sansBold;
-      small = sansSmall;
-      fixedWidth = mono;
     };
+
     desktop = {
       mouseActions = {
         middleClick = null;
       };
     };
+
+    kwin = {
+      virtualDesktops = {
+        number = 10;
+        rows = 1;
+      };
+      borderlessMaximizedWindows = true;
+      effects = {
+        blur.enable = true;
+      };
+      titlebarButtons = {
+        left = ["more-window-actions"];
+        right = ["close"];
+      };
+    };
+
+    input = {
+      keyboard = {
+        repeatDelay = 200;
+        repeatRate = 30;
+        options = ["caps:escape" "compose:rwin"];
+      };
+    };
+
+    krunner = {
+      position = "center";
+    };
+
+    spectacle = {
+      shortcuts = {
+        captureActiveWindow = "Meta+Print";
+        captureEntireDesktop = "Print";
+        captureRectangularRegion = "Shift+Print";
+      };
+    };
+
     kscreenlocker = {
       appearance = {
         wallpaperPlainColor = "33,33,33";
       };
     };
+
     shortcuts = {
       "services/${config.terminal.name}.desktop"."_launch" = "Meta+Return";
       "services/${config.browser.name}.desktop"."new-window" = "Meta+Shift+Return";
@@ -154,7 +196,7 @@
         match = {
           window-class = {
             value = config.terminal.name;
-            type = "exact";
+            type = "substring";
           };
         };
         apply = {
@@ -203,10 +245,6 @@
       "kcminputrc" = {
         "Mouse"."cursorSize".value = config.cursors.size;
         "Mouse"."cursorTheme".value = config.cursors.name;
-        "Keyboard" = {
-          "RepeatDelay".value = 200;
-          "RepeatRate".value = 30;
-        };
       };
 
       "kdeglobals" = {
@@ -232,16 +270,9 @@
       };
 
       "kwinrc" = {
-        "Desktops"."Number".value = 10;
-        "Desktops"."Rows".value = 1;
-
         "NightColor" = {
           "Active".value = true;
           "NightTemperature".value = 3600;
-        };
-
-        "Windows" = {
-          "BorderlessMaximizedWindows".value = true;
         };
 
         "Plugins" = {
@@ -273,16 +304,10 @@
           "RingSize" = 50;
           "ShowText" = false;
         };
-
-        "org.kde.kdecoration2" = {
-          "ButtonsOnLeft" = "M"; # Application icon & "more actions"
-          "ButtonsOnRight" = "X"; # Just the close button
-        };
       };
 
       "kxkbrc" = {
         "Layout" = {
-          "Options".value = "caps:escape,compose:rwin";
           "ResetOldOptions".value = true;
         };
       };
@@ -307,9 +332,6 @@
       };
 
       "krunnerrc" = {
-        "General" = {
-          "FreeFloating".value = true;
-        };
         "Plugins/Favorites" = {
           "plugins".value = "krunner_placesrunner,krunner_services,krunner_sessions,krunner_systemsettings";
         };
