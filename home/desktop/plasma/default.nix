@@ -175,10 +175,15 @@
         "Window Fullscreen" = "Meta+Shift+F";
         "Window Maximize" = "Meta+F";
 
-        "Window Quick Tile Bottom" = "Meta+J";
-        "Window Quick Tile Left" = "Meta+H";
-        "Window Quick Tile Right" = "Meta+L";
-        "Window Quick Tile Top" = "Meta+K";
+        "Window Quick Tile Bottom" = "Meta+Shift+J";
+        "Window Quick Tile Left" = "Meta+Shift+H";
+        "Window Quick Tile Right" = "Meta+Shift+L";
+        "Window Quick Tile Top" = "Meta+Shift+K";
+
+        "Switch Window Down" = "Meta+j";
+        "Switch Window Left" = "Meta+h";
+        "Switch Window Right" = "Meta+l";
+        "Switch Window Up" = "Meta+k";
 
         "view_actual_size" = "Meta+Ctrl+0";
         "view_zoom_in" = "Meta+Ctrl++";
