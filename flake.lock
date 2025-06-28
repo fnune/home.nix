@@ -74,16 +74,16 @@
     },
     "nixpkgs-development": {
       "locked": {
-        "lastModified": 1734417536,
-        "narHash": "sha256-18GvRrB7U8y6jPtGZxVFEa75t/SDwKYuqE8FeRh+wFc=",
+        "lastModified": 1751105770,
+        "narHash": "sha256-xpaoV/8NfOCwkAaC1igibV0LQYat8VLJTA1998k64/4=",
         "owner": "fnune",
         "repo": "nixpkgs",
-        "rev": "e4aacf43da9841ca12c530901dc8b45dc1235629",
+        "rev": "a04e12c8c27b1ee48f79b0e4c065c6d24d26214c",
         "type": "github"
       },
       "original": {
         "owner": "fnune",
-        "ref": "fnune/testing",
+        "ref": "fix-gemini-cli-collisions",
         "repo": "nixpkgs",
         "type": "github"
       }

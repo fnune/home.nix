@@ -26,7 +26,6 @@
     ./notifier.nix
     ./programs/bat.nix
     ./programs/browsers.nix
-    ./programs/claude-code.nix
     ./programs/direnv.nix
     ./programs/dropbox.nix
     ./programs/editorconfig.nix
@@ -34,6 +33,7 @@
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty/kitty.nix
+    ./programs/llms.nix
     ./programs/neovim/neovim.nix
     ./programs/numi.nix
     ./programs/obs-studio.nix

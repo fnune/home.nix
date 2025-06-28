@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-development.url = "github:fnune/nixpkgs/fnune/testing";
+    nixpkgs-development.url = "github:fnune/nixpkgs/fix-gemini-cli-collisions";
     tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
     nur = {
       url = "github:nix-community/NUR";
