@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  # This is currently not working due to this bug https://bugs.kde.org/show_bug.cgi?id=502957
   home.activation = {
     addColorChooserPalette = pkgs.lib.mkAfter ''
       CONFIG_FILE="${config.home.homeDirectory}/.config/QtProject.conf"
