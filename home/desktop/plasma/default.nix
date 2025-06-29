@@ -149,6 +149,9 @@
         "activate task manager entry 8" = [];
         "activate task manager entry 9" = [];
         "activate task manager entry 10" = [];
+
+        # I don't use this
+        "manage activities" = [];
       };
       "kwin" = {
         "Window Minimize" = ""; # Accidental minimize is annoying
