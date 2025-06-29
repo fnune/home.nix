@@ -62,6 +62,17 @@
       };
     };
 
+    workspace = {
+      splashScreen = {
+        engine = "none";
+        theme = "none";
+      };
+      cursor = {
+        inherit (config.cursors) size;
+        theme = config.cursors.name;
+      };
+    };
+
     desktop = {
       mouseActions = {
         middleClick = null;
@@ -248,11 +259,6 @@
         };
       };
 
-      "kcminputrc" = {
-        "Mouse"."cursorSize".value = config.cursors.size;
-        "Mouse"."cursorTheme".value = config.cursors.name;
-      };
-
       "kdeglobals" = {
         "General" = {
           "AccentColor" = config.accent.rgb;
@@ -325,12 +331,6 @@
         "Formats" = builtins.mapAttrs (name: value: {inherit value;}) (import ../../locales.nix);
         "Translations" = {
           "LANGUAGE".value = "en_US";
-        };
-      };
-
-      "ksplashrc" = {
-        "KSplash" = {
-          "Engine".value = "none";
         };
       };
 
