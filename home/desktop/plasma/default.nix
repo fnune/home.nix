@@ -282,7 +282,10 @@
         };
 
         "Plugins" = {
+          "blurEnabled".value = true;
+          "desktopchangeosdEnabled".value = false;
           "hidecursorEnabled".value = true;
+          "mouseclickEnabled".value = true;
         };
 
         "Effect-hidecursor" = {
