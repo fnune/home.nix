@@ -15,6 +15,11 @@
     };
     plymouth.extraConfig = "DeviceScale=1";
     extraModulePackages = with config.boot.kernelPackages; [yt6801];
+    kernelParams = [
+      # Recommended by Tuxedo support (personal email):
+      "acpi.ec_no_wakeup=1" # Fixes ACPI wakeup issues
+      "amdgpu.dcdebugmask=0x10" # Fixes Wayland slowdowns/freezes
+    ];
   };
 
   hardware = {
