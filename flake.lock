@@ -173,8 +173,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "plasma-manager": "plasma-manager",
-        "tuxedo-nixos": "tuxedo-nixos",
-        "zen-browser": "zen-browser"
+        "tuxedo-nixos": "tuxedo-nixos"
       }
     },
     "treefmt-nix": {
@@ -214,29 +213,6 @@
       "original": {
         "owner": "sund3RRR",
         "repo": "tuxedo-nixos",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1751341208,
-        "narHash": "sha256-D659vmh5bseh5rB0tH4osXFXimh+QQLBBMKkdMH/DMk=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "97da6393f00eff37d787dcb1447afc65e9b4d57e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

@@ -19,11 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
   outputs = {
@@ -32,7 +27,6 @@
     nixpkgs-development,
     home-manager,
     plasma-manager,
-    zen-browser,
     nur,
     tuxedo-nixos,
     ...
@@ -68,7 +62,6 @@
 
     homeConfigurations = let
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
-      zenBrowser = zen-browser.homeModules.beta;
       makeHomeConfiguration = machineModule:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
@@ -79,7 +72,6 @@
             ./home/home.nix
             plasmaManager
             machineModule
-            zenBrowser
           ];
         };
     in {

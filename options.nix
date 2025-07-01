@@ -123,7 +123,7 @@
     browser = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "zen-beta";
+        default = "firefox-esr";
         description = "The preferred browser";
       };
     };

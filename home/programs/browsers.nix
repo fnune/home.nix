@@ -51,18 +51,12 @@
         "widget.use-xdg-desktop-portal" = true;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         "widget.wayland.fractional-scale.enabled" = true;
-        "zen.view.experimental-no-window-controls" = true;
       };
     };
   in {
-    zen-browser = {
-      enable = true;
-      profiles = firefoxProfiles;
-      policies = firefoxPolicies;
-    };
     firefox = {
       enable = true;
-      package = pkgs.unstable.firefox;
+      package = pkgs.firefox-esr-140;
       profiles = firefoxProfiles;
       policies = firefoxPolicies;
     };
