@@ -8,6 +8,7 @@
   home.packages =
     (with pkgs; [
       haruna
+      karp
       libreoffice-qt
     ])
     ++ (with pkgs.kdePackages; [
