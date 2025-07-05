@@ -58,14 +58,6 @@
           name = "org.kde.plasma.systemtray";
         }
         {
-          name = "org.kde.plasma.weather";
-          config = {
-            WeatherStation = {
-              source = "bbcukmet|weather|Berlin, Germany, DE|2950159";
-            };
-          };
-        }
-        {
           name = "org.kde.plasma.kickoff";
           config = {
             General = {
