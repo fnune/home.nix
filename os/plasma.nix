@@ -16,7 +16,6 @@ in {
       defaultSession = "plasma";
       sddm = {
         enable = true;
-        wayland.enable = true;
         settings = {
           Theme = {
             Font = config.fontconfig.sans;
@@ -32,9 +31,6 @@ in {
     khelpcenter
     konsole
   ];
-
-  # Allows e.g. using the right file picker
-  xdg.portal.enable = true;
 
   programs = {
     kdeconnect.enable = true;
