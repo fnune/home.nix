@@ -30,16 +30,17 @@
 
     # To complete the installation, copy VANTA_{KEY,OWNER_EMAIL} from https://app.vanta.com/employee/onboarding
     #
-    # export VANTA_KEY="..."
-    # export VANTA_OWNER_EMAIL="..."
-    # export VANTA_REGION="..."
-    # export VANTA_CONF_PATH="/etc/vanta.conf"
-    # export CONFIG="{\"AGENT_KEY\":\"$VANTA_KEY\",\"OWNER_EMAIL\":\"$VANTA_OWNER_EMAIL\",\"NEEDS_OWNER\":true}"
+    # export VANTA_KEY="..." VANTA_OWNER_EMAIL="..." VANTA_REGION="..." VANTA_CONF_PATH="/etc/vanta.conf"
+    # export CONFIG="{\"AGENT_KEY\":\"$VANTA_KEY\",\"OWNER_EMAIL\":\"$VANTA_OWNER_EMAIL\",\"NEEDS_OWNER\":true,\"REGION\":\"$VANTA_REGION\"}"
     #
     # echo "$CONFIG" | sudo -E tee "$VANTA_CONF_PATH" > /dev/null
     #
     # sudo chmod 400 "$VANTA_CONF_PATH"
     # sudo chown root:root "$VANTA_CONF_PATH"
+    #
+    # sudo /var/vanta/vanta-cli register --secret=$VANTA_KEY --email=$VANTA_OWNER_EMAIL
+    # sudo /var/vanta/vanta-cli doctor
+    # sudo /var/vanta/vanta-cli check-registration
     installPhase = ''
       mkdir -p $out
       cp -r ./* $out
