@@ -19,7 +19,6 @@
       }
     ];
     ignores = [
-      ".aisession-instructions.md"
       ".ccls-cache"
       ".claude"
       ".direnv"

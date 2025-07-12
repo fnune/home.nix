@@ -5,12 +5,10 @@
 }: let
   service = "${config.home.homeDirectory}/go/src/github.com/pulumi/pulumi-service";
   awsso = pkgs.callPackage ../../packages/awsso.nix {};
-  aisession = pkgs.callPackage ../../packages/aisession/aisession.nix {};
 in {
   home = {
     packages = with pkgs.unstable; [
       _1password-gui
-      aisession
       awscli2
       awsso
       go
