@@ -28,6 +28,7 @@
 
   environment.systemPackages = with pkgs; [
     dig
+    inetutils
     lsof
     nettools
     nmap
