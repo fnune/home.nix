@@ -48,30 +48,23 @@
 
           updates_found=false
 
-          echo "Running 'nix flake update'..."
-          ${pkgs.nix}/bin/nix flake update &> /dev/null
+          echo "Running 'nix flake update nixpkgs'..."
+          ${pkgs.nix}/bin/nix flake update nixpkgs &> /dev/null
           if ! ${pkgs.git}/bin/git diff --quiet flake.lock; then
-            echo "Updates found in 'flake.lock'"
-            echo "Staging 'flake.lock' changes"
+            echo "'nixpkgs' updates found in 'flake.lock'"
             ${pkgs.git}/bin/git add flake.lock
             updates_found=true
           else
-            echo "No nix updates available"
+            echo "No 'nixpkgs' updates available"
           fi
 
-          echo "Checking for Neovim plugin updates with lazy.nvim..."
-          LAZY_LOCK="${config.home.homeDirectory}/.home.nix/home/programs/neovim/config/lazy-lock.json"
-
-          ${pkgs.neovim}/bin/nvim --headless "+Lazy! update" +qa
-          echo "lazy.nvim update completed"
-
-          if ! ${pkgs.git}/bin/git diff --quiet "$LAZY_LOCK"; then
-            echo "Updates found in lazy-lock.json"
-            echo "Staging 'lazy-lock.json' changes"
-            ${pkgs.git}/bin/git add "$LAZY_LOCK"
-            updates_found=true
+          echo "Running 'nix flake update'..."
+          ${pkgs.nix}/bin/nix flake update &> /dev/null
+          if ! ${pkgs.git}/bin/git diff --quiet flake.lock; then
+            echo "Additional flake input updates found in 'flake.lock'"
+            ${pkgs.git}/bin/git add flake.lock
           else
-            echo "No Neovim plugin updates available"
+            echo "No additional flake input updates available"
           fi
 
           if [ "$updates_found" = "true" ]; then
