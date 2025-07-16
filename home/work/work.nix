@@ -5,31 +5,35 @@
 }: let
   service = "${config.home.homeDirectory}/go/src/github.com/pulumi/pulumi-service";
   awsso = pkgs.callPackage ../../packages/awsso.nix {};
+  stablePackages = with pkgs; [
+    jetbrains.datagrip
+    jetbrains.goland
+  ];
 in {
   home = {
-    packages = with pkgs.unstable; [
-      _1password-gui
-      awscli2
-      awsso
-      go
-      golangci-lint
-      golangci-lint-langserver
-      gotools
-      jetbrains.datagrip
-      jetbrains.goland
-      k9s
-      kubectl
-      lefthook
-      mockgen
-      mysql80
-      pulumi
-      pulumi-esc
-      pulumiPackages.pulumi-nodejs
-      pulumictl
-      slack
-      yarn
-      zoom-us
-    ];
+    packages = with pkgs.unstable;
+      [
+        _1password-gui
+        awscli2
+        awsso
+        go
+        golangci-lint
+        golangci-lint-langserver
+        gotools
+        k9s
+        kubectl
+        lefthook
+        mockgen
+        mysql80
+        pulumi
+        pulumi-esc
+        pulumiPackages.pulumi-nodejs
+        pulumictl
+        slack
+        yarn
+        zoom-us
+      ]
+      ++ stablePackages;
 
     file = {
       "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
