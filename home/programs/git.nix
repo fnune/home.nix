@@ -9,6 +9,11 @@
       GIT_SSH_COMMAND = "ssh -i ${config.home.homeDirectory}/.ssh/id_ed25519 -o IdentitiesOnly=yes";
     };
   };
+  programs.zsh = {
+    shellAliases = {
+      diffstat = "diffstat -C";
+    };
+  };
   programs.git = {
     enable = true;
     userName = config.profile.name;
