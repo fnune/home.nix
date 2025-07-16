@@ -35,7 +35,7 @@ in {
   programs = {
     kdeconnect.enable = true;
     partition-manager.enable = true;
-    gnupg.agent.pinentryPackage = pkgs.callPackage ../packages/pinentry-kwallet.nix {};
+    gnupg.agent.pinentryPackage = pkgs.development.pinentry-kwallet;
   };
 
   environment.systemPackages = [config.cursors.package wallpaper-sddm];
