@@ -16,6 +16,7 @@ in {
       golangci-lint-langserver
       gotools
       jetbrains.datagrip
+      jetbrains.goland
       k9s
       kubectl
       lefthook
