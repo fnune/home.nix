@@ -82,41 +82,31 @@ return {
       },
       {
         "gd",
-        function()
-          require("snacks").picker.lsp_definitions()
-        end,
+        ":Telescope lsp_definitions<CR>",
         desc = "Go to definition",
         silent = true,
       },
       {
         "gD",
-        function()
-          require("snacks").picker.lsp_declarations()
-        end,
+        ":Telescope lsp_declarations<CR>",
         desc = "Go to declaration",
         silent = true,
       },
       {
         "gi",
-        function()
-          require("snacks").picker.lsp_implementations()
-        end,
+        ":Telescope lsp_implementations<CR>",
         desc = "Go to implementation",
         silent = true,
       },
       {
         "gT",
-        function()
-          require("snacks").picker.lsp_type_definitions()
-        end,
+        ":Telescope lsp_type_definitions<CR>",
         desc = "Go to type definition",
         silent = true,
       },
       {
         "gr",
-        function()
-          require("snacks").picker.lsp_references()
-        end,
+        ":Telescope lsp_references<CR>",
         desc = "Show references",
         silent = true,
       },
