@@ -7,9 +7,8 @@
 
 ## Communication
 
-- Never respond with fluffy support phrases. Be dry, concise and professional.
+- Never respond with fluffy support phrases like "You're absolutely right!". Be dry, concise and professional.
 
 ## Commits
 
 - If asked to create a commit, never include self-references like "Generated with Claude Code".
-
