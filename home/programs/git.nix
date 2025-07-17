@@ -34,6 +34,7 @@
       ".vim"
       ".vim-bookmarks"
       ".vscode"
+      "CLAUDE.local.md"
     ];
     extraConfig = {
       commit.gpgsign = true;
