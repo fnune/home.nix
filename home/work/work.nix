@@ -39,6 +39,7 @@ in {
       "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
       "${service}/.envrc.local".source = ./envrc.sh;
       "${service}/.nvim.lua".source = ./nvim.lua;
+      "${service}/.claude/CLAUDE.md".source = ./CLAUDE.md;
     };
 
     sessionVariables = {

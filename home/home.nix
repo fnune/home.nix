@@ -33,7 +33,7 @@
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/kitty/kitty.nix
-    ./programs/llms.nix
+    ./programs/llms/llms.nix
     ./programs/neovim/neovim.nix
     ./programs/numi.nix
     ./programs/obs-studio.nix
