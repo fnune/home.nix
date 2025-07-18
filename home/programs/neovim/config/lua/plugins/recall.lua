@@ -30,6 +30,12 @@ return {
       end,
       desc = "Clear recall",
     },
-    { "<leader>ml", ":Telescope recall<CR>", desc = "Find global marks", silent = true },
+    {
+      "<leader>ml",
+      function()
+        require("recall.snacks").pick()
+      end,
+      desc = "Pick recall",
+    },
   },
 }
