@@ -27,6 +27,8 @@
     tuxedo-control-center.enable = true;
   };
 
+  services.power-profiles-daemon.enable = false; # Let TCC handle this
+
   systemd = {
     services.vanta = {
       # Remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
