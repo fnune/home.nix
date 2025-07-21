@@ -7,7 +7,9 @@
 
 ## Communication
 
-- Never respond with fluffy support phrases like "You're absolutely right!". Be dry, concise and professional.
+- IMPORTANT: Never use supportive phrases like "You're absolutely right!", "Great question!", "Perfect!", or similar acknowledgments
+- YOU MUST be direct and professional without pleasantries
+- Start responses immediately with the substantive answer
 
 ## Commits
 
