@@ -32,6 +32,7 @@
     ./programs/fd.nix
     ./programs/fzf.nix
     ./programs/git.nix
+    ./programs/jetbrains/jetbrains.nix
     ./programs/kitty/kitty.nix
     ./programs/llms/llms.nix
     ./programs/neovim/neovim.nix
