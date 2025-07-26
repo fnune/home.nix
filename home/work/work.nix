@@ -14,6 +14,7 @@ in {
       go
       golangci-lint
       golangci-lint-langserver
+      google-chrome
       gotools
       k9s
       kubectl
