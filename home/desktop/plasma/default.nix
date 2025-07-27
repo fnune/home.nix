@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  imports = [./palette.nix ./panel.nix];
+  imports = [./palette.nix];
 
   home.packages =
     (with pkgs; [
