@@ -1,5 +1,5 @@
 {
-  description = "fnune's NixOS configuration files";
+  description = "fnune's configuration files";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
@@ -32,7 +32,7 @@
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
       nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
     in {
-      default = home-manager.lib.homeManagerConfiguration {
+      fausto = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };
