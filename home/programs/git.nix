@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs; [difftastic diffstat];
+    packages = with pkgs; [diffstat];
   };
   programs.zsh = {
     shellAliases = {
@@ -39,12 +39,6 @@
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
-      pager.difftool = true;
-      diff.tool = "difftastic";
-      difftool = {
-        prompt = false;
-        difftastic.cmd = "${pkgs.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
-      };
     };
   };
 }
