@@ -2,12 +2,9 @@
   description = "fnune's NixOS configuration files";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-development.url = "github:fnune/nixpkgs/pinentry-kwallet";
-    tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
@@ -22,59 +19,23 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-unstable,
-    nixpkgs-development,
     home-manager,
     plasma-manager,
-    tuxedo-nixos,
     nix-flatpak,
     ...
   }: let
     system = "x86_64-linux";
-    nixpkgsOverlay = final: prev: {
-      unstable = import nixpkgs-unstable {
-        inherit (prev) config;
-        inherit system;
-      };
-      development = import nixpkgs-development {
-        inherit (prev) config;
-        inherit system;
-      };
-    };
-    nixpkgsOverlayModule = _: {nixpkgs.overlays = [nixpkgsOverlay];};
   in {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-    nixosConfigurations = let
-      makeNixosConfiguration = modules:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [./os/configuration.nix nixpkgsOverlayModule] ++ modules;
-        };
-    in {
-      "feanor" = makeNixosConfiguration [./os/configuration.feanor.nix];
-      "melian" = makeNixosConfiguration [./os/configuration.melian.nix tuxedo-nixos.nixosModules.default];
-    };
 
     homeConfigurations = let
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
       nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
-      makeHomeConfiguration = machineModule:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [nixpkgsOverlay];
-          };
-          modules = [
-            ./home/home.nix
-            nixFlatpak
-            plasmaManager
-            machineModule
-          ];
-        };
     in {
-      "fausto@feanor" = makeHomeConfiguration ./home/home.feanor.nix;
-      "fausto@melian" = makeHomeConfiguration ./home/home.melian.nix;
-      "fausto@debian" = makeHomeConfiguration ./home/home.debian.nix;
+      "fausto" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {inherit system;};
+        modules = [./home/home.nix nixFlatpak plasmaManager];
+      };
     };
   };
 }

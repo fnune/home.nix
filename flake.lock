@@ -1,19 +1,5 @@
 {
   "nodes": {
-    "flake-compat": {
-      "locked": {
-        "lastModified": 1733328505,
-        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
-        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
-        "revCount": 69,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.1.0/01948eb7-9cba-704f-bbf3-3fa956735b52/source.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -21,16 +7,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1754085240,
-        "narHash": "sha256-kVHCrTWEe8B1thAhFag1bk4QPY0ZP45V9vPbrwPHoNo=",
+        "lastModified": 1753592768,
+        "narHash": "sha256-oV695RvbAE4+R9pcsT9shmp6zE/+IZe6evHWX63f2Qg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e102920c1becb114645c6f92fe14edc0b05cc229",
+        "rev": "fc3add429f21450359369af74c2375cb34a2d204",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "master",
+        "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -53,64 +39,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1754060105,
-        "narHash": "sha256-di5L6e5Iiv+oegS07j9h23FdqEpXn0ZQqMlDOEMw1EY=",
+        "lastModified": 1754123002,
+        "narHash": "sha256-isq7Ieyk+SRY1NLBfKlRrbZMWCTzcnwSNdOiQ+nn1FI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e7eabdc701d7dbb810fd91a97ec358caa4c1fc50",
+        "rev": "8ab600aa8e96e0b095e9857be1a0bcd70247a652",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-development": {
-      "locked": {
-        "lastModified": 1752664420,
-        "narHash": "sha256-PMcoZ6la4PSCF8ypECL7Qrnm4hzobUNotHzzBQ4cETo=",
-        "owner": "fnune",
-        "repo": "nixpkgs",
-        "rev": "cff95ae49e5ec3296fe2f670e1a1c4ba2423e703",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fnune",
-        "ref": "pinentry-kwallet",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-unstable": {
-      "locked": {
-        "lastModified": 1754060105,
-        "narHash": "sha256-di5L6e5Iiv+oegS07j9h23FdqEpXn0ZQqMlDOEMw1EY=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e7eabdc701d7dbb810fd91a97ec358caa4c1fc50",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1688392541,
-        "narHash": "sha256-lHrKvEkCPTUO+7tPfjIcb7Trk6k31rz18vkyqmkeJfY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ea4c80b39be4c09702b0cb3b42eab59e2ba4f24b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-22.11",
+        "ref": "release-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -143,29 +81,7 @@
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-development": "nixpkgs-development",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "plasma-manager": "plasma-manager",
-        "tuxedo-nixos": "tuxedo-nixos"
-      }
-    },
-    "tuxedo-nixos": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1751033991,
-        "narHash": "sha256-3BEy5FuPXnkU/aJyFQ7ebjpHUEEiPiCi5CtTL1Q4uSk=",
-        "owner": "sund3RRR",
-        "repo": "tuxedo-nixos",
-        "rev": "b7b41cf2f5815040ea02f7fc8c2b59e7d97341b7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sund3RRR",
-        "repo": "tuxedo-nixos",
-        "type": "github"
+        "plasma-manager": "plasma-manager"
       }
     }
   },
