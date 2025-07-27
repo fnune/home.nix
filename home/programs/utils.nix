@@ -1,0 +1,40 @@
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    curl
+    ddcui
+    ddcutil
+    dig
+    dmidecode
+    du-dust
+    fd
+    file
+    gcc
+    git
+    gnumake
+    gzip
+    inetutils
+    jq
+    killall
+    lm_sensors
+    lshw
+    lsof
+    man-pages
+    man-pages-posix
+    moreutils
+    nettools
+    nmap
+    openssl
+    pciutils
+    ripgrep
+    sshfs
+    traceroute
+    tree
+    unzip
+    util-linux
+    watchexec
+    wget
+    whois
+    wl-clipboard
+    zsh
+  ];
+}

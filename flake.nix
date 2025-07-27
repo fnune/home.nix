@@ -19,10 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    system-manager = {
-      url = "github:numtide/system-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
@@ -36,7 +32,6 @@
     plasma-manager,
     nur,
     tuxedo-nixos,
-    system-manager,
     nix-flatpak,
     ...
   }: let
@@ -67,10 +62,6 @@
     in {
       "feanor" = makeNixosConfiguration [./os/configuration.feanor.nix];
       "melian" = makeNixosConfiguration [./os/configuration.melian.nix tuxedo-nixos.nixosModules.default];
-    };
-
-    systemConfigs.default = system-manager.lib.makeSystemConfig {
-      modules = [./os/configuration.debian.nix];
     };
 
     homeConfigurations = let
