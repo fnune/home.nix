@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs; [claude-code gemini-cli];
+    packages = with pkgs; [claude-code];
 
     file = {
       "${config.home.homeDirectory}/.claude/CLAUDE.md".source = ./CLAUDE.md;
