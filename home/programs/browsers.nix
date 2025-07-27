@@ -21,7 +21,6 @@
         "browser.aboutConfig.showWarning" = false;
         "browser.search.suggest.enabled" = false;
         "browser.sessionstore.max_resumed_crashes" = -1;
-        "browser.tabs.hoverPreview.enabled" = false;
         "browser.translations.automaticallyPopup" = false;
         "browser.urlbar.resultMenu.keyboardAccessible" = false;
         "browser.urlbar.shortcuts.bookmarks" = false;
