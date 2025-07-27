@@ -34,7 +34,6 @@ in {
     file = {
       "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
       "${src-service}/.envrc.local".source = ./envrc.sh;
-      "${src-service}/.nvim.lua".source = ./nvim.lua;
       "${src-service}/CLAUDE.local.md".source = ./CLAUDE.md;
     };
   };

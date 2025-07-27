@@ -11,13 +11,9 @@ return {
       })
 
       wk.add({
-        { "<leader>a", group = "Artificial intelligence" },
-        { "<leader>d", group = "Debugging" },
         { "<leader>h", group = "Repository history" },
         { "<leader>m", group = "Global marks" },
         { "<leader>s", group = "Search" },
-        { "<leader>t", group = "Tests" },
-        { "<leader>tu", group = "Run with --snapshot-update" },
         { "g", group = "Go to" },
       })
     end,
