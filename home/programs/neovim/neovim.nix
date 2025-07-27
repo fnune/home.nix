@@ -6,7 +6,7 @@
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.unstable.neovim-unwrapped;
+      package = pkgs.neovim-unwrapped;
       extraLuaPackages = ps: [ps.magick];
       extraPackages = [pkgs.imagemagick];
       withNodeJs = true;
@@ -16,7 +16,7 @@
   };
 
   home = {
-    packages = with pkgs.unstable; [
+    packages = with pkgs; [
       # LSPs
       angular-language-server
       basedpyright
