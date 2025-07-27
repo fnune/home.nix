@@ -95,7 +95,6 @@ clone_config() {
 
   if [[ ! -d "${CONFIG_DIR}" ]]; then
     nix-shell -p git curl --run "git clone ${REPO_URL} ${CONFIG_DIR}"
-    CLEANUP_TASKS+=("rm -rf ${CONFIG_DIR}")
     cd "${CONFIG_DIR}"
     git checkout debian
   else
