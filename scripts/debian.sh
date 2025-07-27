@@ -206,6 +206,24 @@ setup_flatpak() {
   sudo apt install -y flatpak discover plasma-discover-backend-flatpak
 }
 
+setup_ssh_kde_wallet() {
+  echo "Setting up SSH with KDE Wallet integration..."
+
+  sudo apt install -y ksshaskpass
+
+  mkdir -p ~/.config/environment.d
+
+  if [[ ! -f ~/.config/environment.d/ssh_askpass.conf ]] || ! grep -q "SSH_ASKPASS=/usr/bin/ksshaskpass" ~/.config/environment.d/ssh_askpass.conf; then
+    cat >~/.config/environment.d/ssh_askpass.conf <<'EOF'
+SSH_ASKPASS=/usr/bin/ksshaskpass
+SSH_ASKPASS_REQUIRE=prefer
+EOF
+    echo "Created SSH askpass configuration for KDE Wallet integration"
+  else
+    echo "SSH askpass already configured for KDE Wallet"
+  fi
+}
+
 final_notes() {
   echo ""
   echo "Bootstrap complete! Additional steps:"
@@ -225,6 +243,7 @@ main() {
   setup_locales
   setup_flatpak
   setup_plymouth
+  setup_ssh_kde_wallet
   apply_home_config
   final_notes
 }
