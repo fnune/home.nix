@@ -2,7 +2,7 @@
   home = {
     username = "fausto";
     homeDirectory = "/home/fausto";
-    stateVersion = "23.05";
+    stateVersion = "25.05";
   };
 
   nixpkgs = {
