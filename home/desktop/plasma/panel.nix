@@ -61,7 +61,7 @@
           name = "org.kde.plasma.kickoff";
           config = {
             General = {
-              icon = "application-menu-symbolic";
+              icon = "emblem-debian";
             };
           };
         }
