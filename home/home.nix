@@ -44,6 +44,7 @@
     ./programs/ripgrep.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
+    ./programs/utils.nix
     ./programs/vivid/vivid.nix
     ./programs/zsh.nix
     ./work/work.nix

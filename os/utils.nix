@@ -11,32 +11,4 @@
 
   # Allow mounting with e.g. `sshfs` with `-o allow_other`
   programs.fuse.userAllowOther = true;
-
-  environment.systemPackages = with pkgs; [
-    ddcui
-    ddcutil
-    dmidecode
-    du-dust
-    file
-    gcc
-    git
-    gnumake
-    gzip
-    jq
-    killall
-    lshw
-    man-pages
-    man-pages-posix
-    moreutils
-    neovim
-    pciutils
-    lm_sensors
-    sshfs
-    tree
-    unzip
-    util-linux
-    watchexec
-    wl-clipboard
-    zsh
-  ];
 }
