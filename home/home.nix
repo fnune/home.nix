@@ -26,7 +26,6 @@
     ./programs/bat.nix
     ./programs/browsers.nix
     ./programs/direnv.nix
-    ./programs/dropbox.nix
     ./programs/editorconfig.nix
     ./programs/flatpaks.nix
     ./programs/fzf.nix

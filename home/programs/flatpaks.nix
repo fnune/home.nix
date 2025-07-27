@@ -2,6 +2,7 @@ _: {
   services.flatpak = {
     enable = true;
     packages = [
+      "com.dropbox.Client"
       "com.obsproject.Studio"
       "com.slack.Slack"
       "com.spotify.Client"
