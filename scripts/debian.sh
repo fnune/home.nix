@@ -138,13 +138,9 @@ apply_home_config() {
   echo "Applying Home Manager configuration..."
   cd "${CONFIG_DIR}"
 
-  nix run home-manager/master -- switch --flake ".#${USERNAME}@$(hostname)"
+  nix run home-manager/master -- switch --flake ".#${USERNAME}"
 
   echo "Note: This downloads about 23GB of packages"
-  echo "Known issues:"
-  echo "- kitty may not run due to missing theme or EGL issues"
-  echo "- Fonts from system-manager may not show up"
-  echo "- plasma-manager may be missing the main panel"
 }
 
 setup_locales() {
