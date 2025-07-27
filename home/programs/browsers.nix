@@ -20,7 +20,6 @@
             sponsorblock
             ublock-origin
             vimium
-            zoom-redirector
           ];
         };
       };

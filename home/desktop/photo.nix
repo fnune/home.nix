@@ -3,7 +3,5 @@
     darktable
     exiftool
     ffmpeg
-    inkscape
-    krita
   ];
 }
