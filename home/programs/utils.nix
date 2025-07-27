@@ -6,7 +6,9 @@
     dig
     dmidecode
     du-dust
+    exiftool
     fd
+    ffmpeg
     file
     gcc
     git
