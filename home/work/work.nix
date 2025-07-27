@@ -36,10 +36,5 @@ in {
       "${service}/.nvim.lua".source = ./nvim.lua;
       "${service}/CLAUDE.local.md".source = ./CLAUDE.md;
     };
-
-    sessionVariables = {
-      CYPRESS_INSTALL_BINARY = 0;
-      CYPRESS_RUN_BINARY = "${pkgs.unstable.cypress}/bin/Cypress";
-    };
   };
 }
