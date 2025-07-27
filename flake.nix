@@ -32,7 +32,7 @@
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
       nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
     in {
-      "fausto" = home-manager.lib.homeManagerConfiguration {
+      default = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };

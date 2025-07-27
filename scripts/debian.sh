@@ -138,7 +138,7 @@ apply_home_config() {
   echo "Applying Home Manager configuration..."
   cd "${CONFIG_DIR}"
 
-  nix run home-manager/master -- switch --flake ".#${USERNAME}"
+  nix run home-manager/release-25.05 -- switch --flake "."
 
   echo "Note: This downloads about 23GB of packages"
 }
