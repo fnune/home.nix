@@ -2,7 +2,6 @@
   config = {
     system-manager.allowAnyDistro = true;
     nixpkgs.hostPlatform = "x86_64-linux";
-    networking.hostName = "debian";
 
     boot = {
       plymouth = {
@@ -13,21 +12,11 @@
       kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
     };
 
-    nix = {
-      settings.experimental-features = ["nix-command" "flakes"];
-      optimise.automatic = true;
-    };
-
     nixpkgs = {
       config = {
         allowUnfree = true;
         allowUnfreePredicate = _: true;
       };
-    };
-
-    i18n = {
-      defaultLocale = "en_US.UTF-8";
-      extraLocaleSettings = import ../home/locales.nix;
     };
 
     environment = {
