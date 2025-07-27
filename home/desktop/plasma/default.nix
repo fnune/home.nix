@@ -176,9 +176,7 @@
 
         "Window to Desktop 1" = "Meta+!";
         "Window to Desktop 2" = "Meta+\"";
-        "Window to Desk
-      pulumiPackages.pulumi-nodejs
-      pulumictltop 3" = "Meta+·";
+        "Window to Desktop 3" = "Meta+·";
         "Window to Desktop 4" = "Meta+$";
         "Window to Desktop 5" = "Meta+%";
         "Window to Desktop 6" = "Meta+&";
