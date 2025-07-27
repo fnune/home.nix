@@ -5,15 +5,6 @@
   };
 
   programs = let
-    firefoxProfiles = {
-      default = {
-        name = "Default";
-        isDefault = true;
-        settings = {
-          "services.sync.username" = "fausto.nunez@mailbox.org";
-        };
-      };
-    };
     firefoxPolicies = {
       DisableAppUpdate = true;
       DisablePocket = true;
@@ -46,7 +37,6 @@
     firefox = {
       enable = true;
       package = pkgs.firefox-esr-140;
-      profiles = firefoxProfiles;
       policies = firefoxPolicies;
     };
     chromium = {
