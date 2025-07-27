@@ -19,7 +19,6 @@
 
   imports = [
     ../options.nix
-    ./desktop/applications.nix
     ./desktop/audio.nix
     ./desktop/authorization.nix
     ./desktop/fonts.nix
@@ -31,6 +30,7 @@
     ./programs/dropbox.nix
     ./programs/editorconfig.nix
     ./programs/fd.nix
+    ./programs/flatpaks.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/jetbrains/jetbrains.nix

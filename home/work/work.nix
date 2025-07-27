@@ -9,7 +9,6 @@
 in {
   home = {
     packages = with pkgs.unstable; [
-      _1password-gui
       awscli2
       awsso
       go
@@ -26,10 +25,8 @@ in {
       pulumi-esc
       pulumiPackages.pulumi-nodejs
       pulumictl
-      slack
       uv
       yarn
-      zoom-us
     ];
 
     file = {

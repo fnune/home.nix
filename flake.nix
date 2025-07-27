@@ -23,6 +23,9 @@
       url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
   };
 
   outputs = {
@@ -34,6 +37,7 @@
     nur,
     tuxedo-nixos,
     system-manager,
+    nix-flatpak,
     ...
   }: let
     system = "x86_64-linux";
@@ -71,6 +75,7 @@
 
     homeConfigurations = let
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
+      nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
       makeHomeConfiguration = machineModule:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
@@ -79,6 +84,7 @@
           };
           modules = [
             ./home/home.nix
+            nixFlatpak
             plasmaManager
             machineModule
           ];
