@@ -17,6 +17,7 @@ return {
       item = { constants.signs.caret_right, constants.signs.caret_down },
       section = { constants.signs.caret_right, constants.signs.caret_down },
     },
+    integrations = { diffview = false },
     ignored_settings = {
       "NeogitCommitPopup--allow-empty",
       "NeogitCommitPopup--no-edit",
