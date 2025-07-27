@@ -3,15 +3,6 @@
     system-manager.allowAnyDistro = true;
     nixpkgs.hostPlatform = "x86_64-linux";
 
-    boot = {
-      plymouth = {
-        enable = true;
-        theme = "spinner";
-        font = "${pkgs.adwaita-fonts}/share/fonts/Adwaita/AdwaitaSans-Regular.ttf";
-      };
-      kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
-    };
-
     nixpkgs = {
       config = {
         allowUnfree = true;
