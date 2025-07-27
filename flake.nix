@@ -6,10 +6,6 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-development.url = "github:fnune/nixpkgs/pinentry-kwallet";
     tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +26,6 @@
     nixpkgs-development,
     home-manager,
     plasma-manager,
-    nur,
     tuxedo-nixos,
     nix-flatpak,
     ...
@@ -44,10 +39,6 @@
       development = import nixpkgs-development {
         inherit (prev) config;
         inherit system;
-      };
-      nur = import nur {
-        nurpkgs = prev;
-        pkgs = prev;
       };
     };
     nixpkgsOverlayModule = _: {nixpkgs.overlays = [nixpkgsOverlay];};
