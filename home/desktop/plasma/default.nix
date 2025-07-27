@@ -65,6 +65,7 @@
     };
 
     workspace = {
+      lookAndFeel = "org.kde.breezedark.desktop";
       splashScreen = {
         engine = "none";
         theme = "none";
