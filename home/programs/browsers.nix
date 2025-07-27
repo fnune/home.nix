@@ -12,16 +12,6 @@
         settings = {
           "services.sync.username" = "fausto.nunez@mailbox.org";
         };
-        extensions = {
-          packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            bitwarden
-            istilldontcareaboutcookies
-            onepassword-password-manager
-            sponsorblock
-            ublock-origin
-            vimium
-          ];
-        };
       };
     };
     firefoxPolicies = {
