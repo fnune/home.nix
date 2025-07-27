@@ -22,7 +22,6 @@
     ./desktop/audio.nix
     ./desktop/authorization.nix
     ./desktop/fonts.nix
-    ./desktop/photo.nix
     ./desktop/plasma
     ./programs/bat.nix
     ./programs/browsers.nix
