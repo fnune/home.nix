@@ -14,16 +14,6 @@
       };
     };
 
-    fonts = {
-      packages = with pkgs; [
-        adwaita-fonts
-        nerd-fonts.sauce-code-pro
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        noto-fonts-emoji
-      ];
-    };
-
     environment = {
       systemPackages = with pkgs; [
         curl
