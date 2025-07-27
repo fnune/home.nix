@@ -19,6 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
@@ -29,6 +33,7 @@
     plasma-manager,
     nur,
     tuxedo-nixos,
+    system-manager,
     ...
   }: let
     system = "x86_64-linux";
@@ -60,6 +65,10 @@
       "melian" = makeNixosConfiguration [./os/configuration.melian.nix tuxedo-nixos.nixosModules.default];
     };
 
+    systemConfigs.default = system-manager.lib.makeSystemConfig {
+      modules = [./os/configuration.debian.nix];
+    };
+
     homeConfigurations = let
       plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
       makeHomeConfiguration = machineModule:
@@ -77,6 +86,7 @@
     in {
       "fausto@feanor" = makeHomeConfiguration ./home/home.feanor.nix;
       "fausto@melian" = makeHomeConfiguration ./home/home.melian.nix;
+      "fausto@debian" = makeHomeConfiguration ./home/home.debian.nix;
     };
   };
 }
