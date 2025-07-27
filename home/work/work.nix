@@ -3,7 +3,8 @@
   config,
   ...
 }: let
-  service = "${config.home.homeDirectory}/go/src/github.com/pulumi/pulumi-service";
+  src = "${config.home.homeDirectory}/go/src/github.com/pulumi";
+  src-service = "${src}/pulumi-service";
   awsso = pkgs.callPackage ../../packages/awsso.nix {};
 in {
   home = {
@@ -32,9 +33,18 @@ in {
 
     file = {
       "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
-      "${service}/.envrc.local".source = ./envrc.sh;
-      "${service}/.nvim.lua".source = ./nvim.lua;
-      "${service}/CLAUDE.local.md".source = ./CLAUDE.md;
+      "${src-service}/.envrc.local".source = ./envrc.sh;
+      "${src-service}/.nvim.lua".source = ./nvim.lua;
+      "${src-service}/CLAUDE.local.md".source = ./CLAUDE.md;
     };
+  };
+
+  programs.git = {
+    includes = [
+      {
+        path = ./gitconfig;
+        condition = "gitdir:${src}/";
+      }
+    ];
   };
 }
