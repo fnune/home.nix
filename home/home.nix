@@ -36,7 +36,6 @@
     ./programs/kitty/kitty.nix
     ./programs/llms/llms.nix
     ./programs/neovim/neovim.nix
-    ./programs/obs-studio.nix
     ./programs/psql/psql.nix
     ./programs/ripgrep.nix
     ./programs/thunderbird.nix
