@@ -12,6 +12,7 @@
 
     environment = {
       systemPackages = with pkgs; [
+        adwaita-fonts
         curl
         dig
         du-dust
