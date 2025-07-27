@@ -8,7 +8,7 @@
   awsso = pkgs.callPackage ../../packages/awsso.nix {};
 in {
   home = {
-    packages = with pkgs.unstable; [
+    packages = with pkgs; [
       awscli2
       awsso
       go
