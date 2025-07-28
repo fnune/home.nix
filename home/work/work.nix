@@ -39,11 +39,10 @@ in {
   };
 
   programs.git = {
-    includes = [
-      {
-        path = ./gitconfig;
-        condition = "gitdir:${src}/";
-      }
-    ];
+    extraConfig = {
+      url = {
+        "ssh://git@github.com/pulumi/".insteadOf = "https://github.com/pulumi/";
+      };
+    };
   };
 }
