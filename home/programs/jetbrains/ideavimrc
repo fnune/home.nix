@@ -58,6 +58,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-space> :action ShowIntentionActions<CR>
 
 nnoremap <c-w>o :action HideAllWindows<CR>
+nnoremap <leader>E :action SelectInProjectView<CR>
 nnoremap <leader>F :action FindInPath<CR>
 nnoremap <leader>T :action ActivateStructureToolWindow<CR>
 nnoremap <leader>a :action GotoAction<CR>
