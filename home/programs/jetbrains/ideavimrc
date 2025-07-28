@@ -1,13 +1,11 @@
 let mapleader = " "
 
-" Options
 set hlsearch
 set ignorecase smartcase
 set incsearch
-set scrolloff=5
+set scrolloff=6
 set visualbell
 
-" Plug-ins
 set NERDTree
 set argtextobj
 set commentary
@@ -21,18 +19,9 @@ set which-key
 
 map 0 ^
 
-" The action to open links in browsers is, interestingly, also `GotoDeclaration`,
-" which is mapped to `gd`. In Vim, delegating opening paths to the operating system
-" is done with `gx`, so we map this to `GotoDeclaration` too.
-nmap gx :action GotoDeclaration<CR>
-nmap gi :action GotoImplementation<CR>
-
-" <Ctrl-u> and <Ctrl-d> also center the screen
-nnoremap <silent> <C-u> <C-u>zz
 nnoremap <silent> <C-d> <C-d>zz
+nnoremap <silent> <C-u> <C-u>zz
 
-nnoremap <S-h> :bp<CR>
-nnoremap <S-l> :bn<CR>
 nnoremap <A-1> :b 1<CR>
 nnoremap <A-2> :b 2<CR>
 nnoremap <A-3> :b 3<CR>
@@ -42,39 +31,46 @@ nnoremap <A-6> :b 6<CR>
 nnoremap <A-7> :b 7<CR>
 nnoremap <A-8> :b 8<CR>
 nnoremap <A-9> :b 9<CR>
+nnoremap <S-h> :bp<CR>
+nnoremap <S-l> :bn<CR>
 
-nmap <A-j> :action MoveLineDown<CR>
-nmap <A-k> :action MoveLineUp<CR>
-vmap <A-j> :action MoveLineDown<CR>
-vmap <A-k> :action MoveLineUp<CR>
-
-sethandler <c-j> a:vim
-sethandler <c-k> a:vim
 nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
 
-nnoremap <c-space> :action ShowIntentionActions<CR>
-
-nnoremap <c-w>o :action HideAllWindows<CR>
-nnoremap <leader>E :action SelectInProjectView<CR>
-nnoremap <leader>F :action FindInPath<CR>
-nnoremap <leader>T :action ActivateStructureToolWindow<CR>
-nnoremap <leader>a :action GotoAction<CR>
-nnoremap <leader>be :action CloseAllEditorsButActive<CR>
-nnoremap <leader>e :action ActivateProjectToolWindow<CR>
-nnoremap <leader>f :action GotoFile<CR>
-nnoremap <leader>g :action ActivateCommitToolWindow<CR>
-nnoremap <leader>j :action GotoNextError<CR>
-nnoremap <leader>k :action GotoPreviousError<CR>
 nnoremap <leader>l :nohlsearch<CR>
-nnoremap <leader>p :action ReformatCode<CR>
 nnoremap <leader>q :q!<CR>
-nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>wq :wq!<CR>
-nnoremap <leader>z :action ToggleZenMode<CR>
 
-nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nmap <A-j> <Action>(MoveLineDown)
+nmap <A-k> <Action>(MoveLineUp)
+vmap <A-j> <Action>(MoveLineDown)
+vmap <A-k> <Action>(MoveLineUp)
+
+nmap <c-space> <Action>(ShowIntentionActions)
+nmap <c-w>o <Action>(HideAllWindows)
+nmap <leader>E <Action>(SelectInProjectView)
+nmap <leader>F <Action>(FindInPath)
+nmap <leader>T <Action>(ActivateStructureToolWindow)
+nmap <leader>a <Action>(GotoAction)
+nmap <leader>be <Action>(CloseAllEditorsButActive)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+nmap <leader>f <Action>(GotoFile)
+nmap <leader>g <Action>(ActivateCommitToolWindow)
+nmap <leader>j <Action>(GotoNextError)
+nmap <leader>k <Action>(GotoPreviousError)
+nmap <leader>p <Action>(ReformatCode)
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+nmap <leader>z <Action>(ToggleZenMode)
+nmap gS <Action>(GotoSuperMethod)
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(ShowUsages)
+nmap gx <Action>(GotoDeclaration)
+
