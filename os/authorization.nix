@@ -6,9 +6,15 @@ _: {
 
   # Prefer GUI program for SSH unlocks even if requested from a terminal
   environment.sessionVariables.SSH_ASKPASS_REQUIRE = "prefer";
-  programs.ssh.enableAskPassword = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  programs = {
+    ssh = {
+      startAgent = true;
+      enableAskPassword = true;
+    };
+    gnupg = {
+      agent = {
+        enable = true;
+      };
+    };
   };
 }

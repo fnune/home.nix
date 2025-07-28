@@ -21,6 +21,7 @@
     ../options.nix
     ./desktop/applications.nix
     ./desktop/audio.nix
+    ./desktop/authorization.nix
     ./desktop/photo.nix
     ./desktop/plasma
     ./programs/bat.nix
