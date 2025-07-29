@@ -22,17 +22,17 @@ map 0 ^
 nnoremap <silent> <C-d> <C-d>zz
 nnoremap <silent> <C-u> <C-u>zz
 
-nnoremap <A-1> :b 1<CR>
-nnoremap <A-2> :b 2<CR>
-nnoremap <A-3> :b 3<CR>
-nnoremap <A-4> :b 4<CR>
-nnoremap <A-5> :b 5<CR>
-nnoremap <A-6> :b 6<CR>
-nnoremap <A-7> :b 7<CR>
-nnoremap <A-8> :b 8<CR>
-nnoremap <A-9> :b 9<CR>
-nnoremap <S-h> :bp<CR>
-nnoremap <S-l> :bn<CR>
+nmap <A-1> <Action>(GoToTab1)
+nmap <A-2> <Action>(GoToTab2)
+nmap <A-3> <Action>(GoToTab3)
+nmap <A-4> <Action>(GoToTab4)
+nmap <A-5> <Action>(GoToTab5)
+nmap <A-6> <Action>(GoToTab6)
+nmap <A-7> <Action>(GoToTab7)
+nmap <A-8> <Action>(GoToTab8)
+nmap <A-9> <Action>(GoToTab9)
+nmap <S-h> <Action>(PreviousTab)
+nmap <S-l> <Action>(NextTab)
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
