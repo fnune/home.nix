@@ -27,6 +27,7 @@ in {
       pulumiPackages.pulumi-nodejs
       pulumictl
       slack
+      uv
       yarn
       zoom-us
     ];
