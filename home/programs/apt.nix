@@ -18,7 +18,10 @@ with lib; let
     packages_to_install=()
 
     for package in ${concatStringsSep " " (map (pkg: "'${pkg}'") packageList)}; do
-      if ! /usr/bin/dpkg -l "$package" >/dev/null 2>&1; then
+      if /usr/bin/dpkg -l "$package" >/dev/null 2>&1; then
+        echo "Package $package is already installed"
+      else
+        echo "Package $package is missing, will install"
         packages_to_install+=("$package")
       fi
     done
