@@ -75,3 +75,5 @@ nmap gi <Action>(GotoImplementation)
 nmap gr <Action>(ShowUsages)
 nmap gx <Action>(GotoDeclaration)
 
+nmap gqq <Action>(com.andrewbrookins.idea.wrap.WrapAction)
+vmap gq <Action>(com.andrewbrookins.idea.wrap.WrapAction)
