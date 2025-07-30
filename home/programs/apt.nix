@@ -18,10 +18,7 @@ with lib; let
     packages_to_install=()
 
     for package in ${concatStringsSep " " (map (pkg: "'${pkg}'") packageList)}; do
-      if /usr/bin/dpkg -l "$package" >/dev/null 2>&1; then
-        echo "Package $package is already installed"
-      else
-        echo "Package $package is missing, will install"
+      if ! /usr/bin/dpkg-query -W -f='$${Status}' "$package" 2>/dev/null | grep -q "ok installed"; then
         packages_to_install+=("$package")
       fi
     done
@@ -29,6 +26,8 @@ with lib; let
     if [ ''${#packages_to_install[@]} -gt 0 ]; then
       echo "Installing missing packages via apt: ''${packages_to_install[*]}"
       /usr/bin/sudo /usr/bin/apt install -y "''${packages_to_install[@]}"
+    else
+      echo "All packages already installed"
     fi
   '';
 in {
