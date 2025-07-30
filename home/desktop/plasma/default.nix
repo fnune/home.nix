@@ -1,27 +1,23 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{config, ...}: {
   imports = [./palette.nix];
 
-  home.packages =
-    (with pkgs; [
-      haruna
-      karp
-      libreoffice-qt
-    ])
-    ++ (with pkgs.kdePackages; [
-      discover
-      filelight
-      isoimagewriter
-      kalk
-      kcharselect
-      kclock
-      kcolorchooser
-      kjournald
-      kweather
-    ]);
+  services.apt.packages = [
+    "discover"
+    "filelight"
+    "flatpak"
+    "haruna"
+    "isoimagewriter"
+    "kalk"
+    "kcharselect"
+    "kclock"
+    "kcolorchooser"
+    "kde-config-plymouth"
+    "ksshaskpass"
+    "kweather"
+    "libreoffice-qt6"
+    "pdfarranger"
+    "plasma-discover-backend-flatpak"
+  ];
 
   gtk.cursorTheme = config.cursors;
   home.pointerCursor = config.cursors;
