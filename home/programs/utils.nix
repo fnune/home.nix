@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    curl
-    ddcui
     ddcutil
-    dig
     dmidecode
     du-dust
     exiftool
@@ -13,7 +10,6 @@
     gcc
     gnumake
     gzip
-    inetutils
     jq
     killall
     lm_sensors
@@ -22,18 +18,11 @@
     man-pages
     man-pages-posix
     moreutils
-    nettools
-    nmap
-    openssl
     pciutils
-    sshfs
-    traceroute
     tree
     unzip
     util-linux
     watchexec
-    wget
-    whois
     wl-clipboard
   ];
 }
