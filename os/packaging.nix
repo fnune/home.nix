@@ -11,6 +11,10 @@ _: {
     };
   };
 
+  services = {
+    flatpak.enable = true;
+  };
+
   programs = {
     # Enable things like Volta for projects that need it
     nix-ld.enable = true;

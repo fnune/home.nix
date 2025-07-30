@@ -12,6 +12,7 @@
       libreoffice-qt
     ])
     ++ (with pkgs.kdePackages; [
+      discover
       filelight
       isoimagewriter
       kalk
