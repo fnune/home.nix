@@ -36,6 +36,7 @@
     ./programs/kitty/kitty.nix
     ./programs/llms/llms.nix
     ./programs/neovim/neovim.nix
+    ./programs/networking.nix
     ./programs/ripgrep.nix
     ./programs/thunderbird.nix
     ./programs/tmux/tmux.nix
