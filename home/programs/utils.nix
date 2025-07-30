@@ -11,7 +11,6 @@
     ffmpeg
     file
     gcc
-    git
     gnumake
     gzip
     inetutils
@@ -27,7 +26,6 @@
     nmap
     openssl
     pciutils
-    ripgrep
     sshfs
     traceroute
     tree
@@ -37,6 +35,5 @@
     wget
     whois
     wl-clipboard
-    zsh
   ];
 }
