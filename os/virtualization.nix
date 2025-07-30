@@ -3,11 +3,8 @@
 
   virtualisation = {
     docker.enable = true;
+    podman.enable = true;
     libvirtd.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-    };
   };
 
   environment.systemPackages = with pkgs; [
