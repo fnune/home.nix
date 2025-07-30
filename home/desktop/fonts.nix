@@ -3,6 +3,8 @@
   config,
   ...
 }: {
+  services.apt.packages = ["fonts-inter"];
+
   home.packages = with pkgs; [
     adwaita-fonts
     nerd-fonts.sauce-code-pro
@@ -10,6 +12,7 @@
     noto-fonts-cjk-serif
     noto-fonts-emoji
   ];
+
   fonts = {
     fontconfig = {
       enable = true;

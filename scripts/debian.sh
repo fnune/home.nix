@@ -49,7 +49,6 @@ install_nix() {
   echo "Installing Nix package manager..."
 
   if ! command -v nix &>/dev/null; then
-    sudo apt update
     sudo apt install -y curl git
     TEMP_PACKAGES+=(curl git)
 
@@ -109,7 +108,7 @@ clone_config() {
 setup_plymouth() {
   echo "Setting up Plymouth boot splash..."
 
-  sudo apt install -y plymouth plymouth-themes kde-config-plymouth
+  sudo apt install -y plymouth plymouth-themes
 
   local current_theme
   current_theme=$(sudo plymouth-set-default-theme)
@@ -196,15 +195,8 @@ EOF
   fi
 }
 
-setup_flatpak() {
-  echo "Setting up Flatpak..."
-  sudo apt install -y flatpak discover plasma-discover-backend-flatpak
-}
-
 setup_ssh_kde_wallet() {
   echo "Setting up SSH with KDE Wallet integration..."
-
-  sudo apt install -y ksshaskpass
 
   mkdir -p ~/.config/environment.d
 
@@ -236,7 +228,6 @@ main() {
   setup_nix_config
   clone_config
   setup_locales
-  setup_flatpak
   setup_plymouth
   setup_ssh_kde_wallet
   apply_home_config

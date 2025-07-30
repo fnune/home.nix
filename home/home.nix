@@ -14,6 +14,7 @@
 
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
+  services.apt.enable = true;
   news.display = "silent";
   systemd.user.startServices = "sd-switch";
 
@@ -23,6 +24,7 @@
     ./desktop/authorization.nix
     ./desktop/fonts.nix
     ./desktop/plasma
+    ./programs/apt.nix
     ./programs/bat.nix
     ./programs/browsers.nix
     ./programs/direnv.nix
