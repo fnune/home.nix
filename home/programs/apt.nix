@@ -18,14 +18,14 @@ with lib; let
     packages_to_install=()
 
     for package in ${concatStringsSep " " (map (pkg: "'${pkg}'") packageList)}; do
-      if ! dpkg -l "$package" >/dev/null 2>&1; then
+      if ! /usr/bin/dpkg -l "$package" >/dev/null 2>&1; then
         packages_to_install+=("$package")
       fi
     done
 
     if [ ''${#packages_to_install[@]} -gt 0 ]; then
       echo "Installing missing packages via apt: ''${packages_to_install[*]}"
-      sudo /usr/bin/apt install -y "''${packages_to_install[@]}"
+      /usr/bin/sudo /usr/bin/apt install -y "''${packages_to_install[@]}"
     fi
   '';
 in {
