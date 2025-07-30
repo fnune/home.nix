@@ -10,7 +10,7 @@ with lib; let
   packageList = unique cfg.packages;
 
   checkAndInstallScript = pkgs.writeShellScript "apt-install-missing" ''
-    if ! command -v apt >/dev/null 2>&1; then
+    if ! command -v /usr/bin/apt >/dev/null 2>&1; then
       echo "apt not found, skipping package installation"
       exit 0
     fi
@@ -25,7 +25,7 @@ with lib; let
 
     if [ ''${#packages_to_install[@]} -gt 0 ]; then
       echo "Installing missing packages via apt: ''${packages_to_install[*]}"
-      sudo apt install -y "''${packages_to_install[@]}"
+      sudo /usr/bin/apt install -y "''${packages_to_install[@]}"
     fi
   '';
 in {
