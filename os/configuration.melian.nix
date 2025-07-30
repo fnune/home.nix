@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{config, ...}: {
   system.stateVersion = "24.05";
 
   imports = [./configuration.nix ./hardware-configuration.melian.nix];
@@ -28,12 +24,4 @@
   };
 
   services.power-profiles-daemon.enable = false; # Let TCC handle this
-
-  systemd = {
-    services.vanta = {
-      # Remember to call sudo /var/vanta/vanta-cli register --secret=<secret> --email=<email>
-      enable = true;
-      inherit (import ../packages/vanta.nix {inherit pkgs;}) wantedBy description serviceConfig;
-    };
-  };
 }
