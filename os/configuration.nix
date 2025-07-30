@@ -3,7 +3,6 @@ _: {
     ../options.nix
     ./audio.nix
     ./authorization.nix
-    ./containerization.nix
     ./fonts.nix
     ./networking.nix
     ./packaging.nix
