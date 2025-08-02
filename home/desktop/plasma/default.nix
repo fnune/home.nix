@@ -64,7 +64,7 @@
     workspace = {
       theme = "breeze-dark";
       colorScheme = "BreezeDark";
-      wallpaperFillMode = "stretch";
+      wallpaperFillMode = "preserveAspectCrop";
       splashScreen = {
         engine = "none";
         theme = "none";
