@@ -5,12 +5,10 @@
 }: let
   src = "${config.home.homeDirectory}/go/src/github.com/pulumi";
   src-service = "${src}/pulumi-service";
-  awsso = pkgs.callPackage ../../packages/awsso.nix {};
 in {
   home = {
     packages = with pkgs.unstable; [
       awscli2
-      awsso
       go
       golangci-lint
       golangci-lint-langserver

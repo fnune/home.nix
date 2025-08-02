@@ -11,7 +11,7 @@ function t() {
     tmux new-session -c "$service_repo" -d -s pulumi-service -n auxiliary
 
     tmux split-window -c "$service_repo" -h
-    tmux send-keys "awsso" C-m
+    tmux send-keys "eval \$(esc open pulumi/dev-stacks --format shell)" C-m
 
     # Local database
     tmux split-window -c "$service_repo" -v
