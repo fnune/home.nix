@@ -102,6 +102,15 @@ SSH_ASKPASS=/usr/bin/ksshaskpass
 SSH_ASKPASS_REQUIRE=prefer
 ```
 
+Create `~/.config/kwalletrc`:
+
+```ini
+[Wallet]
+Enabled=true
+Default Wallet=kdewallet
+First Use=false
+```
+
 ### Apply Home Manager configuration
 
 From the `~/.home.nix` directory:
