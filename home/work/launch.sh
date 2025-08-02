@@ -7,11 +7,15 @@ function t() {
 
   cd "$service_repo" || exit
 
-  if ! tmux list-sessions | grep -q "^pulumi-service:"; then
-    tmux new-session -c "$service_repo" -d -s pulumi-service -n auxiliary
+  env_entries="$(esc open pulumi/default/review-stacks --format json | jq -r '.environmentVariables | to_entries[]')"
+  env_script="$(echo "$env_entries" | jq -r '"tmux set-environment -t pulumi-service \(.key) \(.value | @sh)"')"
 
+  if ! tmux list-sessions | grep -q "^pulumi-service:"; then
+    tmux new-session -c "$service_repo" -d -s pulumi-service -n authorization
+    eval "$env_script"
+
+    tmux new-window -c "$service_repo" -n auxiliary
     tmux split-window -c "$service_repo" -h
-    tmux send-keys "eval \$(esc open pulumi/dev-stacks --format shell)" C-m
 
     # Local database
     tmux split-window -c "$service_repo" -v
@@ -29,6 +33,8 @@ function t() {
 
     tmux new-window -c "$service_repo" -n editor
     tmux send-keys -t pulumi-service:editor "$EDITOR" C-m
+
+    tmux kill-window -t authorization
   fi
 
   if ! tmux list-sessions | grep -q "^pulumi OSS:"; then
