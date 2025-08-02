@@ -5,6 +5,7 @@
     "discover"
     "filelight"
     "flatpak"
+    "flatseal"
     "haruna"
     "isoimagewriter"
     "kalk"
