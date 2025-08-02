@@ -11,6 +11,7 @@ _: {
       "com.slack.Slack"
       "com.spotify.Client"
       "com.yubico.yubioath"
+      "io.podman_desktop.PodmanDesktop"
       "org.darktable.Darktable"
       "org.kde.krita"
       "org.signal.Signal"
