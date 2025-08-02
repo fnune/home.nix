@@ -24,12 +24,12 @@
     ./desktop/authorization.nix
     ./desktop/fonts.nix
     ./desktop/plasma
+    ./programs/applications.nix
     ./programs/apt.nix
     ./programs/bat.nix
     ./programs/browsers.nix
     ./programs/direnv.nix
     ./programs/editorconfig.nix
-    ./programs/flatpaks.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/jetbrains/jetbrains.nix

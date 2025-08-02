@@ -1,4 +1,8 @@
 _: {
+  services.apt.packages = [
+    "thunderbird"
+  ];
+
   services.flatpak = {
     enable = true;
     packages = [
@@ -9,7 +13,6 @@ _: {
       "com.yubico.yubioath"
       "org.darktable.Darktable"
       "org.kde.krita"
-      "org.mozilla.Thunderbird"
       "org.signal.Signal"
       "us.zoom.Zoom"
     ];
