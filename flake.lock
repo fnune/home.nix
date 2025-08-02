@@ -39,16 +39,32 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1754123002,
-        "narHash": "sha256-isq7Ieyk+SRY1NLBfKlRrbZMWCTzcnwSNdOiQ+nn1FI=",
+        "lastModified": 1754137900,
+        "narHash": "sha256-0tTQKhBMPND7m7rbbt+5Bcz7a+46cBPK5VsOnSuYo0s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8ab600aa8e96e0b095e9857be1a0bcd70247a652",
+        "rev": "ecfd0d9206b57ac56c88ac12b98ac2d2d576de4e",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "ref": "release-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1754060105,
+        "narHash": "sha256-di5L6e5Iiv+oegS07j9h23FdqEpXn0ZQqMlDOEMw1EY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e7eabdc701d7dbb810fd91a97ec358caa4c1fc50",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -81,6 +97,7 @@
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager"
       }
     }
