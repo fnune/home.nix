@@ -2,11 +2,13 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  neovim = pkgs.neovim-unwrapped;
+in {
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.neovim-unwrapped;
+      package = neovim;
       extraLuaPackages = ps: [ps.magick];
       extraPackages = [pkgs.imagemagick];
       withNodeJs = true;
@@ -68,9 +70,9 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
-      SUDO_EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "${neovim}/bin/nvim";
+      SUDO_EDITOR = "${neovim}/bin/nvim";
+      VISUAL = "${neovim}/bin/nvim";
       COLORSCHEME = config.colorscheme;
     };
   };
