@@ -1,8 +1,10 @@
-{pkgs, ...}: {
+_: {
   home = {
     sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
+
+  services.apt.packages = ["firefox-esr"];
 
   programs = let
     firefoxPolicies = {
@@ -35,7 +37,7 @@
   in {
     firefox = {
       enable = true;
-      package = pkgs.firefox-esr-140;
+      package = null;
       policies = firefoxPolicies;
     };
     chromium = {
