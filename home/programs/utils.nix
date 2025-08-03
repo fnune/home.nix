@@ -9,6 +9,7 @@
     lm_sensors
     lshw
     moreutils
+    tree
     watchexec
     wl-clipboard
   ];
