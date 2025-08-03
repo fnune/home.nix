@@ -20,9 +20,6 @@
     "plasma-discover-backend-flatpak"
   ];
 
-  gtk.cursorTheme = config.cursors;
-  home.pointerCursor = config.cursors;
-
   programs.plasma = {
     enable = true;
     fonts = let

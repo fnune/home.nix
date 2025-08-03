@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  services.apt.packages = ["fonts-inter"];
+  services.apt.packages = ["fonts-inter" "fonts-jetbrains-mono"];
 
   home.packages = with pkgs; [
     adwaita-fonts

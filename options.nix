@@ -27,12 +27,12 @@
     fontconfig = {
       sans = lib.mkOption {
         type = lib.types.str;
-        default = "Adwaita Sans";
+        default = "Inter";
         description = "Sans font to use for the desktop";
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "Adwaita Mono";
+        default = "JetBrains Mono";
         description = "Monospace font to use for the desktop and terminal";
       };
       emoji = lib.mkOption {
@@ -77,18 +77,13 @@
     cursors = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "Simp1e-Adw-Dark";
+        default = "Breeze";
         description = "The name of the cursor theme";
       };
       size = lib.mkOption {
         type = lib.types.int;
         default = 32;
         description = "The size of the cursor";
-      };
-      package = lib.mkOption {
-        type = lib.types.package;
-        default = pkgs.simp1e-cursors;
-        description = "The package with the cursor theme";
       };
     };
     shell = {
