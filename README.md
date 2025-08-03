@@ -121,7 +121,26 @@ nix run home-manager/release-25.05 -- switch --flake "."
 
 This downloads over 20GB of packages.
 
-### Final steps
+### Set up SDDM
 
-1. Go to Settings → Login Screen → Apply Plasma Settings
-2. Reboot for locale and group changes to take full effect
+Go to Settings → Login Screen → Apply Plasma Settings. Then, create `/etc/sddm.conf.d/hidpi.conf`:
+
+```ini
+[General]
+GreeterEnvironment=QT_SCREEN_SCALE_FACTORS=1.6
+
+[Wayland]
+EnableHiDPI=true
+
+[X11]
+EnableHiDPI=true
+```
+
+Apply modifications to the theme you're using, e.g. by creating `/usr/share/sddm/themes/debian-breeze/theme.conf.user`:
+
+```ini
+[General]
+type=color
+color=#212121
+background=
+```
