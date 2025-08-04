@@ -11,18 +11,19 @@ return {
     })
   end,
   opts = {
+    workspaces = {
+      {
+        name = "main",
+        path = "~/Documents/Fausto",
+      },
+    },
     ui = {
       enable = false, -- Using render-markdown.nvim
     },
     completion = {
       nvim_cmp = false,
       blink = true,
-    },
-    workspaces = {
-      {
-        name = "main",
-        path = "~/Dropbox/Vault",
-      },
+      min_chars = 1,
     },
     disable_frontmatter = true,
     preferred_link_style = "markdown",
@@ -35,6 +36,7 @@ return {
     note_id_func = function(title)
       return title
     end,
+    notes_subdir = "notes",
     daily_notes = {
       folder = "daily",
       date_format = "%Y-%m-%d",
