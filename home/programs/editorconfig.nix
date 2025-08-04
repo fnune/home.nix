@@ -12,5 +12,8 @@ _: {
     "*.rs" = {
       indent_size = 4;
     };
+    "*.{md,markdown}" = {
+      indent_size = 4;
+    };
   };
 }
