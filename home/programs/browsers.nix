@@ -4,7 +4,7 @@ _: {
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
 
-  services.apt.packages = ["firefox-esr"];
+  services.apt.packages = ["firefox-esr" "chromium"];
 
   programs = let
     firefoxPolicies = {
@@ -39,15 +39,6 @@ _: {
       enable = true;
       package = null;
       policies = firefoxPolicies;
-    };
-    chromium = {
-      enable = true;
-      extensions = [
-        {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
-        {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
-        {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
-        {id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";} # 1Password
-      ];
     };
   };
 }
