@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export AWS_PROFILE="pulumi-service-dev-stacks"
+export CHROME_BIN="$(which chromium)"
 export GOPATH="$HOME/go"
 export GOPRIVATE="github.com/pulumi"
 export PATH="$GOPATH/bin:$PATH"
