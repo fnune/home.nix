@@ -144,3 +144,21 @@ type=color
 color=#212121
 background=
 ```
+
+### Fix Flatpak permissions
+
+To make Flatpaks work more seamlessly with the host system:
+
+```sh
+# Enable Flatpaks to see e.g. whether the system is using light or dark mode
+flatpak override --user --talk-name=org.freedesktop.portal.Desktop
+flatpak override --user --talk-name=org.freedesktop.portal.Settings
+
+# Let Flatpaks read the Nix store to e.g. allow access to fonts and cursors
+flatpak override --user --filesystem=/nix/store/:ro
+
+# Also host system fonts and cursors
+flatpak override --user --filesystem=xdg-config/fontconfig:ro
+flatpak override --user --filesystem=/home/$USER/.icons/:ro
+flatpak override --user --filesystem=/usr/share/icons/:ro
+```
