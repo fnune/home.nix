@@ -12,6 +12,7 @@ _: {
       "com.spotify.Client"
       "com.yubico.yubioath"
       "io.podman_desktop.PodmanDesktop"
+      "md.obsidian.Obsidian"
       "org.darktable.Darktable"
       "org.kde.krita"
       "org.signal.Signal"
