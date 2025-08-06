@@ -35,6 +35,7 @@
     ./programs/jetbrains/jetbrains.nix
     ./programs/kitty/kitty.nix
     ./programs/llms/llms.nix
+    ./programs/mise.nix
     ./programs/neovim/neovim.nix
     ./programs/networking.nix
     ./programs/ripgrep.nix
