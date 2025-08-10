@@ -1,10 +1,10 @@
 {pkgs, ...}: {
+  services.apt.packages = ["build-essential"];
+
   home.packages = with pkgs; [
     exiftool
     fd
     ffmpeg
-    gcc
-    gnumake
     jq
     lm_sensors
     lshw
