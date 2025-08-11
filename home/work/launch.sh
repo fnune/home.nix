@@ -15,20 +15,32 @@ function t() {
     eval "$env_script"
 
     tmux new-window -c "$service_repo" -n auxiliary
+
+    # Create right pane
     tmux split-window -c "$service_repo" -h
 
-    # Local database
+    # Split right pane into 5 vertical sections
     tmux split-window -c "$service_repo" -v
-    tmux send-keys "make ensure && ./scripts/local-mysql.sh up" C-m
-
-    # HMR + tunneled backend setup
-    tmux split-window -c "$service_repo" -h
-    tmux send-keys "esc run pulumi/default/review-stacks -- kubectl port-forward svc/pulumi-api 8080:8080 -n \$PULUMI_STACK_NAME_OVERRIDE" C-m
     tmux split-window -c "$service_repo" -v
-    tmux send-keys "PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 ./scripts/dev/run-console.sh backend" C-m
-    tmux split-window -c "$service_repo/cmd/console2" -h
-    tmux send-keys "PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 yarn run start:hmr" C-m
+    tmux split-window -c "$service_repo" -v
+    tmux split-window -c "$service_repo" -v
 
+    # Local database (pane 1 on right side)
+    tmux send-keys -t 1 "make ensure && ./scripts/local-mysql.sh up" C-m
+
+    # Remote database tunnel (pane 2 on right side)
+    tmux send-keys -t 2 "esc run pulumi/default/review-stacks -- kubectl port-forward pod/mysql-0 3307:3306 -n \$PULUMI_STACK_NAME_OVERRIDE" C-m
+
+    # Backend API tunnel (pane 3 on right side)
+    tmux send-keys -t 3 "esc run pulumi/default/review-stacks -- kubectl port-forward svc/pulumi-api 8080:8080 -n \$PULUMI_STACK_NAME_OVERRIDE" C-m
+
+    # Console backend (pane 4 on right side)
+    tmux send-keys -t 4 "PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 ./scripts/dev/run-console.sh backend" C-m
+
+    # Add HMR frontend (pane 5 on right side)
+    tmux send-keys -t 5 "cd $service_repo/cmd/console2 && PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 yarn run start:hmr" C-m
+
+    # Select the left empty pane
     tmux select-pane -t 0
 
     tmux new-window -c "$service_repo" -n editor
