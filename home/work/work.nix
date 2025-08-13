@@ -22,6 +22,7 @@ in {
       pulumi-esc
       pulumiPackages.pulumi-nodejs
       pulumictl
+      typescript
       uv
       yarn
     ];
