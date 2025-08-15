@@ -8,7 +8,6 @@ _: {
     packages = [
       "com.dropbox.Client"
       "com.obsproject.Studio"
-      "com.slack.Slack"
       "com.spotify.Client"
       "com.yubico.yubioath"
       "io.podman_desktop.PodmanDesktop"
