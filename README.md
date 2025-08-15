@@ -162,3 +162,7 @@ flatpak override --user --filesystem=xdg-config/fontconfig:ro
 flatpak override --user --filesystem=/home/$USER/.icons/:ro
 flatpak override --user --filesystem=/usr/share/icons/:ro
 ```
+
+### Install special software
+
+Install e.g. Slack, whose Flatpak does not work very well, by downloading it from [their website](https://slack.com/downloads/instructions/linux?ddl=1&build=deb).
