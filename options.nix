@@ -77,7 +77,7 @@
     cursors = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "Breeze";
+        default = "breeze_cursors";
         description = "The name of the cursor theme";
       };
       size = lib.mkOption {
