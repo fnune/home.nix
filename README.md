@@ -117,6 +117,13 @@ Set `pinentry-kwallet` as the priority `pinentry` alternative:
 sudo update-alternatives --install /usr/bin/pinentry pinentry /usr/bin/pinentry-kwallet 95
 ```
 
+If some program continues to use GNOME Keyring (which may be installed by programs unrelated to KDE) then mask the service:
+
+```sh
+systemctl --user mask gnome-keyring-daemon.service
+systemctl --user mask gnome-keyring-daemon.socket
+```
+
 ### Apply Home Manager configuration
 
 From the `~/.home.nix` directory:
