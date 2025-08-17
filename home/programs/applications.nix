@@ -13,6 +13,7 @@ _: {
       "com.slack.Slack"
       "com.spotify.Client"
       "com.yubico.yubioath"
+      "de.haeckerfelix.Shortwave"
       "io.podman_desktop.PodmanDesktop"
       "md.obsidian.Obsidian"
       "org.darktable.Darktable"
