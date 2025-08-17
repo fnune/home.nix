@@ -1,12 +1,4 @@
 {pkgs, ...}: {
-  services.gpg-agent = {
-    enable = true;
-    pinentry = {
-      package = pkgs.kwalletcli;
-      program = "pinentry-kwallet";
-    };
-  };
-
   systemd.user.services.ssh-add-keys = {
     Unit = {
       Description = "Add SSH keys to agent after KWallet is available";
