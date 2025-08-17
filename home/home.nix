@@ -24,6 +24,7 @@
     ./desktop/authorization.nix
     ./desktop/fonts.nix
     ./desktop/plasma
+    ./desktop/video.nix
     ./programs/applications.nix
     ./programs/apt.nix
     ./programs/bat.nix
