@@ -8,6 +8,8 @@ _: {
     packages = [
       "com.dropbox.Client"
       "com.obsproject.Studio"
+      "com.obsproject.Studio.Plugin.AdvancedMasks"
+      "com.obsproject.Studio.Plugin.BackgroundRemoval"
       "com.slack.Slack"
       "com.spotify.Client"
       "com.yubico.yubioath"
