@@ -111,6 +111,12 @@ Default Wallet=kdewallet
 First Use=false
 ```
 
+Set `pinentry-kwallet` as the priority `pinentry` alternative:
+
+```sh
+sudo update-alternatives --install /usr/bin/pinentry pinentry /usr/bin/pinentry-kwallet 95
+```
+
 ### Apply Home Manager configuration
 
 From the `~/.home.nix` directory:
