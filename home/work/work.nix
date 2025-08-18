@@ -19,10 +19,7 @@ in {
       lefthook
       mockgen
       mysql80
-      pulumi
       pulumi-esc
-      pulumiPackages.pulumi-nodejs
-      pulumictl
       typescript
       uv
       yarn
@@ -33,6 +30,10 @@ in {
       "${src-oss}/.envrc".source = ./envrc.oss.sh;
       "${src-service}/.envrc.local".source = ./envrc.sh;
       "${src-service}/CLAUDE.local.md".source = ./CLAUDE.md;
+    };
+
+    sessionVariables = {
+      PATH = "$HOME/.pulumi/bin:$PATH"; # curl -fsSL https://get.pulumi.com | sh
     };
   };
 
