@@ -29,7 +29,7 @@ function t() {
     tmux send-keys -t 1 "make ensure && ./scripts/local-mysql.sh up" C-m
 
     # Remote database tunnel (pane 2 on right side)
-    tmux send-keys -t 2 "esc run pulumi/default/review-stacks -- kubectl port-forward pod/mysql-0 3307:3306 -n \$PULUMI_STACK_NAME_OVERRIDE" C-m
+    tmux send-keys -t 2 "esc run pulumi/default/review-stacks -- kubectl port-forward pod/mysql-0 3308:3306 -n \$PULUMI_STACK_NAME_OVERRIDE" C-m
 
     # Backend API tunnel (pane 3 on right side)
     tmux send-keys -t 3 "esc run pulumi/default/review-stacks -- kubectl port-forward svc/pulumi-api 8080:8080 -n \$PULUMI_STACK_NAME_OVERRIDE" C-m
