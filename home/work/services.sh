@@ -16,6 +16,6 @@ esc run pulumi/default/review-stacks -- kubectl port-forward svc/pulumi-api 8080
 esc run pulumi/default/review-stacks -- kubectl port-forward pod/mysql-0 3308:3306 -n "$PULUMI_STACK_NAME_OVERRIDE" &
 
 echo "Starting local database..."
-make ensure && ./scripts/local-mysql.sh up &
+make ensure && make install_gotools && ./scripts/local-mysql.sh up &
 
 wait
