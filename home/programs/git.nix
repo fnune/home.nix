@@ -25,6 +25,7 @@
       ".claude"
       ".direnv"
       ".envrc"
+      ".envrc.local"
       ".idea"
       ".nvim.lua"
       ".venv"
