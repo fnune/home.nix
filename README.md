@@ -175,3 +175,12 @@ flatpak override --user --filesystem=xdg-config/fontconfig:ro
 flatpak override --user --filesystem=/home/$USER/.icons/:ro
 flatpak override --user --filesystem=/usr/share/icons/:ro
 ```
+
+## Enable external repositories
+
+Enables installing e.g. Docker and a more up-to-date Firefox.
+
+```sh
+sudo extrepo enable mozilla
+sudo extrepo enable docker-ce
+```
