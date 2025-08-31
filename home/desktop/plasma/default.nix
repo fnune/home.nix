@@ -1,5 +1,5 @@
 {config, ...}: {
-  imports = [./palette.nix];
+  imports = [./authorization.nix ./palette.nix];
 
   services.apt.packages = [
     "discover"

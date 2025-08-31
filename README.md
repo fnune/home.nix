@@ -35,6 +35,16 @@ cd ~/.home.nix
 git checkout debian
 ```
 
+### Apply Home Manager configuration
+
+From the `~/.home.nix` directory:
+
+```bash
+nix run home-manager/release-25.05 -- switch --flake "."
+```
+
+This downloads over 20GB of packages.
+
 ### Set up locales
 
 Install locales package:
@@ -93,24 +103,6 @@ Add `splash` to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`, then:
 sudo update-grub
 ```
 
-### SSH with KDE Wallet
-
-Create `~/.config/environment.d/ssh_askpass.conf`:
-
-```bash
-SSH_ASKPASS=/usr/bin/ksshaskpass
-SSH_ASKPASS_REQUIRE=prefer
-```
-
-Create `~/.config/kwalletrc`:
-
-```ini
-[Wallet]
-Enabled=true
-Default Wallet=kdewallet
-First Use=false
-```
-
 Set `pinentry-kwallet` as the priority `pinentry` alternative:
 
 ```sh
@@ -123,16 +115,6 @@ If some program continues to use GNOME Keyring (which may be installed by progra
 systemctl --user mask gnome-keyring-daemon.service
 systemctl --user mask gnome-keyring-daemon.socket
 ```
-
-### Apply Home Manager configuration
-
-From the `~/.home.nix` directory:
-
-```bash
-nix run home-manager/release-25.05 -- switch --flake "."
-```
-
-This downloads over 20GB of packages.
 
 ### Set up SDDM
 
