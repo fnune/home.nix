@@ -1,4 +1,4 @@
-_: {
+{config, ...}: {
   services.apt.packages = [
     "thunderbird"
   ];
@@ -20,6 +20,16 @@ _: {
       "org.kde.krita"
       "org.signal.Signal"
       "us.zoom.Zoom"
+    ];
+  };
+
+  xdg.autostart = let
+    flatpakApps = "${config.home.homeDirectory}/.local/share/flatpak/exports/share/applications";
+  in {
+    enable = true;
+    entries = [
+      "${flatpakApps}/md.obsidian.Obsidian.desktop"
+      "${flatpakApps}/com.dropbox.Client.desktop"
     ];
   };
 }
