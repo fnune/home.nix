@@ -28,7 +28,6 @@
   in {
     enable = true;
     entries = [
-      "${flatpakApps}/md.obsidian.Obsidian.desktop"
       "${flatpakApps}/com.dropbox.Client.desktop"
     ];
   };
