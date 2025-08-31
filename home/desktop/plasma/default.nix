@@ -259,6 +259,104 @@
           };
         };
       }
+      {
+        description = "Send Chromium to desktop 1";
+        match = {
+          window-class = {
+            value = "chromium";
+            type = "substring";
+          };
+          title = {
+            value = "Chromium";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_1";
+            apply = "initially";
+          };
+        };
+      }
+      {
+        description = "Send Chromium DevTools to desktop 3";
+        match = {
+          window-class = {
+            value = "chromium";
+            type = "substring";
+          };
+          title = {
+            value = "DevTools";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_3";
+            apply = "initially";
+          };
+        };
+      }
+      {
+        description = "Send Chromium to desktop 1";
+        match = {
+          window-class = {
+            value = "chromium";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_1";
+            apply = "initially";
+          };
+        };
+      }
+      {
+        description = "Send Thunderbird to desktop 6";
+        match = {
+          window-class = {
+            value = "thunderbird";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_6";
+            apply = "initially";
+          };
+        };
+      }
+      {
+        description = "Send Firefox to desktop 4";
+        match = {
+          window-class = {
+            value = "firefox";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_4";
+            apply = "initially";
+          };
+        };
+      }
+      {
+        description = "Send Signal to desktop 6";
+        match = {
+          window-class = {
+            value = "signal";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_6";
+            apply = "initially";
+          };
+        };
+      }
     ];
 
     configFile = {
