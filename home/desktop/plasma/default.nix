@@ -229,6 +229,36 @@
           };
         };
       }
+      {
+        description = "Send Obsidian to desktop 10";
+        match = {
+          window-class = {
+            value = "obsidian";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_10";
+            apply = "initially";
+          };
+        };
+      }
+      {
+        description = "Send Slack to desktop 7";
+        match = {
+          window-class = {
+            value = "com.slack.Slack";
+            type = "substring";
+          };
+        };
+        apply = {
+          desktops = {
+            value = "Desktop_7";
+            apply = "initially";
+          };
+        };
+      }
     ];
 
     configFile = {
