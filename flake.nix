@@ -37,7 +37,7 @@
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = let
-      plasmaManager = plasma-manager.homeManagerModules.plasma-manager;
+      plasmaManager = plasma-manager.homeModules.plasma-manager;
       nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
     in {
       fausto = home-manager.lib.homeManagerConfiguration {
