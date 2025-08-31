@@ -44,6 +44,11 @@ in {
       apply = sendToDesktop 1;
     }
     {
+      description = "Send IDEs to desktop";
+      match = matchClass "jetbrains";
+      apply = sendToDesktop 2;
+    }
+    {
       description = "Send Chromium DevTools to desktop";
       match = matchClassAndTitle "chromium" "DevTools";
       apply = sendToDesktop 3;
