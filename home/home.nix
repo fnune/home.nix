@@ -21,7 +21,6 @@
   imports = [
     ../options.nix
     ./desktop/audio.nix
-    ./desktop/authorization.nix
     ./desktop/fonts.nix
     ./desktop/plasma
     ./desktop/video.nix
