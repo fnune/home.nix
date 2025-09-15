@@ -34,6 +34,9 @@
       ".vscode"
       "CLAUDE.local.md"
     ];
+    aliases = {
+      lg = "log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) %s %C(blue)(%an)%C(reset)' --date=short";
+    };
     extraConfig = {
       commit.gpgsign = true;
       init.defaultBranch = "main";
