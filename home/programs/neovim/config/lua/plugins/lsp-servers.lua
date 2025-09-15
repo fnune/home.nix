@@ -33,7 +33,6 @@ return {
     config = function()
       setup("angularls", {})
       setup("biome", {})
-      setup("clangd", {})
       setup("eslint", {})
       setup("gdscript", {})
       setup("golangci_lint_ls", {})

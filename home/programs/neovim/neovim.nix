@@ -22,7 +22,6 @@ in {
       # LSPs
       angular-language-server
       basedpyright
-      clang-tools
       gopls
       lua-language-server
       nil
