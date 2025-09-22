@@ -45,6 +45,12 @@ nix run home-manager/release-25.05 -- switch --flake "."
 
 This downloads over 20GB of packages.
 
+To switch later, you can use `nh`:
+
+```sh
+nh home switch .
+```
+
 ### Set up locales
 
 Install locales package:

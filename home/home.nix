@@ -13,6 +13,7 @@
   };
 
   programs.home-manager.enable = true;
+  programs.nh.enable = true;
   targets.genericLinux.enable = true;
   services.apt.enable = true;
   news.display = "silent";
