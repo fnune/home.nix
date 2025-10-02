@@ -59,6 +59,7 @@ in {
       # Lower-level tools
       inotify-tools
       nodejs_22
+      sqlite
       tree-sitter
     ];
 

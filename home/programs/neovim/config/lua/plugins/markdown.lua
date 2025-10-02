@@ -10,6 +10,7 @@ return {
       pipe_table = { style = "normal" },
       sign = { enabled = false },
       file_types = { "markdown", "codecompanion" },
+      latex = { enabled = false },
       overrides = {
         buftype = {
           nofile = {
