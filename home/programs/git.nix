@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs; [diffstat];
+    packages = with pkgs; [diffstat gh];
   };
   programs.zsh = {
     shellAliases = {
