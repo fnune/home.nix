@@ -24,10 +24,10 @@ function t() {
     tmux split-window -c "$service_repo" -v
 
     # Frontend
-    tmux send-keys -t 1 "cd $service_repo/cmd/console2 && PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 yarn run start:hmr" C-m
+    tmux send-keys -t 1 "cd $service_repo/cmd/console2 && yarn && PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 yarn run start:hmr" C-m
 
-    # Console backend
-    tmux send-keys -t 2 "PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 ./scripts/dev/run-console.sh backend" C-m
+    # Console backend & Go deps
+    tmux send-keys -t 2 "make ensure && make install_gotools && PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 ./scripts/dev/run-console.sh backend" C-m
 
     # Tunnels and database
     tmux send-keys -t 3 "$HOME/.home.nix/home/work/services.sh" C-m
