@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   options = {
@@ -14,6 +15,11 @@
           type = lib.types.str;
           default = "fausto.nunez@mailbox.org";
         };
+      };
+      sshKeyPath = lib.mkOption {
+        type = lib.types.str;
+        default = "${config.home.homeDirectory}/.ssh/id_ed25519";
+        description = "Full path to the SSH private key";
       };
     };
     machine = {

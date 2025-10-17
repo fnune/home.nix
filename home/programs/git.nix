@@ -39,6 +39,8 @@
     };
     extraConfig = {
       commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "${config.profile.sshKeyPath}.pub";
       init.defaultBranch = "main";
       pull.ff = "only";
       push.autoSetupRemote = true;
