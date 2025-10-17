@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   xdg = {
     configFile = {
       "environment.d/ssh_askpass.conf".text = ''
@@ -23,7 +27,7 @@
           }
 
           until kwallet_loaded; do sleep 1; done
-          ssh-add ~/.ssh/id_ed25519 2>/dev/null
+          ssh-add ${config.profile.sshKeyPath} 2>/dev/null
         ''}
         Hidden=false
         NoDisplay=true
