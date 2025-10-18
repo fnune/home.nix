@@ -12,8 +12,6 @@
     "ksshaskpass"
     "kweather"
     "libreoffice-fresh"
-    "octopi"
-    "octopi-notifier-frameworks"
     "pdfarranger"
   ];
 
