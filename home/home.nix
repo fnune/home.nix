@@ -40,6 +40,7 @@
     ./programs/networking.nix
     ./programs/pacman.nix
     ./programs/ripgrep.nix
+    ./programs/ssh.nix
     ./programs/tmux/tmux.nix
     ./programs/utils.nix
     ./programs/vivid/vivid.nix
