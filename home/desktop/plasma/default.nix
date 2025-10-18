@@ -1,5 +1,5 @@
 {config, ...}: {
-  imports = [./palette.nix ./window-rules.nix];
+  imports = [./window-rules.nix];
 
   services.pacman.packages = [
     "flatpak"
