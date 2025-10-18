@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  src = "${config.home.homeDirectory}/go/src/github.com/pulumi";
-  src-service = "${src}/pulumi-service";
-  src-oss = "${src}/pulumi";
+  repos = "${config.home.homeDirectory}/Development/pulumi";
+  repo-service = "${repos}/pulumi-service";
+  repo-pulumi = "${repos}/pulumi";
 in {
   home = {
     packages = with pkgs.unstable; [
@@ -28,9 +28,9 @@ in {
 
     file = {
       "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
-      "${src-oss}/.envrc".source = ./envrc.oss.sh;
-      "${src-service}/.envrc.local".source = ./envrc.sh;
-      "${src-service}/CLAUDE.local.md".source = ./CLAUDE.md;
+      "${repo-pulumi}/.envrc".source = ./envrc.oss.sh;
+      "${repo-service}/.envrc.local".source = ./envrc.sh;
+      "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;
     };
 
     sessionVariables = {

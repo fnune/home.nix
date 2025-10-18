@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function t() {
-  local repos="$HOME/go/src/github.com/pulumi"
+  local repos="$HOME/Development/pulumi"
   local service_repo="$repos/pulumi-service"
   local pulumi_repo="$repos/pulumi"
 
