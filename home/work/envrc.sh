@@ -6,6 +6,7 @@ export GOPATH="$HOME/.go"
 export GOPRIVATE="github.com/pulumi"
 export HELPMAKEGO_EXPERIMENT_DAEMON=true
 export PATH="$GOPATH/bin:$PATH"
+export PULUMI_SERVICE_LOCAL_DATA="$HOME/.pulumi-service-local/data"
 export PULUMI_STACK_NAME_OVERRIDE=fnune-review
 
 dotenv shared.env
