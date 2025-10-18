@@ -12,10 +12,9 @@ su - -c "usermod -aG sudo $USER"
 
 ### Install Nix
 
-Install dependencies and Nix package manager:
+Install the Nix package manager:
 
 ```bash
-sudo pacman -S curl git
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 ```
 
@@ -102,58 +101,12 @@ sudo plymouth-set-default-theme spinner
 sudo mkinitcpio -P
 ```
 
-Ensure `splash` is in `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`, then:
-
-```bash
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-### Configure KDE Wallet for SSH
-
-KWallet integration is automatic with KDE. If some program uses GNOME Keyring instead, mask it:
-
-```sh
-systemctl --user mask gnome-keyring-daemon.service
-systemctl --user mask gnome-keyring-daemon.socket
-```
-
-### Set up SDDM
-
-Go to Settings → Login Screen → Apply Plasma Settings. Then, create `/etc/sddm.conf.d/hidpi.conf`:
-
-```ini
-[General]
-GreeterEnvironment=QT_SCREEN_SCALE_FACTORS=1.6
-
-[Wayland]
-EnableHiDPI=true
-
-[X11]
-EnableHiDPI=true
-```
-
-Apply modifications to the theme you're using, e.g. by creating `/usr/share/sddm/themes/breeze/theme.conf.user`:
-
-```ini
-[General]
-type=color
-color=#212121
-background=
-```
-
-### Fix Flatpak permissions
+### Fix some Flatpaks
 
 To make Flatpaks work more seamlessly with the host system:
 
 ```sh
-flatpak override --user --talk-name=org.freedesktop.portal.Desktop
-flatpak override --user --talk-name=org.freedesktop.portal.Settings
-
-flatpak override --user --filesystem=/nix/store/:ro
-
-flatpak override --user --filesystem=xdg-config/fontconfig:ro
-flatpak override --user --filesystem=/home/$USER/.icons/:ro
-flatpak override --user --filesystem=/usr/share/icons/:ro
+flatpak override --user com.slack.Slack --socket=wayland --env=ELECTRON_OZONE_PLATFORM_HINT=auto
 ```
 
 ### Tuxedo InfinityBook hardware setup
@@ -166,16 +119,16 @@ The ethernet driver requires secure boot to be disabled in BIOS/UEFI.
 
 #### Add kernel parameter
 
-Add to `/etc/default/grub`:
+Edit your boot entry file:
 
 ```bash
-GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi.ec_no_wakeup=1"
+sudoedit /boot/loader/entries/linux-cachyos.conf
 ```
 
-Update GRUB:
+Add the parameter to the `options` line:
 
 ```bash
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+options root=UUID=<redacted> quiet acpi.ec_no_wakeup=1
 ```
 
 #### Install ethernet driver
@@ -183,25 +136,4 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```bash
 sudo pacman -S linux-cachyos-headers
 paru -S yt6801-dkms
-```
-
-Verify:
-
-```bash
-dkms status
-ip link show
-```
-
-#### Reboot
-
-```bash
-sudo reboot
-```
-
-After reboot, verify everything works:
-
-```bash
-cat /proc/cmdline | grep acpi.ec_no_wakeup
-ip link show
-ping -c 4 1.1.1.1
 ```
