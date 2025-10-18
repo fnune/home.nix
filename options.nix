@@ -124,7 +124,7 @@
     browser = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "firefox-esr";
+        default = "firefox";
         description = "The preferred browser";
       };
     };
