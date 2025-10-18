@@ -34,6 +34,7 @@ in {
     };
 
     sessionVariables = {
+      GOPATH = "$HOME/.go";
       PATH = "$HOME/.pulumi/bin:$PATH"; # curl -fsSL https://get.pulumi.com | sh
     };
   };
