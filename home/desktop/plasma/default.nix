@@ -1,23 +1,20 @@
 {config, ...}: {
-  imports = [./authorization.nix ./palette.nix ./window-rules.nix];
+  imports = [./palette.nix ./window-rules.nix];
 
-  services.apt.packages = [
-    "discover"
-    "filelight"
+  services.pacman.packages = [
     "flatpak"
-    "flatseal"
     "haruna"
     "isoimagewriter"
     "kalk"
     "kcharselect"
     "kclock"
     "kcolorchooser"
-    "kde-config-plymouth"
     "ksshaskpass"
     "kweather"
-    "libreoffice-qt6"
+    "libreoffice-fresh"
+    "octopi"
+    "octopi-notifier-frameworks"
     "pdfarranger"
-    "plasma-discover-backend-flatpak"
   ];
 
   programs.plasma = {

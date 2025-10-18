@@ -4,7 +4,7 @@ _: {
     sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
   };
 
-  services.apt.packages = ["firefox-esr" "chromium"];
+  services.pacman.packages = ["firefox" "chromium"];
 
   programs = let
     firefoxPolicies = {

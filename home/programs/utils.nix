@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.apt.packages = ["build-essential"];
+  services.pacman.packages = ["base-devel"];
 
   home.packages = with pkgs; [
     exiftool

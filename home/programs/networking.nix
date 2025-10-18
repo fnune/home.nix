@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.apt.packages = ["wireshark"];
+  services.pacman.packages = ["wireshark-qt"];
 
   home.packages = with pkgs; [
     dig

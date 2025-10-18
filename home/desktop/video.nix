@@ -1,3 +1,3 @@
 _: {
-  services.apt.packages = ["kdenlive"];
+  services.pacman.packages = ["kdenlive"];
 }

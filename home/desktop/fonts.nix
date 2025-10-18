@@ -1,16 +1,10 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
-  services.apt.packages = ["fonts-inter" "fonts-jetbrains-mono"];
-
-  home.packages = with pkgs; [
-    adwaita-fonts
-    nerd-fonts.sauce-code-pro
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-emoji
+{config, ...}: {
+  services.pacman.packages = [
+    "inter-font"
+    "noto-fonts-cjk"
+    "noto-fonts-emoji"
+    "ttf-jetbrains-mono"
+    "ttf-sourcecodepro-nerd"
   ];
 
   fonts = {

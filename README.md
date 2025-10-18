@@ -1,6 +1,6 @@
 # `home.nix`
 
-## Setting up a new Debian machine
+## Setting up a new CachyOS machine
 
 ### Initial setup
 
@@ -15,7 +15,7 @@ su - -c "usermod -aG sudo $USER"
 Install dependencies and Nix package manager:
 
 ```bash
-sudo apt install -y curl git
+sudo pacman -S curl git
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 ```
 
@@ -32,7 +32,7 @@ Clone the home.nix repository:
 ```bash
 git clone https://github.com/fnune/home.nix ~/.home.nix
 cd ~/.home.nix
-git checkout debian
+git checkout arch
 ```
 
 ### Apply Home Manager configuration
@@ -56,7 +56,7 @@ nh home switch .
 Install locales package:
 
 ```bash
-sudo apt install -y locales
+sudo pacman -S glibc
 ```
 
 Add these locales to `/etc/locale.gen`:
@@ -74,7 +74,7 @@ Generate locales:
 sudo locale-gen
 ```
 
-Configure `/etc/default/locale`:
+Configure `/etc/locale.conf`:
 
 ```bash
 LANG="en_US.UTF-8"
@@ -95,27 +95,22 @@ LC_TELEPHONE="de_DE.UTF-8"
 
 ### Configure boot splash
 
-Install Plymouth:
+Plymouth is pre-installed in CachyOS. Configure theme:
 
 ```bash
-sudo apt install -y plymouth plymouth-themes
 sudo plymouth-set-default-theme spinner
-sudo update-initramfs -u
+sudo mkinitcpio -P
 ```
 
-Add `splash` to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`, then:
+Ensure `splash` is in `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`, then:
 
 ```bash
-sudo update-grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-Set `pinentry-kwallet` as the priority `pinentry` alternative:
+### Configure KDE Wallet for SSH
 
-```sh
-sudo update-alternatives --install /usr/bin/pinentry pinentry /usr/bin/pinentry-kwallet 95
-```
-
-If some program continues to use GNOME Keyring (which may be installed by programs unrelated to KDE) then mask the service:
+KWallet integration is automatic with KDE. If some program uses GNOME Keyring instead, mask it:
 
 ```sh
 systemctl --user mask gnome-keyring-daemon.service
@@ -137,7 +132,7 @@ EnableHiDPI=true
 EnableHiDPI=true
 ```
 
-Apply modifications to the theme you're using, e.g. by creating `/usr/share/sddm/themes/debian-breeze/theme.conf.user`:
+Apply modifications to the theme you're using, e.g. by creating `/usr/share/sddm/themes/breeze/theme.conf.user`:
 
 ```ini
 [General]
@@ -151,24 +146,62 @@ background=
 To make Flatpaks work more seamlessly with the host system:
 
 ```sh
-# Enable Flatpaks to see e.g. whether the system is using light or dark mode
 flatpak override --user --talk-name=org.freedesktop.portal.Desktop
 flatpak override --user --talk-name=org.freedesktop.portal.Settings
 
-# Let Flatpaks read the Nix store to e.g. allow access to fonts and cursors
 flatpak override --user --filesystem=/nix/store/:ro
 
-# Also host system fonts and cursors
 flatpak override --user --filesystem=xdg-config/fontconfig:ro
 flatpak override --user --filesystem=/home/$USER/.icons/:ro
 flatpak override --user --filesystem=/usr/share/icons/:ro
 ```
 
-## Enable external repositories
+### Tuxedo InfinityBook hardware setup
 
-Enables installing e.g. Docker and a more up-to-date Firefox.
+For the Tuxedo InfinityBook Pro 14 Gen9, additional setup is required:
 
-```sh
-sudo extrepo enable mozilla
-sudo extrepo enable docker-ce
+#### Disable secure boot
+
+The ethernet driver requires secure boot to be disabled in BIOS/UEFI.
+
+#### Add kernel parameter
+
+Add to `/etc/default/grub`:
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi.ec_no_wakeup=1"
+```
+
+Update GRUB:
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+#### Install ethernet driver
+
+```bash
+sudo pacman -S linux-cachyos-headers
+paru -S yt6801-dkms
+```
+
+Verify:
+
+```bash
+dkms status
+ip link show
+```
+
+#### Reboot
+
+```bash
+sudo reboot
+```
+
+After reboot, verify everything works:
+
+```bash
+cat /proc/cmdline | grep acpi.ec_no_wakeup
+ip link show
+ping -c 4 1.1.1.1
 ```

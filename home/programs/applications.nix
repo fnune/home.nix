@@ -1,5 +1,13 @@
 {config, ...}: {
-  services.apt.packages = [
+  services.pacman.packages = [
+    "bitwarden"
+    "bitwarden-cli"
+    "darktable"
+    "krita"
+    "obs-studio"
+    "obsidian"
+    "podman-desktop"
+    "signal-desktop"
     "thunderbird"
   ];
 
@@ -7,18 +15,8 @@
     enable = true;
     packages = [
       "com.dropbox.Client"
-      "com.obsproject.Studio"
-      "com.obsproject.Studio.Plugin.AdvancedMasks"
-      "com.obsproject.Studio.Plugin.BackgroundRemoval"
       "com.slack.Slack"
       "com.spotify.Client"
-      "com.yubico.yubioath"
-      "de.haeckerfelix.Shortwave"
-      "io.podman_desktop.PodmanDesktop"
-      "md.obsidian.Obsidian"
-      "org.darktable.Darktable"
-      "org.kde.krita"
-      "org.signal.Signal"
       "us.zoom.Zoom"
     ];
   };
