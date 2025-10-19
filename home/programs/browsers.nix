@@ -1,44 +1,54 @@
-_: {
+{pkgs, ...}: let
+  firefoxPolicies = {
+    DisableTelemetry = true;
+    NewTabPage = false;
+    PasswordManagerEnabled = false;
+    DisplayBookmarksToolbar = "never";
+    Homepage = {
+      URL = "about:blank";
+      StartPage = "none";
+    };
+    SearchEngines = {
+      Default = "DuckDuckGo";
+      Remove = ["Bing" "Ecosia" "Google" "Perplexity" "Wikipedia (en)"];
+    };
+    Preferences = {
+      "browser.aboutConfig.showWarning" = false;
+      "browser.translations.automaticallyPopup" = false;
+      "browser.urlbar.resultMenu.keyboardAccessible" = false;
+      "browser.urlbar.suggest.engines" = false;
+      "browser.urlbar.suggest.quickactions" = false;
+      "browser.urlbar.suggest.searches" = false;
+      "browser.urlbar.suggest.topsites" = false;
+      "datareporting.healthreport.uploadEnabled" = false;
+      "datareporting.policy.dataSubmissionEnabled" = false;
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+      "widget.use-xdg-desktop-portal.location" = 1;
+      "widget.use-xdg-desktop-portal.mime-handler" = 1;
+      "widget.use-xdg-desktop-portal.native-messaging" = 1;
+      "widget.use-xdg-desktop-portal.open-uri" = 1;
+      "widget.use-xdg-desktop-portal.settings" = 1;
+    };
+  };
+
+  policiesJson = pkgs.writeText "firefox-policies.json" (builtins.toJSON {
+    policies = firefoxPolicies;
+  });
+
+  installFirefoxPolicies = pkgs.writeShellScriptBin "install-firefox-policies" ''
+    #!/usr/bin/env sh
+    set -e
+    echo "Installing Firefox policies system-wide..."
+    sudo mkdir -p /etc/firefox/policies
+    sudo cp ${policiesJson} /etc/firefox/policies/policies.json
+    echo "Firefox policies installed to /etc/firefox/policies/policies.json"
+    echo "Restart Firefox and visit about:policies to verify."
+  '';
+in {
   home = {
-    sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
-    sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
+    sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+    packages = [installFirefoxPolicies];
   };
 
   services.pacman.packages = ["firefox" "chromium"];
-
-  programs = let
-    firefoxPolicies = {
-      DisableAppUpdate = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DisplayBookmarksToolbar = "never";
-      Homepage.StartPage = "none";
-      NewTabPage = false;
-      NoDefaultBookmarks = true;
-      PasswordManagerEnabled = false;
-      SearchEngines = {
-        Default = "DuckDuckGo";
-      };
-      Preferences = {
-        "browser.aboutConfig.showWarning" = false;
-        "browser.search.suggest.enabled" = false;
-        "browser.sessionstore.max_resumed_crashes" = -1;
-        "browser.translations.automaticallyPopup" = false;
-        "browser.urlbar.resultMenu.keyboardAccessible" = false;
-        "browser.urlbar.shortcuts.bookmarks" = false;
-        "browser.urlbar.shortcuts.history" = false;
-        "browser.urlbar.shortcuts.tabs" = false;
-        "sidebar.verticalTabs" = true;
-        "widget.use-xdg-desktop-portal" = true;
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-        "widget.wayland.fractional-scale.enabled" = true;
-      };
-    };
-  in {
-    firefox = {
-      enable = true;
-      package = null;
-      policies = firefoxPolicies;
-    };
-  };
 }

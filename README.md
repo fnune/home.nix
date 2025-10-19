@@ -109,6 +109,16 @@ To make Flatpaks work more seamlessly with the host system:
 flatpak override --user com.slack.Slack --socket=wayland --env=ELECTRON_OZONE_PLATFORM_HINT=auto
 ```
 
+### Install Firefox policies
+
+Install system-wide Firefox policies (preferences, telemetry settings, search engines):
+
+```sh
+install-firefox-policies
+```
+
+This installs policies to `/etc/firefox/policies/policies.json`. Restart Firefox and visit `about:policies` to verify.
+
 ### Tuxedo InfinityBook hardware setup
 
 For the Tuxedo InfinityBook Pro 14 Gen9, additional setup is required:
