@@ -55,7 +55,6 @@
       "browser.urlbar.suggest.quickactions" = false;
       "browser.urlbar.suggest.searches" = false;
       "browser.urlbar.suggest.topsites" = false;
-      "datareporting.healthreport.uploadEnabled" = false;
       "datareporting.policy.dataSubmissionEnabled" = false;
       "widget.use-xdg-desktop-portal.file-picker" = 1;
       "widget.use-xdg-desktop-portal.location" = 1;
