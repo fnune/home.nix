@@ -80,7 +80,6 @@
     HomepageIsNewTabPage = false;
     HomepageLocation = "about:blank";
     MetricsReportingEnabled = false;
-    NTPContentSuggestionsEnabled = false;
     PasswordManagerEnabled = false;
     PromotionalTabsEnabled = false;
     SearchSuggestEnabled = false;
