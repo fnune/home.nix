@@ -42,6 +42,7 @@
         export SHELL=$(which zsh)
         export KEYTIMEOUT=1
         export EZA_ICONS_AUTO=auto
+        export PATH="$HOME/.local/bin:$PATH"
       '';
       profileExtra = ''
         function cdb() {
