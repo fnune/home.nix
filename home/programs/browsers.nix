@@ -1,7 +1,11 @@
 {pkgs, ...}: let
   firefoxPolicies = {
     DisableTelemetry = true;
+    DisableFirefoxStudies = true;
+    DisableFeedbackCommands = true;
     NewTabPage = false;
+    NoDefaultBookmarks = true;
+    OfferToSaveLogins = false;
     PasswordManagerEnabled = false;
     DisplayBookmarksToolbar = "never";
     Homepage = {
@@ -11,6 +15,37 @@
     SearchEngines = {
       Default = "DuckDuckGo";
       Remove = ["Bing" "Ecosia" "Google" "Perplexity" "Wikipedia (en)"];
+    };
+    FirefoxHome = {
+      Highlights = false;
+      Locked = true;
+      Pocket = false;
+      Search = false;
+      Snippets = false;
+      SponsoredPocket = false;
+      SponsoredTopSites = false;
+      TopSites = false;
+    };
+    FirefoxSuggest = {
+      ImproveSuggest = false;
+      Locked = true;
+      SponsoredSuggestions = false;
+      WebSuggestions = false;
+    };
+    GenerativeAI = {
+      Chatbot = false;
+      LinkPreviews = false;
+      Locked = true;
+      TabGroups = false;
+    };
+    UserMessaging = {
+      ExtensionRecommendations = false;
+      FeatureRecommendations = false;
+      FirefoxLabs = false;
+      Locked = true;
+      MoreFromMozilla = false;
+      SkipOnboarding = true;
+      UrlbarInterventions = false;
     };
     Preferences = {
       "browser.aboutConfig.showWarning" = false;
@@ -35,19 +70,49 @@
     policies = firefoxPolicies;
   });
 
-  installFirefoxPolicies = pkgs.writeShellScriptBin "install-firefox-policies" ''
+  chromiumPolicies = {
+    BackgroundModeEnabled = false;
+    BookmarkBarEnabled = false;
+    DefaultSearchProviderEnabled = true;
+    DefaultSearchProviderName = "DuckDuckGo";
+    DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+    DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+    HomepageIsNewTabPage = false;
+    HomepageLocation = "about:blank";
+    MetricsReportingEnabled = false;
+    NTPContentSuggestionsEnabled = false;
+    PasswordManagerEnabled = false;
+    PromotionalTabsEnabled = false;
+    SearchSuggestEnabled = false;
+    ShowHomeButton = false;
+    UserFeedbackAllowed = false;
+  };
+
+  chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
+
+  installBrowserPolicies = pkgs.writeShellScriptBin "install-browser-policies" ''
     #!/usr/bin/env sh
     set -e
     echo "Installing Firefox policies system-wide..."
     sudo mkdir -p /etc/firefox/policies
     sudo cp ${policiesJson} /etc/firefox/policies/policies.json
     echo "Firefox policies installed to /etc/firefox/policies/policies.json"
-    echo "Restart Firefox and visit about:policies to verify."
+
+    echo ""
+    echo "Installing Chromium policies system-wide..."
+    sudo mkdir -p /etc/chromium/policies/managed
+    sudo cp ${chromiumPoliciesJson} /etc/chromium/policies/managed/policies.json
+    echo "Chromium policies installed to /etc/chromium/policies/managed/policies.json"
+
+    echo ""
+    echo "Done! Restart browsers and visit:"
+    echo "  - Firefox: about:policies"
+    echo "  - Chromium: chrome://policy"
   '';
 in {
   home = {
     sessionVariables.MOZ_ENABLE_WAYLAND = "1";
-    packages = [installFirefoxPolicies];
+    packages = [installBrowserPolicies];
   };
 
   services.pacman.packages = ["firefox" "chromium"];
