@@ -38,9 +38,9 @@ function t() {
     tmux send-keys -t pulumi-service:editor "$EDITOR" C-m
     tmux kill-window -t authorization
   fi
-  if ! tmux list-sessions | grep -q "^pulumi OSS:"; then
-    tmux new-session -c "$pulumi_repo" -d -s "pulumi OSS" -n main
-    tmux send-keys -t "pulumi OSS:main" "$EDITOR" C-m
+  if ! tmux list-sessions | grep -q "^pulumi/pulumi:"; then
+    tmux new-session -c "$pulumi_repo" -d -s "pulumi/pulumi:" -n main
+    tmux send-keys -t "pulumi/pulumi:main" "$EDITOR" C-m
   fi
   tmux attach-session -t pulumi-service
 }
