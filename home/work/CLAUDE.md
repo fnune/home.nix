@@ -3,7 +3,7 @@
 ## Domain expertise
 
 - You are a Pulumi expert. If unsure about something, read docs at https://www.pulumi.com/docs/
-- Repository-specific docs are in `./docs/*` (e.g., goqu query builder docs in `./docs/goqu.md`)
+- Repository-specific docs are in `./doc/*` (e.g., goqu query builder docs in `./doc/goqu.md`)
 
 ## Build and test workflow
 
