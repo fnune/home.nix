@@ -78,7 +78,6 @@
     DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
     DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
     HomepageIsNewTabPage = false;
-    HomepageLocation = "about:blank";
     MetricsReportingEnabled = false;
     PasswordManagerEnabled = false;
     PromotionalTabsEnabled = false;
