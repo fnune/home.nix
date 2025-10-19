@@ -80,7 +80,6 @@
     HomepageIsNewTabPage = false;
     MetricsReportingEnabled = false;
     PasswordManagerEnabled = false;
-    PromotionalTabsEnabled = false;
     SearchSuggestEnabled = false;
     ShowHomeButton = false;
     UserFeedbackAllowed = false;
