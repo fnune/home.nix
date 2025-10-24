@@ -8,6 +8,7 @@
     jq
     lm_sensors
     lshw
+    lsof
     moreutils
     tree
     watchexec
