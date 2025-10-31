@@ -20,7 +20,6 @@ in {
       lefthook
       mockgen
       mysql80
-      pulumi-esc
       typescript
       uv
       yarn
