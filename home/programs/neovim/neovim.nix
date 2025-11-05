@@ -58,7 +58,6 @@ in {
       python3Packages.debugpy
       # Lower-level tools
       inotify-tools
-      mermaid-cli
       nodejs_22
       sqlite
       tree-sitter
@@ -79,4 +78,6 @@ in {
   };
   programs.git.extraConfig.user.editor = "nvim";
   programs.zsh.shellAliases.vim = "nvim";
+
+  services.pacman.packages = ["mermaid-cli"];
 }
