@@ -36,9 +36,21 @@ return {
       local notes_dir = "~/Documents/Fausto/daily/"
       local function open_daily_note(offset)
         return function()
-          local date = os.date("%Y-%m-%d", os.time() + offset * 86400)
+          local timestamp = os.time() + offset * 86400
+          local date = os.date("%Y-%m-%d", timestamp)
           local path = vim.fn.expand(notes_dir .. date .. ".md")
+
           vim.cmd("edit " .. path)
+
+          local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+          local is_empty = #lines == 1 and lines[1] == ""
+
+          if is_empty then
+            local heading = os.date("# %B %d, %Y", timestamp)
+            vim.api.nvim_buf_set_lines(0, 0, 0, false, { heading, "", "" })
+            vim.api.nvim_win_set_cursor(0, { 3, 0 })
+            vim.cmd("startinsert")
+          end
         end
       end
 
