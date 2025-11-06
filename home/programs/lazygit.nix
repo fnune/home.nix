@@ -5,6 +5,7 @@ in {
     lazygit = {
       enable = true;
       settings = {
+        promptToReturnFromSubprocess = false;
         os = {
           edit = "${jetbrainsTool} {{filename}}";
           editAtLine = "${jetbrainsTool} --line {{line}} {{filename}}";
