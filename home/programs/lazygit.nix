@@ -15,5 +15,6 @@ in {
         };
       };
     };
+    zsh.shellAliases.lg = "lazygit";
   };
 }
