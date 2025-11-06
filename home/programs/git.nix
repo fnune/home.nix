@@ -45,6 +45,8 @@
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
+      diff.tool = config.jetbrains.tool;
+      difftool.${config.jetbrains.tool}.cmd = "${config.jetbrains.tool} diff \"$LOCAL\" \"$REMOTE\"";
     };
   };
 }
