@@ -22,6 +22,7 @@ in {
       # LSPs
       angular-language-server
       basedpyright
+      bash-language-server
       gopls
       lua-language-server
       nil
@@ -33,18 +34,6 @@ in {
       typescript-language-server
       vscode-langservers-extracted
       yaml-language-server
-      # Linters
-      alejandra
-      eslint
-      eslint_d
-      go-tools
-      luajitPackages.luacheck
-      nodePackages.jsonlint
-      ruff
-      shellcheck
-      sqlfluff
-      statix
-      stylelint
       # Formatters
       biome
       gofumpt
