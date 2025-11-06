@@ -34,13 +34,13 @@ function t() {
 
     # Select the left empty pane
     tmux select-pane -t 0
-    tmux new-window -c "$service_repo" -n editor
-    tmux send-keys -t pulumi-service:editor "$EDITOR" C-m
+    tmux new-window -c "$service_repo" -n git
+    tmux send-keys -t pulumi-service:git "lazygit" C-m
     tmux kill-window -t authorization
   fi
   if ! tmux list-sessions | grep -q "^pulumi/pulumi:"; then
     tmux new-session -c "$pulumi_repo" -d -s "pulumi/pulumi:" -n main
-    tmux send-keys -t "pulumi/pulumi:main" "$EDITOR" C-m
+    tmux send-keys -t "pulumi/pulumi:main" "lazygit" C-m
   fi
   tmux attach-session -t pulumi-service
 }
