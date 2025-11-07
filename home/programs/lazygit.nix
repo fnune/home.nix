@@ -13,6 +13,9 @@ in {
           open = "${jetbrainsTool} {{filename}}";
           openDirInEditor = "${jetbrainsTool} {{filename}}";
         };
+        git = {
+          overrideGpg = true;
+        };
       };
     };
     zsh.shellAliases.lg = "lazygit";
