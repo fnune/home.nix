@@ -35,6 +35,7 @@ in {
       vscode-langservers-extracted
       yaml-language-server
       # Formatters
+      alejandra
       biome
       gofumpt
       nodePackages.prettier
