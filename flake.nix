@@ -2,8 +2,7 @@
   description = "fnune's configuration files";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,19 +19,12 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     plasma-manager,
     nix-flatpak,
     ...
   }: let
     system = "x86_64-linux";
-    nixpkgsOverlay = final: prev: {
-      unstable = import nixpkgs-unstable {
-        inherit (prev) config;
-        inherit system;
-      };
-    };
   in {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
@@ -41,10 +33,7 @@
       nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
     in {
       fausto = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [nixpkgsOverlay];
-        };
+        pkgs = import nixpkgs {inherit system;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };
     };

@@ -8,7 +8,7 @@
   repo-pulumi = "${repos}/pulumi";
 in {
   home = {
-    packages = with pkgs.unstable; [
+    packages = with pkgs; [
       awscli2
       go
       golangci-lint
