@@ -6,31 +6,52 @@ function set_tmux_session_theme() {
   local fg_color="#ffffff"
 
   tmux set -t "$session" status-style "bg=$bg_color,fg=$fg_color"
-  tmux set -t "$session" status-left " #S "
+  tmux set -t "$session" status-left " #[bold]#S#[nobold] "
   tmux set -t "$session" status-right ""
+}
+
+function create_simple_session() {
+  local session="$1"
+  local repo_path="$2"
+  local color="$3"
+
+  tmux new-session -c "$repo_path" -d -s "$session" -n git
+  set_tmux_session_theme "$session" "$color"
+  tmux send-keys -t "$session:git" "lazygit" C-m
+  tmux new-window -c "$repo_path" -n main
+  tmux select-window -t "$session:git"
 }
 
 function t() {
   local repos="$HOME/Development/pulumi"
   local service_repo="$repos/pulumi-service"
   local pulumi_repo="$repos/pulumi"
+  local esc_repo="$repos/esc"
+  local docs_repo="$repos/docs"
+  local registry_repo="$repos/registry"
+
+  local session_service="☁️ pulumi/pulumi-service"
+  local session_pulumi="🔧 pulumi/pulumi"
+  local session_esc="🔐 pulumi/esc"
+  local session_docs="📚 pulumi/docs"
+  local session_registry="📦 pulumi/registry"
 
   local theme_light_blue="#5694ca"
-  local theme_dark_blue="#003078"
   local theme_green="#00703c"
-  local theme_dark_green="#1d2d13"
-  local theme_yellow="#ffdd00"
-  local theme_white="#ffffff"
+  local theme_dark_red="#6a3532"
+  local theme_purple="#4c2c92"
+  local theme_turquoise="#28a197"
 
   cd "$service_repo" || exit
 
   env_entries="$(esc open pulumi/default/review-stacks --format json | jq -r '.environmentVariables | to_entries[]')"
-  env_script="$(echo "$env_entries" | jq -r '"tmux set-environment -t pulumi-service \(.key) \(.value | @sh)"')"
+  env_script="$(echo "$env_entries" | jq -r '"tmux set-environment -t \"'"$session_service"'\" \(.key) \(.value | @sh)"')"
 
-  if ! tmux list-sessions | grep -q "^pulumi-service:"; then
-    tmux new-session -c "$service_repo" -d -s pulumi-service -n authorization
+  if ! tmux list-sessions | grep -q "^$session_service:"; then
+    tmux new-session -c "$service_repo" -d -s "$session_service" -n git
     eval "$env_script"
-    set_tmux_session_theme pulumi-service "$theme_light_blue"
+    set_tmux_session_theme "$session_service" "$theme_light_blue"
+    tmux send-keys -t "$session_service:git" "lazygit" C-m
 
     tmux new-window -c "$service_repo" -n auxiliary
 
@@ -52,15 +73,23 @@ function t() {
 
     # Select the left empty pane
     tmux select-pane -t 0
-    tmux new-window -c "$service_repo" -n git
-    tmux send-keys -t pulumi-service:git "lazygit" C-m
-    tmux kill-window -t authorization
+    tmux select-window -t "$session_service:git"
   fi
 
-  if ! tmux list-sessions | grep -q "^pulumi/pulumi:"; then
-    tmux new-session -c "$pulumi_repo" -d -s "pulumi/pulumi" -n main
-    set_tmux_session_theme "pulumi/pulumi" "$theme_green"
-    tmux send-keys -t "pulumi/pulumi:main" "lazygit" C-m
+  if ! tmux list-sessions | grep -q "^$session_pulumi:"; then
+    create_simple_session "$session_pulumi" "$pulumi_repo" "$theme_green"
   fi
-  tmux attach-session -t pulumi-service
+
+  if ! tmux list-sessions | grep -q "^$session_esc:"; then
+    create_simple_session "$session_esc" "$esc_repo" "$theme_dark_red"
+  fi
+
+  if ! tmux list-sessions | grep -q "^$session_docs:"; then
+    create_simple_session "$session_docs" "$docs_repo" "$theme_purple"
+  fi
+
+  if ! tmux list-sessions | grep -q "^$session_registry:"; then
+    create_simple_session "$session_registry" "$registry_repo" "$theme_turquoise"
+  fi
+  tmux attach-session -t "$session_service"
 }
