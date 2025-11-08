@@ -31,7 +31,6 @@ Clone the home.nix repository:
 ```bash
 git clone https://github.com/fnune/home.nix ~/.home.nix
 cd ~/.home.nix
-git checkout arch
 ```
 
 ### Apply Home Manager configuration
