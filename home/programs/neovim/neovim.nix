@@ -66,7 +66,7 @@ in {
       COLORSCHEME = config.colorscheme;
     };
   };
-  programs.git.extraConfig.user.editor = "nvim";
+  programs.git.settings.user.editor = "nvim";
   programs.zsh.shellAliases.vim = "nvim";
 
   services.pacman.packages = ["mermaid-cli"];

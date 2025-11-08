@@ -13,8 +13,6 @@
   };
   programs.git = {
     enable = true;
-    userName = config.profile.name;
-    userEmail = config.profile.email.personal;
     includes = [
       {
         path = "${config.home.homeDirectory}/.local/gitconfig";
@@ -34,13 +32,17 @@
       ".vscode"
       "CLAUDE.local.md"
     ];
-    aliases = {
-      lg = "log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) %s %C(blue)(%an)%C(reset)' --date=short";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = config.profile.name;
+        email = config.profile.email.personal;
+        signingkey = "${config.profile.sshKeyPath}.pub";
+      };
+      alias = {
+        lg = "log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) %s %C(blue)(%an)%C(reset)' --date=short";
+      };
       commit.gpgsign = true;
       gpg.format = "ssh";
-      user.signingkey = "${config.profile.sshKeyPath}.pub";
       init.defaultBranch = "main";
       pull.ff = "only";
       push.autoSetupRemote = true;

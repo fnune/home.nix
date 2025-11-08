@@ -39,7 +39,7 @@ in {
   };
 
   programs.git = {
-    extraConfig = {
+    settings = {
       url = {
         "ssh://git@github.com/pulumi/".insteadOf = "https://github.com/pulumi/";
       };

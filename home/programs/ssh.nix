@@ -3,9 +3,12 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
-    extraConfig = ''
-      IdentityFile ${config.profile.sshKeyPath}
-    '';
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      addKeysToAgent = "yes";
+      identityFile = [config.profile.sshKeyPath];
+      serverAliveCountMax = 5;
+      serverAliveInterval = 10;
+    };
   };
 }
