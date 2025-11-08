@@ -8,7 +8,7 @@
     then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/standard/kitty/standard.dark.conf"
     else "";
 in {
-  home.packages = with pkgs; [unstable.kitty];
+  services.pacman.packages = ["kitty"];
 
   home.file = {
     ".local/share/icons/hicolor/256x256/apps/kitty.png".source = ./whiskers.png;

@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   options = {
@@ -15,11 +16,16 @@
           default = "fausto.nunez@mailbox.org";
         };
       };
+      sshKeyPath = lib.mkOption {
+        type = lib.types.str;
+        default = "${config.home.homeDirectory}/.ssh/id_ed25519";
+        description = "Full path to the SSH private key";
+      };
     };
     machine = {
       scale = lib.mkOption {
         type = lib.types.float;
-        default = 1.0;
+        default = 1.7;
         description = "The display scaling that this machine uses on its primary monitor";
       };
     };
@@ -27,12 +33,12 @@
     fontconfig = {
       sans = lib.mkOption {
         type = lib.types.str;
-        default = "Adwaita Sans";
+        default = "Inter";
         description = "Sans font to use for the desktop";
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "Adwaita Mono";
+        default = "JetBrains Mono";
         description = "Monospace font to use for the desktop and terminal";
       };
       emoji = lib.mkOption {
@@ -77,18 +83,13 @@
     cursors = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "Simp1e-Adw-Dark";
+        default = "breeze_cursors";
         description = "The name of the cursor theme";
       };
       size = lib.mkOption {
         type = lib.types.int;
         default = 32;
         description = "The size of the cursor";
-      };
-      package = lib.mkOption {
-        type = lib.types.package;
-        default = pkgs.simp1e-cursors;
-        description = "The package with the cursor theme";
       };
     };
     shell = {
@@ -123,8 +124,15 @@
     browser = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "firefox-esr";
+        default = "firefox";
         description = "The preferred browser";
+      };
+    };
+    jetbrains = {
+      tool = lib.mkOption {
+        type = lib.types.str;
+        default = "goland";
+        description = "The JetBrains IDE command to use for editing and diffing";
       };
     };
   };

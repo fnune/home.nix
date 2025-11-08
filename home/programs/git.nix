@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs; [difftastic diffstat];
+    packages = with pkgs; [diffstat gh];
   };
   programs.zsh = {
     shellAliases = {
@@ -13,8 +13,6 @@
   };
   programs.git = {
     enable = true;
-    userName = config.profile.name;
-    userEmail = config.profile.email.personal;
     includes = [
       {
         path = "${config.home.homeDirectory}/.local/gitconfig";
@@ -25,6 +23,7 @@
       ".claude"
       ".direnv"
       ".envrc"
+      ".envrc.local"
       ".idea"
       ".nvim.lua"
       ".venv"
@@ -33,18 +32,25 @@
       ".vscode"
       "CLAUDE.local.md"
     ];
-    extraConfig = {
+    settings = {
+      user = {
+        name = config.profile.name;
+        email = config.profile.email.personal;
+        signingkey = "${config.profile.sshKeyPath}.pub";
+      };
+      alias = {
+        lg = "log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) %s %C(blue)(%an)%C(reset)' --date=short";
+      };
       commit.gpgsign = true;
+      gpg.format = "ssh";
       init.defaultBranch = "main";
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
-      pager.difftool = true;
-      diff.tool = "difftastic";
-      difftool = {
-        prompt = false;
-        difftastic.cmd = "${pkgs.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
-      };
+      diff.tool = config.jetbrains.tool;
+      difftool.${config.jetbrains.tool}.cmd = "${config.jetbrains.tool} diff \"$LOCAL\" \"$REMOTE\"";
+      merge.tool = config.jetbrains.tool;
+      mergetool.${config.jetbrains.tool}.cmd = "${config.jetbrains.tool} merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"";
     };
   };
 }

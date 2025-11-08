@@ -10,10 +10,18 @@ return {
       input = { enabled = true },
       notifier = { enabled = true },
       picker = { enabled = true, layout = { preset = "ivy" } },
-      zen = { enabled = true, toggles = { dim = false } },
       quickfile = { enabled = true },
-      dim = { enabled = false },
       styles = { zen = { backdrop = { blend = 30 } } },
+      zen = { enabled = true, toggles = { dim = false } },
+      -- Disabled:
+      dashboard = { enabled = false },
+      dim = { enabled = false },
+      explorer = { enabled = false },
+      lazygit = { enabled = false },
+      scope = { enabled = false },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = false },
+      words = { enabled = false },
     })
   end,
   keys = {

@@ -2,11 +2,13 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  neovim = pkgs.neovim-unwrapped;
+in {
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.unstable.neovim-unwrapped;
+      package = neovim;
       extraLuaPackages = ps: [ps.magick];
       extraPackages = [pkgs.imagemagick];
       withNodeJs = true;
@@ -16,11 +18,11 @@
   };
 
   home = {
-    packages = with pkgs.unstable; [
+    packages = with pkgs; [
       # LSPs
       angular-language-server
       basedpyright
-      clang-tools
+      bash-language-server
       gopls
       lua-language-server
       nil
@@ -32,19 +34,8 @@
       typescript-language-server
       vscode-langservers-extracted
       yaml-language-server
-      # Linters
-      alejandra
-      eslint
-      eslint_d
-      go-tools
-      luajitPackages.luacheck
-      nodePackages.jsonlint
-      ruff
-      shellcheck
-      sqlfluff
-      statix
-      stylelint
       # Formatters
+      alejandra
       biome
       gofumpt
       nodePackages.prettier
@@ -58,6 +49,7 @@
       # Lower-level tools
       inotify-tools
       nodejs_22
+      sqlite
       tree-sitter
     ];
 
@@ -68,12 +60,14 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
-      SUDO_EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "${neovim}/bin/nvim";
+      SUDO_EDITOR = "${neovim}/bin/nvim";
+      VISUAL = "${neovim}/bin/nvim";
       COLORSCHEME = config.colorscheme;
     };
   };
-  programs.git.extraConfig.user.editor = "nvim";
+  programs.git.settings.user.editor = "nvim";
   programs.zsh.shellAliases.vim = "nvim";
+
+  services.pacman.packages = ["mermaid-cli"];
 }

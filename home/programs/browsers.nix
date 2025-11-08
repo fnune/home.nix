@@ -1,73 +1,115 @@
-{pkgs, ...}: {
-  home = {
-    sessionVariables.MOZ_USE_XINPUT2 = "1"; # Improves trackpad scrolling in FF
-    sessionVariables.MOZ_ENABLE_WAYLAND = "1"; # Sometimes FF launches under XWayland otherwise
+{pkgs, ...}: let
+  firefoxPolicies = {
+    DisableTelemetry = true;
+    DisableFirefoxStudies = true;
+    DisableFeedbackCommands = true;
+    NewTabPage = false;
+    NoDefaultBookmarks = true;
+    OfferToSaveLogins = false;
+    PasswordManagerEnabled = false;
+    DisplayBookmarksToolbar = "never";
+    Homepage = {
+      URL = "about:blank";
+      StartPage = "none";
+    };
+    SearchEngines = {
+      Default = "DuckDuckGo";
+      Remove = ["Bing" "Ecosia" "Google" "Perplexity" "Wikipedia (en)"];
+    };
+    FirefoxHome = {
+      Highlights = false;
+      Locked = true;
+      Pocket = false;
+      Search = false;
+      Snippets = false;
+      SponsoredPocket = false;
+      SponsoredTopSites = false;
+      TopSites = false;
+    };
+    FirefoxSuggest = {
+      ImproveSuggest = false;
+      Locked = true;
+      SponsoredSuggestions = false;
+      WebSuggestions = false;
+    };
+    GenerativeAI = {
+      Chatbot = false;
+      LinkPreviews = false;
+      Locked = true;
+      TabGroups = false;
+    };
+    UserMessaging = {
+      ExtensionRecommendations = false;
+      FeatureRecommendations = false;
+      FirefoxLabs = false;
+      Locked = true;
+      MoreFromMozilla = false;
+      SkipOnboarding = true;
+      UrlbarInterventions = false;
+    };
+    Preferences = {
+      "browser.aboutConfig.showWarning" = false;
+      "browser.translations.automaticallyPopup" = false;
+      "browser.urlbar.resultMenu.keyboardAccessible" = false;
+      "browser.urlbar.suggest.engines" = false;
+      "browser.urlbar.suggest.quickactions" = false;
+      "browser.urlbar.suggest.searches" = false;
+      "browser.urlbar.suggest.topsites" = false;
+      "datareporting.policy.dataSubmissionEnabled" = false;
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+      "widget.use-xdg-desktop-portal.location" = 1;
+      "widget.use-xdg-desktop-portal.mime-handler" = 1;
+      "widget.use-xdg-desktop-portal.native-messaging" = 1;
+      "widget.use-xdg-desktop-portal.open-uri" = 1;
+      "widget.use-xdg-desktop-portal.settings" = 1;
+    };
   };
 
-  programs = let
-    firefoxProfiles = {
-      default = {
-        name = "Default";
-        isDefault = true;
-        settings = {
-          "services.sync.username" = "fausto.nunez@mailbox.org";
-        };
-        extensions = {
-          packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            bitwarden
-            istilldontcareaboutcookies
-            onepassword-password-manager
-            sponsorblock
-            ublock-origin
-            vimium
-            zoom-redirector
-          ];
-        };
-      };
-    };
-    firefoxPolicies = {
-      DisableAppUpdate = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DisplayBookmarksToolbar = "never";
-      Homepage.StartPage = "none";
-      NewTabPage = false;
-      NoDefaultBookmarks = true;
-      PasswordManagerEnabled = false;
-      SearchEngines = {
-        Default = "DuckDuckGo";
-      };
-      Preferences = {
-        "browser.aboutConfig.showWarning" = false;
-        "browser.search.suggest.enabled" = false;
-        "browser.sessionstore.max_resumed_crashes" = -1;
-        "browser.tabs.hoverPreview.enabled" = false;
-        "browser.translations.automaticallyPopup" = false;
-        "browser.urlbar.resultMenu.keyboardAccessible" = false;
-        "browser.urlbar.shortcuts.bookmarks" = false;
-        "browser.urlbar.shortcuts.history" = false;
-        "browser.urlbar.shortcuts.tabs" = false;
-        "sidebar.verticalTabs" = true;
-        "widget.use-xdg-desktop-portal" = true;
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-        "widget.wayland.fractional-scale.enabled" = true;
-      };
-    };
-  in {
-    firefox = {
-      enable = true;
-      package = pkgs.firefox-esr-140;
-      profiles = firefoxProfiles;
-      policies = firefoxPolicies;
-    };
-    chromium = {
-      enable = true;
-      extensions = [
-        {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";} # uBlock Origin Lite
-        {id = "dpjamkmjmigaoobjbekmfgabipmfilij";} # Empty new tab page
-        {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
-        {id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";} # 1Password
-      ];
-    };
+  policiesJson = pkgs.writeText "firefox-policies.json" (builtins.toJSON {
+    policies = firefoxPolicies;
+  });
+
+  chromiumPolicies = {
+    BackgroundModeEnabled = false;
+    BookmarkBarEnabled = false;
+    DefaultSearchProviderEnabled = true;
+    DefaultSearchProviderName = "DuckDuckGo";
+    DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+    DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+    HomepageIsNewTabPage = false;
+    MetricsReportingEnabled = false;
+    PasswordManagerEnabled = false;
+    SearchSuggestEnabled = false;
+    ShowHomeButton = false;
+    UserFeedbackAllowed = false;
   };
+
+  chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
+
+  installBrowserPolicies = pkgs.writeShellScriptBin "install-browser-policies" ''
+    #!/usr/bin/env sh
+    set -e
+    echo "Installing Firefox policies system-wide..."
+    sudo mkdir -p /etc/firefox/policies
+    sudo cp ${policiesJson} /etc/firefox/policies/policies.json
+    echo "Firefox policies installed to /etc/firefox/policies/policies.json"
+
+    echo ""
+    echo "Installing Chromium policies system-wide..."
+    sudo mkdir -p /etc/chromium/policies/managed
+    sudo cp ${chromiumPoliciesJson} /etc/chromium/policies/managed/policies.json
+    echo "Chromium policies installed to /etc/chromium/policies/managed/policies.json"
+
+    echo ""
+    echo "Done! Restart browsers and visit:"
+    echo "  - Firefox: about:policies"
+    echo "  - Chromium: chrome://policy"
+  '';
+in {
+  home = {
+    sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+    packages = [installBrowserPolicies];
+  };
+
+  services.pacman.packages = ["firefox" "chromium"];
 }

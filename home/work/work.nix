@@ -3,44 +3,43 @@
   config,
   ...
 }: let
-  src = "${config.home.homeDirectory}/go/src/github.com/pulumi";
-  src-service = "${src}/pulumi-service";
-  awsso = pkgs.callPackage ../../packages/awsso.nix {};
+  repos = "${config.home.homeDirectory}/Development/pulumi";
+  repo-service = "${repos}/pulumi-service";
+  repo-pulumi = "${repos}/pulumi";
 in {
   home = {
-    packages = with pkgs.unstable; [
-      _1password-gui
+    packages = with pkgs; [
       awscli2
-      awsso
       go
       golangci-lint
       golangci-lint-langserver
-      google-chrome
       gotools
+      hugo
       k9s
       kubectl
       lefthook
       mockgen
       mysql80
-      pulumi
-      pulumi-esc
-      pulumiPackages.pulumi-nodejs
-      pulumictl
-      slack
+      typescript
       uv
       yarn
-      zoom-us
     ];
 
     file = {
       "${config.home.homeDirectory}/.zsh/includes/t".source = ./launch.sh;
-      "${src-service}/.envrc.local".source = ./envrc.sh;
-      "${src-service}/CLAUDE.local.md".source = ./CLAUDE.md;
+      "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;
+      "${repo-service}/.envrc.local".source = ./envrc.sh;
+      "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;
+    };
+
+    sessionVariables = {
+      GOPATH = "$HOME/.go";
+      PATH = "$HOME/.pulumi/bin:$PATH"; # curl -fsSL https://get.pulumi.com | sh
     };
   };
 
   programs.git = {
-    extraConfig = {
+    settings = {
       url = {
         "ssh://git@github.com/pulumi/".insteadOf = "https://github.com/pulumi/";
       };

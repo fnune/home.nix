@@ -145,6 +145,7 @@ return {
           "toml",
           "tsx",
           "typescript",
+          "typst",
           "vala",
           "vim",
           "vimdoc",

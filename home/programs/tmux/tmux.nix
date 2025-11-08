@@ -13,9 +13,9 @@ in {
     extraConfig = builtins.readFile ./tmux.conf + "\n" + colorschemeConf;
     terminal = "tmux-256color";
     plugins = with pkgs.tmuxPlugins; [
-      yank
-      vim-tmux-navigator
       extrakto
+      vim-tmux-navigator
+      yank
     ];
   };
 }

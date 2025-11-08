@@ -1,30 +1,19 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
-  imports = [./palette.nix ./panel.nix];
+{config, ...}: {
+  imports = [./window-rules.nix];
 
-  home.packages =
-    (with pkgs; [
-      haruna
-      karp
-      libreoffice-qt
-    ])
-    ++ (with pkgs.kdePackages; [
-      discover
-      filelight
-      isoimagewriter
-      kalk
-      kcharselect
-      kclock
-      kcolorchooser
-      kjournald
-      kweather
-    ]);
-
-  gtk.cursorTheme = config.cursors;
-  home.pointerCursor = config.cursors;
+  services.pacman.packages = [
+    "flatpak"
+    "haruna"
+    "isoimagewriter"
+    "kalk"
+    "kcharselect"
+    "kclock"
+    "kcolorchooser"
+    "ksshaskpass"
+    "kweather"
+    "libreoffice-fresh"
+    "pdfarranger"
+  ];
 
   programs.plasma = {
     enable = true;
@@ -65,6 +54,9 @@
     };
 
     workspace = {
+      theme = "breeze-dark";
+      colorScheme = "BreezeDark";
+      wallpaperFillMode = "preserveAspectCrop";
       splashScreen = {
         engine = "none";
         theme = "none";
@@ -211,28 +203,6 @@
 
       "ksmserver"."Lock Session" = [];
     };
-
-    window-rules = [
-      {
-        description = "Start terminals maximized";
-        match = {
-          window-class = {
-            value = config.terminal.name;
-            type = "substring";
-          };
-        };
-        apply = {
-          maximizehoriz = {
-            value = true;
-            apply = "initially";
-          };
-          maximizevert = {
-            value = true;
-            apply = "initially";
-          };
-        };
-      }
-    ];
 
     configFile = {
       "breezerc" = {

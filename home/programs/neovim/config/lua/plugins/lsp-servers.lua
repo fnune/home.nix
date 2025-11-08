@@ -22,7 +22,6 @@ return {
     config = function()
       local server = require("typescript-tools")
       server.setup(with_defaults({
-        general = { positionEncodings = { "utf-16" } },
         settings = { expose_as_code_action = "all" },
       }))
     end,
@@ -33,7 +32,6 @@ return {
     config = function()
       setup("angularls", {})
       setup("biome", {})
-      setup("clangd", {})
       setup("eslint", {})
       setup("gdscript", {})
       setup("golangci_lint_ls", {})
