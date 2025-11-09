@@ -25,6 +25,7 @@
     ./desktop/fonts.nix
     ./desktop/plasma
     ./desktop/video.nix
+    ./personal/personal.nix
     ./programs/applications.nix
     ./programs/bat.nix
     ./programs/browsers.nix
