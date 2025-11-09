@@ -10,7 +10,7 @@ function n() {
   if ! tmux list-sessions | grep -q "^$session:"; then
     tmux new-session -c "$notes_dir" -d -s "$session" -n notes
     set_tmux_session_theme "$session" "$theme_purple"
-    tmux send-keys -t "$session:notes" "$EDITOR" C-m
+    tmux send-keys -t "$session:notes" "$EDITOR -c 'NvimTreeToggle'" C-m
 
     tmux new-window -c "$dotfiles_dir" -n dotfiles
     tmux send-keys -t "$session:dotfiles" "lazygit" C-m
