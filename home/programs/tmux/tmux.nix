@@ -18,6 +18,4 @@ in {
       yank
     ];
   };
-
-  programs.zsh.initExtra = builtins.readFile ./tmux-utils.sh;
 }

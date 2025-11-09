@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "$HOME/.home.nix/home/programs/tmux/tmux-utils.sh"
+
 function t() {
   local repos="$HOME/Development/pulumi"
   local service_repo="$repos/pulumi-service"

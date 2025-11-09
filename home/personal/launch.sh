@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "$HOME/.home.nix/home/programs/tmux/tmux-utils.sh"
+
 function n() {
   local notes_dir="$HOME/Documents/Fausto"
   local dotfiles_dir="$HOME/.home.nix"
