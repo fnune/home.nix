@@ -10,6 +10,7 @@
     lshw
     lsof
     moreutils
+    strace
     tree
     watchexec
     wl-clipboard
