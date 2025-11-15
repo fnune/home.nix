@@ -2,14 +2,6 @@
 
 ## Setting up a new CachyOS machine
 
-### Initial setup
-
-Add user to sudo group if needed:
-
-```bash
-su - -c "usermod -aG sudo $USER"
-```
-
 ### Install Nix
 
 Install the Nix package manager:
@@ -50,12 +42,6 @@ nh home switch .
 ```
 
 ### Set up locales
-
-Install locales package:
-
-```bash
-sudo pacman -S glibc
-```
 
 Add these locales to `/etc/locale.gen`:
 
