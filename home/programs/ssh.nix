@@ -11,4 +11,9 @@
       serverAliveInterval = 10;
     };
   };
+
+  home.sessionVariables = {
+    SSH_ASKPASS = "/usr/bin/ksshaskpass";
+    SSH_ASKPASS_REQUIRE = "prefer";
+  };
 }
