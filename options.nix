@@ -36,10 +36,30 @@
         default = "Inter";
         description = "Sans font to use for the desktop";
       };
+      serif = lib.mkOption {
+        type = lib.types.str;
+        default = "Libre Baskerville";
+        description = "Serif font to use for the desktop";
+      };
       mono = lib.mkOption {
         type = lib.types.str;
         default = "JetBrains Mono";
         description = "Monospace font to use for the desktop and terminal";
+      };
+      cjkSans = lib.mkOption {
+        type = lib.types.str;
+        default = "Noto Sans CJK JP";
+        description = "CJK sans-serif fallback font";
+      };
+      cjkSerif = lib.mkOption {
+        type = lib.types.str;
+        default = "Noto Serif CJK JP";
+        description = "CJK serif fallback font";
+      };
+      cjkMono = lib.mkOption {
+        type = lib.types.str;
+        default = "Noto Sans Mono CJK JP";
+        description = "CJK monospace fallback font";
       };
       emoji = lib.mkOption {
         type = lib.types.str;

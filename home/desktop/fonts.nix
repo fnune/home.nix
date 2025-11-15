@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.pacman.packages = [
     "inter-font"
     "noto-fonts-cjk"
@@ -7,14 +11,18 @@
     "ttf-sourcecodepro-nerd"
   ];
 
+  home.packages = with pkgs; [
+    libre-baskerville
+  ];
+
   fonts = {
     fontconfig = {
       enable = true;
 
       defaultFonts = {
-        serif = [config.fontconfig.sans];
-        sansSerif = [config.fontconfig.sans];
-        monospace = [config.fontconfig.mono];
+        serif = [config.fontconfig.serif config.fontconfig.cjkSerif];
+        sansSerif = [config.fontconfig.sans config.fontconfig.cjkSans];
+        monospace = [config.fontconfig.mono config.fontconfig.cjkMono];
         emoji = [config.fontconfig.emoji];
       };
     };
@@ -26,6 +34,11 @@
         "-apple-system"
         "Helvetica"
         "Inter"
+      ];
+      serifAliases = [
+        "New York"
+        "Georgia"
+        "Times New Roman"
       ];
       monoAliases = [
         "DejaVu Sans Mono"
@@ -50,6 +63,7 @@
       <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
       <fontconfig>
         ${makeAliases sansAliases config.fontconfig.sans}
+        ${makeAliases serifAliases config.fontconfig.serif}
         ${makeAliases monoAliases config.fontconfig.mono}
       </fontconfig>
     '';
