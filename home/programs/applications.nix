@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [pcloud];
+
   services.pacman.packages = [
     "bitwarden"
     "bitwarden-cli"
@@ -14,7 +20,6 @@
   services.flatpak = {
     enable = true;
     packages = [
-      "com.dropbox.Client"
       "com.slack.Slack"
       "com.spotify.Client"
       "us.zoom.Zoom"
