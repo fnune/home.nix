@@ -3,6 +3,7 @@
 
   services.pacman.packages = [
     "flatpak"
+    "flatpak-kcm"
     "haruna"
     "isoimagewriter"
     "kalk"
