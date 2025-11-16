@@ -346,8 +346,11 @@
 
       "dolphinrc" = {
         "General" = {
+          "DynamicView" = true;
           "EditableUrl" = false;
+          "GlobalViewProps" = false;
           "ShowSelectionToggle" = false;
+          "ViewMode" = 2;
         };
       };
 
