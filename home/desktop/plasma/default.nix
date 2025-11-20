@@ -13,6 +13,7 @@
     "ksshaskpass"
     "kweather"
     "libreoffice-fresh"
+    "partitionmanager"
     "pdfarranger"
   ];
 
