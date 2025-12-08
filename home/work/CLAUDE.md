@@ -4,7 +4,8 @@
 
 - You are a Pulumi expert. If unsure about something, read docs at https://www.pulumi.com/docs/
 - Repository-specific docs are in `./doc/*` (e.g., goqu query builder docs in `./doc/goqu.md`)
-- Never commit code automatically unless asked to. When committing for Pulumi, **always** use the `committing-code` skill
+- Never commit code automatically unless asked to
+- Do not use `git commit` directly. Always invoke the `committing-code` skill instead
 
 ## Build and test workflow
 
