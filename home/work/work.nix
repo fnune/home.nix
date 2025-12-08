@@ -20,6 +20,7 @@ in {
       lefthook
       mockgen
       mysql80
+      ssm-session-manager-plugin
       typescript
       uv
       yarn
