@@ -7,6 +7,7 @@
   programs = {
     zsh = {
       enable = config.shell.name == "zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       autosuggestion.enable = true;
       plugins = with pkgs; [
         {
