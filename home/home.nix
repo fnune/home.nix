@@ -36,6 +36,7 @@
     ./programs/jetbrains/jetbrains.nix
     ./programs/kitty/kitty.nix
     ./programs/lazygit.nix
+    ./programs/lexaloffle.nix
     ./programs/llms/llms.nix
     ./programs/mise.nix
     ./programs/neovim/neovim.nix

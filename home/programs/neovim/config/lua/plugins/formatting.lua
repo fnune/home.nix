@@ -7,6 +7,7 @@ return {
     local formatters_by_ft = {
       go = { "goimports", "gofmt" },
       lua = { "stylua" },
+      p8lua = { "stylua" },
       nix = { "alejandra" },
       ocaml = { "ocamlformat" },
       python = { "ruff_fix", "ruff_format" },

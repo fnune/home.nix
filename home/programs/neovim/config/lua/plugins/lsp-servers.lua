@@ -72,6 +72,10 @@ return {
       setup("lua_ls", {
         settings = { Lua = { diagnostics = { globals = { "vim" } } } },
       })
+
+      setup("pico8_ls", {
+        filetypes = { "p8", "p8lua" },
+      })
     end,
   },
 }
