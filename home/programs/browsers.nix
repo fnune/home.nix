@@ -1,4 +1,12 @@
 {pkgs, ...}: let
+  portalPreferences = {
+    "widget.use-xdg-desktop-portal.file-picker" = 1;
+    "widget.use-xdg-desktop-portal.location" = 1;
+    "widget.use-xdg-desktop-portal.mime-handler" = 1;
+    "widget.use-xdg-desktop-portal.open-uri" = 1;
+    "widget.use-xdg-desktop-portal.settings" = 1;
+  };
+
   firefoxPolicies = {
     DisableTelemetry = true;
     DisableFirefoxStudies = true;
@@ -47,22 +55,19 @@
       SkipOnboarding = true;
       UrlbarInterventions = false;
     };
-    Preferences = {
-      "browser.aboutConfig.showWarning" = false;
-      "browser.translations.automaticallyPopup" = false;
-      "browser.urlbar.resultMenu.keyboardAccessible" = false;
-      "browser.urlbar.suggest.engines" = false;
-      "browser.urlbar.suggest.quickactions" = false;
-      "browser.urlbar.suggest.searches" = false;
-      "browser.urlbar.suggest.topsites" = false;
-      "datareporting.policy.dataSubmissionEnabled" = false;
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
-      "widget.use-xdg-desktop-portal.location" = 1;
-      "widget.use-xdg-desktop-portal.mime-handler" = 1;
-      "widget.use-xdg-desktop-portal.native-messaging" = 1;
-      "widget.use-xdg-desktop-portal.open-uri" = 1;
-      "widget.use-xdg-desktop-portal.settings" = 1;
-    };
+    Preferences =
+      {
+        "browser.aboutConfig.showWarning" = false;
+        "browser.translations.automaticallyPopup" = false;
+        "browser.urlbar.resultMenu.keyboardAccessible" = false;
+        "browser.urlbar.suggest.engines" = false;
+        "browser.urlbar.suggest.quickactions" = false;
+        "browser.urlbar.suggest.searches" = false;
+        "browser.urlbar.suggest.topsites" = false;
+        "datareporting.policy.dataSubmissionEnabled" = false;
+        "widget.use-xdg-desktop-portal.native-messaging" = 1;
+      }
+      // portalPreferences;
   };
 
   policiesJson = pkgs.writeText "firefox-policies.json" (builtins.toJSON {
@@ -86,6 +91,14 @@
 
   chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
 
+  thunderbirdPolicies = {
+    Preferences = portalPreferences;
+  };
+
+  thunderbirdPoliciesJson = pkgs.writeText "thunderbird-policies.json" (builtins.toJSON {
+    policies = thunderbirdPolicies;
+  });
+
   installBrowserPolicies = pkgs.writeShellScriptBin "install-browser-policies" ''
     #!/usr/bin/env sh
     set -e
@@ -101,9 +114,15 @@
     echo "Chromium policies installed to /etc/chromium/policies/managed/policies.json"
 
     echo ""
+    echo "Installing Thunderbird policies system-wide..."
+    sudo cp ${thunderbirdPoliciesJson} /usr/lib/thunderbird/distribution/policies.json
+    echo "Thunderbird policies installed to /usr/lib/thunderbird/distribution/policies.json"
+
+    echo ""
     echo "Done! Restart browsers and visit:"
     echo "  - Firefox: about:policies"
     echo "  - Chromium: chrome://policy"
+    echo "  - Thunderbird: Help > Troubleshooting Information > Policies"
   '';
 in {
   home = {
