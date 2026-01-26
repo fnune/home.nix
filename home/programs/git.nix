@@ -47,10 +47,6 @@
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
-      diff.tool = config.jetbrains.tool;
-      difftool.${config.jetbrains.tool}.cmd = "${config.jetbrains.tool} diff \"$LOCAL\" \"$REMOTE\"";
-      merge.tool = config.jetbrains.tool;
-      mergetool.${config.jetbrains.tool}.cmd = "${config.jetbrains.tool} merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"";
     };
   };
 }

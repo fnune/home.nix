@@ -148,12 +148,5 @@
         description = "The preferred browser";
       };
     };
-    jetbrains = {
-      tool = lib.mkOption {
-        type = lib.types.str;
-        default = "goland";
-        description = "The JetBrains IDE command to use for editing and diffing";
-      };
-    };
   };
 }
