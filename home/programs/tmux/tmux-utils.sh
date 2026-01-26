@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
+theme_white="#f3f2f1"
+
 function set_tmux_session_theme() {
   local session="$1"
   local bg_color="$2"
-  local fg_color="#ffffff"
 
-  tmux set -t "$session" status-style "bg=$bg_color,fg=$fg_color"
+  tmux set -t "$session" status-style "bg=$bg_color,fg=$theme_white"
   tmux set -t "$session" status-left " #[bold]#S#[nobold] "
   tmux set -t "$session" status-right ""
 }
