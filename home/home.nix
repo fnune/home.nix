@@ -33,6 +33,7 @@
     ./programs/editorconfig.nix
     ./programs/fzf.nix
     ./programs/git.nix
+    ./programs/godot.nix
     ./programs/jetbrains/jetbrains.nix
     ./programs/kitty/kitty.nix
     ./programs/lazygit.nix
