@@ -33,7 +33,7 @@ return {
     ft = "markdown",
     opts = {},
     keys = function()
-      local notes_dir = "~/Documents/Fausto/daily/"
+      local notes_dir = vim.env.NOTES_DIR .. "/daily/"
       local function open_daily_note(offset)
         return function()
           local timestamp = os.time() + offset * 86400

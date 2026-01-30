@@ -3,7 +3,7 @@
 source "$HOME/.home.nix/home/programs/tmux/tmux-utils.sh"
 
 function n() {
-  local notes_dir="$HOME/pCloudDrive/Documents/Notes"
+  local notes_dir="$NOTES_DIR"
   local dotfiles_dir="$HOME/.home.nix"
 
   local session="📝 personal"
