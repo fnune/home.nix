@@ -16,6 +16,7 @@
     "obsidian"
     "podman-desktop"
     "signal-desktop"
+    "solaar"
     "steam"
     "thunderbird"
   ];
