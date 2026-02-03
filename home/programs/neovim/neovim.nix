@@ -1,9 +1,10 @@
 {
   pkgs,
+  pkgs-unstable,
   config,
   ...
 }: let
-  neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
+  neovim = pkgs-unstable.wrapNeovim pkgs-unstable.neovim-unwrapped {
     withNodeJs = true;
     withPython3 = true;
     withRuby = true;
@@ -15,7 +16,7 @@ in {
       [
         neovim
       ]
-      ++ (with pkgs; [
+      ++ (with pkgs-unstable; [
         # LSPs
         angular-language-server
         basedpyright

@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   ...
 }: let
   openInEditorScript = pkgs.writeShellScript "open-in-editor" ''
@@ -72,6 +73,7 @@ in {
   programs = {
     lazygit = {
       enable = true;
+      package = pkgs-unstable.lazygit;
       settings = {
         promptToReturnFromSubprocess = false;
         os = {
