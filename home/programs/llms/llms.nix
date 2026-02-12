@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    packages = with pkgs-unstable; [claude-code gemini-cli-bin];
+    packages = with pkgs-unstable; [claude-code codex gemini-cli-bin];
 
     file = {
       "${config.home.homeDirectory}/.claude/CLAUDE.md".source = ./CLAUDE.md;
