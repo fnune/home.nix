@@ -12,4 +12,4 @@
   - Never use title-case in headings: use sentence-case instead.
   - Never use bold text
   - Never use and em-dashes for punctuation.
-  - Never include self-references like "Generated with Claude Code" or "Generated with Codex".
+  - Never attribute work to AI in commits or code.
