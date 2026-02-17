@@ -42,6 +42,7 @@
     ./programs/mise.nix
     ./programs/neovim/neovim.nix
     ./programs/networking.nix
+    ./programs/obs.nix
     ./programs/pacman.nix
     ./programs/ripgrep.nix
     ./programs/ssh.nix

@@ -12,7 +12,6 @@
     "bitwarden-cli"
     "darktable"
     "krita"
-    "obs-studio"
     "obsidian"
     "podman-desktop"
     "signal-desktop"
