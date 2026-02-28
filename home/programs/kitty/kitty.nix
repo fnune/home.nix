@@ -7,12 +7,29 @@
     if config.colorscheme == "standard"
     then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/standard/kitty/standard.dark.conf"
     else "";
+  icon = ./whiskers.png;
 in {
   services.pacman.packages = ["kitty"];
 
   home.file = {
-    ".local/share/icons/hicolor/256x256/apps/kitty.png".source = ./whiskers.png;
-    ".local/share/icons/hicolor/scalable/apps/kitty.svg".source = ./whiskers.svg;
+    ".local/share/applications/kitty.desktop".text = ''
+      [Desktop Entry]
+      Version=1.0
+      Type=Application
+      Name=kitty
+      GenericName=Terminal emulator
+      Comment=Fast, feature-rich, GPU based terminal
+      TryExec=kitty
+      StartupNotify=true
+      Exec=kitty
+      Icon=${icon}
+      Categories=System;TerminalEmulator;
+      X-TerminalArgExec=--
+      X-TerminalArgTitle=--title
+      X-TerminalArgAppId=--class
+      X-TerminalArgDir=--working-directory
+      X-TerminalArgHold=--hold
+    '';
     ".config/kitty/kitty.conf".text = ''
       shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
 
