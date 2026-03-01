@@ -13,6 +13,7 @@
   };
 
   home.sessionVariables = {
+    SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/ssh-agent";
     SSH_ASKPASS = "/usr/bin/ksshaskpass";
     SSH_ASKPASS_REQUIRE = "prefer";
   };
