@@ -1,6 +1,15 @@
 {config, ...}: {
   imports = [./window-rules.nix];
 
+  home.file.".config/plasma-workspace/env/ssh-agent.sh" = {
+    executable = true;
+    text = ''
+      export SSH_AUTH_SOCK="''${XDG_RUNTIME_DIR}/ssh-agent"
+      export SSH_ASKPASS="/usr/bin/ksshaskpass"
+      export SSH_ASKPASS_REQUIRE="prefer"
+    '';
+  };
+
   services.pacman.packages = [
     "flatpak"
     "flatpak-kcm"
