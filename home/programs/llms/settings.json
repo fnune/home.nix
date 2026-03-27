@@ -37,6 +37,7 @@
       "Bash(git ls-files:*)",
       "Bash(git blame:*)",
       "Bash(git stash list:*)",
+      "Bash(git -C:*)",
       "Bash(gh api user:*)",
       "Bash(gh api repos:*)",
       "Bash(gh api /repos:*)",
