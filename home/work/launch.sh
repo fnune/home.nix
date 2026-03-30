@@ -32,27 +32,8 @@ function t() {
     eval "$env_script"
     set_tmux_session_theme "$session_service" "$theme_light_blue"
     tmux send-keys -t "$session_service:git" "lazygit" C-m
-
-    tmux new-window -c "$service_repo" -n auxiliary
-
-    # Create right pane
-    tmux split-window -c "$service_repo" -h
-
-    # Split right pane into 3
-    tmux split-window -c "$service_repo" -v
-    tmux split-window -c "$service_repo" -v
-
-    # Frontend
-    tmux send-keys -t 1 "cd $service_repo/cmd/console2 && yarn && PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 yarn run start:hmr" C-m
-
-    # Console backend & Go deps
-    tmux send-keys -t 2 "make ensure && make install_gotools && PULUMI_CONSOLE_DOMAIN=localhost:4200 PULUMI_API=http://localhost:8080 ./scripts/dev/run-console.sh backend" C-m
-
-    # Tunnels and database
-    tmux send-keys -t 3 "$HOME/.home.nix/home/work/services.sh" C-m
-
-    # Select the left empty pane
-    tmux select-pane -t 0
+    tmux new-window -c "$service_repo" -n main
+    tmux send-keys -t "$session_service:main" "ff status" C-m
     tmux select-window -t "$session_service:git"
   fi
 
