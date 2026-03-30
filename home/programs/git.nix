@@ -48,6 +48,7 @@
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
+      merge.ours.driver = true;
     };
   };
 }
