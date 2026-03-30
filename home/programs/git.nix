@@ -24,6 +24,7 @@
       ".direnv"
       ".envrc"
       ".envrc.local"
+      ".flatfoot"
       ".idea"
       ".nvim.lua"
       ".venv"
