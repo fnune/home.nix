@@ -1,11 +1,8 @@
 _: {
-  programs.npm = {
-    enable = true;
-    settings = {
-      ignore-scripts = true;
-      fund = false;
-      audit = false;
-      update-notifier = false;
-    };
-  };
+  home.file.".npmrc".text = ''
+    ignore-scripts=true
+    fund=false
+    audit=false
+    update-notifier=false
+  '';
 }
