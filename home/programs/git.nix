@@ -26,6 +26,7 @@
       ".envrc.local"
       ".flatfoot"
       ".idea"
+      ".mcp.json"
       ".nvim.lua"
       ".venv"
       ".vim"
