@@ -13,9 +13,5 @@
       "${homeDir}/.claude/settings.json".source = ./settings.json;
       "${homeDir}/.codex/AGENTS.md".source = ./AGENTS.md;
     };
-
-    sessionVariables = {
-      ANTHROPIC_MODEL = "claude-opus-4-5-20251101"; # 4.6 is too expensive
-    };
   };
 }
