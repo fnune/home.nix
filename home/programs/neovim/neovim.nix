@@ -36,7 +36,7 @@ in {
         alejandra
         biome
         gofumpt
-        nodePackages.prettier
+        prettier
         prettierd
         python3Packages.black
         shfmt
