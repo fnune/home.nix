@@ -1,5 +1,6 @@
 {
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
   "attribution": {
     "commit": "",
     "pr": ""
