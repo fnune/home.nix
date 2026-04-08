@@ -126,7 +126,7 @@
     };
 
     shortcuts = {
-      "services/${config.terminal.name}.desktop"."_launch" = "Meta+Return";
+      "services/${config.terminal.desktop}"."_launch" = "Meta+Return";
       "services/${config.browser.name}.desktop"."_launch" = "Meta+Shift+Return";
 
       "org.kde.krunner.desktop"."_launch" = "Meta+D";

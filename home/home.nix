@@ -35,6 +35,7 @@
     ./programs/git.nix
     ./programs/godot.nix
     ./programs/jetbrains/jetbrains.nix
+    ./programs/ghostty/ghostty.nix
     ./programs/kitty/kitty.nix
     ./programs/lazygit.nix
     ./programs/lexaloffle.nix

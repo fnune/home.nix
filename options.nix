@@ -132,12 +132,17 @@
     terminal = {
       name = lib.mkOption {
         type = lib.types.str;
-        default = "kitty";
+        default = "ghostty";
         description = "The preferred terminal emulator name";
+      };
+      desktop = lib.mkOption {
+        type = lib.types.str;
+        default = "com.mitchellh.ghostty.desktop";
+        description = "The desktop file name";
       };
       bin = lib.mkOption {
         type = lib.types.path;
-        default = "${pkgs.kittyWithWhiskers}/bin/kitty";
+        default = "/usr/bin/ghostty";
         description = "The full path to the terminal emulator binary";
       };
     };
