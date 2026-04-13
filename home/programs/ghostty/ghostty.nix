@@ -23,6 +23,8 @@ in {
         keybind = ctrl+plus=increase_font_size:1
         keybind = ctrl+minus=decrease_font_size:1
         keybind = ctrl+zero=reset_font_size
+        # default writes screen to file, conflicts with ctrl+j (tmux) + shift for newline
+        keybind = ctrl+shift+j=unbind
 
         clipboard-read = allow
         clipboard-write = allow
