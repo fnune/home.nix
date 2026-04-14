@@ -7,6 +7,10 @@
   themeDir = "${config.home.homeDirectory}/.local/share/nvim/lazy/standard/ghostty";
   useStandard = config.colorscheme == "standard";
 in {
+  # GTK 4.20+ on Wayland no longer handles dead keys without an input method framework
+  # https://github.com/ghostty-org/ghostty/discussions/8899
+  home.sessionVariables.GTK_IM_MODULE = "simple";
+
   services.pacman.packages = ["ghostty"];
 
   home.activation.ghosttyTheme = lib.mkIf useStandard (
@@ -28,8 +32,10 @@ in {
 
         clipboard-read = allow
         clipboard-write = allow
+        copy-on-select = false
         confirm-close-surface = false
         shell-integration-features = no-title
+        working-directory = home
       ''
       + lib.optionalString useStandard "theme = standard\n";
   };
