@@ -27,8 +27,20 @@ in {
         keybind = ctrl+plus=increase_font_size:1
         keybind = ctrl+minus=decrease_font_size:1
         keybind = ctrl+zero=reset_font_size
-        # default writes screen to file, conflicts with ctrl+j (tmux) + shift for newline
+
+        # tmux handles windows, tabs, and splits
         keybind = ctrl+shift+j=unbind
+        keybind = ctrl+shift+t=unbind
+        keybind = ctrl+shift+n=unbind
+        keybind = ctrl+shift+enter=unbind
+        keybind = ctrl+shift+o=unbind
+        keybind = super+t=unbind
+        keybind = super+n=unbind
+
+        mouse-hide-while-typing = true
+        focus-follows-mouse = false
+        cursor-click-to-move = false
+        notify-on-command-finish = never
 
         clipboard-read = allow
         clipboard-write = allow
