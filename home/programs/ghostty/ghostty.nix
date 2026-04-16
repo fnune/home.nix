@@ -9,7 +9,7 @@
 in {
   # GTK 4.20+ on Wayland no longer handles dead keys without an input method framework
   # https://github.com/ghostty-org/ghostty/discussions/8899
-  home.sessionVariables.GTK_IM_MODULE = "simple";
+  xdg.configFile."environment.d/gtk-im.conf".text = "GTK_IM_MODULE=simple\n";
 
   services.pacman.packages = ["ghostty"];
 
