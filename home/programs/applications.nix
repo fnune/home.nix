@@ -22,6 +22,7 @@
 
   services.flatpak = {
     enable = true;
+    update.auto.enable = true;
     packages = [
       "com.slack.Slack"
       "com.spotify.Client"
