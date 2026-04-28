@@ -40,7 +40,7 @@
     ./programs/lexaloffle.nix
     ./programs/llms/llms.nix
     ./programs/mise.nix
-    ./programs/neovim/neovim.nix
+    ./programs/nixvim/home.nix
     ./programs/networking.nix
     ./programs/npm.nix
     ./programs/obs.nix

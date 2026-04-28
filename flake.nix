@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     plasma-manager = {
       url = "github:pjones/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +26,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    nixvim,
     plasma-manager,
     nix-flatpak,
     ...
@@ -32,8 +37,18 @@
       inherit system;
       config.allowUnfree = true;
     };
+
+    nixvimPackage = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+      pkgs = pkgs-unstable;
+      module = {
+        imports = [./home/programs/nixvim/config.nix];
+        _module.args = {inherit pkgs-unstable;};
+      };
+    };
   in {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+
+    packages.${system}.nixvim-test = nixvimPackage;
 
     homeConfigurations = let
       plasmaManager = plasma-manager.homeModules.plasma-manager;
@@ -41,7 +56,7 @@
     in {
       fausto = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit pkgs-unstable;};
+        extraSpecialArgs = {inherit pkgs-unstable nixvimPackage;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };
     };
