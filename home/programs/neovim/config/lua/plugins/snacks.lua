@@ -11,7 +11,7 @@ return {
       notifier = { enabled = true },
       picker = { enabled = true, layout = { preset = "ivy" } },
       quickfile = { enabled = true },
-      styles = { zen = { backdrop = { blend = 30 } } },
+      styles = { zen = { backdrop = { transparent = false, blend = 0 } } },
       zen = { enabled = true, toggles = { dim = false } },
       -- Disabled:
       dashboard = { enabled = false },
