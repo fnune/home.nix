@@ -1,5 +1,6 @@
 require("leader")
 require("system")
 require("settings")
+require("pico8")
 require("lazysetup")
 require("mappings")
