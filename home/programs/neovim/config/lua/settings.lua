@@ -7,6 +7,8 @@ vim.cmd("filetype plugin indent on")
 vim.cmd("set ignorecase smartcase")
 vim.opt.autoindent = true
 vim.opt.autoread = true
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "list:-1"
 vim.opt.cmdheight = 2
 vim.opt.cursorline = true
 vim.opt.encoding = "utf-8"
