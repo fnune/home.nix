@@ -5,14 +5,8 @@
   ...
 }: {
   extraPackages = with pkgs-unstable; [
-    alejandra
-    biome
-    gofumpt
-    prettier
     prettierd
     python3Packages.black
-    shfmt
-    stylua
     delve
     python3Packages.debugpy
   ];
@@ -55,7 +49,11 @@
     conform-nvim = {
       enable = true;
       settings = let
-        prettier = ["prettierd" "prettier" {stop_after_first = true;}];
+        prettier = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
       in {
         format_on_save.lsp_format = "fallback";
         default_format_opts.lsp_format = "fallback";

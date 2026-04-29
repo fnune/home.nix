@@ -7,10 +7,17 @@
     packages =
       [nixvimPackage]
       ++ (with pkgs-unstable; [
+        alejandra
+        biome
+        gofumpt
         imagemagick
         inotify-tools
         nodejs_22
+        prettier
+        shellcheck
+        shfmt
         sqlite
+        stylua
       ]);
 
     sessionVariables = {
