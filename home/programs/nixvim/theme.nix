@@ -1,6 +1,6 @@
 {
   customPlugins,
-  raw,
+  lib,
   ...
 }: {
   extraPlugins = [customPlugins.standard];
@@ -14,7 +14,7 @@
 
     tiny-devicons-auto-colors = {
       enable = true;
-      settings.colors = raw "vim.tbl_values(require('standard.palette').tokens)";
+      settings.colors = lib.nixvim.mkRaw "vim.tbl_values(require('standard.palette').tokens)";
     };
 
     lualine = {

@@ -1,6 +1,5 @@
 {
   config,
-  raw,
   ...
 }: let
   parsers = with config.plugins.treesitter.package.builtGrammars; [

@@ -1,4 +1,4 @@
-{raw, ...}: {
+{lib, ...}: {
   plugins.snacks = {
     enable = true;
     settings = {
@@ -34,7 +34,7 @@
     {
       mode = "n";
       key = "<leader>f";
-      action = raw "function() require('snacks').picker.smart() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.smart() end";
       options = {
         desc = "Find files";
         silent = true;
@@ -43,7 +43,7 @@
     {
       mode = "n";
       key = "<leader>F";
-      action = raw "function() require('snacks').picker.grep() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.grep() end";
       options = {
         desc = "Find text in files";
         silent = true;
@@ -52,7 +52,7 @@
     {
       mode = "n";
       key = "<leader>b";
-      action = raw "function() require('snacks').picker.buffers() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.buffers() end";
       options = {
         desc = "Find buffers";
         silent = true;
@@ -61,7 +61,7 @@
     {
       mode = "n";
       key = "<leader>sS";
-      action = raw "function() require('snacks').picker.lsp_symbols() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_symbols() end";
       options = {
         desc = "Find symbols in the document";
         silent = true;
@@ -70,7 +70,7 @@
     {
       mode = "n";
       key = "<leader>sW";
-      action = raw "function() require('snacks').picker.lsp_workspace_symbols() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_workspace_symbols() end";
       options = {
         desc = "Find symbols across the workspace";
         silent = true;
@@ -79,7 +79,7 @@
     {
       mode = "n";
       key = "<leader>sR";
-      action = raw "function() require('snacks').picker.resume() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.resume() end";
       options = {
         desc = "Resume the most recent search";
         silent = true;
@@ -88,7 +88,7 @@
     {
       mode = "n";
       key = "<leader>z";
-      action = raw "function() require('snacks').zen() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').zen() end";
       options = {
         desc = "Toggle zen mode";
         silent = true;

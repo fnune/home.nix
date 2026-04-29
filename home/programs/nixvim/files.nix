@@ -1,7 +1,7 @@
 {
   pkgs-unstable,
   file_explorer_width_chars,
-  raw,
+  lib,
   ...
 }: {
   extraPlugins = with pkgs-unstable.vimPlugins; [
@@ -51,7 +51,7 @@
     {
       mode = "n";
       key = "<leader>O";
-      action = raw ''
+      action = lib.nixvim.mkRaw ''
         function()
           if vim.bo.filetype == "oil" then
             require("oil").close()

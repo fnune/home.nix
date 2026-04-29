@@ -1,6 +1,6 @@
 {
   pkgs-unstable,
-  raw,
+  lib,
   floating_border,
   ...
 }: {
@@ -95,7 +95,7 @@
     {
       mode = "n";
       key = "K";
-      action = raw "function() vim.lsp.buf.hover({ max_width = 80 }) end";
+      action = lib.nixvim.mkRaw "function() vim.lsp.buf.hover({ max_width = 80 }) end";
       options = {
         desc = "Show documentation";
         silent = true;
@@ -104,7 +104,7 @@
     {
       mode = "n";
       key = "<leader>k";
-      action = raw "function() vim.diagnostic.goto_prev() end";
+      action = lib.nixvim.mkRaw "function() vim.diagnostic.goto_prev() end";
       options = {
         desc = "Previous diagnostic";
         silent = true;
@@ -113,7 +113,7 @@
     {
       mode = "n";
       key = "<leader>j";
-      action = raw "function() vim.diagnostic.goto_next() end";
+      action = lib.nixvim.mkRaw "function() vim.diagnostic.goto_next() end";
       options = {
         desc = "Next diagnostic";
         silent = true;
@@ -122,7 +122,7 @@
     {
       mode = "n";
       key = "<leader>r";
-      action = raw "function() require('live-rename').rename() end";
+      action = lib.nixvim.mkRaw "function() require('live-rename').rename() end";
       options = {
         desc = "Rename symbol";
         silent = true;
@@ -131,7 +131,7 @@
     {
       mode = "n";
       key = "gd";
-      action = raw "function() require('snacks').picker.lsp_definitions() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_definitions() end";
       options = {
         desc = "Go to definition";
         silent = true;
@@ -140,7 +140,7 @@
     {
       mode = "n";
       key = "gD";
-      action = raw "function() require('snacks').picker.lsp_declarations() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_declarations() end";
       options = {
         desc = "Go to declaration";
         silent = true;
@@ -149,7 +149,7 @@
     {
       mode = "n";
       key = "gi";
-      action = raw "function() require('snacks').picker.lsp_implementations() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_implementations() end";
       options = {
         desc = "Go to implementation";
         silent = true;
@@ -158,7 +158,7 @@
     {
       mode = "n";
       key = "gT";
-      action = raw "function() require('snacks').picker.lsp_type_definitions() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_type_definitions() end";
       options = {
         desc = "Go to type definition";
         silent = true;
@@ -167,7 +167,7 @@
     {
       mode = "n";
       key = "gr";
-      action = raw "function() require('snacks').picker.lsp_references() end";
+      action = lib.nixvim.mkRaw "function() require('snacks').picker.lsp_references() end";
       options = {
         desc = "Show references";
         silent = true;
@@ -176,7 +176,7 @@
     {
       mode = ["n" "x"];
       key = "<c-space>";
-      action = raw "function() vim.lsp.buf.code_action() end";
+      action = lib.nixvim.mkRaw "function() vim.lsp.buf.code_action() end";
       options = {
         desc = "Apply code action";
         silent = true;

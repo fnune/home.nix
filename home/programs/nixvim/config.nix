@@ -34,8 +34,6 @@
     };
   };
   file_explorer_width_chars = 40;
-
-  raw = lua: {__raw = lua;};
 in {
   imports = [
     ./completion.nix
@@ -50,7 +48,7 @@ in {
     ./ui.nix
   ];
 
-  _module.args = {inherit customPlugins floating_border signs listchars file_explorer_width_chars raw;};
+  _module.args = {inherit customPlugins floating_border signs listchars file_explorer_width_chars;};
 
   package = pkgs-unstable.neovim-unwrapped;
 
@@ -167,8 +165,6 @@ in {
         end,
       },
     })
-
-    vim.treesitter.language.register("lua", "p8lua")
   '';
 
   extraConfigLua = ''

@@ -1,7 +1,7 @@
 {
   pkgs-unstable,
   customPlugins,
-  raw,
+  lib,
   ...
 }: {
   extraPackages = with pkgs-unstable; [
@@ -30,7 +30,7 @@
 
     comment = {
       enable = true;
-      settings.pre_hook = raw "require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()";
+      settings.pre_hook = lib.nixvim.mkRaw "require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()";
     };
 
     ts-context-commentstring = {
@@ -93,7 +93,7 @@
     {
       mode = "n";
       key = "<leader>p";
-      action = raw "function() require('conform').format({ async = true }) end";
+      action = lib.nixvim.mkRaw "function() require('conform').format({ async = true }) end";
       options = {
         desc = "Format document";
         silent = true;

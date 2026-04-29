@@ -1,7 +1,7 @@
 {
   pkgs-unstable,
   customPlugins,
-  raw,
+  lib,
   ...
 }: {
   extraPlugins = [customPlugins.markdown-plus-nvim];
@@ -40,7 +40,7 @@
     {
       event = "FileType";
       pattern = "markdown";
-      callback = raw ''
+      callback = lib.nixvim.mkRaw ''
         function()
           vim.opt_local.conceallevel = 2
           vim.opt_local.wrap = true
@@ -78,19 +78,19 @@
     {
       mode = "n";
       key = "<leader>on";
-      action = raw (daily_note 0);
+      action = lib.nixvim.mkRaw (daily_note 0);
       options.desc = "Open today's note";
     }
     {
       mode = "n";
       key = "<leader>ot";
-      action = raw (daily_note 1);
+      action = lib.nixvim.mkRaw (daily_note 1);
       options.desc = "Open tomorrow's note";
     }
     {
       mode = "n";
       key = "<leader>oy";
-      action = raw (daily_note (-1));
+      action = lib.nixvim.mkRaw (daily_note (-1));
       options.desc = "Open yesterday's note";
     }
   ];
