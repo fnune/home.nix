@@ -1,6 +1,7 @@
 {
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "skipAutoPermissionPrompt": true,
   "attribution": {
     "commit": "",
     "pr": ""
