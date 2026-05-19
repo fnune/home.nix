@@ -11,6 +11,7 @@
     "bitwarden"
     "bitwarden-cli"
     "darktable"
+    "foliate"
     "krita"
     "obsidian"
     "podman-desktop"
