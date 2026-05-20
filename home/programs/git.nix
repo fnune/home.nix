@@ -50,6 +50,7 @@
       push.autoSetupRemote = true;
       push.default = "current";
       merge.ours.driver = true;
+      credential.helper = "/usr/lib/git-core/git-credential-libsecret";
     };
   };
 }
