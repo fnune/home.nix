@@ -2,6 +2,7 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "skipAutoPermissionPrompt": true,
+  "theme": "auto",
   "attribution": {
     "commit": "",
     "pr": ""
