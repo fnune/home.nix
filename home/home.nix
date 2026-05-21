@@ -45,6 +45,7 @@
     ./programs/npm.nix
     ./programs/obs.nix
     ./programs/pacman.nix
+    ./programs/podman.nix
     ./programs/ripgrep.nix
     ./programs/ssh.nix
     ./programs/tmux/tmux.nix

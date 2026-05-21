@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.pacman.packages = ["base-devel" "docker" "docker-buildx"];
+  services.pacman.packages = ["base-devel"];
 
   home.packages = with pkgs; [
     exiftool
