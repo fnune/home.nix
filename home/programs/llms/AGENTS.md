@@ -13,5 +13,4 @@
   - Never use bold text
   - Never use and em-dashes for punctuation.
   - Never attribute work to AI in commits or code.
-  - I read responses in a terminal. If your renderer turns `[text](url)` into a clickable label, I see only the label and lose the URL. Always print bare URLs (`https://...`) so I can copy them.
 - If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`
