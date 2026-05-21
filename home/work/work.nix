@@ -10,6 +10,7 @@ in {
   home = {
     packages = with pkgs; [
       awscli2
+      bubblewrap
       go
       golangci-lint
       golangci-lint-langserver
@@ -31,6 +32,12 @@ in {
       "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;
       "${repo-service}/.envrc.local".source = ./envrc.sh;
       "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;
+      "${config.home.homeDirectory}/.local/bin/p" = {
+        source = ./p.sh;
+        executable = true;
+      };
+      # https://github.com/pulumi/pulumi/issues/20602
+      "${config.home.homeDirectory}/.pulumi/credentials.json".text = "";
     };
 
     sessionVariables = {
