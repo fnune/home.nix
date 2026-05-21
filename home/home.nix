@@ -45,7 +45,6 @@
     ./programs/npm.nix
     ./programs/obs.nix
     ./programs/pacman.nix
-    ./programs/buildkit.nix
     ./programs/podman.nix
     ./programs/ripgrep.nix
     ./programs/ssh.nix
