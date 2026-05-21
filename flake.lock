@@ -99,11 +99,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1779317713,
-        "narHash": "sha256-ZEVZLH2Ouse5Fd0OrVWYiZouZb2zO2BliiKD6xugXdg=",
+        "lastModified": 1779397209,
+        "narHash": "sha256-fsNz5KKFsaQdb+jiRd3MNiJiUAQn2ldeaMlTw3fm4sE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "2d7cf9616bfd5b8dcf1c5e4b05a8514e6803115e",
+        "rev": "28eb36007cfc1a28257f5674425dd3bad891d220",
         "type": "github"
       },
       "original": {
