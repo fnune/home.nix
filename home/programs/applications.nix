@@ -6,6 +6,7 @@
   services.pacman.packages = [
     "bitwarden"
     "bitwarden-cli"
+    "calibre"
     "darktable"
     "foliate"
     "krita"
