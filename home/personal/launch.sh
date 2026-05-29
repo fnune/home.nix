@@ -18,8 +18,9 @@ function n() {
     tmux send-keys -t "$session:dotfiles" "lazygit" C-m
     tmux split-window -c "$dotfiles_dir" -h
     tmux send-keys -t "$session:dotfiles" "$EDITOR" C-m
+    tmux split-window -c "$dotfiles_dir" -v
 
-    tmux select-window -t "$session:notes"
+    tmux select-window -t "$session:dotfiles"
   fi
 
   tmux attach-session -t "$session"
