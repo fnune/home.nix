@@ -14,3 +14,5 @@
   - Never use and em-dashes for punctuation.
   - Never attribute work to AI in commits or code.
 - If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`
+
+@RTK.md
