@@ -43,7 +43,7 @@
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "JetBrains Mono";
+        default = "TX-02";
         description = "Monospace font to use for the desktop and terminal";
       };
       cjkSans = lib.mkOption {
