@@ -20,7 +20,7 @@ in {
       kubectl
       lefthook
       mockgen
-      mysql80
+      mysql84
       ssm-session-manager-plugin
       typescript
       uv

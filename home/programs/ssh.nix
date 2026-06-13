@@ -4,7 +4,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks."*" = {
+    settings."*" = {
       addKeysToAgent = "yes";
       identityFile = [config.profile.sshKeyPath];
       serverAliveCountMax = 5;
