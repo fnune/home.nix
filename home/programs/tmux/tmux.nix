@@ -1,12 +1,12 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: let
   colorschemeConf =
-    if config.colorscheme == "standard"
-    then builtins.readFile ./tmux.standard.conf
-    else "";
+    lib.optionalString (config.colorscheme == "standard")
+    (builtins.readFile ./tmux.standard.conf);
 in {
   programs.tmux = {
     enable = true;

@@ -2,29 +2,29 @@
 set -euo pipefail
 
 case "${1:-}" in
-  prod/*)
-    name="${1#prod/}"
-    url="https://api.pulumi.com"
-    ref="op://Employee/Pulumi-Prod-${name}/credential"
-    ;;
-  review/*)
-    name="${1#review/}"
-    url="https://api-${name}.review-stacks.pulumi-dev.io"
-    ref="op://Employee/Pulumi-Review-${name}/credential"
-    ;;
-  local)
-    url="http://localhost:8080"
-    ref="op://Employee/Pulumi-Local/credential"
-    ;;
-  ""|-h|--help)
-    echo "usage: p <target> <pulumi args...>" >&2
-    echo "targets: prod/<account>, review/<name>, local" >&2
-    exit 1
-    ;;
-  *)
-    echo "p: unknown target '$1'" >&2
-    exit 1
-    ;;
+prod/*)
+  name="${1#prod/}"
+  url="https://api.pulumi.com"
+  ref="op://Employee/Pulumi-Prod-${name}/credential"
+  ;;
+review/*)
+  name="${1#review/}"
+  url="https://api-${name}.review-stacks.pulumi-dev.io"
+  ref="op://Employee/Pulumi-Review-${name}/credential"
+  ;;
+local)
+  url="http://localhost:8080"
+  ref="op://Employee/Pulumi-Local/credential"
+  ;;
+"" | -h | --help)
+  echo "usage: p <target> <pulumi args...>" >&2
+  echo "targets: prod/<account>, review/<name>, local" >&2
+  exit 1
+  ;;
+*)
+  echo "p: unknown target '$1'" >&2
+  exit 1
+  ;;
 esac
 
 shift
@@ -45,9 +45,9 @@ swap_creds() {
   local tmpfs link=""
 
   tmpfs="$(mktemp --tmpdir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}" pulumi-creds.XXXXXX)"
-  printf '%s' "$content" > "$tmpfs"
+  printf '%s' "$content" >"$tmpfs"
 
-  if [[ -L "$path" ]]; then
+  if [[ -L $path ]]; then
     link="$(readlink "$path")"
   fi
 
@@ -57,7 +57,7 @@ swap_creds() {
 
   mkdir -p "$(dirname "$path")"
   rm -f "$path"
-  : > "$path"
+  : >"$path"
 }
 
 restore_creds() {
@@ -65,7 +65,7 @@ restore_creds() {
   local i
   for i in "${!cred_paths[@]}"; do
     rm -f "${tmpfs_paths[$i]}"
-    if [[ -n "${orig_links[$i]}" ]]; then
+    if [[ -n ${orig_links[$i]} ]]; then
       rm -f "${cred_paths[$i]}"
       ln -sfn "${orig_links[$i]}" "${cred_paths[$i]}"
     fi

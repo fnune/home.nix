@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   parsers = with config.plugins.treesitter.package.builtGrammars; [
     arduino
     awk

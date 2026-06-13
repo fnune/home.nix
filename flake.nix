@@ -17,18 +17,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    nix-flatpak = {
-      url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
     nixvim,
     plasma-manager,
     nix-flatpak,
+    treefmt-nix,
+    git-hooks,
     ...
   }: let
     system = "x86_64-linux";
@@ -36,6 +45,24 @@
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
+    };
+
+    treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+
+    preCommit = git-hooks.lib.${system}.run {
+      src = ./.;
+      package = pkgs-unstable.prek;
+      hooks = {
+        treefmt = {
+          enable = true;
+          package = treefmtEval.config.build.wrapper;
+        };
+        shellcheck = {
+          enable = true;
+          args = ["--severity=warning"];
+        };
+        deadnix.enable = true;
+      };
     };
 
     nixvimPackage = nixvim.legacyPackages.${system}.makeNixvimWithModule {
@@ -46,9 +73,22 @@
       };
     };
   in {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+    packages.${system} = {
+      default = home-manager.packages.${system}.default;
+      nixvim-test = nixvimPackage;
+    };
 
-    packages.${system}.nixvim-test = nixvimPackage;
+    formatter.${system} = treefmtEval.config.build.wrapper;
+
+    checks.${system} = {
+      formatting = treefmtEval.config.build.check self;
+      pre-commit = preCommit;
+    };
+
+    devShells.${system}.default = pkgs.mkShell {
+      inherit (preCommit) shellHook;
+      buildInputs = preCommit.enabledPackages;
+    };
 
     homeConfigurations = let
       plasmaManager = plasma-manager.homeModules.plasma-manager;

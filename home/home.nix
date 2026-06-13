@@ -5,12 +5,7 @@
     stateVersion = "25.05";
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-  };
+  nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
   programs.nh.enable = true;

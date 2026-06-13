@@ -1,9 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  lib,
-  ...
-}: let
+{pkgs-unstable, ...}: let
   customPlugins = import ./pkgs {pkgs = pkgs-unstable;};
 
   floating_border = "rounded";

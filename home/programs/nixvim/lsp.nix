@@ -1,7 +1,6 @@
 {
   pkgs-unstable,
   lib,
-  floating_border,
   ...
 }: {
   extraPackages = with pkgs-unstable; [
