@@ -8,6 +8,31 @@
     then "include ${config.home.homeDirectory}/.local/share/nvim/lazy/standard/kitty/standard.dark.conf"
     else "";
   icon = ./whiskers.png;
+  kittyConf = pkgs.writeTextDir "kitty.conf" ''
+    shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
+
+    clear_all_shortcuts yes
+    map ctrl+plus change_font_size all +1
+    map ctrl+minus change_font_size all -1
+    map ctrl+0 change_font_size all 0
+    map ctrl+shift+v paste_from_clipboard
+    map ctrl+shift+c copy_to_clipboard
+
+    allow_remote_control no
+    clipboard_control write-clipboard write-primary no-append
+    confirm_os_window_close 0
+    detect_urls yes
+    enable_audio_bell no
+    modify_font underline_position +3
+    placement_strategy top-left
+    shell_integration no-title
+    tab_bar_style hidden
+    window_margin_width 6
+
+    ${colorschemeConf}
+
+    include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
+  '';
 in {
   services.pacman.packages = ["kitty"];
 
@@ -30,30 +55,6 @@ in {
       X-TerminalArgDir=--working-directory
       X-TerminalArgHold=--hold
     '';
-    ".config/kitty/kitty.conf".text = ''
-      shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
-
-      clear_all_shortcuts yes
-      map ctrl+plus change_font_size all +1
-      map ctrl+minus change_font_size all -1
-      map ctrl+0 change_font_size all 0
-      map ctrl+shift+v paste_from_clipboard
-      map ctrl+shift+c copy_to_clipboard
-
-      allow_remote_control no
-      clipboard_control write-clipboard write-primary no-append
-      confirm_os_window_close 0
-      detect_urls yes
-      enable_audio_bell no
-      modify_font underline_position +3
-      placement_strategy top-left
-      shell_integration no-title
-      tab_bar_style hidden
-      window_margin_width 6
-
-      ${colorschemeConf}
-
-      include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
-    '';
+    ".config/kitty/kitty.conf".source = "${kittyConf}/kitty.conf";
   };
 }
