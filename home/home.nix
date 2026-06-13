@@ -42,6 +42,7 @@
     ./programs/mise.nix
     ./programs/nixvim/home.nix
     ./programs/networking.nix
+    ./programs/nix.nix
     ./programs/npm.nix
     ./programs/obs.nix
     ./programs/pacman.nix

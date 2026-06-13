@@ -56,7 +56,7 @@
     in {
       fausto = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit pkgs-unstable nixvimPackage;};
+        extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };
     };
