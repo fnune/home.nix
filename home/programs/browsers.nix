@@ -137,7 +137,21 @@
   chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
 
   thunderbirdPolicies = {
-    Preferences = portalPreferences;
+    SearchEngines = {
+      Default = "DuckDuckGo";
+    };
+    Preferences =
+      portalPreferences
+      // {
+        "mailnews.start_page.enabled" = {
+          Value = false;
+          Status = "locked";
+        };
+        "mail.shell.checkDefaultClient" = {
+          Value = false;
+          Status = "locked";
+        };
+      };
   };
 
   thunderbirdPoliciesJson = pkgs.writeText "thunderbird-policies.json" (builtins.toJSON {
