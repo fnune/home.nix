@@ -76,6 +76,10 @@ in {
       package = pkgs-unstable.lazygit;
       settings = {
         promptToReturnFromSubprocess = false;
+        gui = {
+          showNumstatInFilesView = true;
+          nerdFontsVersion = "3";
+        };
         os = {
           edit = "${openInEditorScript} {{filename}}";
           editAtLine = "${openInEditorScript} --line {{line}} {{filename}}";
@@ -85,6 +89,7 @@ in {
         };
         git = {
           overrideGpg = true;
+          autoStageResolvedConflicts = false;
         };
       };
     };
