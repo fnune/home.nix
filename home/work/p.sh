@@ -28,7 +28,90 @@ local)
 esac
 
 shift
-token="$(op read "$ref")"
+
+confirm() {
+  # Prompt with a default of yes. Non-interactive callers take the default.
+  local prompt="$1" reply
+  if [[ ! -r /dev/tty ]]; then
+    return 0
+  fi
+  read -r -p "$prompt [Y/n] " reply </dev/tty || return 0
+  [[ -z $reply || $reply =~ ^[Yy] ]]
+}
+
+launch_1password() {
+  if pgrep -x 1password >/dev/null 2>&1; then
+    return 0
+  fi
+  if [[ ${OSTYPE:-} == darwin* ]]; then
+    open -a "1Password"
+  else
+    1password >/dev/null 2>&1 &
+  fi
+}
+
+read_secret() {
+  local ref="$1" out
+  if out="$(op read "$ref" 2>/dev/null)"; then
+    printf '%s' "$out"
+    return 0
+  fi
+
+  echo "p: 1Password is locked or not running." >&2
+  if ! confirm "Open 1Password to unlock?"; then
+    echo "p: cannot read $ref without 1Password." >&2
+    return 1
+  fi
+
+  launch_1password
+  echo "p: waiting for 1Password (unlock when prompted)..." >&2
+  for _ in $(seq 1 30); do
+    if out="$(op read "$ref" 2>/dev/null)"; then
+      printf '%s' "$out"
+      return 0
+    fi
+    sleep 2
+  done
+
+  echo "p: timed out reading $ref from 1Password." >&2
+  return 1
+}
+
+ensure_aws_sso() {
+  # Stack operations against the dev/review/prod AWS accounts need a live SSO
+  # session for $AWS_PROFILE (set by the repo's .envrc). Refresh it up front
+  # instead of letting pulumi fail mid-run.
+  local profile="${AWS_PROFILE:-}"
+  [[ -n $profile ]] || return 0
+  command -v aws >/dev/null 2>&1 || return 0
+
+  if aws sts get-caller-identity --profile "$profile" >/dev/null 2>&1; then
+    return 0
+  fi
+
+  echo "p: AWS SSO session for profile '$profile' is expired or missing." >&2
+  if confirm "Run 'aws sso login --profile $profile'?"; then
+    aws sso login --profile "$profile"
+  fi
+}
+
+subcommand=""
+for arg in "$@"; do
+  if [[ $arg != -* ]]; then
+    subcommand="$arg"
+    break
+  fi
+done
+
+case "$subcommand" in
+up | preview | destroy | refresh | import | watch)
+  ensure_aws_sso
+  ;;
+esac
+
+if ! token="$(read_secret "$ref")"; then
+  exit 1
+fi
 
 # https://github.com/pulumi/pulumi/issues/20602
 # bwrap cannot bind through a read-only symlink, so for each credentials
