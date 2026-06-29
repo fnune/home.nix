@@ -3,6 +3,7 @@
   "effortLevel": "high",
   "skipAutoPermissionPrompt": true,
   "theme": "auto",
+  "tui": "fullscreen",
   "attribution": {
     "commit": "",
     "pr": ""
