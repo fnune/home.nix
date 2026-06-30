@@ -3,6 +3,7 @@
     username = "fausto";
     homeDirectory = "/home/fausto";
     stateVersion = "25.05";
+    sessionVariables.NH_SHOW_ACTIVATION_LOGS = "1";
   };
 
   nixpkgs.config.allowUnfree = true;
