@@ -12,7 +12,6 @@
     nil
     pyright
     rustup
-    stylelint-lsp
     taplo
     terraform-ls
     typescript-language-server
@@ -56,7 +55,7 @@
     ocamllsp.enable = true;
     ruff.enable = true;
     rust_analyzer.enable = true;
-    stylelint_lsp.enable = true;
+    cssls.enable = true;
     taplo.enable = true;
     terraformls.enable = true;
     nil_ls = {
