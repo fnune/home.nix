@@ -4,6 +4,8 @@
   "skipAutoPermissionPrompt": true,
   "theme": "auto",
   "tui": "default",
+  "autoMemoryEnabled": false,
+  "autoDreamEnabled": false,
   "attribution": {
     "commit": "",
     "pr": ""
