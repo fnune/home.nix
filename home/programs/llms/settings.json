@@ -10,6 +10,17 @@
     "commit": "",
     "pr": ""
   },
+  "extraKnownMarketplaces": {
+    "pulumi-internal": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/pulumi/pulumi-skills-internal.git"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "engineering@pulumi-internal": true
+  },
   "hooks": {
     "PreToolUse": [
       {
