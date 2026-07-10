@@ -36,9 +36,6 @@ in {
         source = ./p.sh;
         executable = true;
       };
-      # https://github.com/pulumi/pulumi/issues/20602
-      "${config.home.homeDirectory}/.pulumi/credentials.json".text = "";
-      "${config.home.homeDirectory}/.pulumi/.esc/credentials.json".text = "";
     };
 
     sessionVariables = {
