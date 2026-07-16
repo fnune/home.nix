@@ -1,6 +1,4 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [pcloud];
-
+{...}: {
   services.syncthing.enable = true;
 
   services.pacman.packages = [
