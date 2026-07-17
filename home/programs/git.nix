@@ -49,6 +49,8 @@
       pull.ff = "only";
       push.autoSetupRemote = true;
       push.default = "current";
+      rerere.enabled = true;
+      rerere.autoUpdate = true;
       merge.ours.driver = true;
       credential.helper = "/usr/lib/git-core/git-credential-libsecret";
     };
