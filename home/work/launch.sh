@@ -24,16 +24,11 @@ function t() {
 
   cd "$service_repo" || exit
 
-  env_entries="$(esc open pulumi/default/review-stacks --format json | jq -r '.environmentVariables | to_entries[]')"
-  env_script="$(echo "$env_entries" | jq -r '"tmux set-environment -t \"'"$session_service"'\" \(.key) \(.value | @sh)"')"
-
   if ! tmux list-sessions | grep -q "^$session_service:"; then
     tmux new-session -c "$service_repo" -d -s "$session_service" -n git
-    eval "$env_script"
     set_tmux_session_theme "$session_service" "$theme_light_blue"
     tmux send-keys -t "$session_service:git" "repo-ui" C-m
     tmux new-window -c "$service_repo" -n main
-    tmux send-keys -t "$session_service:main" "ff status" C-m
     tmux select-window -t "$session_service:git"
   fi
 
