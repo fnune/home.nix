@@ -3,8 +3,13 @@
   customPlugins,
   floating_border,
   listchars,
+  vimHerdrNavigation,
   ...
 }: {
+  # vim-herdr-navigation replaces the mappings but calls back into
+  # vim-tmux-navigator's commands when $TMUX is set, so tmux keeps working.
+  globals.tmux_navigator_no_mappings = 1;
+
   extraPlugins = with pkgs-unstable.vimPlugins;
     [
       promise-async
@@ -65,6 +70,8 @@
   extraConfigLua = ''
     require("fundo").install()
     require("fundo").setup({})
+
+    dofile("${vimHerdrNavigation}/editor/nvim.lua")
   '';
 
   keymaps = [

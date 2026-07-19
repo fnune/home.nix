@@ -2,7 +2,7 @@
 
 source "$HOME/.home.nix/home/programs/tmux/tmux-utils.sh"
 
-function t() {
+function t-tmux() {
   local repos="$HOME/Development/pulumi"
   local service_repo="$repos/pulumi-service"
   local pulumi_repo="$repos/pulumi"

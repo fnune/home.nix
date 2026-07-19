@@ -2,7 +2,7 @@
 
 source "$HOME/.home.nix/home/programs/tmux/tmux-utils.sh"
 
-function n() {
+function n-tmux() {
   local notes_dir="$NOTES_DIR"
   local dotfiles_dir="$HOME/.home.nix"
 

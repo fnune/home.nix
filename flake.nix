@@ -54,6 +54,13 @@
 
     treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
 
+    vimHerdrNavigation = pkgs.fetchFromGitHub {
+      owner = "paulbkim-dev";
+      repo = "vim-herdr-navigation";
+      rev = "53e318c772c4d3b7fbd904ac43bcf3e5b5d8b244";
+      hash = "sha256-vUUt46jiK6ZsPH8D13/+IIlqT3KbFliPJkNplsVqiQo=";
+    };
+
     preCommit = git-hooks.lib.${system}.run {
       src = ./.;
       package = pkgs-unstable.prek;
@@ -74,7 +81,7 @@
       pkgs = pkgs-unstable;
       module = {
         imports = [./home/programs/nixvim/config.nix];
-        _module.args = {inherit pkgs-unstable standard;};
+        _module.args = {inherit pkgs-unstable standard vimHerdrNavigation;};
       };
     };
   in {
@@ -101,7 +108,7 @@
     in {
       fausto = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage standard;};
+        extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage standard vimHerdrNavigation;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };
     };

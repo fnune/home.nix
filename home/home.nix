@@ -30,6 +30,7 @@
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/godot.nix
+    ./programs/herdr/herdr.nix
     ./programs/jetbrains/jetbrains.nix
     ./programs/jujutsu.nix
     ./programs/kitty/kitty.nix
