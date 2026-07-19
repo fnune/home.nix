@@ -181,7 +181,24 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "plasma-manager": "plasma-manager",
+        "standard": "standard",
         "treefmt-nix": "treefmt-nix"
+      }
+    },
+    "standard": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784461886,
+        "narHash": "sha256-+fw6E6bblmAYPfbxnBZ4RdbefojNcFhfxWJZERsSPtQ=",
+        "owner": "fnune",
+        "repo": "standard",
+        "rev": "0bbbf7c0826d7305ba97896481e6538b0d90c320",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fnune",
+        "repo": "standard",
+        "type": "github"
       }
     },
     "systems": {

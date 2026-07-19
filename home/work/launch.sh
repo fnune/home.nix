@@ -31,7 +31,7 @@ function t() {
     tmux new-session -c "$service_repo" -d -s "$session_service" -n git
     eval "$env_script"
     set_tmux_session_theme "$session_service" "$theme_light_blue"
-    tmux send-keys -t "$session_service:git" "jjui" C-m
+    tmux send-keys -t "$session_service:git" "repo-ui" C-m
     tmux new-window -c "$service_repo" -n main
     tmux send-keys -t "$session_service:main" "ff status" C-m
     tmux select-window -t "$session_service:git"

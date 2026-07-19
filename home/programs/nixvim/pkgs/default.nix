@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  standard,
+  ...
+}: {
   improved-ft-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "improved-ft.nvim";
     version = "unstable-2026-04-28";
@@ -50,12 +54,7 @@
 
   standard = pkgs.vimUtils.buildVimPlugin {
     pname = "standard";
-    version = "unstable-2026-04-28";
-    src = pkgs.fetchFromGitHub {
-      owner = "fnune";
-      repo = "standard";
-      rev = "0b1c270fa074fb7c14709d17f8a34a7a7a94b33b";
-      hash = "sha256-5yf7FJW1w8FH53ZAbyRrTYiLXfnQa/3DQ9vdJX3WGlc=";
-    };
+    version = standard.shortRev or "unstable";
+    src = standard;
   };
 }

@@ -18,7 +18,7 @@ function create_simple_session() {
 
   tmux new-session -c "$repo_path" -d -s "$session" -n git
   set_tmux_session_theme "$session" "$color"
-  tmux send-keys -t "$session:git" "lazygit" C-m
+  tmux send-keys -t "$session:git" "repo-ui" C-m
   tmux new-window -c "$repo_path" -n main
   tmux select-window -t "$session:git"
 }

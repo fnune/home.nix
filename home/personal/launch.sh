@@ -15,7 +15,7 @@ function n() {
     tmux send-keys -t "$session:notes" "$EDITOR -c 'NvimTreeToggle'" C-m
 
     tmux new-window -c "$dotfiles_dir" -n dotfiles
-    tmux send-keys -t "$session:dotfiles" "lazygit" C-m
+    tmux send-keys -t "$session:dotfiles" "repo-ui" C-m
     tmux split-window -c "$dotfiles_dir" -h
     tmux send-keys -t "$session:dotfiles" "$EDITOR" C-m
     tmux split-window -c "$dotfiles_dir" -v

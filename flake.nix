@@ -17,6 +17,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    standard = {
+      url = "github:fnune/standard";
+      flake = false;
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -34,6 +38,7 @@
     nixpkgs-unstable,
     home-manager,
     nixvim,
+    standard,
     plasma-manager,
     nix-flatpak,
     treefmt-nix,
@@ -69,7 +74,7 @@
       pkgs = pkgs-unstable;
       module = {
         imports = [./home/programs/nixvim/config.nix];
-        _module.args = {inherit pkgs-unstable;};
+        _module.args = {inherit pkgs-unstable standard;};
       };
     };
   in {
@@ -96,7 +101,7 @@
     in {
       fausto = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage;};
+        extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage standard;};
         modules = [./home/home.nix nixFlatpak plasmaManager];
       };
     };

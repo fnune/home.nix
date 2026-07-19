@@ -1,5 +1,12 @@
-{pkgs-unstable, ...}: let
-  customPlugins = import ./pkgs {pkgs = pkgs-unstable;};
+{
+  pkgs-unstable,
+  standard,
+  ...
+}: let
+  customPlugins = import ./pkgs {
+    pkgs = pkgs-unstable;
+    inherit standard;
+  };
 
   floating_border = "rounded";
   signs = {
