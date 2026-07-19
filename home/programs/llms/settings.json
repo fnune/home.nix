@@ -35,6 +35,7 @@
     ]
   },
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "Bash(grep:*)",
       "Bash(rg:*)",
