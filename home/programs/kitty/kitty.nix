@@ -2,11 +2,12 @@
   config,
   lib,
   pkgs,
+  standard,
   ...
 }: let
   colorschemeConf =
     lib.optionalString (config.colorscheme == "standard")
-    "include ${config.home.homeDirectory}/.local/share/nvim/lazy/standard/kitty/standard.dark.conf";
+    "include ${standard}/kitty/standard.dark.conf";
   icon = ./whiskers.png;
   kittyConf = pkgs.writeTextDir "kitty.conf" ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}
