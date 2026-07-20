@@ -44,9 +44,9 @@ launch_1password() {
     return 0
   fi
   if [[ ${OSTYPE:-} == darwin* ]]; then
-    open -a "1Password"
+    open --background --hide -a "1Password" --args --silent
   else
-    1password >/dev/null 2>&1 &
+    1password --silent >/dev/null 2>&1 &
   fi
 }
 
