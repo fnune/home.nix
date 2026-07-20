@@ -95,6 +95,22 @@ ensure_aws_sso() {
   fi
 }
 
+ensure_ssh_key() {
+  # The build mounts the ssh agent (--mount=type=ssh) to fetch private Go
+  # modules. buildkit reads whatever the agent already holds and cannot itself
+  # trigger OpenSSH's addKeysToAgent, so a passphrase key has to be loaded
+  # before the build starts. Nothing else warms the agent now that the repo UI
+  # is jjui (jj signs from the key file and never touches the agent).
+  command -v ssh-add >/dev/null 2>&1 || return 0
+  [[ -n ${SSH_AUTH_SOCK:-} ]] || return 0
+  if ssh-add -l >/dev/null 2>&1; then
+    return 0
+  fi
+
+  echo "p: ssh agent holds no keys; loading identity (unlock when prompted)..." >&2
+  ssh-add </dev/null || true
+}
+
 subcommand=""
 for arg in "$@"; do
   if [[ $arg != -* ]]; then
@@ -106,6 +122,7 @@ done
 case "$subcommand" in
 up | preview | destroy | refresh | import | watch)
   ensure_aws_sso
+  ensure_ssh_key
   ;;
 esac
 
