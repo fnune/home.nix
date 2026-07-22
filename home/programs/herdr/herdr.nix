@@ -102,6 +102,9 @@ in {
 
       [keys]
       prefix = "ctrl+a"
+      navigate_workspace_up = "k"
+      navigate_workspace_down = "j"
+      focus_agent = "prefix+alt+1..9"
 
       [ui]
       copy_on_select = true
