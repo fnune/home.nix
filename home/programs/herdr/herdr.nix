@@ -109,9 +109,6 @@ in {
       [ui]
       copy_on_select = true
       prompt_new_tab_name = false
-      sidebar_width = 20
-      sidebar_min_width = 16
-      sidebar_max_width = 28
 
       [ui.toast]
       delivery = "off"
