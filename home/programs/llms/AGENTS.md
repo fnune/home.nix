@@ -15,6 +15,7 @@
 - If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`
 - Prefer `jj` over `git`. If the repo has no `.jj/`, colocate it with `jj git init`: that is cheap, invisible to colleagues, and undone with `rm -rf .jj`. Inside a git worktree jj refuses to colocate, so use git there and do not fight it.
   - `@` is already a commit and nothing is untracked: no `git add`, no `git stash`.
+  - Multiple agents sharing one working copy clobber each other: every jj command re-snapshots the working dir into `@`, so their edits and `jj describe` collide continuously rather than only at commit time. Isolate each agent with its own `jj workspace add <path>` (jj's answer to `git worktree`: same repo and op-log, independent `@`). Never point two agents at one working copy. Prefer this to `git worktree`; only fall back to git inside a worktree someone else already made.
   - NEVER run `git clean -x` or `-X`: it deletes `.jj/`, taking the operation log with it.
   - `jj undo` reverses the last operation. Prefer it to `git reset`.
   - Bookmarks never move on their own: `jj bookmark set <name> -r @-` before `jj git push`.
