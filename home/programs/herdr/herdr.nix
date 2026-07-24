@@ -1,13 +1,14 @@
 {
   pkgs-unstable,
   vimHerdrNavigation,
+  standard,
   config,
   lib,
   ...
 }: let
   colorschemeConf =
     lib.optionalString (config.colorscheme == "standard")
-    (builtins.readFile ./standard.toml);
+    (builtins.readFile "${standard}/herdr/standard.dark.toml");
 
   navigationActions = [
     {

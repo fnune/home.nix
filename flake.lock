@@ -188,11 +188,11 @@
     "standard": {
       "flake": false,
       "locked": {
-        "lastModified": 1784461886,
-        "narHash": "sha256-+fw6E6bblmAYPfbxnBZ4RdbefojNcFhfxWJZERsSPtQ=",
+        "lastModified": 1784883049,
+        "narHash": "sha256-ie62xyA8kuIRA5B0n75YN8wzJmwUzlV+BKGvQsED3dc=",
         "owner": "fnune",
         "repo": "standard",
-        "rev": "0bbbf7c0826d7305ba97896481e6538b0d90c320",
+        "rev": "92354f379e03ac13d06bf8c28d145d8c26c06683",
         "type": "github"
       },
       "original": {
