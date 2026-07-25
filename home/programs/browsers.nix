@@ -11,7 +11,6 @@
     onePassword = "{d634138d-c276-4fc8-924b-40a0ea21d284}";
     bitwarden = "{446900e4-71c2-419f-a6a7-df9c091e268b}";
     darkReader = "addon@darkreader.org";
-    multiAccountContainers = "@testpilot-containers";
     iStillDontCareAboutCookies = "idcac-pub@guus.ninja";
     oldRedditRedirect = "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}";
     sponsorBlock = "sponsorBlocker@ajay.app";
@@ -23,7 +22,6 @@
     onePassword
     bitwarden
     darkReader
-    multiAccountContainers
     iStillDontCareAboutCookies
     oldRedditRedirect
     sponsorBlock
