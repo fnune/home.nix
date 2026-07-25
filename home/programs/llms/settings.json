@@ -21,19 +21,6 @@
   "enabledPlugins": {
     "engineering@pulumi-internal": true
   },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "rtk hook claude"
-          }
-        ]
-      }
-    ]
-  },
   "permissions": {
     "defaultMode": "auto",
     "allow": [

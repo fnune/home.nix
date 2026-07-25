@@ -18,5 +18,3 @@
   - NEVER run `git clean -x` or `-X`: it deletes `.jj/`, taking the operation log with it.
   - `jj undo` reverses the last operation. Prefer it to `git reset`.
   - Bookmarks never move on their own: move the bookmark to your latest commit before `jj git push`.
-
-@RTK.md
