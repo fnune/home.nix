@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   pkgs-unstable,
   standard,
@@ -16,7 +15,7 @@
 in {
   home.packages = [pkgs-unstable.jjui repoUi];
 
-  xdg.configFile = lib.mkIf (config.colorscheme == "standard") {
+  xdg.configFile = {
     "jj/conf.d/standard.toml".source = "${standard}/jj/standard.dark.toml";
     "jjui/themes/standard.dark.toml".source = "${standard}/jjui/standard.dark.toml";
     "jjui/config.toml".text = ''

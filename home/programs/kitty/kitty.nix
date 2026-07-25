@@ -1,13 +1,10 @@
 {
   config,
-  lib,
   pkgs,
   standard,
   ...
 }: let
-  colorschemeConf =
-    lib.optionalString (config.colorscheme == "standard")
-    "include ${standard}/kitty/standard.dark.conf";
+  colorschemeConf = "include ${standard}/kitty/standard.dark.conf";
   icon = ./whiskers.png;
   kittyConf = pkgs.writeTextDir "kitty.conf" ''
     shell ${config.shell.bin} ${pkgs.lib.concatStringsSep " " config.shell.args}

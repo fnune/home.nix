@@ -6,9 +6,7 @@
   lib,
   ...
 }: let
-  colorschemeConf =
-    lib.optionalString (config.colorscheme == "standard")
-    (builtins.readFile "${standard}/herdr/standard.dark.toml");
+  colorschemeConf = builtins.readFile "${standard}/herdr/standard.dark.toml";
 
   navigationActions = [
     {

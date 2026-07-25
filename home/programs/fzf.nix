@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = [pkgs.bfs];
   programs = {
     fzf = {
@@ -17,7 +12,7 @@
         zvm_bindkey viins '^R' fzf-history-widget
       }
     '';
-    fzf.colors = lib.optionalAttrs (config.colorscheme == "standard") {
+    fzf.colors = {
       "bg+" = "-1";
       "fg+" = "#f3f2f1";
       "hl+" = "#d53880";
