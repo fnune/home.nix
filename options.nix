@@ -22,13 +22,6 @@
         description = "Full path to the SSH private key";
       };
     };
-    machine = {
-      scale = lib.mkOption {
-        type = lib.types.float;
-        default = 1.7;
-        description = "The display scaling that this machine uses on its primary monitor";
-      };
-    };
     # See https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
     fontconfig = {
       sans = lib.mkOption {
@@ -88,13 +81,6 @@
         default = "31,118,255";
       };
     };
-    panel = {
-      height = lib.mkOption {
-        type = lib.types.int;
-        default = 44;
-        description = "Height of the desktop environment panel";
-      };
-    };
     cursors = {
       name = lib.mkOption {
         type = lib.types.str;
@@ -134,11 +120,6 @@
         type = lib.types.str;
         default = "kitty.desktop";
         description = "The desktop file name";
-      };
-      bin = lib.mkOption {
-        type = lib.types.path;
-        default = "/usr/bin/kitty";
-        description = "The full path to the terminal emulator binary";
       };
     };
     browser = {

@@ -32,10 +32,6 @@
         windowTitle = "Terminal";
       in ''
         echo -ne "\e]0;${windowTitle}\a"
-
-        for file in ~/.zsh/includes/*(N); do
-          source "$file"
-        done
       '';
       envExtra = ''
         PROMPT=' %F{normal}%~ %(?.%F{green}.%F{red})λ%f '
