@@ -1,4 +1,5 @@
 {
+  pkgs,
   pkgs-unstable,
   vimHerdrNavigation,
   standard,
@@ -82,6 +83,11 @@
       }
     ];
 in {
+  _module.args.herdr = import ./lib.nix {
+    inherit pkgs pkgs-unstable;
+    shell = config.shell.bin;
+  };
+
   home.packages = [pkgs-unstable.herdr];
 
   xdg.configFile = {

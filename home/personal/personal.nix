@@ -1,18 +1,12 @@
 {
   config,
-  pkgs,
-  pkgs-unstable,
   nixvimPackage,
+  herdr,
   ...
 }: let
   cloudStorageDir = "${config.home.homeDirectory}/pCloudDrive";
   notesDir = "${cloudStorageDir}/Documents/Notes";
   dotfilesDir = "${config.home.homeDirectory}/.home.nix";
-
-  herdr = import ../programs/herdr/lib.nix {
-    inherit pkgs pkgs-unstable;
-    shell = config.shell.bin;
-  };
 
   editor = "${nixvimPackage}/bin/nvim";
 

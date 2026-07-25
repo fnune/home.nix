@@ -1,17 +1,12 @@
 {
   pkgs,
-  pkgs-unstable,
   config,
+  herdr,
   ...
 }: let
   repos = "${config.home.homeDirectory}/Development/pulumi";
   repo-service = "${repos}/pulumi-service";
   repo-pulumi = "${repos}/pulumi";
-
-  herdr = import ../programs/herdr/lib.nix {
-    inherit pkgs pkgs-unstable;
-    shell = config.shell.bin;
-  };
 
   repoWorkspace = label: repo: {
     inherit label;
