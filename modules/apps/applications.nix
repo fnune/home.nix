@@ -23,7 +23,6 @@
       onCalendar = "daily";
     };
     packages = [
-      "com.slack.Slack"
       "com.spotify.Client"
       "us.zoom.Zoom"
     ];

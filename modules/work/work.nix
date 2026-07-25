@@ -76,6 +76,10 @@ in {
     };
   };
 
+  services.flatpak.packages = [
+    "com.slack.Slack"
+  ];
+
   programs.git = {
     settings = {
       url = {

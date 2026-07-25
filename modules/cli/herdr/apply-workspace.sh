@@ -7,11 +7,11 @@ spec="${1:?usage: apply-workspace <spec.json> [--rebuild]}"
 rebuild=false
 for arg in "${@:2}"; do
   case "$arg" in
-    --rebuild) rebuild=true ;;
-    *)
-      echo "unknown argument: $arg" >&2
-      exit 2
-      ;;
+  --rebuild) rebuild=true ;;
+  *)
+    echo "unknown argument: $arg" >&2
+    exit 2
+    ;;
   esac
 done
 

@@ -80,7 +80,7 @@
     nixvimPackage = nixvim.legacyPackages.${system}.makeNixvimWithModule {
       pkgs = pkgs-unstable;
       module = {
-        imports = [./home/programs/nixvim/config.nix];
+        imports = [./modules/code/nixvim/config.nix];
         _module.args = {inherit pkgs-unstable standard vimHerdrNavigation;};
       };
     };
@@ -109,7 +109,7 @@
       fausto = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage standard vimHerdrNavigation;};
-        modules = [./home/home.nix nixFlatpak plasmaManager];
+        modules = [./configurations/all.nix nixFlatpak plasmaManager];
       };
     };
   };
