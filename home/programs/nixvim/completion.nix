@@ -36,7 +36,6 @@
               return { "lsp", "path", "snippets", "buffer" }
             end,
             per_filetype = {
-              codecompanion = { "codecompanion" },
               gitcommit = { "buffer" },
             },
           },
@@ -72,7 +71,6 @@
               auto_show = function(_)
                 return not (
                   is_in_comment()
-                  or vim.bo.filetype == "AvanteInput"
                   or vim.bo.filetype == "gitcommit"
                   or vim.bo.filetype == "markdown"
                 )
@@ -89,14 +87,6 @@
           },
         })
       '';
-    };
-
-    blink-compat = {
-      enable = true;
-    };
-
-    blink-cmp-avante = {
-      enable = true;
     };
 
     colorful-menu = {

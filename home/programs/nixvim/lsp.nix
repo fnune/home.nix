@@ -10,11 +10,9 @@
     gopls
     lua-language-server
     nil
-    pyright
     rustup
     taplo
     terraform-ls
-    typescript-language-server
     vscode-langservers-extracted
     yaml-language-server
   ];
@@ -45,7 +43,6 @@
   lsp.servers = {
     angularls.enable = true;
     biome.enable = true;
-    eslint.enable = true;
     gdscript.enable = true;
     golangci_lint_ls.enable = true;
     gopls = {
