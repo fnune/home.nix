@@ -1,6 +1,7 @@
 # Global AI instructions
 
 - VERY IMPORTANT:
+  - Be concise. Avoid walls of text, value judgements, and fluff. Prefer one small paragraph, or a single line plus bullet points. The user will ask for more if needed.
   - Never include code comments that only explain the "what". Make code self-evident through naming and structure.
     - A "why" comment is a last resort, justified only when the rationale cannot live in the code.
     - Do not smuggle a "what" comment as a "why".
@@ -12,7 +13,6 @@
   - Never use title-case in headings: use sentence-case instead.
   - Never use em-dashes for punctuation.
   - Never attribute work to AI in commits or code.
-  - Be concise. Avoid walls of text, value judgements, and fluff. Prefer one small paragraph, or a single line plus bullet points. The user will ask for more if needed.
 - If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`. Don't use this to work around broken build setups for work.
 - Prefer `jj` over `git`. If the repo has no `.jj/`, colocate it with `jj git init`: that is cheap, invisible to colleagues, and undone with `rm -rf .jj`. Inside a git worktree jj refuses to colocate, so use git there and do not fight it.
   - `@` is already a commit and nothing is untracked: no `git add`, no `git stash`.
