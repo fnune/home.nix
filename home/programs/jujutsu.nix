@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   standard,
   ...
 }: let
@@ -10,17 +11,23 @@
 
     jj root >/dev/null 2>&1 || jj git init --colocate
 
-    exec lazyjj
+    exec jjui
   '';
 in {
-  home.packages = [pkgs.lazyjj repoUi];
+  home.packages = [pkgs-unstable.jjui repoUi];
 
   xdg.configFile = lib.mkIf (config.colorscheme == "standard") {
     "jj/conf.d/standard.toml".source = "${standard}/jj/standard.dark.toml";
+    "jjui/themes/standard.dark.toml".source = "${standard}/jjui/standard.dark.toml";
+    "jjui/config.toml".text = ''
+      [ui]
+      theme = "standard.dark"
+    '';
   };
 
   programs.jujutsu = {
     enable = true;
+    package = pkgs-unstable.jujutsu;
     settings = {
       user = {
         name = config.profile.name;
