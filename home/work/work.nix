@@ -66,7 +66,6 @@ in {
       ]);
 
     file = {
-      "${config.home.homeDirectory}/.zsh/includes/t-tmux".source = ./launch.sh;
       "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;
       "${repo-service}/.envrc.local".source = ./envrc.sh;
       "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;

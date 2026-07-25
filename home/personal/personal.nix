@@ -57,9 +57,6 @@ in {
   home = {
     packages = [personal];
 
-    file = {
-      "${config.home.homeDirectory}/.zsh/includes/n-tmux".source = ./launch.sh;
-    };
     sessionVariables = {
       CLOUD_STORAGE_DIR = cloudStorageDir;
       NOTES_DIR = notesDir;
