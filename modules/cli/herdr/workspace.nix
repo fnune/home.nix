@@ -7,6 +7,7 @@
   cloudStorageDir = "${config.home.homeDirectory}/pCloudDrive";
   notesDir = "${cloudStorageDir}/Documents/Notes";
   dotfilesDir = "${config.home.homeDirectory}/.home.nix";
+  blogDir = "${config.home.homeDirectory}/Development/fnune.github.io";
 
   editor = "${nixvimPackage}/bin/nvim";
 
@@ -41,6 +42,24 @@
             root = herdr.pane {
               cwd = notesDir;
               command = [editor "-c" "NvimTreeToggle"];
+            };
+          }
+          {
+            label = "✍️ Blog";
+            root = herdr.split {
+              direction = "right";
+              first = herdr.pane {
+                cwd = blogDir;
+                command = ["repo-ui"];
+              };
+              second = herdr.split {
+                direction = "down";
+                first = herdr.pane {
+                  cwd = blogDir;
+                  command = [editor];
+                };
+                second = herdr.pane {cwd = blogDir;};
+              };
             };
           }
         ];
