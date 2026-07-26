@@ -117,6 +117,8 @@ in {
       [ui]
       copy_on_select = true
       prompt_new_tab_name = false
+      pane_borders = true
+      pane_gaps = false
 
       [ui.sidebar.spaces]
       rows = [["state_icon", "workspace"]]
