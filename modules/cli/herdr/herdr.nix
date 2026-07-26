@@ -9,6 +9,10 @@
 }: let
   colorschemeConf = builtins.readFile "${standard}/herdr/standard.dark.toml";
 
+  loginShell = pkgs.writeShellScript "herdr-login-shell" ''
+    exec ${config.shell.bin} ${lib.escapeShellArgs config.shell.args} "$@"
+  '';
+
   navigationActions = [
     {
       id = "left";
@@ -85,7 +89,7 @@
 in {
   _module.args.herdr = import ./lib.nix {
     inherit pkgs pkgs-unstable;
-    shell = config.shell.bin;
+    shell = loginShell;
   };
 
   home.packages = [pkgs-unstable.herdr];
@@ -97,7 +101,7 @@ in {
       onboarding = false
 
       [terminal]
-      default_shell = "${config.shell.bin}"
+      default_shell = "${loginShell}"
       new_cwd = "follow"
 
       [update]
