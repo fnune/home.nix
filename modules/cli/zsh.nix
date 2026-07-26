@@ -32,16 +32,7 @@
         windowTitle = "Terminal";
       in ''
         echo -ne "\e]0;${windowTitle}\a"
-      '';
-      envExtra = ''
-        PROMPT=' %F{normal}%~ %(?.%F{green}.%F{red})λ%f '
 
-        export SHELL=$(which zsh)
-        export KEYTIMEOUT=1
-        export EZA_ICONS_AUTO=auto
-        export PATH="$HOME/.local/bin:$PATH"
-      '';
-      profileExtra = ''
         function cdb() {
           inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
           if [ $inside_git_repo ]; then
@@ -51,7 +42,15 @@
           fi
         }
 
-        bindkey '^ ' autosuggest-accept
+        zvm_after_init_commands+=('bindkey "^ " autosuggest-accept')
+      '';
+      envExtra = ''
+        PROMPT=' %F{normal}%~ %(?.%F{green}.%F{red})λ%f '
+
+        export SHELL=$(which zsh)
+        export KEYTIMEOUT=1
+        export EZA_ICONS_AUTO=auto
+        export PATH="$HOME/.local/bin:$PATH"
       '';
     };
   };
