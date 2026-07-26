@@ -118,6 +118,12 @@ in {
       copy_on_select = true
       prompt_new_tab_name = false
 
+      [ui.sidebar.spaces]
+      rows = [["state_icon", "workspace"]]
+
+      [ui.sidebar.agents]
+      rows = [["state_icon", "workspace", "tab"]]
+
       [ui.toast]
       delivery = "off"
 
