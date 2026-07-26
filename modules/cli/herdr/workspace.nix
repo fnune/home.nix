@@ -44,8 +44,14 @@
               command = [editor "-c" "NvimTreeToggle"];
             };
           }
+        ];
+      }
+      {
+        label = "✍️ blog";
+        focusTab = "blog";
+        tabs = [
           {
-            label = "✍️ Blog";
+            label = "blog";
             root = herdr.split {
               direction = "right";
               first = herdr.pane {
