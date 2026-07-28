@@ -16,10 +16,17 @@
         "source": "git",
         "url": "https://github.com/pulumi/pulumi-skills-internal.git"
       }
+    },
+    "caveman": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/JuliusBrussee/caveman.git"
+      }
     }
   },
   "enabledPlugins": {
-    "engineering@pulumi-internal": true
+    "engineering@pulumi-internal": true,
+    "caveman@caveman": true
   },
   "permissions": {
     "defaultMode": "auto",
