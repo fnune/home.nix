@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "clack": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1785513482,
+        "narHash": "sha256-C06jHBOReqRTts7tD1yp+PyoLyJ1otWwF/p8gKNBOHM=",
+        "owner": "fnune",
+        "repo": "clack",
+        "rev": "12476ed4e450b6d5c9231679bf8bf82c25c13f18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fnune",
+        "ref": "v0.2.2",
+        "repo": "clack",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -174,6 +196,7 @@
     },
     "root": {
       "inputs": {
+        "clack": "clack",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
@@ -183,6 +206,27 @@
         "plasma-manager": "plasma-manager",
         "standard": "standard",
         "treefmt-nix": "treefmt-nix"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "clack",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785302874,
+        "narHash": "sha256-fpKEww3TJoo1ANHO2q918ei+ayOrp0YEQAO1DuBLOB4=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "b99d48435bc3e34309d2c7ae6f7d45e77a156c38",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "standard": {

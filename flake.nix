@@ -21,6 +21,10 @@
       url = "github:fnune/standard";
       flake = false;
     };
+    clack = {
+      url = "github:fnune/clack/v0.2.2";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -40,6 +44,7 @@
     nixvim,
     standard,
     plasma-manager,
+    clack,
     nix-flatpak,
     treefmt-nix,
     git-hooks,
@@ -109,7 +114,7 @@
       fausto = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage standard vimHerdrNavigation;};
-        modules = [./configurations/all.nix nixFlatpak plasmaManager];
+        modules = [./configurations/all.nix nixFlatpak plasmaManager clack.homeManagerModules.default];
       };
     };
   };
