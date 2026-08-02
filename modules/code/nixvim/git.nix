@@ -2,7 +2,8 @@
   pkgs-unstable,
   signs,
   ...
-}: {
+}:
+{
   extraPlugins = with pkgs-unstable.vimPlugins; [
     nvim-scrollbar
     repolink-nvim

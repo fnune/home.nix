@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./editorconfig.nix
     ./git.nix

@@ -3,7 +3,8 @@
   config,
   herdr,
   ...
-}: let
+}:
+let
   repos = "${config.home.homeDirectory}/Development/pulumi";
   repo-service = "${repos}/pulumi-service";
   repo-pulumi = "${repos}/pulumi";
@@ -16,12 +17,12 @@
         label = "git";
         root = herdr.pane {
           cwd = repo;
-          command = ["repo-ui"];
+          command = [ "repo-ui" ];
         };
       }
       {
         label = "main";
-        root = herdr.pane {cwd = repo;};
+        root = herdr.pane { cwd = repo; };
       }
     ];
   };
@@ -37,28 +38,30 @@
       (repoWorkspace "📦 pulumi/registry" "${repos}/registry")
     ];
   };
-in {
+in
+{
   home = {
-    packages =
-      [work]
-      ++ (with pkgs; [
-        awscli2
-        bubblewrap
-        go
-        golangci-lint
-        golangci-lint-langserver
-        gotools
-        hugo
-        k9s
-        kubectl
-        lefthook
-        mockgen
-        mysql84
-        ssm-session-manager-plugin
-        typescript
-        uv
-        yarn
-      ]);
+    packages = [
+      work
+    ]
+    ++ (with pkgs; [
+      awscli2
+      bubblewrap
+      go
+      golangci-lint
+      golangci-lint-langserver
+      gotools
+      hugo
+      k9s
+      kubectl
+      lefthook
+      mockgen
+      mysql84
+      ssm-session-manager-plugin
+      typescript
+      uv
+      yarn
+    ]);
 
     file = {
       "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;

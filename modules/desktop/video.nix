@@ -1,3 +1,3 @@
 _: {
-  services.pacman.packages = ["kdenlive"];
+  services.pacman.packages = [ "kdenlive" ];
 }

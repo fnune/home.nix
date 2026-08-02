@@ -5,12 +5,14 @@
   listchars,
   vimHerdrNavigation,
   ...
-}: {
-  extraPlugins = with pkgs-unstable.vimPlugins;
+}:
+{
+  extraPlugins =
+    with pkgs-unstable.vimPlugins;
     [
       promise-async
     ]
-    ++ [customPlugins.nvim-fundo];
+    ++ [ customPlugins.nvim-fundo ];
 
   plugins = {
     which-key = {
@@ -18,7 +20,12 @@
       settings = {
         win = {
           border = floating_border;
-          padding = [0 0 0 0];
+          padding = [
+            0
+            0
+            0
+            0
+          ];
         };
         icons.mappings = false;
         spec = [
@@ -48,7 +55,7 @@
         render = "virtual";
         virtual_symbol = "";
         enable_tailwind = true;
-        exclude_buftypes = ["nofile"];
+        exclude_buftypes = [ "nofile" ];
       };
     };
 
@@ -71,7 +78,10 @@
 
   keymaps = [
     {
-      mode = ["n" "x"];
+      mode = [
+        "n"
+        "x"
+      ];
       key = "gx";
       action = ":Browse<CR>";
       options = {

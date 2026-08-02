@@ -4,7 +4,8 @@
   pkgs-unstable,
   standard,
   ...
-}: let
+}:
+let
   repoUi = pkgs.writeShellScriptBin "repo-ui" ''
     set -euo pipefail
 
@@ -12,8 +13,12 @@
 
     exec jjui
   '';
-in {
-  home.packages = [pkgs-unstable.jjui repoUi];
+in
+{
+  home.packages = [
+    pkgs-unstable.jjui
+    repoUi
+  ];
 
   xdg.configFile = {
     "jj/conf.d/standard.toml".source = "${standard}/jj/standard.dark.toml";

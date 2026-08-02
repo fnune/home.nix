@@ -2,7 +2,8 @@
   pkgs-unstable,
   standard,
   ...
-}: let
+}:
+let
   customPlugins = import ./pkgs {
     pkgs = pkgs-unstable;
     inherit standard;
@@ -36,7 +37,8 @@
     };
   };
   file_explorer_width_chars = 40;
-in {
+in
+{
   imports = [
     ./completion.nix
     ./editing.nix
@@ -50,7 +52,15 @@ in {
     ./ui.nix
   ];
 
-  _module.args = {inherit customPlugins floating_border signs listchars file_explorer_width_chars;};
+  _module.args = {
+    inherit
+      customPlugins
+      floating_border
+      signs
+      listchars
+      file_explorer_width_chars
+      ;
+  };
 
   package = pkgs-unstable.neovim-unwrapped;
 
@@ -58,7 +68,7 @@ in {
   withPython3 = true;
   withRuby = true;
 
-  extraLuaPackages = ps: [ps.magick];
+  extraLuaPackages = ps: [ ps.magick ];
 
   globals = {
     mapleader = " ";

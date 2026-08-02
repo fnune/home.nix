@@ -2,8 +2,9 @@
   customPlugins,
   lib,
   ...
-}: {
-  extraPlugins = [customPlugins.standard];
+}:
+{
+  extraPlugins = [ customPlugins.standard ];
 
   colorscheme = "standard";
 
@@ -33,17 +34,21 @@
           theme = "auto";
         };
         sections = {
-          lualine_a = ["mode"];
-          lualine_b = ["branch" "diff" "diagnostics"];
+          lualine_a = [ "mode" ];
+          lualine_b = [
+            "branch"
+            "diff"
+            "diagnostics"
+          ];
           lualine_c = [
             {
               __unkeyed-1 = "filename";
               path = 1;
             }
           ];
-          lualine_x = ["filetype"];
-          lualine_y = ["progress"];
-          lualine_z = ["location"];
+          lualine_x = [ "filetype" ];
+          lualine_y = [ "progress" ];
+          lualine_z = [ "location" ];
         };
       };
     };

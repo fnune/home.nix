@@ -3,7 +3,8 @@
   nixvimPackage,
   herdr,
   ...
-}: let
+}:
+let
   cloudStorageDir = "${config.home.homeDirectory}/pCloudDrive";
   notesDir = "${cloudStorageDir}/Documents/Notes";
   dotfilesDir = "${config.home.homeDirectory}/.home.nix";
@@ -25,15 +26,15 @@
               direction = "right";
               first = herdr.pane {
                 cwd = dotfilesDir;
-                command = ["repo-ui"];
+                command = [ "repo-ui" ];
               };
               second = herdr.split {
                 direction = "down";
                 first = herdr.pane {
                   cwd = dotfilesDir;
-                  command = [editor];
+                  command = [ editor ];
                 };
-                second = herdr.pane {cwd = dotfilesDir;};
+                second = herdr.pane { cwd = dotfilesDir; };
               };
             };
           }
@@ -41,7 +42,11 @@
             label = "notes";
             root = herdr.pane {
               cwd = notesDir;
-              command = [editor "-c" "NvimTreeToggle"];
+              command = [
+                editor
+                "-c"
+                "NvimTreeToggle"
+              ];
             };
           }
         ];
@@ -56,15 +61,15 @@
               direction = "right";
               first = herdr.pane {
                 cwd = blogDir;
-                command = ["repo-ui"];
+                command = [ "repo-ui" ];
               };
               second = herdr.split {
                 direction = "down";
                 first = herdr.pane {
                   cwd = blogDir;
-                  command = [editor];
+                  command = [ editor ];
                 };
-                second = herdr.pane {cwd = blogDir;};
+                second = herdr.pane { cwd = blogDir; };
               };
             };
           }
@@ -72,6 +77,7 @@
       }
     ];
   };
-in {
-  home.packages = [personal];
+in
+{
+  home.packages = [ personal ];
 }

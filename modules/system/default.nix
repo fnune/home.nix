@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./nix.nix
     ./pacman.nix

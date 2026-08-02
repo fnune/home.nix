@@ -2,23 +2,27 @@
   pkgs-unstable,
   nixvimPackage,
   ...
-}: {
+}:
+{
   home = {
-    packages =
-      [nixvimPackage]
-      ++ (with pkgs-unstable; [
-        alejandra
-        biome
-        gofumpt
-        imagemagick
-        inotify-tools
-        nodejs_22
-        prettier
-        shellcheck
-        shfmt
-        sqlite
-        stylua
-      ]);
+    packages = [
+      nixvimPackage
+    ]
+    ++ (with pkgs-unstable; [
+      biome
+      gofumpt
+      gotools
+      imagemagick
+      inotify-tools
+      nixfmt
+      ocamlformat
+      prettier
+      shellcheck
+      shfmt
+      sqlite
+      sqruff
+      stylua
+    ]);
 
     sessionVariables = {
       EDITOR = "${nixvimPackage}/bin/nvim";
@@ -30,5 +34,5 @@
   programs.git.settings.user.editor = "nvim";
   programs.zsh.shellAliases.vim = "nvim";
 
-  services.pacman.packages = ["mermaid-cli"];
+  services.pacman.packages = [ "mermaid-cli" ];
 }

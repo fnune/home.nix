@@ -1,7 +1,9 @@
-{config, ...}: let
+{ config, ... }:
+let
   cloudStorageDir = "${config.home.homeDirectory}/pCloudDrive";
   notesDir = "${cloudStorageDir}/Documents/Notes";
-in {
+in
+{
   home.sessionVariables = {
     CLOUD_STORAGE_DIR = cloudStorageDir;
     NOTES_DIR = notesDir;

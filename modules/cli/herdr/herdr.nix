@@ -6,7 +6,8 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   colorschemeConf = builtins.readFile "${standard}/herdr/standard.dark.toml";
 
   loginShell = pkgs.writeShellScript "herdr-login-shell" ''
@@ -17,26 +18,42 @@
     {
       id = "left";
       title = "Navigate left (Vim/herdr)";
-      contexts = ["global"];
-      command = ["bash" "navigate.sh" "left"];
+      contexts = [ "global" ];
+      command = [
+        "bash"
+        "navigate.sh"
+        "left"
+      ];
     }
     {
       id = "down";
       title = "Navigate down (Vim/herdr)";
-      contexts = ["global"];
-      command = ["bash" "navigate.sh" "down"];
+      contexts = [ "global" ];
+      command = [
+        "bash"
+        "navigate.sh"
+        "down"
+      ];
     }
     {
       id = "up";
       title = "Navigate up (Vim/herdr)";
-      contexts = ["global"];
-      command = ["bash" "navigate.sh" "up"];
+      contexts = [ "global" ];
+      command = [
+        "bash"
+        "navigate.sh"
+        "up"
+      ];
     }
     {
       id = "right";
       title = "Navigate right (Vim/herdr)";
-      contexts = ["global"];
-      command = ["bash" "navigate.sh" "right"];
+      contexts = [ "global" ];
+      command = [
+        "bash"
+        "navigate.sh"
+        "right"
+      ];
     }
   ];
 
@@ -54,45 +71,51 @@
       manifest_path = "${vimHerdrNavigation}/herdr-plugin.toml";
       plugin_root = "${vimHerdrNavigation}";
       enabled = true;
-      platforms = ["linux" "macos"];
+      platforms = [
+        "linux"
+        "macos"
+      ];
       actions = navigationActions;
       source.kind = "local";
     }
   ];
 
   navigationKeys =
-    lib.concatMapStrings (direction: ''
+    lib.concatMapStrings
+      (direction: ''
 
-      [[keys.command]]
-      key = "ctrl+${direction.key}"
-      type = "plugin_action"
-      command = "vim-herdr-navigation.${direction.name}"
-      description = "Navigate ${direction.name} (vim/herdr)"
-    '') [
-      {
-        key = "h";
-        name = "left";
-      }
-      {
-        key = "j";
-        name = "down";
-      }
-      {
-        key = "k";
-        name = "up";
-      }
-      {
-        key = "l";
-        name = "right";
-      }
-    ];
-in {
+        [[keys.command]]
+        key = "ctrl+${direction.key}"
+        type = "plugin_action"
+        command = "vim-herdr-navigation.${direction.name}"
+        description = "Navigate ${direction.name} (vim/herdr)"
+      '')
+      [
+        {
+          key = "h";
+          name = "left";
+        }
+        {
+          key = "j";
+          name = "down";
+        }
+        {
+          key = "k";
+          name = "up";
+        }
+        {
+          key = "l";
+          name = "right";
+        }
+      ];
+in
+{
   _module.args.herdr = import ./lib.nix {
     inherit pkgs pkgs-unstable;
     shell = loginShell;
   };
 
-  home.packages = [pkgs-unstable.herdr];
+  home.packages = [ pkgs-unstable.herdr ];
 
   xdg.configFile = {
     "herdr/plugins.json".text = builtins.toJSON pluginRegistry;

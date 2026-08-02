@@ -2,8 +2,9 @@
   pkgs,
   config,
   ...
-}: {
-  home.packages = with pkgs; [eza];
+}:
+{
+  home.packages = with pkgs; [ eza ];
   programs = {
     zsh = {
       enable = config.shell.name == "zsh";
@@ -28,22 +29,24 @@
         size = 100000;
         path = "${config.home.homeDirectory}/.zsh_history";
       };
-      initContent = let
-        windowTitle = "Terminal";
-      in ''
-        echo -ne "\e]0;${windowTitle}\a"
+      initContent =
+        let
+          windowTitle = "Terminal";
+        in
+        ''
+          echo -ne "\e]0;${windowTitle}\a"
 
-        function cdb() {
-          inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-          if [ $inside_git_repo ]; then
-            cd `git rev-parse --show-toplevel`
-          else
-            echo "Not a git project"
-          fi
-        }
+          function cdb() {
+            inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+            if [ $inside_git_repo ]; then
+              cd `git rev-parse --show-toplevel`
+            else
+              echo "Not a git project"
+            fi
+          }
 
-        zvm_after_init_commands+=('bindkey "^ " autosuggest-accept')
-      '';
+          zvm_after_init_commands+=('bindkey "^ " autosuggest-accept')
+        '';
       envExtra = ''
         PROMPT=' %F{normal}%~ %(?.%F{green}.%F{red})λ%f '
 

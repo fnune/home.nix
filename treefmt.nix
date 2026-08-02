@@ -1,15 +1,33 @@
-{...}: {
+_: {
   projectRootFile = "flake.nix";
 
   programs = {
-    alejandra.enable = true;
-    stylua.enable = true;
-    shfmt.enable = true;
+    nixfmt.enable = true;
     prettier.enable = true;
+    shfmt.enable = true;
+    statix.enable = true;
+    stylua.enable = true;
+
+    prettier.settings.overrides = [
+      {
+        files = [
+          "*.md"
+          "*.mdx"
+        ];
+        options = {
+          proseWrap = "never";
+          tabWidth = 4;
+        };
+      }
+    ];
   };
 
-  settings.global.excludes = [
-    "flake.lock"
-    "*.png"
-  ];
+  settings = {
+    formatter.statix.priority = -1;
+
+    global.excludes = [
+      "flake.lock"
+      "*.png"
+    ];
+  };
 }

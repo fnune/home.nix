@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   portalPreferences = {
     "widget.use-xdg-desktop-portal.file-picker" = 1;
     "widget.use-xdg-desktop-portal.location" = 1;
@@ -28,13 +29,14 @@
     vimium
   ];
 
-  firefoxAllowEntries =
-    builtins.listToAttrs
-    (map (id: {
-        name = id;
-        value = {installation_mode = "allowed";};
-      })
-      firefoxAllowedExtensions);
+  firefoxAllowEntries = builtins.listToAttrs (
+    map (id: {
+      name = id;
+      value = {
+        installation_mode = "allowed";
+      };
+    }) firefoxAllowedExtensions
+  );
 
   firefoxPolicies = {
     DisableTelemetry = true;
@@ -51,7 +53,13 @@
     };
     SearchEngines = {
       Default = "DuckDuckGo";
-      Remove = ["Bing" "Ecosia" "Google" "Perplexity" "Wikipedia (en)"];
+      Remove = [
+        "Bing"
+        "Ecosia"
+        "Google"
+        "Perplexity"
+        "Wikipedia (en)"
+      ];
     };
     FirefoxHome = {
       Highlights = false;
@@ -84,36 +92,35 @@
       SkipOnboarding = true;
       UrlbarInterventions = false;
     };
-    Preferences =
-      {
-        "browser.aboutConfig.showWarning" = false;
-        "browser.translations.automaticallyPopup" = false;
-        "browser.urlbar.resultMenu.keyboardAccessible" = false;
-        "browser.urlbar.suggest.engines" = false;
-        "browser.urlbar.suggest.quickactions" = false;
-        "browser.urlbar.suggest.searches" = false;
-        "browser.urlbar.suggest.topsites" = false;
-        "datareporting.policy.dataSubmissionEnabled" = false;
-        "widget.use-xdg-desktop-portal.native-messaging" = 1;
-      }
-      // portalPreferences;
-    ExtensionSettings =
-      firefoxAllowEntries
-      // {
-        "*" = {
-          installation_mode = "blocked";
-          blocked_install_message = "Install extensions declaratively via home-manager.";
-        };
-        ${firefoxExtensionIds.uBlockOrigin} = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        };
+    Preferences = {
+      "browser.aboutConfig.showWarning" = false;
+      "browser.translations.automaticallyPopup" = false;
+      "browser.urlbar.resultMenu.keyboardAccessible" = false;
+      "browser.urlbar.suggest.engines" = false;
+      "browser.urlbar.suggest.quickactions" = false;
+      "browser.urlbar.suggest.searches" = false;
+      "browser.urlbar.suggest.topsites" = false;
+      "datareporting.policy.dataSubmissionEnabled" = false;
+      "widget.use-xdg-desktop-portal.native-messaging" = 1;
+    }
+    // portalPreferences;
+    ExtensionSettings = firefoxAllowEntries // {
+      "*" = {
+        installation_mode = "blocked";
+        blocked_install_message = "Install extensions declaratively via home-manager.";
       };
+      ${firefoxExtensionIds.uBlockOrigin} = {
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      };
+    };
   };
 
-  policiesJson = pkgs.writeText "firefox-policies.json" (builtins.toJSON {
-    policies = firefoxPolicies;
-  });
+  policiesJson = pkgs.writeText "firefox-policies.json" (
+    builtins.toJSON {
+      policies = firefoxPolicies;
+    }
+  );
 
   chromiumPolicies = {
     BackgroundModeEnabled = false;
@@ -128,8 +135,8 @@
     SearchSuggestEnabled = false;
     ShowHomeButton = false;
     UserFeedbackAllowed = false;
-    ExtensionInstallBlocklist = ["*"];
-    ExtensionInstallForcelist = ["cjpalhdlnbpafiamejdnhcphjbkeiagm"];
+    ExtensionInstallBlocklist = [ "*" ];
+    ExtensionInstallForcelist = [ "cjpalhdlnbpafiamejdnhcphjbkeiagm" ];
   };
 
   chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
@@ -138,23 +145,23 @@
     SearchEngines = {
       Default = "DuckDuckGo";
     };
-    Preferences =
-      portalPreferences
-      // {
-        "mailnews.start_page.enabled" = {
-          Value = false;
-          Status = "locked";
-        };
-        "mail.shell.checkDefaultClient" = {
-          Value = false;
-          Status = "locked";
-        };
+    Preferences = portalPreferences // {
+      "mailnews.start_page.enabled" = {
+        Value = false;
+        Status = "locked";
       };
+      "mail.shell.checkDefaultClient" = {
+        Value = false;
+        Status = "locked";
+      };
+    };
   };
 
-  thunderbirdPoliciesJson = pkgs.writeText "thunderbird-policies.json" (builtins.toJSON {
-    policies = thunderbirdPolicies;
-  });
+  thunderbirdPoliciesJson = pkgs.writeText "thunderbird-policies.json" (
+    builtins.toJSON {
+      policies = thunderbirdPolicies;
+    }
+  );
 
   installBrowserPolicies = pkgs.writeShellScriptBin "install-browser-policies" ''
     #!/usr/bin/env sh
@@ -181,11 +188,15 @@
     echo "  - Chromium: chrome://policy"
     echo "  - Thunderbird: Help > Troubleshooting Information > Policies"
   '';
-in {
+in
+{
   home = {
     sessionVariables.MOZ_ENABLE_WAYLAND = "1";
-    packages = [installBrowserPolicies];
+    packages = [ installBrowserPolicies ];
   };
 
-  services.pacman.packages = ["firefox" "chromium"];
+  services.pacman.packages = [
+    "firefox"
+    "chromium"
+  ];
 }

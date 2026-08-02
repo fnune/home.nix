@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   options = {
     profile = {
       name = lib.mkOption {
@@ -106,7 +107,7 @@
       };
       args = lib.mkOption {
         type = lib.types.listOf lib.types.str;
-        default = ["--login"];
+        default = [ "--login" ];
         description = "The list of arguments to pass to the terminal emulator command";
       };
     };

@@ -3,7 +3,8 @@
   file_explorer_width_chars,
   lib,
   ...
-}: {
+}:
+{
   extraPlugins = with pkgs-unstable.vimPlugins; [
     nvim-lsp-file-operations
   ];
@@ -25,7 +26,7 @@
 
     oil = {
       enable = true;
-      settings = {};
+      settings = { };
     };
   };
 

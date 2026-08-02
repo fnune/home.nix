@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   programs.clack = {
     enable = true;
     desktop.enable = true;
@@ -10,7 +10,7 @@
         anchor = "bottom";
         timeout_seconds = 1.5;
         symbols = false;
-        symbol_overrides = {};
+        symbol_overrides = { };
       };
 
       desktop = {

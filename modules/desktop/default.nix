@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./clack.nix
     ./fonts.nix

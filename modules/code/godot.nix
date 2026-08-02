@@ -1,3 +1,3 @@
 _: {
-  services.pacman.packages = ["godot"];
+  services.pacman.packages = [ "godot" ];
 }

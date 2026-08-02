@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   plugins.snacks = {
     enable = true;
     settings = {

@@ -3,7 +3,8 @@
   pkgs,
   standard,
   ...
-}: let
+}:
+let
   colorschemeConf = "include ${standard}/kitty/standard.dark.conf";
   icon = ./whiskers.png;
   kittyConf = pkgs.writeTextDir "kitty.conf" ''
@@ -31,8 +32,9 @@
 
     include ${config.home.homeDirectory}/.config/kitty/kitty.local.conf
   '';
-in {
-  services.pacman.packages = ["kitty"];
+in
+{
+  services.pacman.packages = [ "kitty" ];
 
   home.file = {
     ".local/share/applications/kitty.desktop".text = ''

@@ -3,7 +3,8 @@ let
   en_metric = "en_DK.UTF-8";
   en_yymmdd = "en_GB.UTF-8";
   euro = "de_DE.UTF-8";
-in {
+in
+{
   LC_CTYPE = en_default;
   LC_MESSAGES = en_default;
   LC_IDENTIFICATION = en_default;

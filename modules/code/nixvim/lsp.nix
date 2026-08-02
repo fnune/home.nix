@@ -1,15 +1,16 @@
 {
   pkgs-unstable,
   lib,
+  username,
   ...
-}: {
+}:
+{
   extraPackages = with pkgs-unstable; [
     angular-language-server
     basedpyright
     bash-language-server
     gopls
     lua-language-server
-    nil
     rustup
     taplo
     terraform-ls
@@ -24,11 +25,6 @@
 
     schemastore = {
       enable = true;
-    };
-
-    typescript-tools = {
-      enable = true;
-      settings.expose_as_code_action = "all";
     };
 
     fidget = {
@@ -47,7 +43,7 @@
     golangci_lint_ls.enable = true;
     gopls = {
       enable = true;
-      config.settings.gopls.buildFlags = ["-tags=integration"];
+      config.settings.gopls.buildFlags = [ "-tags=integration" ];
     };
     ocamllsp.enable = true;
     ruff.enable = true;
@@ -55,10 +51,14 @@
     cssls.enable = true;
     taplo.enable = true;
     terraformls.enable = true;
-    nil_ls = {
+    nixd = {
       enable = true;
-      config.init_options.nix.flake.autoArchive = true;
+      config.settings.nixd = {
+        nixpkgs.expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs {}";
+        options.home-manager.expr = "(builtins.getFlake (builtins.toString ./.)).homeConfigurations.${username}.options";
+      };
     };
+    vtsls.enable = true;
     jsonls = {
       enable = true;
       config.init_options.provideFormatter = false;
@@ -67,12 +67,15 @@
     yamlls.enable = true;
     lua_ls = {
       enable = true;
-      config.settings.Lua.diagnostics.globals = ["vim"];
+      config.settings.Lua.diagnostics.globals = [ "vim" ];
     };
     pico8_ls = {
       enable = true;
       package = null;
-      config.filetypes = ["p8" "p8lua"];
+      config.filetypes = [
+        "p8"
+        "p8lua"
+      ];
     };
   };
 
@@ -169,7 +172,10 @@
       };
     }
     {
-      mode = ["n" "x"];
+      mode = [
+        "n"
+        "x"
+      ];
       key = "<c-space>";
       action = lib.nixvim.mkRaw "function() vim.lsp.buf.code_action() end";
       options = {

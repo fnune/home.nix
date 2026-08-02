@@ -4,7 +4,8 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.services.pacman;
 
   packageList = unique cfg.packages;
@@ -30,20 +31,25 @@ with lib; let
       echo "All packages already installed"
     fi
   '';
-in {
+in
+{
   options.services.pacman = {
     enable = mkEnableOption "pacman package management";
 
     packages = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
       description = "List of pacman packages to install";
-      example = ["curl" "git" "vim"];
+      example = [
+        "curl"
+        "git"
+        "vim"
+      ];
     };
   };
 
   config = mkIf cfg.enable {
-    home.activation.pacmanPackages = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    home.activation.pacmanPackages = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${checkAndInstallScript}
     '';
   };

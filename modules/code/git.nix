@@ -2,9 +2,13 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   home = {
-    packages = with pkgs; [diffstat gh];
+    packages = with pkgs; [
+      diffstat
+      gh
+    ];
   };
   programs.zsh = {
     shellAliases = {

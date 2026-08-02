@@ -36,86 +36,118 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    nixvim,
-    standard,
-    plasma-manager,
-    clack,
-    nix-flatpak,
-    treefmt-nix,
-    git-hooks,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
-    pkgs-unstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      nixvim,
+      standard,
+      plasma-manager,
+      clack,
+      nix-flatpak,
+      treefmt-nix,
+      git-hooks,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      username = "fausto";
+      pkgs = import nixpkgs { inherit system; };
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
 
-    treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+      treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
 
-    vimHerdrNavigation = pkgs.fetchFromGitHub {
-      owner = "paulbkim-dev";
-      repo = "vim-herdr-navigation";
-      rev = "53e318c772c4d3b7fbd904ac43bcf3e5b5d8b244";
-      hash = "sha256-vUUt46jiK6ZsPH8D13/+IIlqT3KbFliPJkNplsVqiQo=";
-    };
+      vimHerdrNavigation = pkgs.fetchFromGitHub {
+        owner = "paulbkim-dev";
+        repo = "vim-herdr-navigation";
+        rev = "53e318c772c4d3b7fbd904ac43bcf3e5b5d8b244";
+        hash = "sha256-vUUt46jiK6ZsPH8D13/+IIlqT3KbFliPJkNplsVqiQo=";
+      };
 
-    preCommit = git-hooks.lib.${system}.run {
-      src = ./.;
-      package = pkgs-unstable.prek;
-      hooks = {
-        treefmt = {
-          enable = true;
-          package = treefmtEval.config.build.wrapper;
+      preCommit = git-hooks.lib.${system}.run {
+        src = ./.;
+        package = pkgs-unstable.prek;
+        hooks = {
+          treefmt = {
+            enable = true;
+            package = treefmtEval.config.build.wrapper;
+          };
+          shellcheck = {
+            enable = true;
+            args = [ "--severity=warning" ];
+          };
+          deadnix.enable = true;
+          typos = {
+            enable = true;
+            excludes = [ "flake.lock" ];
+            settings.config.default.extend-ignore-re = [ "<leader>[a-zA-Z]+" ];
+          };
         };
-        shellcheck = {
-          enable = true;
-          args = ["--severity=warning"];
+      };
+
+      nixvimPackage = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+        pkgs = pkgs-unstable;
+        module = {
+          imports = [ ./modules/code/nixvim/config.nix ];
+          _module.args = {
+            inherit
+              pkgs-unstable
+              standard
+              vimHerdrNavigation
+              username
+              ;
+          };
         };
-        deadnix.enable = true;
       };
-    };
-
-    nixvimPackage = nixvim.legacyPackages.${system}.makeNixvimWithModule {
-      pkgs = pkgs-unstable;
-      module = {
-        imports = [./modules/code/nixvim/config.nix];
-        _module.args = {inherit pkgs-unstable standard vimHerdrNavigation;};
+    in
+    {
+      packages.${system} = {
+        default = home-manager.packages.${system}.default;
+        nixvim-test = nixvimPackage;
       };
-    };
-  in {
-    packages.${system} = {
-      default = home-manager.packages.${system}.default;
-      nixvim-test = nixvimPackage;
-    };
 
-    formatter.${system} = treefmtEval.config.build.wrapper;
+      formatter.${system} = treefmtEval.config.build.wrapper;
 
-    checks.${system} = {
-      formatting = treefmtEval.config.build.check self;
-      pre-commit = preCommit;
-    };
-
-    devShells.${system}.default = pkgs.mkShell {
-      inherit (preCommit) shellHook;
-      buildInputs = preCommit.enabledPackages;
-    };
-
-    homeConfigurations = let
-      plasmaManager = plasma-manager.homeModules.plasma-manager;
-      nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
-    in {
-      fausto = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit nixpkgs pkgs-unstable nixvimPackage standard vimHerdrNavigation;};
-        modules = [./configurations/all.nix nixFlatpak plasmaManager clack.homeManagerModules.default];
+      checks.${system} = {
+        formatting = treefmtEval.config.build.check self;
+        pre-commit = preCommit;
       };
+
+      devShells.${system}.default = pkgs.mkShell {
+        inherit (preCommit) shellHook;
+        buildInputs = preCommit.enabledPackages;
+      };
+
+      homeConfigurations =
+        let
+          plasmaManager = plasma-manager.homeModules.plasma-manager;
+          nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
+        in
+        {
+          ${username} = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit
+                nixpkgs
+                pkgs-unstable
+                nixvimPackage
+                standard
+                vimHerdrNavigation
+                username
+                ;
+            };
+            modules = [
+              ./configurations/all.nix
+              nixFlatpak
+              plasmaManager
+              clack.homeManagerModules.default
+            ];
+          };
+        };
     };
-  };
 }

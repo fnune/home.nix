@@ -2,7 +2,8 @@
   pkgs,
   standard,
   ...
-}: {
+}:
+{
   improved-ft-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "improved-ft.nvim";
     version = "unstable-2026-04-28";
@@ -40,7 +41,7 @@
       rev = "c2b83cb19e4ac475f2b08aaf775afe3da19bc495";
       hash = "sha256-PGebG5bhwXYJ6cv1wSB/WOJZucoL6FGBiGdxkEtPl04=";
     };
-    dependencies = [pkgs.vimPlugins.promise-async];
+    dependencies = [ pkgs.vimPlugins.promise-async ];
     nvimSkipModule = [
       "fundo.fs.init"
       "fundo.fs.uvwrapper"

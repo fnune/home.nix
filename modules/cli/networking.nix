@@ -1,5 +1,8 @@
-{pkgs, ...}: {
-  services.pacman.packages = ["tcpdump" "wireshark-qt"];
+{ pkgs, ... }: {
+  services.pacman.packages = [
+    "tcpdump"
+    "wireshark-qt"
+  ];
 
   home.packages = with pkgs; [
     dig

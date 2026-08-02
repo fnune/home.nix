@@ -1,3 +1,3 @@
-{...}: {
-  imports = [./work.nix];
+{ ... }: {
+  imports = [ ./work.nix ];
 }

@@ -1,5 +1,5 @@
-{config, ...}: {
-  imports = [./window-rules.nix];
+{ config, ... }: {
+  imports = [ ./window-rules.nix ];
 
   home.file.".config/plasma-workspace/env/ssh-agent.sh" = {
     executable = true;
@@ -28,41 +28,43 @@
 
   programs.plasma = {
     enable = true;
-    fonts = let
-      fontSize = 11;
-      fontSizeSmall = 9;
-      monoFontSize = 9;
-    in {
-      general = {
-        family = config.fontconfig.sans;
-        weight = "medium";
-        pointSize = fontSize;
+    fonts =
+      let
+        fontSize = 11;
+        fontSizeSmall = 9;
+        monoFontSize = 9;
+      in
+      {
+        general = {
+          family = config.fontconfig.sans;
+          weight = "medium";
+          pointSize = fontSize;
+        };
+        menu = {
+          family = config.fontconfig.sans;
+          weight = "medium";
+          pointSize = fontSize;
+        };
+        toolbar = {
+          family = config.fontconfig.sans;
+          weight = "medium";
+          pointSize = fontSize;
+        };
+        windowTitle = {
+          family = config.fontconfig.sans;
+          weight = "bold";
+          pointSize = fontSize;
+        };
+        small = {
+          family = config.fontconfig.sans;
+          weight = "medium";
+          pointSize = fontSizeSmall;
+        };
+        fixedWidth = {
+          family = config.fontconfig.mono;
+          pointSize = monoFontSize;
+        };
       };
-      menu = {
-        family = config.fontconfig.sans;
-        weight = "medium";
-        pointSize = fontSize;
-      };
-      toolbar = {
-        family = config.fontconfig.sans;
-        weight = "medium";
-        pointSize = fontSize;
-      };
-      windowTitle = {
-        family = config.fontconfig.sans;
-        weight = "bold";
-        pointSize = fontSize;
-      };
-      small = {
-        family = config.fontconfig.sans;
-        weight = "medium";
-        pointSize = fontSizeSmall;
-      };
-      fixedWidth = {
-        family = config.fontconfig.mono;
-        pointSize = monoFontSize;
-      };
-    };
 
     workspace = {
       theme = "breeze-dark";
@@ -94,8 +96,8 @@
         blur.enable = true;
       };
       titlebarButtons = {
-        left = ["more-window-actions"];
-        right = ["close"];
+        left = [ "more-window-actions" ];
+        right = [ "close" ];
       };
     };
 
@@ -103,7 +105,10 @@
       keyboard = {
         repeatDelay = 200;
         repeatRate = 30;
-        options = ["caps:escape" "compose:rwin"];
+        options = [
+          "caps:escape"
+          "compose:rwin"
+        ];
       };
     };
 
@@ -141,22 +146,22 @@
         "toggle do not disturb" = "Meta+N";
 
         # Gets annoying in light of my Meta+D krunner shortcut
-        "activate application launcher" = [];
+        "activate application launcher" = [ ];
 
         # These clash with my Switch to Desktop shortcuts
-        "activate task manager entry 1" = [];
-        "activate task manager entry 2" = [];
-        "activate task manager entry 3" = [];
-        "activate task manager entry 4" = [];
-        "activate task manager entry 5" = [];
-        "activate task manager entry 6" = [];
-        "activate task manager entry 7" = [];
-        "activate task manager entry 8" = [];
-        "activate task manager entry 9" = [];
-        "activate task manager entry 10" = [];
+        "activate task manager entry 1" = [ ];
+        "activate task manager entry 2" = [ ];
+        "activate task manager entry 3" = [ ];
+        "activate task manager entry 4" = [ ];
+        "activate task manager entry 5" = [ ];
+        "activate task manager entry 6" = [ ];
+        "activate task manager entry 7" = [ ];
+        "activate task manager entry 8" = [ ];
+        "activate task manager entry 9" = [ ];
+        "activate task manager entry 10" = [ ];
 
         # I don't use this
-        "manage activities" = [];
+        "manage activities" = [ ];
       };
       "kwin" = {
         "Window Minimize" = ""; # Accidental minimize is annoying
@@ -188,8 +193,8 @@
 
         "Walk Through Windows" = "Alt+Tab";
         "Walk Through Windows (Reverse)" = "Alt+Shift+Backtab";
-        "Walk Through Windows of Current Application" = []; # Clashes with Firefox tab shortcut
-        "Walk Through Windows of Current Application (Reverse)" = []; # Clashes with Firefox tab shortcut
+        "Walk Through Windows of Current Application" = [ ]; # Clashes with Firefox tab shortcut
+        "Walk Through Windows of Current Application (Reverse)" = [ ]; # Clashes with Firefox tab shortcut
 
         "Window Close" = "Meta+Shift+Q";
         "Window Fullscreen" = "Meta+Shift+F";
@@ -212,7 +217,7 @@
         "ToggleMouseClick" = "Meta+Ctrl+.";
       };
 
-      "ksmserver"."Lock Session" = [];
+      "ksmserver"."Lock Session" = [ ];
     };
 
     configFile = {
@@ -314,7 +319,7 @@
       };
 
       "plasma-localerc" = {
-        "Formats" = builtins.mapAttrs (_name: value: {inherit value;}) (import ../../system/locales.nix);
+        "Formats" = builtins.mapAttrs (_name: value: { inherit value; }) (import ../../system/locales.nix);
         "Translations" = {
           "LANGUAGE".value = "en_US";
         };

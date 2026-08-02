@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.bfs];
+{ pkgs, ... }: {
+  home.packages = [ pkgs.bfs ];
   programs = {
     fzf = {
       enable = true;

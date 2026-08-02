@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services.podman.enable = true;
-  services.podman.settings.containers.containers.hostadd = ["host.docker.internal:host-gateway"];
+  services.podman.settings.containers.containers.hostadd = [ "host.docker.internal:host-gateway" ];
 
-  home.packages = [pkgs.podman-compose];
+  home.packages = [ pkgs.podman-compose ];
 
   home.sessionVariables = {
     DOCKER_HOST = "unix://\${XDG_RUNTIME_DIR}/podman/podman.sock";
@@ -14,14 +14,14 @@
       ListenStream = "%t/podman/podman.sock";
       SocketMode = "0660";
     };
-    Install.WantedBy = ["sockets.target"];
+    Install.WantedBy = [ "sockets.target" ];
   };
 
   systemd.user.services.podman = {
     Unit = {
       Description = "Podman API service";
-      Requires = ["podman.socket"];
-      After = ["podman.socket"];
+      Requires = [ "podman.socket" ];
+      After = [ "podman.socket" ];
     };
     Service = {
       Type = "exec";

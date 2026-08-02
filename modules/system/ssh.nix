@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   services.ssh-agent.enable = true;
 
   programs.ssh = {
@@ -6,7 +6,7 @@
     enableDefaultConfig = false;
     settings."*" = {
       addKeysToAgent = "yes";
-      identityFile = [config.profile.sshKeyPath];
+      identityFile = [ config.profile.sshKeyPath ];
       serverAliveCountMax = 5;
       serverAliveInterval = 10;
     };

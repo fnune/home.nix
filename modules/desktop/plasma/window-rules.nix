@@ -1,4 +1,5 @@
-{config, ...}: let
+{ config, ... }:
+let
   matchClass = class: {
     window-class = {
       value = class;
@@ -31,7 +32,8 @@
       apply = "initially";
     };
   };
-in {
+in
+{
   programs.plasma.window-rules = [
     {
       description = "Start terminals maximized";

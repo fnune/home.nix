@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   home.file = {
     ".npmrc".text = ''
       ignore-scripts=true

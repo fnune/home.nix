@@ -1,7 +1,7 @@
-{...}: {
+{ username, ... }: {
   home = {
-    username = "fausto";
-    homeDirectory = "/home/fausto";
+    inherit username;
+    homeDirectory = "/home/${username}";
     stateVersion = "25.05";
     sessionVariables.NH_SHOW_ACTIVATION_LOGS = "1";
   };
