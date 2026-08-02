@@ -5,6 +5,7 @@
   ...
 }: {
   extraPackages = with pkgs-unstable; [
+    prettier
     prettierd
     python3Packages.black
     delve
@@ -54,9 +55,19 @@
           __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
+        prettierMarkdown = {
+          __unkeyed-1 = "prettier_markdown";
+          stop_after_first = true;
+        };
       in {
         format_on_save.lsp_format = "fallback";
         default_format_opts.lsp_format = "fallback";
+
+        formatters.prettier_markdown = lib.nixvim.mkRaw ''
+          vim.tbl_deep_extend("force", {}, require("conform.formatters.prettier"), {
+            prepend_args = { "--tab-width", "4", "--prose-wrap", "never" },
+          })
+        '';
         formatters_by_ft = {
           go = ["goimports" "gofmt"];
           lua = ["stylua"];
@@ -76,8 +87,8 @@
           typescriptreact = ["biome"];
           html = prettier;
           htmlangular = prettier;
-          markdown = prettier;
-          "markdown.mdx" = prettier;
+          markdown = prettierMarkdown;
+          "markdown.mdx" = prettierMarkdown;
           scss = prettier;
           yaml = prettier;
         };
