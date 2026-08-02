@@ -50,7 +50,6 @@ in
       go
       golangci-lint
       golangci-lint-langserver
-      gotools
       hugo
       k9s
       kubectl
