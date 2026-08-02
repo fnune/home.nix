@@ -177,7 +177,13 @@
         "x"
       ];
       key = "<c-space>";
-      action = lib.nixvim.mkRaw "function() vim.lsp.buf.code_action() end";
+      action = lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.code_action({
+            context = { only = { "quickfix", "refactor", "source" } },
+          })
+        end
+      '';
       options = {
         desc = "Apply code action";
         silent = true;
