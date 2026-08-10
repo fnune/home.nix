@@ -14,3 +14,8 @@
     - NEVER run `git clean -x` or `-X`: it deletes `.jj/`, taking the operation log with it.
     - `jj undo` reverses the last operation. Prefer it to `git reset`.
     - Bookmarks never move on their own: move the bookmark to your latest commit before `jj git push`.
+- Git worktrees and jj workspaces go in `<repo-parent>/.worktrees/<repo>/<name>`, never as a bare sibling of the repo. For `~/Development/pulumi/pulumi-service` that is `~/Development/pulumi/.worktrees/pulumi-service/<name>`.
+    - Base a new one on the fetched upstream default branch, not on whatever the current working copy points at, and say which base you used. `git worktree add --detach <path> origin/master`, or `jj workspace add --name <name> <path>` after `jj git fetch`.
+    - A jj workspace has no `.git`, so anything that shells out to `git` fails inside one with `not a git repository`. Build tooling that reads git metadata needs a git worktree instead.
+    - `The working copy is stale` means another workspace moved the repo: fix it with `jj workspace update-stale`. Never use `jj workspace forget` for this, which drops the working-copy commit and any uncommitted work with it.
+    - Retire one with `git worktree remove` or `jj workspace forget`, never by deleting the directory alone. Check for unpushed work first and ask before removing anything.
