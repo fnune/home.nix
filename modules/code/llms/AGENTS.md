@@ -8,6 +8,7 @@
 - Never hard-wrap markdown: one line per paragraph and per list item, nested lists indented 4 spaces. Notion and Slack mangle anything else.
 - Slack messages and drafts are written in mrkdwn, not markdown, and never use headings or tables.
 - Never attribute work to AI in commits or code.
+- Never comment as my GitHub user on GitHub unless I have previously expressed that that's what I want you to do.
 - If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`. Don't use this to work around broken build setups for work.
 - Prefer `jj` over `git`. If the repo has no `.jj/`, colocate it with `jj git init`: that is cheap, invisible to colleagues, and undone with `rm -rf .jj`. Inside a git worktree jj refuses to colocate, so use git there and do not fight it.
     - `@` is already a commit and nothing is untracked: no `git add`, no `git stash`.
