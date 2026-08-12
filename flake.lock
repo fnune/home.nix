@@ -232,11 +232,11 @@
     "standard": {
       "flake": false,
       "locked": {
-        "lastModified": 1784985499,
-        "narHash": "sha256-lLHFUU7duEbSKFXgteItr0TJv9HRyJMvHqCCZi75OO8=",
+        "lastModified": 1786538423,
+        "narHash": "sha256-63H30TAd7QEhNbhKr+zVhx0jZSB+QJfbU8+hpH0Ettg=",
         "owner": "fnune",
         "repo": "standard",
-        "rev": "dc93bad2bf957da51521fae074d2abfd8d19a649",
+        "rev": "cd25116e09d40acc41383673d56a40fc3a5ba35e",
         "type": "github"
       },
       "original": {
