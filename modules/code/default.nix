@@ -8,7 +8,6 @@
     ./mise.nix
     ./npm.nix
     ./podman.nix
-    ./jetbrains/jetbrains.nix
     ./llms/llms.nix
     ./nixvim/home.nix
   ];
