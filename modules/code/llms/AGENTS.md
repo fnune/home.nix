@@ -6,7 +6,7 @@
 - Never use title-case in headings: use sentence-case instead.
 - Never use em-dashes for punctuation.
 - Never hard-wrap markdown: one line per paragraph and per list item, nested lists indented 4 spaces. Notion and Slack mangle anything else.
-- Slack messages and drafts are written in mrkdwn, not markdown, and never use headings or tables.
+- Slack messages and drafts are written in markdown, and never use headings or tables. I use the manual formatting mode in Slack.
 - Never attribute work to AI in commits or code.
 - Never comment as my GitHub user on GitHub unless I have previously expressed that that's what I want you to do.
 - If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`. Don't use this to work around broken build setups for work.
