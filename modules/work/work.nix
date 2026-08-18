@@ -66,16 +66,22 @@ in
       "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;
       "${repo-service}/.envrc.local".source = ./envrc.sh;
       "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;
-      "${config.home.homeDirectory}/.local/bin/p" = {
-        source = ./p.sh;
-        executable = true;
-      };
     };
 
     sessionVariables = {
       GOPATH = "$HOME/.go";
       PATH = "$HOME/.pulumi/bin:$PATH"; # curl -fsSL https://get.pulumi.com | sh
+      # Encrypt ~/.pulumi/credentials.json with a key held in the KDE wallet,
+      # so a persistent `pulumi login` replaces per-invocation token juggling.
+      PULUMI_CREDENTIAL_STORE = "os";
     };
+  };
+
+  # `pulumi` targets whichever backend `pulumi login` last selected, normally
+  # api.pulumi.com. These reach the other two without disturbing it.
+  programs.zsh.shellAliases = {
+    pulumi-review = "PULUMI_BACKEND_URL=https://api-fnune-review.review-stacks.pulumi-dev.io pulumi";
+    pulumi-local = "PULUMI_BACKEND_URL=http://localhost:8080 pulumi";
   };
 
   services.flatpak.packages = [

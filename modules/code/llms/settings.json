@@ -143,7 +143,7 @@
       "Bash(whoami:*)",
       "Bash(pwd:*)",
       "Bash(date:*)",
-      "Bash(p prod/pulumi env run pulumi/default/review-stacks -- kubectl:*)"
+      "Bash(pulumi env run pulumi/default/review-stacks -- kubectl:*)"
     ]
   }
 }
