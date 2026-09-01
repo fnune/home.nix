@@ -6,7 +6,6 @@ _: {
     "bitwarden-cli"
     "calibre"
     "darktable"
-    "foliate"
     "keepsecret"
     "krita"
     "obsidian"
