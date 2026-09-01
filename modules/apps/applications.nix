@@ -7,6 +7,7 @@ _: {
     "calibre"
     "darktable"
     "foliate"
+    "keepsecret"
     "krita"
     "obsidian"
     "podman-desktop"
