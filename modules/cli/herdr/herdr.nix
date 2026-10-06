@@ -136,6 +136,7 @@ in
       navigate_workspace_up = "k"
       navigate_workspace_down = "j"
       focus_agent = "prefix+alt+1..9"
+      clear_pane = "ctrl+shift+l"
 
       [ui]
       copy_on_select = true
