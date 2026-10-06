@@ -26,6 +26,10 @@ in
     "jjui/config.toml".text = ''
       [ui]
       theme = "standard.dark"
+
+      # Defer to ksshaskpass, which reads the key passphrase from KWallet.
+      [askpass]
+      enabled = false
     '';
   };
 
