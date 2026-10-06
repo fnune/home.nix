@@ -37,3 +37,4 @@ echo
 
 jj commit --message "$(printf 'Upgrade packages\n\n%s\n' "$report")" flake.lock
 jj bookmark move --from 'heads(::@- & bookmarks())' --to '@-'
+jj git push --revisions @-
