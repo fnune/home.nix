@@ -96,7 +96,7 @@ flatpak override --user com.slack.Slack --socket=wayland --env=ELECTRON_OZONE_PL
 
 ### Install browser policies
 
-Install system-wide browser policies for Firefox and Chromium:
+Install system-wide browser policies for Firefox, Chromium and Google Chrome:
 
 ```sh
 install-browser-policies
@@ -106,8 +106,9 @@ This installs:
 
 - Firefox policies to `/etc/firefox/policies/policies.json`
 - Chromium policies to `/etc/chromium/policies/managed/policies.json`
+- Google Chrome policies to `/etc/opt/chrome/policies/managed/policies.json`, which also force-install Claude in Chrome
 
-Restart browsers and verify at `about:policies` (Firefox) or `chrome://policy` (Chromium).
+Restart browsers and verify at `about:policies` (Firefox) or `chrome://policy` (Chromium and Google Chrome).
 
 ### Tuxedo InfinityBook hardware setup
 

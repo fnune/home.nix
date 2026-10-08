@@ -134,6 +134,11 @@ let
     }
   );
 
+  chromiumExtensionIds = {
+    claudeInChrome = "fcoeoabgfenejglbffodgkkbkcdhcgfn";
+    uBlockOrigin = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+  };
+
   chromiumPolicies = {
     BackgroundModeEnabled = false;
     BookmarkBarEnabled = false;
@@ -149,10 +154,18 @@ let
     ShowHomeButton = false;
     UserFeedbackAllowed = false;
     ExtensionInstallBlocklist = [ "*" ];
-    ExtensionInstallForcelist = [ "cjpalhdlnbpafiamejdnhcphjbkeiagm" ];
+    ExtensionInstallForcelist = [ chromiumExtensionIds.uBlockOrigin ];
   };
 
   chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
+
+  chromePolicies = chromiumPolicies // {
+    ExtensionInstallForcelist = chromiumPolicies.ExtensionInstallForcelist ++ [
+      chromiumExtensionIds.claudeInChrome
+    ];
+  };
+
+  chromePoliciesJson = pkgs.writeText "chrome-policies.json" (builtins.toJSON chromePolicies);
 
   thunderbirdPolicies = {
     SearchEngines = {
@@ -201,6 +214,12 @@ let
     echo "Chromium policies installed to /etc/chromium/policies/managed/policies.json"
 
     echo ""
+    echo "Installing Google Chrome policies system-wide..."
+    sudo mkdir -p /etc/opt/chrome/policies/managed
+    sudo cp ${chromePoliciesJson} /etc/opt/chrome/policies/managed/policies.json
+    echo "Google Chrome policies installed to /etc/opt/chrome/policies/managed/policies.json"
+
+    echo ""
     echo "Installing Thunderbird policies system-wide..."
     sudo cp ${thunderbirdPoliciesJson} /usr/lib/thunderbird/distribution/policies.json
     echo "Thunderbird policies installed to /usr/lib/thunderbird/distribution/policies.json"
@@ -208,14 +227,17 @@ let
     echo ""
     echo "Done! Restart browsers and visit:"
     echo "  - Firefox: about:policies"
-    echo "  - Chromium: chrome://policy"
+    echo "  - Chromium and Google Chrome: chrome://policy"
     echo "  - Thunderbird: Help > Troubleshooting Information > Policies"
   '';
 in
 {
   home = {
     sessionVariables.MOZ_ENABLE_WAYLAND = "1";
-    packages = [ installBrowserPolicies ];
+    packages = [
+      installBrowserPolicies
+      pkgs.google-chrome
+    ];
   };
 
   services.pacman.packages = [
