@@ -2,6 +2,7 @@
   services.pacman.packages = [ "base-devel" ];
 
   home.packages = with pkgs; [
+    age
     exiftool
     fd
     ffmpeg
@@ -10,6 +11,8 @@
     lshw
     lsof
     moreutils
+    sops
+    ssh-to-age
     strace
     tree
     watchexec
