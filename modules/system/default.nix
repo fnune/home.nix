@@ -4,5 +4,6 @@
     ./pacman.nix
     ./ssh.nix
     ./storage.nix
+    ./wireguard.nix
   ];
 }

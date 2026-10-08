@@ -10,5 +10,6 @@
       serverAliveCountMax = 5;
       serverAliveInterval = 10;
     };
+    matchBlocks.bilbo.hostname = "bilbo.fnune.com";
   };
 }
