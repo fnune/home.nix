@@ -6,28 +6,27 @@ These steps were tested in a local VM built from the Arch cloud image (see [Test
 
 ## Install Arch Linux
 
-Earendil is a Hetzner dedicated server, installed with Hetzner's `installimage` and [`earendil-installimage.conf`](earendil-installimage.conf).
+Earendil is an OVHcloud Eco dedicated server. OVHcloud has no Arch template, so [`earendil-install.sh`](earendil-install.sh) installs Arch from OVHcloud's rescue system: RAID1 across both drives, a minimal Arch from the official bootstrap image, and GRUB on both drives. It never changes the firmware's boot order, because rescue mode depends on the server trying the network first.
 
-1. In Robot, add your SSH public key under Key management, then activate the rescue system for the server with that key and reset the server so it boots into it.
+1. In the OVHcloud control panel, add your SSH public key, then set the server to boot into rescue mode with that key and restart it.
 2. `ssh root@<server-ip>` and check the hardware:
 
     ```sh
     ls /dev/tpmrm0 # must exist
-    lsblk # drive names for DRIVE1 and DRIVE2
-    ls /root/images | grep -i arch # the IMAGE file name
+    lsblk # the two drives for the install script
     ```
 
-    The box needs a TPM 2.0: credentials are sealed with it, and nothing else protects them without someone at a desktop to unlock a keyring. If `/dev/tpmrm0` is missing, request a remote console from Hetzner support and enable the TPM (fTPM on AMD, PTT on Intel) in the firmware.
+    The box needs a TPM 2.0: credentials are sealed with it, and nothing else protects them without someone at a desktop to unlock a keyring. If `/dev/tpmrm0` is missing, ask OVHcloud support for a remote console (IPMI) and enable the TPM (fTPM on AMD, PTT on Intel) in the firmware.
 
-3. From your machine, `scp docs/earendil-installimage.conf root@<server-ip>:/autosetup`, and adjust it there if the checks above call for it. UEFI machines also need an EFI system partition, or `installimage` refuses to continue:
+3. From your machine, `scp docs/earendil-install.sh root@<server-ip>:`, then in the rescue system run it with the two drives `lsblk` showed. It wipes both:
 
     ```sh
-    [ -d /sys/firmware/efi ] && sed -i '/^PART \/boot /i PART /boot/efi esp 256M' /autosetup
+    bash earendil-install.sh /dev/nvme0n1 /dev/nvme1n1
     ```
 
-    Then run `installimage` and `reboot`.
+4. In the control panel, set the server to boot from its disks again, and restart it.
 
-`installimage` sets the hostname and copies your Robot key to root. Then, as root:
+The script sets the hostname, copies the rescue system's network settings, and gives root your key. Then, as root:
 
 ```sh
 pacman -Syu --needed base-devel git openssh sudo zsh
@@ -88,16 +87,19 @@ sudo systemctl enable --now ufw
 sudo ufw enable
 ```
 
-Then block public SSH in front of the box too, with Robot's firewall. It is stateless and drops anything unmatched, so replies to the box's own connections need rules of their own. Incoming rules, IPv4, in order:
+Then block public SSH in front of the box too, with OVHcloud's edge network firewall. It is stateless and IPv4-only, with at most 20 rules per address, so replies to the box's own connections need rules of their own. In priority order:
 
-| Name        | Protocol | Destination port | TCP flags | Action |
-| ----------- | -------- | ---------------- | --------- | ------ |
-| Tailscale   | udp      | 41641            |           | accept |
-| TCP replies | tcp      | 32768-65535      | ack       | accept |
-| UDP replies | udp      | 32768-65535      |           | accept |
-| ICMP        | icmp     |                  |           | accept |
+| Priority | Protocol | Port | TCP option | Action | For |
+| --- | --- | --- | --- | --- | --- |
+| 0 | tcp |  | established | accept | replies to the box's TCP connections |
+| 1 | udp | destination 41641 |  | accept | Tailscale |
+| 2 | udp | source 53 |  | accept | DNS replies |
+| 3 | udp | source 123 |  | accept | NTP replies |
+| 4 | udp | source 3478 |  | accept | Tailscale's NAT discovery |
+| 5 | icmp |  |  | accept | ping and path MTU |
+| 19 | ipv4 |  |  | deny | everything else |
 
-Keep outgoing traffic allowed and "Hetzner Services" on, so the rescue system and monitoring keep working. While setting up, add `tcp 22 accept` as a fifth rule, and remove it once SSH over Tailscale works. IPv6 stays unfiltered here, since ufw on the box covers it.
+While setting up, add `tcp`, destination port 22, accept, at priority 6, and remove it once SSH over Tailscale works. If the firewall ever locks you out, disable it in the control panel. IPv6 stays unfiltered here, since ufw on the box covers it.
 
 ## Keep user services running without a login
 
