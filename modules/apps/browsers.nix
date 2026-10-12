@@ -134,39 +134,6 @@ let
     }
   );
 
-  chromiumExtensionIds = {
-    claudeInChrome = "fcoeoabgfenejglbffodgkkbkcdhcgfn";
-    uBlockOrigin = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-  };
-
-  chromiumPolicies = {
-    BackgroundModeEnabled = false;
-    BookmarkBarEnabled = false;
-    DefaultSearchProviderEnabled = true;
-    DefaultSearchProviderName = "Kagi";
-    DefaultSearchProviderKeyword = "kagi";
-    DefaultSearchProviderSearchURL = "https://kagi.com/search?q={searchTerms}";
-    DefaultSearchProviderSuggestURL = "https://kagi.com/api/autosuggest?q={searchTerms}";
-    HomepageIsNewTabPage = false;
-    MetricsReportingEnabled = false;
-    PasswordManagerEnabled = false;
-    SearchSuggestEnabled = false;
-    ShowHomeButton = false;
-    UserFeedbackAllowed = false;
-    ExtensionInstallBlocklist = [ "*" ];
-    ExtensionInstallForcelist = [ chromiumExtensionIds.uBlockOrigin ];
-  };
-
-  chromiumPoliciesJson = pkgs.writeText "chromium-policies.json" (builtins.toJSON chromiumPolicies);
-
-  chromePolicies = chromiumPolicies // {
-    ExtensionInstallForcelist = chromiumPolicies.ExtensionInstallForcelist ++ [
-      chromiumExtensionIds.claudeInChrome
-    ];
-  };
-
-  chromePoliciesJson = pkgs.writeText "chrome-policies.json" (builtins.toJSON chromePolicies);
-
   thunderbirdPolicies = {
     SearchEngines = {
       Default = "Kagi";
@@ -208,16 +175,7 @@ let
     echo "Firefox policies installed to /etc/firefox/policies/policies.json"
 
     echo ""
-    echo "Installing Chromium policies system-wide..."
-    sudo mkdir -p /etc/chromium/policies/managed
-    sudo cp ${chromiumPoliciesJson} /etc/chromium/policies/managed/policies.json
-    echo "Chromium policies installed to /etc/chromium/policies/managed/policies.json"
-
-    echo ""
-    echo "Installing Google Chrome policies system-wide..."
-    sudo mkdir -p /etc/opt/chrome/policies/managed
-    sudo cp ${chromePoliciesJson} /etc/opt/chrome/policies/managed/policies.json
-    echo "Google Chrome policies installed to /etc/opt/chrome/policies/managed/policies.json"
+    install-chrome-policies
 
     echo ""
     echo "Installing Thunderbird policies system-wide..."
@@ -236,7 +194,6 @@ in
     sessionVariables.MOZ_ENABLE_WAYLAND = "1";
     packages = [
       installBrowserPolicies
-      pkgs.google-chrome
     ];
   };
 

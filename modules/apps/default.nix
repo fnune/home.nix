@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./headless.nix
     ./applications.nix
     ./audio.nix
     ./browsers.nix

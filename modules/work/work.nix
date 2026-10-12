@@ -84,10 +84,6 @@ in
     pulumi-local = "PULUMI_BACKEND_URL=http://localhost:8080 pulumi";
   };
 
-  services.flatpak.packages = [
-    "com.slack.Slack"
-  ];
-
   programs.git = {
     settings = {
       url = {

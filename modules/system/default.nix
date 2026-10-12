@@ -1,8 +1,6 @@
 { ... }: {
   imports = [
-    ./nix.nix
-    ./pacman.nix
-    ./ssh.nix
+    ./headless.nix
     ./storage.nix
     ./wireguard.nix
   ];
