@@ -33,6 +33,4 @@
 
   programs.git.settings.user.editor = "nvim";
   programs.zsh.shellAliases.vim = "nvim";
-
-  services.pacman.packages = [ "mermaid-cli" ];
 }
