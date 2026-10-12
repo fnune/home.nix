@@ -1,23 +1,25 @@
 # Global AI instructions
 
-- Be concise. Avoid walls of text, value judgements, and fluff. Prefer one small paragraph, or a single line plus bullet points. The user will ask for more if needed.
-- Code comments explain "why", never "what": make the code self-evident through naming and structure instead.
-- Before pushing, run the cheap checks that would otherwise fail in CI: targeted linting, formatting, and the tests covering what you changed.
-- Never use title-case in headings: use sentence-case instead.
-- Never use em-dashes for punctuation.
-- Never hard-wrap markdown: one line per paragraph and per list item, nested lists indented 4 spaces. Notion and Slack mangle anything else.
-- Slack messages and drafts are written in markdown, and never use headings or tables. I use the manual formatting mode in Slack.
+- Be concise: one small paragraph, or one line plus bullets. No walls of text, value judgements or fluff. I will ask for more.
+- Comments explain "why", never "what": make the code self-evident through naming and structure.
+- Before pushing, run the cheap checks CI would fail on: targeted lint, formatting, and the tests covering the change. Leave the full suite to CI.
+- Headings in sentence case. No em-dashes.
+- Never hard-wrap markdown: one line per paragraph and per list item, nested lists indented 4 spaces.
+- Slack drafts are markdown without headings or tables (manual formatting mode).
 - Never attribute work to AI in commits or code.
-- Never comment as my GitHub user on GitHub unless I have previously expressed that that's what I want you to do.
-- If you need to use a system dependency that is not installed for a one-off task, use `nix-shell --packages`. Don't use this to work around broken build setups for work.
-- Prefer `jj` over `git`. If the repo has no `.jj/`, colocate it with `jj git init`: that is cheap, invisible to colleagues, and undone with `rm -rf .jj`. Inside a git worktree jj refuses to colocate, so use git there and do not fight it.
+- Never comment as my GitHub user unless I have said so for that case.
+- For a missing system dependency in a one-off task, use `nix-shell --packages`. Never to work around a broken build setup at work.
+- In zsh, write `${var}` before a `:`: `$var:c` is parsed as a history modifier.
+- Prefer `jj` over `git`. Without `.jj/`, colocate with `jj git init` (invisible to others, undone with `rm -rf .jj`). Inside a git worktree jj refuses to colocate: use git there.
     - `@` is already a commit and nothing is untracked: no `git add`, no `git stash`.
-    - NEVER run `git clean -x` or `-X`: it deletes `.jj/`, taking the operation log with it.
-    - `jj undo` reverses the last operation. Prefer it to `git reset`.
-    - Bookmarks never move on their own: move the bookmark to your latest commit before `jj git push`.
-    - Stacked work (several dependent commits, one PR each) has its own skill: `creating-stacked-changes`.
-- Git worktrees and jj workspaces go in `<repo-parent>/.worktrees/<repo>/<name>`, never as a bare sibling of the repo. For `~/Development/pulumi/pulumi-service` that is `~/Development/pulumi/.worktrees/pulumi-service/<name>`.
-    - Base a new one on the fetched upstream default branch, not on whatever the current working copy points at, and say which base you used. `git worktree add --detach <path> origin/master`, or `jj workspace add --name <name> <path>` after `jj git fetch`.
-    - A jj workspace has no `.git`, so anything that shells out to `git` fails inside one with `not a git repository`. Build tooling that reads git metadata needs a git worktree instead.
-    - `The working copy is stale` means another workspace moved the repo: fix it with `jj workspace update-stale`. Never use `jj workspace forget` for this, which drops the working-copy commit and any uncommitted work with it.
-    - Retire one with `git worktree remove` or `jj workspace forget`, never by deleting the directory alone. Check for unpushed work first and ask before removing anything.
+    - NEVER `git clean -x` or `-X`: it deletes `.jj/` and its operation log.
+    - `jj undo` reverses the last operation; prefer it to `git reset`.
+    - Run jj non-interactively: `jj squash -u` (or `JJ_EDITOR=true`), since squashing two described commits otherwise opens an editor and hangs.
+    - `jj rebase -s` moves every descendant, including unrelated local branches: check `jj log -r 'descendants(<rev>)'` first.
+    - Bookmarks never move on their own: set them before `jj git push`, and `--dry-run` a push that rewrites shared branches.
+    - Stacked work (one PR per commit) has its own skill: `creating-stacked-changes`.
+- Worktrees and workspaces go in `<repo-parent>/.worktrees/<repo>/<name>`, never as a bare sibling of the repo.
+    - Base a new one on the fetched upstream default branch and say which base you used: `git worktree add --detach <path> origin/<default>`, or `jj workspace add --name <name> <path>` after `jj git fetch`.
+    - A jj workspace has no `.git`, so tools that shell out to `git` fail there. To edit commits with jj and still run such tools, check the commit out by hash in a git worktree, run the tool there, and fold any generated diff back into the jj commit.
+    - `The working copy is stale`: run `jj workspace update-stale`. Never `jj workspace forget` for this; it drops the working-copy commit.
+    - Retire one with `git worktree remove` or `jj workspace forget`, never by deleting the directory. Check for unpushed work and ask first.
