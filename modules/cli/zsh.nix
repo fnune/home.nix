@@ -48,6 +48,10 @@
           zvm_after_init_commands+=('bindkey "^ " autosuggest-accept')
         '';
       envExtra = ''
+        nix_profile=/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        [ -e "$nix_profile" ] && . "$nix_profile"
+        unset nix_profile
+
         PROMPT=' %F{normal}%~ %(?.%F{green}.%F{red})λ%f '
 
         export SHELL=$(which zsh)
