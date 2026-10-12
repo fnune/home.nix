@@ -151,10 +151,10 @@ Chrome runs on a virtual display as the `chrome` user service, so agents on eare
 
 1. `install-chrome-policies`, then `systemctl --user restart chrome`.
 2. Run `claude --chrome` once, so Claude Code registers its native messaging host, then `systemctl --user restart chrome` again so Chrome picks it up.
-3. From your laptop: `ssh -L 5901:/run/user/1000/chrome-display.sock earendil`, then open a VNC viewer (KRDC or `vncviewer`) on `localhost:5901`. The display has no network port: only `fausto` can open its socket, and only through SSH from outside.
+3. From your desktop or laptop, run `earendil-browser`. It opens a window showing earendil's Chrome, and closing the window ends the connection. Behind it, VNC travels through SSH to a socket only `fausto` can open: the display has no network port.
 4. In that Chrome, sign in to the extension with the same claude.ai organization that `claude` uses (`/status` shows it).
 
-The same tunnel lets you watch what agents do in the browser.
+Run `earendil-browser` again whenever an agent hands you a login page or CAPTCHA, or to watch what agents do in the browser.
 
 ## Connect
 
