@@ -22,7 +22,9 @@ if ! nh home switch .; then
   exit 1
 fi
 
-attr=".#homeConfigurations.$USER"
+host=$(uname -n)
+name=$(nix eval --raw .#homeConfigurations --apply "configs: if configs ? \"$USER@$host\" then \"$USER@$host\" else \"$USER\"")
+attr=".#homeConfigurations.\"$name\""
 apply=$(cat "$repo/lib/versions.nix")
 
 echo "Evaluating package versions..."

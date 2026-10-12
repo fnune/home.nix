@@ -1,5 +1,7 @@
 # `home.nix`
 
+For the headless server, see [`docs/earendil.md`](docs/earendil.md).
+
 ## Setting up a new CachyOS machine
 
 ### Install Nix
@@ -27,13 +29,13 @@ cd ~/.home.nix
 
 ### Apply Home Manager configuration
 
-From the `~/.home.nix` directory:
+From the `~/.home.nix` directory, run the Home Manager version pinned in `flake.lock`:
 
 ```bash
-nix run home-manager/release-25.05 -- switch --flake "."
+nix run . -- switch --flake . -b backup
 ```
 
-This downloads over 20GB of packages.
+`-b backup` renames dotfiles that already exist instead of failing on them. On a desktop this downloads over 20GB of packages.
 
 To switch later, you can use `nh`:
 

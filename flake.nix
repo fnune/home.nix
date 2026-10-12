@@ -125,29 +125,30 @@
 
       homeConfigurations =
         let
-          plasmaManager = plasma-manager.homeModules.plasma-manager;
-          nixFlatpak = nix-flatpak.homeManagerModules.nix-flatpak;
+          mkHome =
+            modules:
+            home-manager.lib.homeManagerConfiguration {
+              inherit pkgs modules;
+              extraSpecialArgs = {
+                inherit
+                  nixpkgs
+                  pkgs-unstable
+                  nixvimPackage
+                  standard
+                  vimHerdrNavigation
+                  username
+                  ;
+              };
+            };
         in
         {
-          ${username} = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit
-                nixpkgs
-                pkgs-unstable
-                nixvimPackage
-                standard
-                vimHerdrNavigation
-                username
-                ;
-            };
-            modules = [
-              ./configurations/all.nix
-              nixFlatpak
-              plasmaManager
-              clack.homeManagerModules.default
-            ];
-          };
+          ${username} = mkHome [
+            ./configurations/all.nix
+            nix-flatpak.homeManagerModules.nix-flatpak
+            plasma-manager.homeModules.plasma-manager
+            clack.homeManagerModules.default
+          ];
+          "${username}@earendil" = mkHome [ ./configurations/earendil.nix ];
         };
     };
 }
