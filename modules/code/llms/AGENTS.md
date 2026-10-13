@@ -17,7 +17,12 @@
     - Run jj non-interactively: `jj squash -u` (or `JJ_EDITOR=true`), since squashing two described commits otherwise opens an editor and hangs.
     - `jj rebase -s` moves every descendant, including unrelated local branches: check `jj log -r 'descendants(<rev>)'` first.
     - Bookmarks never move on their own: set them before `jj git push`, and `--dry-run` a push that rewrites shared branches.
+    - For a change that belongs to one commit, `jj squash --into <rev> <paths>`. `jj absorb` is only for scattered small fixes: it splits a logical change across every commit that last touched its lines, and leaves additions next to `trunk()` lines behind.
+    - After any rewrite (absorb, squash into an ancestor, rebase, conflict resolution), check `jj log -r 'trunk()..@'` for `conflict` before moving on, and `jj undo` if the rewrite caused it.
+    - To take one side of a conflict whole, `jj resolve --tool :ours <path>` (or `:theirs`) or `jj restore --from <rev> <path>`; don't regex the markers.
+    - Check `jj <cmd> --help` before an unfamiliar flag: flags change between jj versions.
     - Stacked work (one PR per commit) has its own skill: `creating-stacked-changes`.
+- Run long builds and tests from a separate workspace or worktree pinned to the commit under test: switching or editing commits rewrites the files they are reading.
 - Worktrees and workspaces go in `<repo-parent>/.worktrees/<repo>/<name>`, never as a bare sibling of the repo.
     - Base a new one on the fetched upstream default branch and say which base you used: `git worktree add --detach <path> origin/<default>`, or `jj workspace add --name <name> <path>` after `jj git fetch`.
     - A jj workspace has no `.git`, so tools that shell out to `git` fail there. To edit commits with jj and still run such tools, check the commit out by hash in a git worktree, run the tool there, and fold any generated diff back into the jj commit.

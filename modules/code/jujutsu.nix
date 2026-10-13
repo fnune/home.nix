@@ -45,7 +45,10 @@ in
         backend = "ssh";
         key = "${config.profile.sshKeyPath}.pub";
       };
-      ui.default-command = "log";
+      ui = {
+        default-command = "log";
+        conflict-marker-style = "git";
+      };
     };
   };
 }
