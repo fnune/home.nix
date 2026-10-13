@@ -22,6 +22,29 @@
         "type": "github"
       }
     },
+    "doriath": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792700664,
+        "narHash": "sha256-ixWb8gWtLWGcW11bsZraVQEE5k/CAQnDqI/1Hrd1MZE=",
+        "ref": "refs/heads/main",
+        "rev": "2bf79409ac5deb32eb38a571a619c695787e7fd5",
+        "revCount": 237,
+        "type": "git",
+        "url": "ssh://git@github.com/fnune/doriath"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/fnune/doriath"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -270,6 +293,7 @@
     "root": {
       "inputs": {
         "clack": "clack",
+        "doriath": "doriath",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",

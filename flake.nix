@@ -29,6 +29,11 @@
       url = "github:numtide/system-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    doriath = {
+      url = "git+ssh://git@github.com/fnune/doriath";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.home-manager.follows = "home-manager";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +55,7 @@
       plasma-manager,
       clack,
       system-manager,
+      doriath,
       treefmt-nix,
       git-hooks,
       ...
@@ -150,6 +156,7 @@
             ./configurations/all.nix
             plasma-manager.homeModules.plasma-manager
             clack.homeManagerModules.default
+            doriath.homeManagerModules.default
           ];
           "${username}@earendil" = mkHome [ ./configurations/earendil.nix ];
         };

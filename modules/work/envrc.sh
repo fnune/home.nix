@@ -12,3 +12,5 @@ export MYSQL_DATA_PATH="$PULUMI_SERVICE_LOCAL_DATA"
 export PULUMI_STACK_NAME_OVERRIDE=fnune-review
 
 dotenv shared.env
+
+use doriath pulumi-service
