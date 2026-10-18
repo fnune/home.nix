@@ -67,7 +67,7 @@ in
     }
     {
       description = "Send Slack to desktop";
-      match = matchClass "com.slack.Slack";
+      match = matchClass "Slack";
       apply = sendToDesktop 7;
     }
     {
