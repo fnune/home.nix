@@ -19,7 +19,13 @@ in
 
   nix = {
     enable = true;
-    settings.build-users-group = "nixbld"; # Otherwise the daemon builds as root.
+    settings = {
+      build-users-group = "nixbld"; # Otherwise the daemon builds as root.
+      warn-dirty = false;
+      # system-manager passes its cache on every build.
+      trusted-substituters = [ "https://cache.numtide.com" ];
+      trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
+    };
   };
 
   systemd.tmpfiles.rules = [ "L+ /run/opengl-driver - - - - ${gpuDrivers}" ];
