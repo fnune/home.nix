@@ -11,6 +11,12 @@
     '';
   };
 
+  home.pointerCursor = {
+    enable = true;
+    inherit (config.cursors) name size;
+    package = pkgs-unstable.kdePackages.breeze;
+  };
+
   home.packages = with pkgs-unstable; [
     haruna
     libreoffice-qt
