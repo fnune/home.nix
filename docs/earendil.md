@@ -122,7 +122,7 @@ nix copy --no-check-sigs --to 'ssh-ng://earendil?remote-program=/nix/var/nix/pro
 ssh earendil ". /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && HOME_MANAGER_BACKUP_EXT=backup $(readlink -f result)/activate"
 ```
 
-This needs `trusted-users = root fausto` in earendil's `/etc/nix/nix.conf`, followed by `sudo systemctl restart nix-daemon`, because locally built paths are unsigned. Until the configuration is applied, Nix is not on `PATH` for non-interactive SSH, hence `remote-program` and sourcing the profile.
+This needs `trusted-users = root fausto` in earendil's `/etc/nix/nix.conf`, followed by `sudo systemctl restart nix-daemon`, because locally built paths are unsigned. `./switch.sh` sets it from `systems/earendil.nix`; add it by hand only for the first copy. Until the configuration is applied, Nix is not on `PATH` for non-interactive SSH, hence `remote-program` and sourcing the profile.
 
 ## Log in to everything once
 

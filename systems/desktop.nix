@@ -9,9 +9,8 @@ let
 in
 {
   imports = [
-    ./chrome.nix
+    ./base.nix
     ./clack.nix
-    ./locales.nix
   ];
 
   environment.etc = {
