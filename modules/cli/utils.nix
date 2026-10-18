@@ -1,6 +1,4 @@
 { pkgs, ... }: {
-  services.pacman.packages = [ "base-devel" ];
-
   home.packages = with pkgs; [
     age
     exiftool

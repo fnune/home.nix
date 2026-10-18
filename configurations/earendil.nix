@@ -1,7 +1,8 @@
-_: {
+{ pkgs, ... }:
+{
   home.stateVersion = "26.05";
 
-  services.pacman.packages = [ "kitty-terminfo" ];
+  home.file.".terminfo".source = "${pkgs.kitty.terminfo}/share/terminfo";
 
   imports = [
     ./base.nix

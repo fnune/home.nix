@@ -10,7 +10,6 @@
   programs.home-manager.enable = true;
   programs.nh.enable = true;
   targets.genericLinux.enable = true;
-  services.pacman.enable = true;
   news.display = "silent";
   systemd.user.startServices = "sd-switch";
 

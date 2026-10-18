@@ -11,21 +11,8 @@
     '';
   };
 
-  services.pacman.packages = [
-    "flatpak"
-    "flatpak-kcm"
-    "haruna"
-    "isoimagewriter"
-    "kalk"
-    "kcharselect"
-    "kclock"
-    "kcolorchooser"
-    "ksshaskpass"
-    "kweather"
-    "partitionmanager"
-  ];
-
   home.packages = with pkgs-unstable; [
+    haruna
     libreoffice-qt
     pdfarranger
   ];

@@ -25,7 +25,6 @@
       url = "github:fnune/clack/v0.2.3";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +45,6 @@
       standard,
       plasma-manager,
       clack,
-      nix-flatpak,
       treefmt-nix,
       git-hooks,
       ...
@@ -144,7 +142,6 @@
         {
           ${username} = mkHome [
             ./configurations/all.nix
-            nix-flatpak.homeManagerModules.nix-flatpak
             plasma-manager.homeModules.plasma-manager
             clack.homeManagerModules.default
           ];

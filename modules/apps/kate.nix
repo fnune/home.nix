@@ -1,10 +1,5 @@
 { standard, ... }:
 {
-  services.pacman.packages = [
-    "kate"
-    "markdownpart"
-  ];
-
   xdg.dataFile."org.kde.syntax-highlighting/themes/Standard Dark.theme".source =
     "${standard}/kate/standard.dark.theme";
 

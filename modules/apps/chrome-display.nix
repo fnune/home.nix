@@ -5,13 +5,11 @@ let
   height = 1080;
 in
 {
-  services.pacman.packages = [ "tigervnc" ];
-
   systemd.user.services = {
     chrome-display = {
       Unit.Description = "Virtual display for Chrome";
       Service = {
-        ExecStart = "/usr/bin/Xvnc ${display} -geometry ${toString width}x${toString height} -depth 24 -nolisten tcp -nolisten local -rfbport -1 -rfbunixpath %t/chrome-display.sock -SecurityTypes None -AlwaysShared";
+        ExecStart = "${pkgs.tigervnc}/bin/Xvnc ${display} -geometry ${toString width}x${toString height} -depth 24 -nolisten tcp -nolisten local -rfbport -1 -rfbunixpath %t/chrome-display.sock -SecurityTypes None -AlwaysShared";
         Restart = "on-failure";
       };
       Install.WantedBy = [ "default.target" ];

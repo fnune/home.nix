@@ -4,16 +4,14 @@
   ...
 }:
 {
-  services.pacman.packages = [
-    "inter-font"
-    "noto-fonts-cjk"
-    "noto-fonts-emoji"
-    "ttf-jetbrains-mono"
-    "ttf-sourcecodepro-nerd"
-  ];
-
   home.packages = with pkgs; [
+    inter
+    jetbrains-mono
     libre-baskerville
+    nerd-fonts.sauce-code-pro
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-color-emoji
   ];
 
   fonts = {

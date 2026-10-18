@@ -30,6 +30,7 @@ The script sets the hostname, copies the rescue system's network settings, and g
 
 ```sh
 pacman -Syu --needed base-devel git openssh sudo zsh
+pacman -S --needed alsa-lib at-spi2-core libx11 libxcb libxcomposite libxdamage libxext libxfixes libxkbcommon libxrandr mesa nspr nss noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-liberation # for the Chromium that Playwright downloads
 useradd --create-home --groups wheel,tss --shell /usr/bin/zsh fausto # tss grants /dev/tpmrm0
 passwd fausto
 EDITOR=nano visudo # uncomment the %wheel line

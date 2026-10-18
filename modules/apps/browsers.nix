@@ -160,7 +160,15 @@ in
     packages = with pkgs-unstable; [
       chromium
       (firefox.override { extraPolicies = firefoxPolicies; })
-      (thunderbird.override { extraPolicies = thunderbirdPolicies; })
+      (thunderbird.override {
+        extraPolicies = thunderbirdPolicies;
+        extraPrefs = ''
+          lockPref("mailnews.database.global.indexer.enabled", true);
+          lockPref("gloda.show_as_list_by_default", true);
+          lockPref("gloda.facetview.sortby", 3);
+          lockPref("mailnews.database.global.search.msg.limit", 10000);
+        '';
+      })
     ];
   };
 }

@@ -88,13 +88,16 @@ sudo plymouth-set-default-theme spinner
 sudo mkinitcpio -P
 ```
 
-### Fix some Flatpaks
+### Install system packages
 
-To make Flatpaks work more seamlessly with the host system:
+Home Manager installs everything else. These come from pacman because they integrate with Plasma, need system libraries, or build system packages:
 
 ```sh
-flatpak override --user com.slack.Slack --socket=wayland --env=ELECTRON_OZONE_PLATFORM_HINT=auto
+sudo pacman -S --needed base-devel steam
+sudo pacman -S --needed isoimagewriter kalk kate kcharselect kclock kcolorchooser keepsecret ksshaskpass kweather markdownpart partitionmanager
 ```
+
+`ksshaskpass` must stay at `/usr/bin/ksshaskpass`: the Plasma SSH agent config points there.
 
 ### Install browser policies
 

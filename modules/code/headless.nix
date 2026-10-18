@@ -7,7 +7,6 @@ _: {
     ./mise.nix
     ./nixvim/home.nix
     ./npm.nix
-    ./playwright.nix
     ./podman.nix
   ];
 }
