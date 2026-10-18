@@ -11,6 +11,7 @@ in
   imports = [
     ./chrome.nix
     ./clack.nix
+    ./locales.nix
   ];
 
   environment.etc = {

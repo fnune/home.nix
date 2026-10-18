@@ -1,3 +1,6 @@
 _: {
-  imports = [ ./chrome.nix ];
+  imports = [
+    ./chrome.nix
+    ./locales.nix
+  ];
 }

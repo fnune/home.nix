@@ -41,22 +41,7 @@ To switch later, run `./switch.sh`. It applies this host's system configuration 
 
 ### Set up locales
 
-Add these locales to `/etc/locale.gen`:
-
-```bash
-en_US.UTF-8 UTF-8
-en_DK.UTF-8 UTF-8
-en_GB.UTF-8 UTF-8
-de_DE.UTF-8 UTF-8
-```
-
-Generate locales:
-
-```bash
-sudo locale-gen
-```
-
-Configure `/etc/locale.conf`:
+`./switch.sh` generates the locales from `modules/system/locales.nix`. Configure `/etc/locale.conf`:
 
 ```bash
 LANG="en_US.UTF-8"
