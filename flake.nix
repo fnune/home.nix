@@ -164,6 +164,7 @@
           (
             host:
             system-manager.lib.makeSystemConfig {
+              extraSpecialArgs = { inherit clack; };
               modules = [
                 {
                   nixpkgs.hostPlatform = system;

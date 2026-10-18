@@ -8,7 +8,10 @@ let
   };
 in
 {
-  imports = [ ./chrome.nix ];
+  imports = [
+    ./chrome.nix
+    ./clack.nix
+  ];
 
   environment.etc = {
     "firefox/policies/policies.json" = etcJson { policies = browserPolicies.firefox; };
