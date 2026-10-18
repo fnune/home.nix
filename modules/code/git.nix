@@ -17,6 +17,7 @@
   };
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     includes = [
       {
         path = "${config.home.homeDirectory}/.local/gitconfig";
@@ -56,7 +57,7 @@
       rerere.enabled = true;
       rerere.autoUpdate = true;
       merge.ours.driver = true;
-      credential.helper = "/usr/lib/git-core/git-credential-libsecret";
+      credential.helper = "${config.programs.git.package}/bin/git-credential-libsecret";
     };
   };
 }
