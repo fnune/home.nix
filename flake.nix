@@ -22,7 +22,7 @@
       flake = false;
     };
     clack = {
-      url = "github:fnune/clack/v0.2.2";
+      url = "github:fnune/clack/v0.2.3";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
