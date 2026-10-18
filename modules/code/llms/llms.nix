@@ -12,7 +12,7 @@
       packages = with pkgs-unstable; [
         claude-code
         codex
-        gemini-cli-bin
+        antigravity-cli
       ];
 
       file = {
