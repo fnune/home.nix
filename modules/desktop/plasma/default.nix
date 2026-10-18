@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, pkgs-unstable, ... }:
+{
   imports = [ ./window-rules.nix ];
 
   home.file.".config/plasma-workspace/env/ssh-agent.sh" = {
@@ -21,9 +22,12 @@
     "kcolorchooser"
     "ksshaskpass"
     "kweather"
-    "libreoffice-fresh"
     "partitionmanager"
-    "pdfarranger"
+  ];
+
+  home.packages = with pkgs-unstable; [
+    libreoffice-qt
+    pdfarranger
   ];
 
   programs.plasma = {

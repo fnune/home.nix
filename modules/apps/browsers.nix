@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 let
   portalPreferences = {
     "widget.use-xdg-desktop-portal.file-picker" = 1;
@@ -128,12 +128,6 @@ let
     };
   };
 
-  policiesJson = pkgs.writeText "firefox-policies.json" (
-    builtins.toJSON {
-      policies = firefoxPolicies;
-    }
-  );
-
   thunderbirdPolicies = {
     SearchEngines = {
       Default = "Kagi";
@@ -159,46 +153,14 @@ let
       };
     };
   };
-
-  thunderbirdPoliciesJson = pkgs.writeText "thunderbird-policies.json" (
-    builtins.toJSON {
-      policies = thunderbirdPolicies;
-    }
-  );
-
-  installBrowserPolicies = pkgs.writeShellScriptBin "install-browser-policies" ''
-    #!/usr/bin/env sh
-    set -e
-    echo "Installing Firefox policies system-wide..."
-    sudo mkdir -p /etc/firefox/policies
-    sudo cp ${policiesJson} /etc/firefox/policies/policies.json
-    echo "Firefox policies installed to /etc/firefox/policies/policies.json"
-
-    echo ""
-    install-chrome-policies
-
-    echo ""
-    echo "Installing Thunderbird policies system-wide..."
-    sudo cp ${thunderbirdPoliciesJson} /usr/lib/thunderbird/distribution/policies.json
-    echo "Thunderbird policies installed to /usr/lib/thunderbird/distribution/policies.json"
-
-    echo ""
-    echo "Done! Restart browsers and visit:"
-    echo "  - Firefox: about:policies"
-    echo "  - Chromium and Google Chrome: chrome://policy"
-    echo "  - Thunderbird: Help > Troubleshooting Information > Policies"
-  '';
 in
 {
   home = {
     sessionVariables.MOZ_ENABLE_WAYLAND = "1";
-    packages = [
-      installBrowserPolicies
+    packages = with pkgs-unstable; [
+      chromium
+      (firefox.override { extraPolicies = firefoxPolicies; })
+      (thunderbird.override { extraPolicies = thunderbirdPolicies; })
     ];
   };
-
-  services.pacman.packages = [
-    "firefox"
-    "chromium"
-  ];
 }

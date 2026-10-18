@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 let
@@ -22,7 +23,7 @@ let
   '';
 in
 {
-  services.pacman.packages = [ "obs-studio" ];
+  home.packages = [ pkgs-unstable.obs-studio ];
 
   home.activation.initObsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     ${initScript}

@@ -7,6 +7,5 @@
     ./earendil-browser.nix
     ./kate.nix
     ./obs.nix
-    ./nixpkgs-trial.nix
   ];
 }

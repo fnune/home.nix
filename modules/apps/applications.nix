@@ -1,19 +1,22 @@
-_: {
+{ pkgs-unstable, ... }:
+{
   services.syncthing.enable = true;
 
+  home.packages = with pkgs-unstable; [
+    bitwarden-cli
+    bitwarden-desktop
+    calibre
+    darktable
+    krita
+    obsidian
+    podman-desktop
+    signal-desktop
+  ];
+
   services.pacman.packages = [
-    "bitwarden"
-    "bitwarden-cli"
-    "calibre"
-    "darktable"
     "keepsecret"
-    "krita"
-    "obsidian"
-    "podman-desktop"
-    "signal-desktop"
     "solaar"
     "steam"
-    "thunderbird"
   ];
 
   services.flatpak = {

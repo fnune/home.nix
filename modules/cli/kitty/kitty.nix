@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   standard,
   ...
 }:
@@ -34,7 +35,7 @@ let
   '';
 in
 {
-  services.pacman.packages = [ "kitty" ];
+  home.packages = [ pkgs-unstable.kitty ];
 
   home.file = {
     ".local/share/applications/kitty.desktop".text = ''

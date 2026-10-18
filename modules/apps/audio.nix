@@ -1,3 +1,6 @@
-_: {
-  services.pacman.packages = [ "reaper" ];
+{ pkgs-unstable, ... }:
+{
+  home.packages = [
+    (pkgs-unstable.reaper.override { jackLibrary = pkgs-unstable.pipewire.jack; })
+  ];
 }

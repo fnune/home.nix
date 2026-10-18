@@ -1,3 +1,4 @@
-_: {
-  services.pacman.packages = [ "godot" ];
+{ pkgs-unstable, ... }:
+{
+  home.packages = [ pkgs-unstable.godot ];
 }

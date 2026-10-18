@@ -98,15 +98,14 @@ flatpak override --user com.slack.Slack --socket=wayland --env=ELECTRON_OZONE_PL
 
 ### Install browser policies
 
-Install system-wide browser policies for Firefox, Chromium and Google Chrome:
+Firefox and Thunderbird get their policies from their Nix wrappers. Install the system-wide policies for Chromium and Google Chrome:
 
 ```sh
-install-browser-policies
+install-chrome-policies
 ```
 
 This installs:
 
-- Firefox policies to `/etc/firefox/policies/policies.json`
 - Chromium policies to `/etc/chromium/policies/managed/policies.json`
 - Google Chrome policies to `/etc/opt/chrome/policies/managed/policies.json`, which also force-install Claude in Chrome
 
