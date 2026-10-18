@@ -167,7 +167,7 @@
               home = self.homeConfigurations.${if host == "earendil" then "${username}@earendil" else username};
             in
             system-manager.lib.makeSystemConfig {
-              extraSpecialArgs = {
+              specialArgs = {
                 inherit clack;
                 gpuDrivers = home.config.targets.genericLinux.gpu.drivers;
               };
@@ -175,6 +175,8 @@
                 {
                   nixpkgs.hostPlatform = system;
                   system-manager.allowAnyDistro = true;
+                  services.userborn.enable = false; # It rewrites Arch's /etc/passwd, group and shadow.
+                  security.enableWrappers = false;
                 }
                 ./systems/${host}.nix
               ];
