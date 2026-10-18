@@ -25,6 +25,10 @@
       url = "github:fnune/clack/v0.2.3";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    system-manager = {
+      url = "github:numtide/system-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +49,7 @@
       standard,
       plasma-manager,
       clack,
+      system-manager,
       treefmt-nix,
       git-hooks,
       ...
@@ -107,6 +112,7 @@
       packages.${system} = {
         default = home-manager.packages.${system}.default;
         nixvim-test = nixvimPackage;
+        system-manager = system-manager.packages.${system}.default;
       };
 
       formatter.${system} = treefmtEval.config.build.wrapper;
@@ -147,5 +153,25 @@
           ];
           "${username}@earendil" = mkHome [ ./configurations/earendil.nix ];
         };
+
+      systemConfigs =
+        nixpkgs.lib.genAttrs
+          [
+            "earendil"
+            "feanor"
+            "melian"
+          ]
+          (
+            host:
+            system-manager.lib.makeSystemConfig {
+              modules = [
+                {
+                  nixpkgs.hostPlatform = system;
+                  system-manager.allowAnyDistro = true;
+                }
+                ./systems/${host}.nix
+              ];
+            }
+          );
     };
 }

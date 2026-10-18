@@ -37,11 +37,7 @@ nix run . -- switch --flake . -b backup
 
 `-b backup` renames dotfiles that already exist instead of failing on them. On a desktop this downloads over 20GB of packages.
 
-To switch later, you can use `nh`:
-
-```sh
-nh home switch .
-```
+To switch later, run `./switch.sh`. It applies this host's system configuration from `systems/` with [system-manager](https://github.com/numtide/system-manager), then switches Home Manager with `nh`. `./update.sh` updates the inputs and then runs it.
 
 ### Set up locales
 
@@ -98,21 +94,6 @@ sudo pacman -S --needed isoimagewriter kalk kate kcharselect kclock kcolorchoose
 ```
 
 `ksshaskpass` must stay at `/usr/bin/ksshaskpass`: the Plasma SSH agent config points there.
-
-### Install browser policies
-
-Firefox and Thunderbird get their policies from their Nix wrappers. Install the system-wide policies for Chromium and Google Chrome:
-
-```sh
-install-chrome-policies
-```
-
-This installs:
-
-- Chromium policies to `/etc/chromium/policies/managed/policies.json`
-- Google Chrome policies to `/etc/opt/chrome/policies/managed/policies.json`, which also force-install Claude in Chrome
-
-Restart browsers and verify at `about:policies` (Firefox) or `chrome://policy` (Chromium and Google Chrome).
 
 ### Tuxedo InfinityBook hardware setup
 

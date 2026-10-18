@@ -152,7 +152,7 @@ The box holds only credentials made for it, each revocable on its own, and canno
 
 Chrome runs on a virtual display as the `chrome` user service, so agents on earendil can use Claude in Chrome while your other machines are off. The extension is force-installed by policy, but needs one sign-in through a VNC view:
 
-1. `install-chrome-policies`, then `systemctl --user restart chrome`.
+1. `./switch.sh` from the clone, then `systemctl --user restart chrome`.
 2. Run `claude --chrome` once, so Claude Code registers its native messaging host, then `systemctl --user restart chrome` again so Chrome picks it up.
 3. From your desktop or laptop, run `earendil-browser`. It opens a window showing earendil's Chrome, and closing the window ends the connection. Behind it, VNC travels through SSH to a socket only `fausto` can open: the display has no network port.
 4. In that Chrome, sign in to the extension with the same claude.ai organization that `claude` uses (`/status` shows it).

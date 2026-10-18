@@ -16,7 +16,7 @@ if cmp -s "$work/old.lock" flake.lock; then
   exit 0
 fi
 
-if ! nh home switch .; then
+if ! "$repo/switch.sh"; then
   echo >&2
   echo 'Switch failed. Discard the update with `jj restore flake.lock`.' >&2
   exit 1
