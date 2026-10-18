@@ -163,8 +163,14 @@
           ]
           (
             host:
+            let
+              home = self.homeConfigurations.${if host == "earendil" then "${username}@earendil" else username};
+            in
             system-manager.lib.makeSystemConfig {
-              extraSpecialArgs = { inherit clack; };
+              extraSpecialArgs = {
+                inherit clack;
+                gpuDrivers = home.config.targets.genericLinux.gpu.drivers;
+              };
               modules = [
                 {
                   nixpkgs.hostPlatform = system;

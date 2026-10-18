@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ gpuDrivers, lib, ... }:
 let
   inotify = ''
     fs.inotify.max_user_instances = 1024
@@ -21,6 +21,8 @@ in
     enable = true;
     settings.build-users-group = "nixbld"; # Otherwise the daemon builds as root.
   };
+
+  systemd.tmpfiles.rules = [ "L+ /run/opengl-driver - - - - ${gpuDrivers}" ];
 
   environment.etc =
     lib.mapAttrs

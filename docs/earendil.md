@@ -66,6 +66,8 @@ EOF
 sudo systemctl restart sshd
 ```
 
+Once the configuration is applied, `./switch.sh` manages this file from `systems/earendil.nix`.
+
 ## Join the tailnet
 
 ```sh
