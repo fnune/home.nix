@@ -16,6 +16,7 @@ let
     sponsorBlock = "sponsorBlocker@ajay.app";
     vimium = "{d7742d87-e61d-4b78-b8a1-b469842139fa}";
     uBlockOrigin = "uBlock0@raymondhill.net";
+    zoomRedirector = "{2d0a18e8-6b0a-4c8c-9256-6e00c01f07fe}";
   };
 
   firefoxAllowedExtensions = with firefoxExtensionIds; [
@@ -123,6 +124,10 @@ let
       ${firefoxExtensionIds.uBlockOrigin} = {
         installation_mode = "force_installed";
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      };
+      ${firefoxExtensionIds.zoomRedirector} = {
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/zoom-redirector/latest.xpi";
       };
     };
   };

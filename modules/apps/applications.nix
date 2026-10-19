@@ -13,6 +13,5 @@
     signal-desktop
     slack
     spotify
-    zoom-us
   ];
 }
