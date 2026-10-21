@@ -5,7 +5,7 @@
   home.packages = with pkgs-unstable; [
     bitwarden-cli
     bitwarden-desktop
-    calibre
+    (calibre.override { speechSupport = false; })
     darktable
     krita
     obsidian
