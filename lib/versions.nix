@@ -1,6 +1,6 @@
 home:
 let
-  inherit (home) config pkgs;
+  inherit (home) config options pkgs;
   inherit (pkgs) lib;
   inherit (builtins)
     attrNames
@@ -34,6 +34,15 @@ let
       };
     };
 
+  hidden = option: lib.isOption option && option.visible or true == false;
+
+  renamed =
+    attribute: name:
+    let
+      option = options.${attribute}.${name} or null;
+    in
+    hidden option || hidden (option.enable or null);
+
   enabledPackages =
     attribute:
     concatMap (
@@ -43,7 +52,7 @@ let
         enabled = orElse false ((submodule.enable or false) == true);
       in
       lib.optionals enabled (entry name (submodule.package or null))
-    ) (attrNames config.${attribute});
+    ) (filter (name: !renamed attribute name) (attrNames config.${attribute}));
 
   packages = concatMap (package: entry (orElse "?" (package.pname or package.name)) package) (
     orElse [ ] config.home.packages
