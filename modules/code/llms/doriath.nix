@@ -21,6 +21,8 @@ in
         "docs"
         "claude"
       ];
+      secrets.signing.file = "~/.config/doriath/keys/agent-signing";
+      signing.key = "signing";
     };
   };
 
