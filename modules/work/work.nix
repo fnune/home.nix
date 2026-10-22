@@ -45,6 +45,7 @@ in
       work
     ]
     ++ (with pkgs; [
+      aws-vault
       awscli2
       bubblewrap
       go
@@ -74,6 +75,7 @@ in
       # Encrypt ~/.pulumi/credentials.json with a key held in the KDE wallet,
       # so a persistent `pulumi login` replaces per-invocation token juggling.
       PULUMI_CREDENTIAL_STORE = "os";
+      AWS_VAULT_BACKEND = "secret-service";
     };
   };
 
