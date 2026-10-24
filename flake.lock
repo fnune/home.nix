@@ -262,6 +262,26 @@
         "type": "github"
       }
     },
+    "plasma-webcam-bubble": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792884472,
+        "narHash": "sha256-p7pVJMauKMdNFZg/6LHAKKevWprQ02UNXmzL6Q9lcNE=",
+        "owner": "fnune",
+        "repo": "plasma-webcam-bubble",
+        "rev": "2a49d32b78ce68c34613f497dcfc4ff531ba4733",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fnune",
+        "repo": "plasma-webcam-bubble",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -300,6 +320,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "plasma-manager": "plasma-manager",
+        "plasma-webcam-bubble": "plasma-webcam-bubble",
         "standard": "standard",
         "system-manager": "system-manager",
         "treefmt-nix": "treefmt-nix"

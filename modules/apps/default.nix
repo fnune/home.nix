@@ -8,4 +8,6 @@
     ./kate.nix
     ./obs.nix
   ];
+
+  programs.webcam-bubble.enable = true;
 }

@@ -34,6 +34,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
       inputs.home-manager.follows = "home-manager";
     };
+    plasma-webcam-bubble = {
+      url = "github:fnune/plasma-webcam-bubble";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +60,7 @@
       clack,
       system-manager,
       doriath,
+      plasma-webcam-bubble,
       treefmt-nix,
       git-hooks,
       ...
@@ -157,6 +162,7 @@
             plasma-manager.homeModules.plasma-manager
             clack.homeManagerModules.default
             doriath.homeManagerModules.default
+            plasma-webcam-bubble.homeManagerModules.default
           ];
           "${username}@earendil" = mkHome [ ./configurations/earendil.nix ];
         };
