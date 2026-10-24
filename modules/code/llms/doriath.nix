@@ -13,12 +13,27 @@ in
   programs.doriath = {
     enable = true;
     approvals.web.enable = true;
+    modules.nix-home.mounts = [
+      {
+        path = "~/.nix-profile";
+        missing = "skip";
+      }
+      {
+        path = "~/.local/state/nix";
+        missing = "skip";
+      }
+      {
+        path = "~/.local/state/home-manager";
+        missing = "skip";
+      }
+    ];
     profiles.default = {
       description = "Any project without a profile of its own";
       modules = [
-        "base"
-        "vcs"
+        "nix-home"
+        "vcs-readonly"
         "docs"
+        "clipboard"
         "claude"
       ];
       secrets.signing.file = "~/.config/doriath/keys/agent-signing";
