@@ -39,6 +39,27 @@ in
       secrets.signing.file = "~/.config/doriath/keys/agent-signing";
       signing.key = "signing";
     };
+    profiles.home-nix = {
+      description = "This home-manager configuration";
+      modules = [
+        "nix-home"
+        "vcs-readwrite"
+        "docs"
+        "nix"
+        "pre-commit"
+        "clipboard"
+        "claude"
+      ];
+      mounts = [
+        {
+          path = "~/.worktrees/.home.nix";
+          mode = "write";
+          missing = "skip";
+        }
+      ];
+      secrets.signing.file = "~/.config/doriath/keys/agent-signing";
+      signing.key = "signing";
+    };
   };
 
   # Inside a session DORIATH_BROKER is set, so the jail runs Claude itself
