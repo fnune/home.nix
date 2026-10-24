@@ -154,25 +154,41 @@ let
 
   chromeExtensionIds = {
     claudeInChrome = "fcoeoabgfenejglbffodgkkbkcdhcgfn";
-    uBlockOrigin = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+    uBlockOriginLite = "ddkjiahejlhfcafbddmgiahcphecmpfh";
   };
 
   chromiumPolicies = {
     BackgroundModeEnabled = false;
+    AIModeSettings = 1;
     BookmarkBarEnabled = false;
+    DefaultBrowserSettingEnabled = false;
     DefaultSearchProviderEnabled = true;
     DefaultSearchProviderName = "DuckDuckGo";
     DefaultSearchProviderKeyword = "duckduckgo.com";
     DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
     DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+    FeedbackSurveysEnabled = false;
+    GeminiSettings = 1;
+    GenAiDefaultSettings = 2;
     HomepageIsNewTabPage = false;
+    MediaRecommendationsEnabled = false;
     MetricsReportingEnabled = false;
+    NewTabPageLocation = "about:blank";
     PasswordManagerEnabled = false;
+    PrivacySandboxAdMeasurementEnabled = false;
+    PrivacySandboxAdTopicsEnabled = false;
+    PrivacySandboxPromptEnabled = false;
+    PrivacySandboxSiteEnabledAdsEnabled = false;
+    PromotionsEnabled = false;
+    SafeBrowsingSurveysEnabled = false;
     SearchSuggestEnabled = false;
+    ShoppingListEnabled = false;
     ShowHomeButton = false;
+    SigninInterceptionEnabled = false;
+    UrlKeyedAnonymizedDataCollectionEnabled = false;
     UserFeedbackAllowed = false;
     ExtensionInstallBlocklist = [ "*" ];
-    ExtensionInstallForcelist = [ chromeExtensionIds.uBlockOrigin ];
+    ExtensionInstallForcelist = [ chromeExtensionIds.uBlockOriginLite ];
   };
 in
 {
