@@ -64,21 +64,9 @@ let
       StartPage = "none";
     };
     SearchEngines = {
-      Default = "Kagi";
-      Add = [
-        {
-          Name = "Kagi";
-          Alias = "kagi";
-          Description = "Kagi Search";
-          Method = "GET";
-          URLTemplate = "https://kagi.com/search?q={searchTerms}";
-          SuggestURLTemplate = "https://kagi.com/api/autosuggest?q={searchTerms}";
-          IconURL = "https://kagi.com/favicon.ico";
-        }
-      ];
+      Default = "DuckDuckGo";
       Remove = [
         "Bing"
-        "DuckDuckGo"
         "Ecosia"
         "Google"
         "Perplexity"
@@ -150,17 +138,7 @@ let
 
   thunderbirdPolicies = {
     SearchEngines = {
-      Default = "Kagi";
-      Add = [
-        {
-          Name = "Kagi";
-          Alias = "kagi";
-          Description = "Kagi Search";
-          Method = "GET";
-          URLTemplate = "https://kagi.com/search?q={searchTerms}";
-          IconURL = "https://kagi.com/favicon.ico";
-        }
-      ];
+      Default = "DuckDuckGo";
     };
     Preferences = portalPreferences // {
       "mailnews.start_page.enabled" = {
@@ -183,10 +161,10 @@ let
     BackgroundModeEnabled = false;
     BookmarkBarEnabled = false;
     DefaultSearchProviderEnabled = true;
-    DefaultSearchProviderName = "Kagi";
-    DefaultSearchProviderKeyword = "kagi";
-    DefaultSearchProviderSearchURL = "https://kagi.com/search?q={searchTerms}";
-    DefaultSearchProviderSuggestURL = "https://kagi.com/api/autosuggest?q={searchTerms}";
+    DefaultSearchProviderName = "DuckDuckGo";
+    DefaultSearchProviderKeyword = "duckduckgo.com";
+    DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+    DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
     HomepageIsNewTabPage = false;
     MetricsReportingEnabled = false;
     PasswordManagerEnabled = false;
