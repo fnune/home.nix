@@ -22,6 +22,23 @@
     "engineering@pulumi-internal": true
   },
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "deny": [
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)",
+      "Read(~/.kube/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.docker/config.json)",
+      "Read(~/.pulumi/credentials.json)",
+      "Read(~/.config/gcloud/**)",
+      "Read(~/.config/sops/**)",
+      "Read(~/.config/Bitwarden CLI/**)",
+      "Read(~/.codex/auth.json)",
+      "Read(~/.claude/.credentials.json)",
+      "Read(~/.netrc)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Read(//**/.envrc)"
+    ]
   }
 }
