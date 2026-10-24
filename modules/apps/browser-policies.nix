@@ -38,6 +38,18 @@ let
     }) firefoxAllowedExtensions
   );
 
+  zoomOrigins = [
+    "https://app.zoom.us"
+    "https://google.zoom.us"
+    "https://pulumi.zoom.us"
+    "https://us02web.zoom.us"
+    "https://us04web.zoom.us"
+    "https://us05web.zoom.us"
+    "https://us06web.zoom.us"
+    "https://www.zoom.us"
+    "https://zoom.us"
+  ];
+
   firefoxPolicies = {
     DisableTelemetry = true;
     DisableFirefoxStudies = true;
@@ -103,6 +115,10 @@ let
       MoreFromMozilla = false;
       SkipOnboarding = true;
       UrlbarInterventions = false;
+    };
+    Permissions = {
+      Camera.Allow = zoomOrigins;
+      Microphone.Allow = zoomOrigins;
     };
     Preferences = {
       "browser.aboutConfig.showWarning" = false;
