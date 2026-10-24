@@ -45,7 +45,7 @@ in
         "nix-home"
         "vcs-readwrite"
         "docs"
-        "nix"
+        "nix-daemon"
         "pre-commit"
         "clipboard"
         "claude"
