@@ -10,7 +10,7 @@
 - Never comment as my GitHub user unless I have said so for that case.
 - For a missing system dependency in a one-off task, use `nix-shell --packages`. Never to work around a broken build setup at work.
 - In zsh, write `${var}` before a `:`: `$var:c` is parsed as a history modifier.
-- Prefer `jj` over `git`. Without `.jj/`, colocate with `jj git init` (invisible to others, undone with `rm -rf .jj`). Inside a git worktree jj refuses to colocate: use git there.
+- Prefer `jj` over `git`. Without `.jj/`, colocate with `jj git init --colocate` (invisible to others, undone with `rm -rf .jj`). Inside a git worktree jj refuses to colocate: use git there.
     - `@` is already a commit and nothing is untracked: no `git add`, no `git stash`.
     - NEVER `git clean -x` or `-X`: it deletes `.jj/` and its operation log.
     - `jj undo` reverses the last operation; prefer it to `git reset`.
@@ -24,7 +24,7 @@
     - Stacked work (one PR per commit) has its own skill: `creating-stacked-changes`.
 - Run long builds and tests from a separate workspace or worktree pinned to the commit under test: switching or editing commits rewrites the files they are reading.
 - Worktrees and workspaces go in `<repo-parent>/.worktrees/<repo>/<name>`, never as a bare sibling of the repo.
-    - Base a new one on the fetched upstream default branch and say which base you used: `git worktree add --detach <path> origin/<default>`, or `jj workspace add --name <name> <path>` after `jj git fetch`.
+    - Base a new one on the fetched upstream default branch and say which base you used: `git worktree add --detach <path> origin/<default>`, or `jj workspace add --no-colocate --name <name> <path>` after `jj git fetch`. Without `--no-colocate`, jj adds a git worktree with relative paths, and Nix can no longer read the repository.
     - A jj workspace has no `.git`, so tools that shell out to `git` fail there. To edit commits with jj and still run such tools, check the commit out by hash in a git worktree, run the tool there, and fold any generated diff back into the jj commit.
     - `The working copy is stale`: run `jj workspace update-stale`. Never `jj workspace forget` for this; it drops the working-copy commit.
     - Retire one with `git worktree remove` or `jj workspace forget`, never by deleting the directory. Check for unpushed work and ask first.

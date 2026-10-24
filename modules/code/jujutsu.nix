@@ -49,6 +49,7 @@ in
         default-command = "log";
         conflict-marker-style = "git";
       };
+      git.colocate = false;
     };
   };
 }
