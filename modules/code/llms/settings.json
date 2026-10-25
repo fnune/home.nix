@@ -6,6 +6,9 @@
   "tui": "default",
   "autoMemoryEnabled": false,
   "autoDreamEnabled": false,
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5-5"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
