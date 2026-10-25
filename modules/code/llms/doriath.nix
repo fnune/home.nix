@@ -72,6 +72,7 @@ in
         "docs"
         "nix-daemon"
         "pre-commit"
+        "github"
         "clipboard"
         "claude"
       ];
@@ -81,6 +82,11 @@ in
           mode = "write";
           missing = "skip";
         }
+      ];
+      secrets.github.command = [
+        (lib.getExe pkgs.gh)
+        "auth"
+        "token"
       ];
       secrets.signing.file = "~/.config/doriath/keys/agent-signing";
       signing.key = "signing";
