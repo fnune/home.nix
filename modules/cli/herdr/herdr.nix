@@ -5,6 +5,7 @@
   standard,
   config,
   lib,
+  options,
   ...
 }:
 let
@@ -116,6 +117,12 @@ in
   };
 
   home.packages = [ pkgs-unstable.herdr ];
+
+  # herdr cannot see an agent inside a doriath jail, so doriath names it on
+  # the process herdr does see. Hosts without doriath skip this.
+  programs = lib.optionalAttrs (options.programs ? doriath) {
+    doriath.terminal.env.HERDR_AGENT = "{command}";
+  };
 
   xdg.configFile = {
     "herdr/plugins.json".text = builtins.toJSON pluginRegistry;
