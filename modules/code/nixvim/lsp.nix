@@ -45,6 +45,7 @@
       enable = true;
       config.settings.gopls.buildFlags = [ "-tags=integration" ];
     };
+    jdtls.enable = true;
     ocamllsp.enable = true;
     ruff.enable = true;
     rust_analyzer.enable = true;
