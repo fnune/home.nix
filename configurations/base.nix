@@ -1,4 +1,4 @@
-{ username, ... }: {
+{ config, username, ... }: {
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -12,6 +12,7 @@
   targets.genericLinux.enable = true;
   news.display = "silent";
   systemd.user.startServices = "sd-switch";
+  systemd.user.sessionVariables.PATH = "${config.home.homeDirectory}/.nix-profile/bin:$PATH";
 
   imports = [ ../modules/options.nix ];
 }
