@@ -40,7 +40,13 @@ in
         "sysctl.d/99-inotify.conf" = inotify;
         "systemd/journald.conf.d/99-retention.conf" = journald;
         "containers/nodocker" = ""; # Silences podman's Docker emulation notice.
+      }
+    // {
+      "sudoers.d/pwfeedback" = {
+        text = "Defaults pwfeedback\n";
+        mode = "0440";
       };
+    };
 
   systemd.services.apply-system-drop-ins = {
     description = "Apply sysctl and journald drop-ins";
