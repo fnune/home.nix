@@ -7,7 +7,8 @@
   "autoMemoryEnabled": false,
   "autoDreamEnabled": false,
   "env": {
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5-5"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5-5",
+    "FORCE_HYPERLINK": "1"
   },
   "attribution": {
     "commit": "",
