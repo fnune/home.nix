@@ -21,7 +21,7 @@ let
     allow_remote_control no
     clipboard_control write-clipboard write-primary no-append
     confirm_os_window_close 0
-    detect_urls yes
+    detect_urls no
     enable_audio_bell no
     modify_font underline_position +3
     placement_strategy top-left
