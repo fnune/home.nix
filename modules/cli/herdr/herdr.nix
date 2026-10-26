@@ -15,6 +15,24 @@ let
     exec ${config.shell.bin} ${lib.escapeShellArgs config.shell.args} "$@"
   '';
 
+  tinyFingers = pkgs-unstable.rustPlatform.buildRustPackage {
+    pname = "herdr-tiny-fingers";
+    version = "0.1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "hotchpotch";
+      repo = "herdr-tiny-fingers";
+      rev = "3107e5d3547ab23b064f13576508bbd68186cf57";
+      hash = "sha256-q+ZE7KyHw+8KhOyxxYWGxSno2vlluiHfU/uur5Db+iQ=";
+    };
+    cargoHash = "sha256-bGsLgaeD/8m/OhFp4NfrwgdZFtyJna67eB2XSWyHwyU=";
+    postInstall = ''
+      cp herdr-plugin.toml $out/
+      mkdir -p $out/target/release
+      ln -s $out/bin/herdr-tiny-fingers $out/target/release/
+    '';
+  };
+  tinyFingersBin = "./target/release/herdr-tiny-fingers";
+
   navigationActions = [
     {
       id = "left";
@@ -77,6 +95,40 @@ let
         "macos"
       ];
       actions = navigationActions;
+      source.kind = "local";
+    }
+    {
+      plugin_id = "hotchpotch.herdr-tiny-fingers";
+      name = "herdr-tiny-fingers";
+      inherit (tinyFingers) version;
+      min_herdr_version = "0.7.0";
+      description = "tmux-fingers style visible-screen copy hints for Herdr";
+      manifest_path = "${tinyFingers}/herdr-plugin.toml";
+      plugin_root = "${tinyFingers}";
+      enabled = true;
+      platforms = [
+        "linux"
+        "macos"
+      ];
+      actions = [
+        {
+          id = "open";
+          title = "Open fingers mode";
+          description = "Open tmux-fingers style copy hints for the focused pane";
+          command = [
+            tinyFingersBin
+            "open"
+          ];
+        }
+      ];
+      panes = [
+        {
+          id = "finger";
+          title = "herdr-tiny-fingers";
+          placement = "overlay";
+          command = [ tinyFingersBin ];
+        }
+      ];
       source.kind = "local";
     }
   ];
@@ -173,6 +225,12 @@ in
 
       ${colorschemeConf}
       ${navigationKeys}
+
+      [[keys.command]]
+      key = "prefix+f"
+      type = "plugin_action"
+      command = "hotchpotch.herdr-tiny-fingers.open"
+      description = "Copy hints (fingers mode)"
     '';
   };
 }
