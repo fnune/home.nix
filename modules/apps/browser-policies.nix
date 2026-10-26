@@ -7,35 +7,21 @@ let
     "widget.use-xdg-desktop-portal.settings" = 1;
   };
 
-  firefoxExtensionIds = {
-    onePassword = "{d634138d-c276-4fc8-924b-40a0ea21d284}";
-    bitwarden = "{446900e4-71c2-419f-a6a7-df9c091e268b}";
-    darkReader = "addon@darkreader.org";
-    iStillDontCareAboutCookies = "idcac-pub@guus.ninja";
-    oldRedditRedirect = "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}";
-    sponsorBlock = "sponsorBlocker@ajay.app";
-    vimium = "{d7742d87-e61d-4b78-b8a1-b469842139fa}";
-    uBlockOrigin = "uBlock0@raymondhill.net";
+  firefoxExtensions = {
+    "{d634138d-c276-4fc8-924b-40a0ea21d284}" = "1password-x-password-manager";
+    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
+    "addon@darkreader.org" = "darkreader";
+    "idcac-pub@guus.ninja" = "istilldontcareaboutcookies";
+    "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}" = "old-reddit-redirect";
+    "sponsorBlocker@ajay.app" = "sponsorblock";
+    "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = "vimium-ff";
+    "uBlock0@raymondhill.net" = "ublock-origin";
   };
 
-  firefoxAllowedExtensions = with firefoxExtensionIds; [
-    onePassword
-    bitwarden
-    darkReader
-    iStillDontCareAboutCookies
-    oldRedditRedirect
-    sponsorBlock
-    vimium
-  ];
-
-  firefoxAllowEntries = builtins.listToAttrs (
-    map (id: {
-      name = id;
-      value = {
-        installation_mode = "allowed";
-      };
-    }) firefoxAllowedExtensions
-  );
+  firefoxForceInstallEntries = builtins.mapAttrs (_: slug: {
+    installation_mode = "force_installed";
+    install_url = "https://addons.mozilla.org/firefox/downloads/latest/${slug}/latest.xpi";
+  }) firefoxExtensions;
 
   zoomOrigins = [
     "https://app.zoom.us"
@@ -119,15 +105,11 @@ let
       "widget.use-xdg-desktop-portal.native-messaging" = 1;
     }
     // portalPreferences;
-    ExtensionSettings = firefoxAllowEntries // {
+    ExtensionSettings = firefoxForceInstallEntries // {
       "*" = {
         installation_mode = "allowed";
         allowed_types = [ "theme" ];
         blocked_install_message = "Install extensions declaratively via home-manager.";
-      };
-      ${firefoxExtensionIds.uBlockOrigin} = {
-        installation_mode = "force_installed";
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
       };
     };
   };
