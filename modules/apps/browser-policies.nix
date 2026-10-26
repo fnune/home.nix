@@ -122,7 +122,8 @@ let
     // portalPreferences;
     ExtensionSettings = firefoxAllowEntries // {
       "*" = {
-        installation_mode = "blocked";
+        installation_mode = "allowed";
+        allowed_types = [ "theme" ];
         blocked_install_message = "Install extensions declaratively via home-manager.";
       };
       ${firefoxExtensionIds.uBlockOrigin} = {
