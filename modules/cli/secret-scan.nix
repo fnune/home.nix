@@ -23,6 +23,7 @@ let
 
   dependencyAndAppCachePatterns = [
     "/node_modules/"
+    "/go/pkg/mod/"
     "/\\.git/"
     "/\\.venv/"
     "/\\.cache/(go-build|pip|pnpm|yarn|npm)/"
@@ -93,7 +94,7 @@ let
 
       printf '%s\0' "''${targets[@]}" \
         | xargs -0 trufflehog filesystem --json --no-verification --concurrency=4 \
-          --force-skip-binaries --force-skip-archives --exclude-paths=${trufflehogExcludes} 2>/dev/null \
+          --force-skip-binaries --force-skip-archives --exclude-detectors=Box --exclude-paths=${trufflehogExcludes} 2>/dev/null \
         | redact_trufflehog >>"$work/findings.jsonl"
 
       cp "$work/findings.jsonl" "$state/latest.jsonl"
