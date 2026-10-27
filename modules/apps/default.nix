@@ -7,6 +7,7 @@
     ./earendil-browser.nix
     ./kate.nix
     ./obs.nix
+    ./obsbot-first.nix
   ];
 
   programs.webcam-bubble.enable = true;
