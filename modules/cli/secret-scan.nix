@@ -26,7 +26,8 @@ let
     "/go/pkg/mod/"
     "/\\.git/"
     "/\\.venv/"
-    "/\\.cache/(go-build|pip|pnpm|yarn|npm)/"
+    "/\\.cache/(go-build|gopls|goimports|pip|pnpm|yarn|npm)/"
+    "/containers/storage/"
     "/agents/[^/]+/home/(go|\\.cache|\\.local)/"
     "/(Cache|Code Cache|GPUCache|DawnCache|DawnGraphiteCache|DawnWebGPUCache|GrShaderCache|ShaderCache|Service Worker|IndexedDB|blob_storage|Session Storage|Local Storage|WebStorage|Crashpad|component_crx_cache|optimization_guide_model_store|Dictionaries|Extensions)/"
   ];
