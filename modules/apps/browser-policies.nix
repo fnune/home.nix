@@ -102,6 +102,9 @@ let
       "browser.urlbar.suggest.searches" = false;
       "browser.urlbar.suggest.topsites" = false;
       "datareporting.policy.dataSubmissionEnabled" = false;
+      "media.navigator.video.default_height" = 360;
+      "media.navigator.video.default_width" = 640;
+      "media.webrtc.camera.allow-pipewire" = true;
       "widget.use-xdg-desktop-portal.native-messaging" = 1;
     }
     // portalPreferences;
