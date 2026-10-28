@@ -64,6 +64,8 @@ in
     ]);
 
     file = {
+      ".aws/sso/cache".text =
+        "Blocks plaintext SSO tokens: use aws-vault, which keeps them in the keyring.\n";
       "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;
       "${repo-service}/.envrc.local".source = ./envrc.sh;
       "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;
