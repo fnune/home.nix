@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import re
 import shlex
 import subprocess
 from collections.abc import Iterable, Iterator
@@ -17,6 +18,7 @@ class Settings(TypedDict):
     betterleaks_config: str
     trufflehog: str
     trufflehog_detectors: list[str]
+    trufflehog_ignored_secret: str
     trufflehog_excludes: str
     notify_send: str
 
@@ -40,6 +42,7 @@ class TrufflehogSource(TypedDict):
 
 class TrufflehogResult(TypedDict):
     DetectorName: str
+    Raw: str
     SourceMetadata: TrufflehogSource
 
 
@@ -183,8 +186,11 @@ def trufflehog(targets: Iterable[Path]) -> Iterator[Finding]:
         text=True,
         check=False,
     ).stdout
+    ignored = re.compile(SETTINGS["trufflehog_ignored_secret"])
     for line in output.splitlines():
         result = cast(TrufflehogResult, read_json(line))
+        if ignored.search(result["Raw"]):
+            continue
         file = result["SourceMetadata"]["Data"]["Filesystem"]["file"]
         yield Finding(result["DetectorName"], file)
 
@@ -193,14 +199,31 @@ def ack_command(finding: Finding) -> str:
     return f"secret-scan ack {shlex.quote(tilde(finding.file))}"
 
 
+def abbreviate(path: str) -> str:
+    parts = tilde(path).split("/")
+    if len(parts) <= 6:
+        return "/".join(parts)
+    return "/".join([*parts[:5], "…", parts[-1]])
+
+
 def report_new(findings: list[Finding]) -> None:
-    lines = [f"{finding.detector}\t{tilde(finding.file)}" for finding in findings]
-    for line, finding in zip(lines, findings):
-        print(f"{line}\n  {ack_command(finding)}")
+    for finding in findings:
+        print(f"{finding.detector}\t{tilde(finding.file)}\n  {ack_command(finding)}")
+    shown = [
+        f"{finding.detector} in {abbreviate(finding.file)}" for finding in findings[:5]
+    ]
+    hidden = len(findings) - len(shown)
     notify(
-        f"{len(findings)} new secret findings",
+        f"{len(findings)} possible secrets in files",
         "\n".join(
-            [*lines[:5], "Review: secret-scan new", "Acknowledge all: secret-scan ack"]
+            [
+                *shown,
+                *([f"and {hidden} more"] if hidden else []),
+                "",
+                "See full paths: secret-scan new",
+                "If real: rotate the secret and delete the file",
+                "If not: secret-scan ack",
+            ]
         ),
         critical=True,
     )

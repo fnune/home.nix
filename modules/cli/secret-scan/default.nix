@@ -5,11 +5,14 @@
   ...
 }:
 let
+  gitObjectId = "^[0-9a-f]{40}$";
+
   neverCredentialStores = [
     "/node_modules/"
     "/\\.git/"
     "/containers/storage/"
     "/\\.cache/doriath/.+/(go|\\.cache|\\.local)/"
+    "/go-build[0-9]+/"
     "/\\.claude/sessions/[^/]+\\.key$"
   ];
 
@@ -19,7 +22,7 @@ let
       { paths = neverCredentialStores; }
       {
         regexTarget = "secret";
-        regexes = [ "^[0-9a-f]{40}$" ];
+        regexes = [ gitObjectId ];
       }
       {
         targetRules = [ "generic-api-key" ];
@@ -81,6 +84,7 @@ let
         "Tailscale"
         "URI"
       ];
+      trufflehog_ignored_secret = gitObjectId;
       trufflehog_excludes = pkgs.writeText "secret-scan-trufflehog-excludes" (
         lib.concatLines neverCredentialStores
       );
