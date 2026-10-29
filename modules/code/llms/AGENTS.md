@@ -5,6 +5,7 @@
 - Before pushing, run the cheap checks CI would fail on: targeted lint, formatting, and the tests covering the change. Leave the full suite to CI.
 - Headings in sentence case. No em-dashes.
 - Never hard-wrap markdown: one line per paragraph and per list item, nested lists indented 4 spaces.
+- Anything with a canonical URL is a clickable link, never a bare reference. Above all PRs and issues (`#123`, `owner/repo#123`, `ENG-123`), but also commits, CI runs, docs, Slack threads, dashboards, stacks. If you cannot build the URL, look it up.
 - Slack drafts are markdown without headings or tables (manual formatting mode).
 - Never attribute work to AI in commits or code.
 - Never comment as my GitHub user unless I have said so for that case.
