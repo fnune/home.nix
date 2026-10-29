@@ -32,7 +32,6 @@ in
 {
   programs.doriath = {
     enable = true;
-    approvals.web.enable = true;
     modules.jdtls = {
       description = "The Java language server's index of each project, in a cache.";
       caches = [ { path = "~/.cache/jdtls"; } ];
