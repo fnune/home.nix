@@ -33,7 +33,6 @@ let
     workspaces = [
       (repoWorkspace "☁️ pulumi/pulumi-service" repo-service)
       (repoWorkspace "🔧 pulumi/pulumi" repo-pulumi)
-      (repoWorkspace "🔐 pulumi/esc" "${repos}/esc")
       (repoWorkspace "📚 pulumi/docs" "${repos}/docs")
       (repoWorkspace "📦 pulumi/registry" "${repos}/registry")
     ];
@@ -73,7 +72,6 @@ in
 
     sessionVariables = {
       GOPATH = "$HOME/.go";
-      PATH = "$HOME/.pulumi/bin:$PATH"; # curl -fsSL https://get.pulumi.com | sh
       # Encrypt ~/.pulumi/credentials.json with a key held in the KDE wallet,
       # so a persistent `pulumi login` replaces per-invocation token juggling.
       PULUMI_CREDENTIAL_STORE = "os";
@@ -82,11 +80,15 @@ in
   };
 
   # `pulumi` targets whichever backend `pulumi login` last selected, normally
-  # api.pulumi.com. These reach the other two without disturbing it.
+  # api.pulumi.com. These reach the others without disturbing it.
   programs.zsh.shellAliases = {
+    pulumi-ops = "PULUMI_BACKEND_URL=https://api.ops.pulumi.com pulumi";
     pulumi-review = "PULUMI_BACKEND_URL=https://api-fnune-review.review-stacks.pulumi-dev.io pulumi";
     pulumi-local = "PULUMI_BACKEND_URL=http://localhost:8080 pulumi";
   };
+
+  # Repositories that pin a version, like pulumi-service's .pulumi-version, override this.
+  programs.mise.globalConfig.tools.pulumi = "latest";
 
   programs.git = {
     settings = {

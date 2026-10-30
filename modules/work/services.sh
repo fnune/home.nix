@@ -18,9 +18,9 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 run_and_log "pulumi-api-pf" echo "Starting API port-forwards..."
-run_and_log "pulumi-api-pf" esc run pulumi/default/review-stacks -- kubectl port-forward svc/pulumi-api 8080:8080 -n "$PULUMI_STACK_NAME_OVERRIDE" &
+run_and_log "pulumi-api-pf" pulumi env run pulumi/default/review-stacks -- kubectl port-forward svc/pulumi-api 8080:8080 -n "$PULUMI_STACK_NAME_OVERRIDE" &
 run_and_log "mysql-pf" echo "Starting MySQL port-forwards..."
-run_and_log "mysql-pf" esc run pulumi/default/review-stacks -- kubectl port-forward pod/mysql-0 3308:3306 -n "$PULUMI_STACK_NAME_OVERRIDE" &
+run_and_log "mysql-pf" pulumi env run pulumi/default/review-stacks -- kubectl port-forward pod/mysql-0 3308:3306 -n "$PULUMI_STACK_NAME_OVERRIDE" &
 
 echo "Starting local database..."
 run_and_log "local-db" bash -c "./scripts/local-mysql.sh up" &
