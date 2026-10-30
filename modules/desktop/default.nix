@@ -4,5 +4,6 @@
     ./fonts.nix
     ./opencl.nix
     ./plasma
+    ./proton.nix
   ];
 }
