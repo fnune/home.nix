@@ -257,15 +257,17 @@ def scan() -> None:
             "Secret scan baseline recorded",
             f"{len(current)} findings. Later runs report only new ones.",
         )
-    elif new := sorted(current - records.keys()):
-        records.update(
+    else:
+        new = sorted(current - records.keys())
+        save_records(
             {
-                finding: Record(finding.detector, finding.file, today, False)
-                for finding in new
+                finding: records.get(finding)
+                or Record(finding.detector, finding.file, today, False)
+                for finding in current
             }
         )
-        save_records(records)
-        report_new(new)
+        if new:
+            report_new(new)
 
     if pulumi_credentials_are_plaintext():
         notify(

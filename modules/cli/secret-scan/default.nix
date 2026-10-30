@@ -6,6 +6,7 @@
 }:
 let
   gitObjectId = "^[0-9a-f]{40}$";
+  uuid = "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$";
 
   neverCredentialStores = [
     "/node_modules/"
@@ -14,6 +15,7 @@ let
     "/\\.cache/doriath/.+/(go|\\.cache|\\.local)/"
     "/go-build[0-9]+/"
     "/\\.claude/sessions/[^/]+\\.key$"
+    "/nix/store/[0-9a-z]{32}-"
   ];
 
   betterleaksConfig = (pkgs.formats.toml { }).generate "secret-scan-betterleaks.toml" {
@@ -84,7 +86,7 @@ let
         "Tailscale"
         "URI"
       ];
-      trufflehog_ignored_secret = gitObjectId;
+      trufflehog_ignored_secret = "${gitObjectId}|${uuid}";
       trufflehog_excludes = pkgs.writeText "secret-scan-trufflehog-excludes" (
         lib.concatLines neverCredentialStores
       );
