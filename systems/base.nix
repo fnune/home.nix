@@ -10,6 +10,11 @@ let
     SystemMaxUse=2G
     MaxRetentionSec=3month
   '';
+
+  resolved = ''
+    [Resolve]
+    LLMNR=no
+  '';
 in
 {
   imports = [
@@ -39,6 +44,7 @@ in
       {
         "sysctl.d/99-inotify.conf" = inotify;
         "systemd/journald.conf.d/99-retention.conf" = journald;
+        "systemd/resolved.conf.d/99-no-llmnr.conf" = resolved;
         "containers/nodocker" = ""; # Silences podman's Docker emulation notice.
       }
     // {
@@ -49,11 +55,12 @@ in
     };
 
   systemd.services.apply-system-drop-ins = {
-    description = "Apply sysctl and journald drop-ins";
+    description = "Apply sysctl, journald and resolved drop-ins";
     wantedBy = [ "system-manager.target" ];
     restartTriggers = [
       inotify
       journald
+      resolved
     ];
     serviceConfig = {
       Type = "oneshot";
@@ -61,6 +68,7 @@ in
     };
     script = ''
       /usr/bin/systemctl restart systemd-sysctl systemd-journald
+      /usr/bin/systemctl try-restart systemd-resolved
     '';
   };
 }
