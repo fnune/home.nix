@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793366806,
-        "narHash": "sha256-06xwDGulg/wH6u7yr50TYY2YVQOeoUZ0+vh7hTeksp8=",
+        "lastModified": 1793443919,
+        "narHash": "sha256-tFkdm/aR0uQAeTwP+YO+/WmcnnZtQGZNDtw6PeFoq3s=",
         "ref": "refs/heads/main",
-        "rev": "e52d662d08c2dbad1642764fc710f635d812b95f",
-        "revCount": 392,
+        "rev": "518d723497aa311e45ddd36ffb4d765a5fdc8c5c",
+        "revCount": 395,
         "type": "git",
         "url": "ssh://git@github.com/fnune/doriath"
       },
