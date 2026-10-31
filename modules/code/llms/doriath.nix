@@ -56,6 +56,8 @@ in
         "nix-home"
         "vcs-readonly"
         "docs"
+        "cdns"
+        "chromium"
         "clipboard"
         "claude"
         "jdtls"
