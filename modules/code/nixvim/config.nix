@@ -176,6 +176,10 @@ in
           return "lua"
         end,
       },
+      filename = {
+        -- https://github.com/neovim/neovim/issues/38303
+        [".zsh_history"] = "zshhistory",
+      },
     })
   '';
 
