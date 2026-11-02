@@ -12,16 +12,18 @@ let
     "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
     "addon@darkreader.org" = "darkreader";
     "idcac-pub@guus.ninja" = "istilldontcareaboutcookies";
-    "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}" = "old-reddit-redirect";
     "sponsorBlocker@ajay.app" = "sponsorblock";
     "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = "vimium-ff";
     "uBlock0@raymondhill.net" = "ublock-origin";
+    "@ublacklist" = "ublacklist";
   };
 
   firefoxForceInstallEntries = builtins.mapAttrs (_: slug: {
     installation_mode = "force_installed";
     install_url = "https://addons.mozilla.org/firefox/downloads/latest/${slug}/latest.xpi";
   }) firefoxExtensions;
+
+  blockedSites = [ "reddit.com" ];
 
   zoomOrigins = [
     "https://app.zoom.us"
@@ -89,6 +91,7 @@ let
       SkipOnboarding = true;
       UrlbarInterventions = false;
     };
+    WebsiteFilter.Block = map (site: "*://*.${site}/*") blockedSites;
     Permissions = {
       Camera.Allow = zoomOrigins;
       Microphone.Allow = zoomOrigins;
@@ -136,6 +139,7 @@ let
   chromeExtensionIds = {
     claudeInChrome = "fcoeoabgfenejglbffodgkkbkcdhcgfn";
     uBlockOriginLite = "ddkjiahejlhfcafbddmgiahcphecmpfh";
+    uBlacklist = "pncfbmialoiaghdehhbnbhkkgmjanfhe";
   };
 
   chromiumPolicies = {
@@ -168,8 +172,12 @@ let
     SigninInterceptionEnabled = false;
     UrlKeyedAnonymizedDataCollectionEnabled = false;
     UserFeedbackAllowed = false;
+    URLBlocklist = blockedSites;
     ExtensionInstallBlocklist = [ "*" ];
-    ExtensionInstallForcelist = [ chromeExtensionIds.uBlockOriginLite ];
+    ExtensionInstallForcelist = [
+      chromeExtensionIds.uBlockOriginLite
+      chromeExtensionIds.uBlacklist
+    ];
   };
 in
 {
