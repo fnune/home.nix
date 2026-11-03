@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   herdr,
   ...
@@ -8,6 +9,25 @@ let
   repos = "${config.home.homeDirectory}/Development/pulumi";
   repo-service = "${repos}/pulumi-service";
   repo-pulumi = "${repos}/pulumi";
+
+  pulumiBackends = {
+    ops = "https://api.ops.pulumi.com";
+    review = "https://api-fnune-review.review-stacks.pulumi-dev.io";
+    local = "http://localhost:8080";
+  };
+  pulumiHome = name: "${config.home.homeDirectory}/.pulumi-${name}";
+
+  pluginsSharedWithDefaultPulumiHome = lib.mapAttrs' (
+    name: _:
+    lib.nameValuePair "${pulumiHome name}/plugins" {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.pulumi/plugins";
+    }
+  ) pulumiBackends;
+
+  pulumiAliasesWithOwnLogin = lib.mapAttrs' (
+    name: url:
+    lib.nameValuePair "pulumi-${name}" "PULUMI_HOME=${pulumiHome name} PULUMI_BACKEND_URL=${url} pulumi"
+  ) pulumiBackends;
 
   repoWorkspace = label: repo: {
     inherit label;
@@ -68,7 +88,8 @@ in
       "${repo-pulumi}/.envrc".source = ./envrc.pulumi.sh;
       "${repo-service}/.envrc.local".source = ./envrc.sh;
       "${repo-service}/CLAUDE.local.md".source = ./CLAUDE.md;
-    };
+    }
+    // pluginsSharedWithDefaultPulumiHome;
 
     sessionVariables = {
       GOPATH = "$HOME/.go";
@@ -79,13 +100,7 @@ in
     };
   };
 
-  # `pulumi` targets whichever backend `pulumi login` last selected, normally
-  # api.pulumi.com. These reach the others without disturbing it.
-  programs.zsh.shellAliases = {
-    pulumi-ops = "PULUMI_BACKEND_URL=https://api.ops.pulumi.com pulumi";
-    pulumi-review = "PULUMI_BACKEND_URL=https://api-fnune-review.review-stacks.pulumi-dev.io pulumi";
-    pulumi-local = "PULUMI_BACKEND_URL=http://localhost:8080 pulumi";
-  };
+  programs.zsh.shellAliases = pulumiAliasesWithOwnLogin;
 
   # Repositories that pin a version, like pulumi-service's .pulumi-version, override this.
   programs.mise.globalConfig.tools.pulumi = "latest";
