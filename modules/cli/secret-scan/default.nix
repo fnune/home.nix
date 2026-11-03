@@ -15,6 +15,9 @@ let
     "/\\.cache/doriath/.+/(go|\\.cache|\\.local)/"
     "/go-build[0-9]+/"
     "/\\.claude/sessions/[^/]+\\.key$"
+    "/\\.claude/plugins/"
+    "/\\.cache/doriath/.+/scratch/"
+    "/scratchpad/src/"
     "/nix/store/[0-9a-z]{32}-"
   ];
 
@@ -25,13 +28,6 @@ let
       {
         regexTarget = "secret";
         regexes = [ gitObjectId ];
-      }
-      {
-        targetRules = [ "generic-api-key" ];
-        condition = "AND";
-        paths = [ "/\\.claude/projects/" ];
-        regexTarget = "match";
-        regexes = [ "(?i)^password_(hash|salt) *= *'[0-9a-f]{32,128}'$" ];
       }
     ];
   };
@@ -54,6 +50,30 @@ let
       ];
       betterleaks = lib.getExe pkgs.betterleaks;
       betterleaks_config = betterleaksConfig;
+      betterleaks_rules = [
+        "age-secret-key"
+        "anthropic-admin-api-key"
+        "anthropic-api-key"
+        "aws-access-token"
+        "gcp-api-key"
+        "github-app-token"
+        "github-fine-grained-pat"
+        "github-oauth"
+        "github-pat"
+        "github-refresh-token"
+        "huggingface-access-token"
+        "linear-api-key"
+        "notion-api-token"
+        "npm-access-token"
+        "openai-api-key"
+        "pulumi-api-token"
+        "sentry-org-token"
+        "sentry-user-token"
+        "slack-app-token"
+        "slack-bot-token"
+        "slack-user-token"
+        "slack-webhook-url"
+      ];
       trufflehog = lib.getExe pkgs.trufflehog;
       trufflehog_detectors = [
         "AWS"
@@ -66,25 +86,21 @@ let
         "GCP"
         "GCPApplicationDefaultCredentials"
         "Github"
-        "GitHubOauth2"
         "GoogleGeminiAPIKey"
         "GoogleOauth2"
         "HuggingFace"
-        "JDBC"
         "LaunchDarkly"
         "LinearAPI"
         "MongoDB"
         "Notion"
         "NpmToken"
         "OpenAI"
-        "Postgres"
         "PrivateKey"
         "Pulumi"
         "SentryToken"
         "Slack"
         "SlackWebhook"
         "Tailscale"
-        "URI"
       ];
       trufflehog_ignored_secret = "${gitObjectId}|${uuid}";
       trufflehog_excludes = pkgs.writeText "secret-scan-trufflehog-excludes" (

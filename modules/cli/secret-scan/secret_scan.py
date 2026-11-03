@@ -16,6 +16,7 @@ class Settings(TypedDict):
     credential_locations: list[str]
     betterleaks: str
     betterleaks_config: str
+    betterleaks_rules: list[str]
     trufflehog: str
     trufflehog_detectors: list[str]
     trufflehog_ignored_secret: str
@@ -152,6 +153,7 @@ def betterleaks(targets: Iterable[Path]) -> Iterator[Finding]:
                 "dir",
                 str(target),
                 f"--config={SETTINGS['betterleaks_config']}",
+                f"--enable-rule={','.join(SETTINGS['betterleaks_rules'])}",
                 "--no-banner",
                 "--redact",
                 "--exit-code=0",
