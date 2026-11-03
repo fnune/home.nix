@@ -239,9 +239,20 @@ def pulumi_credentials_are_plaintext() -> bool:
     return "$pulumiSecureStore" not in credentials
 
 
+def is_pulumi_agent_signup(file: str) -> bool:
+    path = Path(file)
+    if path.name != "credentials.json" or not (path.parent / "agent-claim.json").is_file():
+        return False
+    credentials = cast(dict[str, object], read_json(path.read_text()))
+    accounts = cast(dict[str, dict[str, object]], credentials.get("accounts", {}))
+    usernames = [str(account.get("username", "")) for account in accounts.values()]
+    return bool(usernames) and all(name.startswith("agent-") for name in usernames)
+
+
 def scan() -> None:
     targets = scan_targets()
-    current = {*betterleaks(targets), *trufflehog(targets)}
+    found = {*betterleaks(targets), *trufflehog(targets)}
+    current = {finding for finding in found if not is_pulumi_agent_signup(finding.file)}
     _ = LATEST.write_text(
         "".join(json.dumps(asdict(finding)) + "\n" for finding in sorted(current))
     )
