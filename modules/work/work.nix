@@ -100,7 +100,9 @@ in
     };
   };
 
-  programs.zsh.shellAliases = pulumiAliasesWithOwnLogin;
+  programs.zsh.shellAliases = pulumiAliasesWithOwnLogin // {
+    tunnel-preset = "PULUMI_HOME=${pulumiHome "ops"} ${repo-service}/scripts/dev/tunnel-preset.sh";
+  };
 
   # Repositories that pin a version, like pulumi-service's .pulumi-version, override this.
   programs.mise.globalConfig.tools.pulumi = "latest";
