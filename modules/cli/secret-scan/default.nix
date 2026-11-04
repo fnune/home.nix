@@ -17,6 +17,7 @@ let
     "/\\.claude/sessions/[^/]+\\.key$"
     "/\\.claude/plugins/"
     "/\\.cache/doriath/.+/scratch/"
+    "/\\.cache/doriath/agents/[^/]+/home/\\.claude/projects/"
     "/scratchpad/src/"
     "/nix/store/[0-9a-z]{32}-"
   ];
