@@ -12,6 +12,7 @@ let
 
   pulumiBackends = {
     ops = "https://api.ops.pulumi.com";
+    eu = "https://api.eu.pulumi.com";
     review = "https://api-fnune-review.review-stacks.pulumi-dev.io";
     local = "http://localhost:8080";
   };
