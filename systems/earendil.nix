@@ -9,7 +9,7 @@ in
 {
   imports = [ ./base.nix ];
 
-  nix.settings.trusted-users = [ "fausto" ]; # For nix copy of unsigned closures, see docs/earendil.md.
+  nix.settings.trusted-users = [ "fausto" ];
 
   environment.etc."ssh/sshd_config.d/10-hardening.conf" = {
     text = sshdHardening;

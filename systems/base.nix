@@ -25,9 +25,8 @@ in
   nix = {
     enable = true;
     settings = {
-      build-users-group = "nixbld"; # Otherwise the daemon builds as root.
+      build-users-group = "nixbld";
       warn-dirty = false;
-      # system-manager passes its cache on every build.
       trusted-substituters = [ "https://cache.numtide.com" ];
       trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
     };
@@ -45,7 +44,7 @@ in
         "sysctl.d/99-inotify.conf" = inotify;
         "systemd/journald.conf.d/99-retention.conf" = journald;
         "systemd/resolved.conf.d/99-no-llmnr.conf" = resolved;
-        "containers/nodocker" = ""; # Silences podman's Docker emulation notice.
+        "containers/nodocker" = "";
       }
     // {
       "sudoers.d/pwfeedback" = {

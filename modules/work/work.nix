@@ -94,8 +94,6 @@ in
 
     sessionVariables = {
       GOPATH = "$HOME/.go";
-      # Encrypt ~/.pulumi/credentials.json with a key held in the KDE wallet,
-      # so a persistent `pulumi login` replaces per-invocation token juggling.
       PULUMI_CREDENTIAL_STORE = "os";
       AWS_VAULT_BACKEND = "secret-service";
     };
@@ -105,7 +103,6 @@ in
     tunnel-preset = "PULUMI_HOME=${pulumiHome "ops"} ${repo-service}/scripts/dev/tunnel-preset.sh";
   };
 
-  # Repositories that pin a version, like pulumi-service's .pulumi-version, override this.
   programs.mise.globalConfig.tools.pulumi = "latest";
 
   programs.git = {

@@ -28,11 +28,14 @@ let
       [[ -n $builtin && -n $external ]] || exit 0
       (($(serial "$external") < $(serial "$builtin"))) && exit 0
 
-      # Firefox lists cameras in PipeWire registration order, so the built-in one has to register again.
-      usb_device=$(readlink -f "/sys/class/video4linux/$(basename "$(jq -r '.["api.v4l2.path"]' <<<"$builtin")")/device/..")
-      authorized=$usb_device/authorized
-      echo 0 >"$authorized"
-      echo 1 >"$authorized"
+      register_again_after_external() {
+        local usb_device authorized
+        usb_device=$(readlink -f "/sys/class/video4linux/$(basename "$(jq -r '.["api.v4l2.path"]' <<<"$1")")/device/..")
+        authorized=$usb_device/authorized
+        echo 0 >"$authorized"
+        echo 1 >"$authorized"
+      }
+      register_again_after_external "$builtin"
     '';
   };
 in

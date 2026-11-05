@@ -18,7 +18,7 @@ in
       RemainAfterExit = true;
     };
     script = ''
-      PATH=/usr/bin:$PATH /usr/bin/locale-gen # It calls localedef from PATH.
+      PATH=/usr/bin:$PATH /usr/bin/locale-gen
     '';
   };
 }

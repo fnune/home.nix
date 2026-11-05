@@ -76,10 +76,6 @@ let
     }
   ];
 
-  # herdr writes this registry itself when you run `herdr plugin link`, which
-  # would leave the plugin pinned to whatever revision was linked by hand.
-  # It reads the file happily when it is a read-only store symlink, so declare
-  # it here instead and let the store path carry the version.
   pluginRegistry = [
     {
       plugin_id = "vim-herdr-navigation";
@@ -170,8 +166,6 @@ in
 
   home.packages = [ pkgs-unstable.herdr ];
 
-  # herdr cannot see an agent inside a doriath jail, so doriath names it on
-  # the process herdr does see. Hosts without doriath skip this.
   programs = lib.optionalAttrs (options.programs ? doriath) {
     doriath.terminal.env.HERDR_AGENT = "{command}";
   };
@@ -218,8 +212,6 @@ in
       [advanced]
       scrollback_limit_bytes = 100000000
 
-      # image.nvim draws through the kitty graphics protocol, which herdr only
-      # passes through when this is on. Still experimental upstream.
       [experimental]
       kitty_graphics = true
 

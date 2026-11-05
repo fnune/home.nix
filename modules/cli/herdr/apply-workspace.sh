@@ -16,7 +16,7 @@ for arg in "${@:2}"; do
 done
 
 function server_running() {
-  herdr status server 2>/dev/null | grep -q '^status: running' # exits 0 even when down
+  herdr status server 2>/dev/null | grep -q '^status: running'
 }
 
 function workspace_exists() {
@@ -27,7 +27,6 @@ function inside_herdr() {
   [ -n "${HERDR_ENV:-}" ]
 }
 
-# Bare `herdr` later attaches to this same server rather than spawning its own.
 function ensure_server() {
   if server_running; then
     return
@@ -71,10 +70,10 @@ function build_workspace() {
     herdr workspace close "$existing" >/dev/null
   fi
 
-  local created workspace first_tab
+  local created workspace placeholder_tab
   created="$(herdr workspace create --label "$label" --no-focus)"
   workspace="$(jq -r '.result.workspace.workspace_id' <<<"$created")"
-  first_tab="$(jq -r '.result.tab.tab_id' <<<"$created")"
+  placeholder_tab="$(jq -r '.result.tab.tab_id' <<<"$created")"
 
   local tab_count
   tab_count="$(jq '.tabs | length' <<<"$workspace_spec")"
@@ -82,10 +81,8 @@ function build_workspace() {
     local tab target
     tab="$(jq --argjson index "$index" '.tabs[$index]' <<<"$workspace_spec")"
 
-    # The workspace is created with an empty tab already in place, so the first
-    # layout replaces it by id and the rest are appended to the workspace.
     if [ "$index" -eq 0 ]; then
-      target="$(jq -n --arg tab_id "$first_tab" '{tab_id: $tab_id}')"
+      target="$(jq -n --arg tab_id "$placeholder_tab" '{tab_id: $tab_id}')"
     else
       target="$(jq -n --arg workspace_id "$workspace" '{workspace_id: $workspace_id}')"
     fi
