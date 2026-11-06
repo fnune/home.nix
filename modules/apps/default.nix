@@ -5,6 +5,7 @@
     ./audio.nix
     ./browsers.nix
     ./earendil-browser.nix
+    ./games.nix
     ./kate.nix
     ./obs.nix
     ./obsbot-first.nix

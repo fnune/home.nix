@@ -38,6 +38,7 @@
       url = "github:fnune/plasma-webcam-bubble";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,6 +62,7 @@
       system-manager,
       doriath,
       plasma-webcam-bubble,
+      nix-flatpak,
       treefmt-nix,
       git-hooks,
       ...
@@ -163,6 +165,7 @@
             clack.homeManagerModules.default
             doriath.homeManagerModules.default
             plasma-webcam-bubble.homeManagerModules.default
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           "${username}@earendil" = mkHome [ ./configurations/earendil.nix ];
         };
