@@ -5,6 +5,7 @@
 }:
 {
   home.packages = with pkgs; [
+    inconsolata
     inter
     jetbrains-mono
     libre-baskerville

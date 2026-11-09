@@ -37,7 +37,7 @@
       };
       mono = lib.mkOption {
         type = lib.types.str;
-        default = "TX-02";
+        default = "Inconsolata";
         description = "Monospace font to use for the desktop and terminal";
       };
       cjkSans = lib.mkOption {
