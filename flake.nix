@@ -39,6 +39,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +64,7 @@
       doriath,
       plasma-webcam-bubble,
       nix-flatpak,
+      llm-agents,
       treefmt-nix,
       git-hooks,
       ...
@@ -155,6 +157,7 @@
                   vimHerdrNavigation
                   username
                   ;
+                llm-agents = llm-agents.packages.${system};
               };
             };
         in

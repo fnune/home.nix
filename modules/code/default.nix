@@ -4,5 +4,6 @@
     ./godot.nix
     ./lexaloffle.nix
     ./llms/doriath.nix
+    ./llms/orca.nix
   ];
 }
